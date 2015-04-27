@@ -1,4 +1,4 @@
-<?php namespace App\Providers;
+<?php namespace talenthub\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

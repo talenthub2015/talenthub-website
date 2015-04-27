@@ -1,6 +1,6 @@
-<?php namespace App\Services;
+<?php namespace talenthub\Services;
 
-use App\User;
+use talenthub\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 

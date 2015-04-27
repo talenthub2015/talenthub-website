@@ -1,4 +1,4 @@
-<?php namespace App\Commands;
+<?php namespace talenthub\Commands;
 
 abstract class Command {
 
