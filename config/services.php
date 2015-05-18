@@ -15,8 +15,8 @@ return [
 	*/
 
 	'mailgun' => [
-		'domain' => '',
-		'secret' => '',
+		'domain' => 'talenthubapp.com',
+		'secret' => 'key-ef43176cf355dd4eab5649acb1c89d0c',
 	],
 
 	'mandrill' => [

@@ -1,0 +1,56 @@
+/*
+    Defining functionality for Collapse and Expansion of content
+    Structure .collapse-content > h1, .collapse-content > .collapsed-content
+    */
+.trigger {
+  position: relative;
+  cursor: pointer; }
+
+.trigger:after {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 25px;
+  height: 25px;
+  content: '+';
+  font-size: 25px;
+  color: #1a1a1a;
+  text-align: right; }
+
+/*
+Defining functionality for Duplicating Content of whole div
+*/
+.duplicate_content_container .table {
+  margin-bottom: 0px; }
+.duplicate_content_container .place_duplicate_content_here tr.content_duplicated > td, .duplicate_content_container .place_duplicate_content_here tr.content_duplicated > th {
+  position: relative; }
+.duplicate_content_container .place_duplicate_content_here .content_duplicated {
+  position: relative;
+  border-top: 1px solid #333333;
+  padding-top: 20px;
+  margin-top: 20px; }
+  .duplicate_content_container .place_duplicate_content_here .content_duplicated .close_duplicate {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    color: #000000;
+    cursor: pointer; }
+  .duplicate_content_container .place_duplicate_content_here .content_duplicated .close_duplicate.table_close {
+    position: absolute;
+    right: -10px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+    color: #000000;
+    cursor: pointer; }
+
+/*
+ Structure Complete
+*/
+
+/*# sourceMappingURL=site_animation.css.map */
+/*# sourceMappingURL=site_animation.css.map */

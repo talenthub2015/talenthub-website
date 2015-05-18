@@ -19,3 +19,7 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::resource('profile','ProfileController');
+Route::get('profile/{id}/editCV','ProfileController@editCV');
+Route::put('profile/{id}/CV','ProfileController@updateCV');

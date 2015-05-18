@@ -1,0 +1,259 @@
+
+@import "basic";
+
+$background-color-darkGreen : #203f15;
+$header-links-color : #FFFFFF;
+$header-links-color-onHover : #FFFFFF;
+
+$color-darkGreen : #203f15;
+
+$color-cream : #f6f0d2;
+
+$error-color-border : #FF6347;
+
+$t-button-border-radius : 5px;
+$t-button-background-color-hover: #204f1F ;
+
+.t-button
+{
+  color:#FFFFFF;
+  background: $background-color-darkGreen;
+  @include border-radius($t-button-border-radius);
+  border:none;
+  @include text-shadow(1px, 1px, 2px, 0px, rgba(0,0,0,0.25));
+}
+.t-button:hover,.t-button:focus,.t-button:visited
+{
+  color:#FFFFFF;
+  background: $t-button-background-color-hover;
+}
+
+body
+{
+  background:$color-cream;
+  font-size: 12px;
+  line-height:150%;
+}
+
+
+header
+{
+  position:fixed;
+  background-color:$background-color-darkGreen;
+  padding:5px 0px;
+  top:0px;
+  left:0px;
+  width:100%;
+  @include box-shadow(2px, 2px, 5px, 0px, rgba(0,0,0,0.75));
+  z-index: 10000;
+}
+
+header {
+  background:$background-color-darkGreen;
+  .navbar
+  {
+    background:none;
+    border:none;
+    min-height: 20px;
+    margin-bottom: 0px;
+  }
+  .navbar-brand
+  {
+    padding:0px 15px;
+    width:auto;
+    margin-top: 10px;
+    height: auto;
+    img
+    {
+      width:30px;
+      height:auto;
+      display: inline;
+    }
+
+    .brand
+    {
+      font-size: 24px;
+      font-weight: 700;
+      color:#FFFFFF;
+      vertical-align: middle;
+    }
+  }
+
+  ul.navbar-nav
+  {
+    margin-bottom: 0px;
+    li
+    {
+      position:relative;
+    }
+    li > a
+    {
+      color:$header-links-color !important;
+      font-size: 12px;
+      font-weight: 400;
+      padding:5px 15px !important;
+    }
+    li > a:hover,li > a:visited,li > a:focus
+    {
+      color:$header-links-color-onHover !important;;
+      opacity: 0.7;
+      background:none;
+      text-decoration: underline !important;
+    }
+
+    li.has-dropdown > a
+    {
+      display: inline-block;
+      width:80%;
+      padding-right:5px;
+    }
+    li.has-dropdown .dropdown
+    {
+      display: inline-block;
+      width:15%;
+    }
+    li.has-dropdown .dropdown .caret
+    {
+      margin-top: 5px;
+      width:10px;
+      height:10px;
+      color:#FFFFFF;
+      cursor: pointer;
+    }
+    li.has-dropdown .dropdown > ul a
+    {
+      color:$color-darkGreen !important;
+    }
+    li.has-dropdown .dropdown > ul a:hover
+    {
+      background:rgba(0,0,0,0.15);
+    }
+  }
+}
+
+
+footer
+{
+  margin-top: 50px;
+  background:$background-color-darkGreen;
+  @include box-shadow(-1px,-1px,5px,0px,rgba(0,0,0,0.75));
+  padding:10px;
+  font-size: 11px;
+  color:#FFFFFF;
+  .nav
+  {
+    li{
+      a{
+        font-size: 11px;
+        color:#FFFFFF !important;
+        padding:5px 15px !important;
+        display: inline-block;
+        img
+        {
+          display:inline-block;
+          margin:0px 5px;
+          vertical-align: middle;
+        }
+      }
+      a:hover,a:focus
+      {
+        background:none !important;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+.body_container
+{
+  margin-top:50px;
+}
+
+.nav-tabs
+{
+  border-bottom: 1px solid $color-darkGreen;
+  li
+  {
+
+  }
+  li > a
+  {
+    color:$color-darkGreen !important;
+    padding:5px 15px;
+    background:none;
+    border:1px solid $color-darkGreen;
+  }
+  li.active > a,li.active > a:focus
+  {
+    background:$color-darkGreen;
+    color:#FFFFFF !important;
+    border:1px solid $color-darkGreen;
+  }
+  li > a:hover,li > a:focus {
+    background: $color-darkGreen;
+    color: #FFFFFF !important;
+    border: 1px solid $color-darkGreen;
+  }
+  li > a.error_form_validation
+  {
+    border:2px solid $error-color-border !important;
+    border-bottom: none !important;
+  }
+}
+
+.form_container
+{
+  padding:0px 15px;
+  margin-bottom: 0px;
+
+  .form-control
+  {
+    width:100%;
+    font-size: 12px;
+    color:$background-color-darkGreen !important;
+    padding:5px 10px;
+    height:auto;
+    line-height:150%;
+  }
+  td > .form-control
+  {
+    padding:2px 5px;
+  }
+  textarea.form-control
+  {
+    height:100px !important;
+  }
+  .form-control.error_form_validation
+  {
+    border:1px solid $error-color-border;
+  }
+}
+
+.edit-profile
+{
+  .left_menu_container
+  {
+    background:rgba(0,0,0,0.15);
+    .nav
+    {
+      a
+      {
+        color:#1a1a1a;
+        font-size: 12px;
+      }
+      a.active
+      {
+        font-weight: 700;
+        background:$background-color-darkGreen;
+        color:#FFFFFF;
+      }
+      a:hover,a:focus
+      {
+        background:$background-color-darkGreen;
+        color:#FFFFFF;
+      }
+    }
+  }
+
+}

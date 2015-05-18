@@ -1,7 +1,224 @@
-$background-color-darkGreen = "#203f15";
+
+@import "basic";
+
+$background-color-darkGreen : #203f15;
+$header-links-color : #FFFFFF;
+$header-links-color-onHover : #FFFFFF;
+
+$color-darkGreen : #203f15;
+
+@mixin box-shadow($horizontal, $vertical, $blur, $spread, $color)
+{
+  box-shadow: $horizontal $vertical $blur $spread $color;
+  -moz-box-shadow: $horizontal $vertical $blur $spread $color;
+  -webkit-box-shadow: $horizontal $vertical $blur $spread $color;
+}
+
+@mixin border-radius($radius)
+{
+  border-radius:$radius;
+  -moz-border-radius:$radius;
+  -webkit-border-radius:$radius;
+}
+
+@mixin text-shadow($horizontal, $vertical, $blur, $spread, $color)
+{
+  text-shadow: $horizontal $vertical $blur $spread $color;
+  -moz-text-shadow: $horizontal $vertical $blur $spread $color;
+  -webkit-text-shadow: $horizontal $vertical $blur $spread $color;
+}
 
 header
 {
+  position:fixed;
   background-color:$background-color-darkGreen;
-  padding:10px 0px;
+  padding:5px 0px;
+  top:0px;
+  left:0px;
+  width:100%;
+  @include box-shadow(2px, 2px, 5px, 0px, rgba(0,0,0,0.75));
+  z-index: 10000;
+}
+
+header {
+  background:$background-color-darkGreen;
+  .navbar
+  {
+    background:none;
+    border:none;
+    min-height: 20px;
+    margin-bottom: 0px;
+  }
+  .navbar-brand
+  {
+    padding:0px 15px;
+    width:auto;
+    margin-top: 10px;
+    height: auto;
+    img
+    {
+      width:30px;
+      height:auto;
+      display: inline;
+    }
+
+    .brand
+    {
+      font-size: 24px;
+      font-weight: 700;
+      color:#FFFFFF;
+      vertical-align: middle;
+    }
+  }
+
+  ul.navbar-nav
+  {
+    margin-bottom: 0px;
+    li > a
+      {
+        color:$header-links-color !important;
+        font-size: 16px;
+        font-weight: 400;
+      }
+    li > a:hover
+      {
+        color:$header-links-color-onHover !important;;
+        opacity: 0.7;
+      }
+  }
+
+
+}
+
+
+$banner-image-url : "../../site_images/talenthub.jpg";
+$banner-min-height : 800px;
+
+//Defining form style for banner
+$banner-form-text-color:#1a1a1a;
+$banner-form-background:#ffffff;
+$banner-form-border-radius: 5px;
+$banner-form-border: 1px solid #111111;
+$banner-form-padding:5px;
+
+.banner
+{
+  background-image: url($banner-image-url);
+  background-position: center;
+  background-size: 100% auto;
+  min-height: $banner-min-height;
+  height: auto;
+  margin-top: 50px;
+  color:#FFFFFF;
+
+  h1
+  {
+    font-weight: 700;
+    @include text-shadow(5px, 5px, 15px, 10px, rgba(0,0,0,0.75));
+  }
+
+  .container
+  {
+    padding:50px 15px;
+  }
+
+  .usertypetabpanel {
+
+    width: 100%;
+    height:350px;
+
+
+    ul.nav-tabs
+    {
+      li
+      {
+        a
+        {
+          color:$color-darkGreen !important;
+          font-size:14px;
+          font-weight: 700;
+          background-color:rgba(255, 255, 255, .75) !important;
+        }
+        a:hover
+        {
+          background-color:rgba(255, 255, 255, 0.95) !important;
+        }
+      }
+      li.active a
+      {
+        background-color:rgba(255, 255, 255, 1) !important;
+      }
+
+    }
+  }
+  .sign_in_container
+  {
+    background:#FFFFFF;
+    padding:15px;
+  }
+  .form_container
+  {
+
+    label
+    {
+      font-size:12px;
+      color:$color-darkGreen;
+    }
+    input,select
+    {
+      font-size: 12px;
+      color:$banner-form-text-color;
+      background:$banner-form-background;
+      border:$banner-form-border;
+      padding:$banner-form-padding;
+      width:100%;
+      @include border-radius($banner-form-border-radius);
+      height:auto;
+    }
+    input[type='checkbox'],input[type='radio']
+    {
+      width:auto;
+      margin-right: 5px;
+    }
+  }
+
+  .tab-content
+  {
+    background:#FFFFFF;
+    padding:15px;
+    @include border-radius(5px);
+  }
+}
+
+
+
+footer
+{
+  background:$background-color-darkGreen;
+  @include box-shadow(-1px,-1px,5px,0px,rgba(0,0,0,0.75));
+  padding:10px;
+  font-size: 11px;
+  color:#FFFFFF;
+  .nav
+  {
+    li{
+      a{
+        font-size: 11px;
+        color:#FFFFFF !important;
+        padding:5px 15px !important;
+        display: inline-block;
+        img
+        {
+          display:inline-block;
+          margin:0px 5px;
+          vertical-align: middle;
+        }
+      }
+      a:hover,a:focus
+      {
+        background:none !important;
+        text-decoration: underline;
+      }
+    }
+  }
 }

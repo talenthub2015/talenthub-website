@@ -1,0 +1,20 @@
+@mixin box-shadow($horizontal, $vertical, $blur, $spread, $color)
+{
+  box-shadow: $horizontal $vertical $blur $spread $color;
+  -moz-box-shadow: $horizontal $vertical $blur $spread $color;
+  -webkit-box-shadow: $horizontal $vertical $blur $spread $color;
+}
+
+@mixin border-radius($radius)
+{
+  border-radius:$radius;
+  -moz-border-radius:$radius;
+  -webkit-border-radius:$radius;
+}
+
+@mixin text-shadow($horizontal, $vertical, $blur, $spread, $color)
+{
+  text-shadow: $horizontal $vertical $blur $spread $color;
+  -moz-text-shadow: $horizontal $vertical $blur $spread $color;
+  -webkit-text-shadow: $horizontal $vertical $blur $spread $color;
+}

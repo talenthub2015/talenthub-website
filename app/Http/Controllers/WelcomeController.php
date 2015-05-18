@@ -1,5 +1,9 @@
 <?php namespace talenthub\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use talenthub\Repositories\BasicSiteRepository;
+use talenthub\Repositories\SiteConstants;
+
 class WelcomeController extends Controller {
 
 	/*
@@ -30,7 +34,13 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('welcome');
+        if(Auth::user())
+        {
+            return redirect('/home');
+        }
+        $sport_types=BasicSiteRepository::getSportTypes();
+        $userManagerManagementLevel=BasicSiteRepository::getUserManagementLevelType(SiteConstants::USER_MANAGER);
+		return view('welcome',compact('sport_types','userManagerManagementLevel'));
 	}
 
 }

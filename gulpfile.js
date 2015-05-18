@@ -12,11 +12,45 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less',);
+    mix.less('app.less','resources/assets/lib/css/');
 
-    mix.sass('welcomepage.scss','welcomepage.css');
+    mix.rubySass('welcomepage.scss','resources/assets/lib/css/');
 
     mix.styles([
         "lib/css/basic_site_style.css",
-    ],'public/build/css/welcomepage.css','resources/assets/');
+        "lib/css/app.css",
+        "lib/css/welcomepage.css",
+    ],'public/css/welcomepage.css','resources/assets/');
+
+    //mix.scripts([
+    //    "jquery-1.11.2.min.js",
+    //    "bootstrap.min.js",
+    //    "html5shiv.min.js",
+    //    "respond.min.js"
+    //],"public/js/allscripts.js","resources/assets/js");
+
+    mix.scripts([
+        "profile-edit.js",
+    ],"public/js/allangularscripts.js","resources/assets/lib/js");
+
+
+    mix.rubySass('main.scss','resources/assets/lib/css/');
+    mix.sass('site_animation.scss','resources/assets/lib/css/');
+
+    mix.styles([
+        'lib/css/basic_site_style.css',
+        'lib/css/app.css',
+        'lib/css/main.css',
+    ],'public/css/main.css','resources/assets/');
+
+    mix.styles([
+        'lib/css/site_animation.css'
+    ],'public/css/site_animation.css','resources/assets/');
+
+    mix.version(["public/css/welcomepage.css","public/css/main.css"]);
+
+    mix.scripts([
+        "form-validations.js"
+    ],'public/js/form-validations.js','resources/assets/js');
+
 });
