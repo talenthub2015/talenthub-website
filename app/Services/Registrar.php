@@ -20,7 +20,9 @@ class Registrar implements RegistrarContract {
             'username'      =>  'required|email|max:255|unique:users',
 			'password'      =>  'required|confirmed|min:6',
             'user_type'     =>  'required|in:'.SiteConstants::USER_TALENT.",".SiteConstants::USER_MANAGER,
-            'sport_type'   =>   'required|in:'.implode(',',array_keys(BasicSiteRepository::getSportTypes())),
+            'sport_type'    =>  'required|in:'.implode(',',array_keys(BasicSiteRepository::getSportTypes())),
+            'talent_type'   =>  'required_if:user_type,'.SiteConstants::USER_TALENT." | in:".
+                SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_STUDENT.",". SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_ASPIRING_PRO,
             'managementLevel'   => 'required_if:user_type,'.SiteConstants::USER_MANAGER.'|in:'.
                 implode(",",array_keys(BasicSiteRepository::getUserManagementLevelType(SiteConstants::USER_MANAGER))),
 		]);
@@ -38,7 +40,7 @@ class Registrar implements RegistrarContract {
 			'username'  =>  $data['username'],
 			'password'  =>  $data['password'],
             'user_type' =>  $data['user_type'],
-            'management_level' => $data['managementLevel'],
+            'management_level' => $data['management_level'],
             'sport_type'=>  $data['sport_type']
 		]);
 	}

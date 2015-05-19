@@ -42,9 +42,9 @@
 
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" <?php if(Session::get('register_user_type')=='talent' || Session::get('register_user_type')=='') echo "class='active'";?>><a href="#talent" aria-controls="home" role="tab" data-toggle="tab">Athlete</a></li>
+                                <li role="presentation" <?php if(Session::get('register_user_type')==\talenthub\Repositories\SiteConstants::USER_TALENT || Session::get('register_user_type')=='') echo "class='active'";?>><a href="#talent" aria-controls="home" role="tab" data-toggle="tab">Athlete</a></li>
                                 <!--li role="presentation"><a href="#parent" aria-controls="profile" role="tab" data-toggle="tab">Parent</a></li-->
-                                <li role="presentation" <?php if(Session::get('register_user_type')=='manager') echo "class='active'";?>><a href="#coach" aria-controls="messages" role="tab" data-toggle="tab">Manager</a></li>
+                                <li role="presentation" <?php if(Session::get('register_user_type')==\talenthub\Repositories\SiteConstants::USER_MANAGER) echo "class='active'";?>><a href="#coach" aria-controls="messages" role="tab" data-toggle="tab">Manager</a></li>
                             </ul>
 
                             <!-- Tab panes -->

@@ -4,6 +4,7 @@ use Illuminate\Database\Capsule\Manager;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use talenthub\Http\Requests;
 use talenthub\Http\Controllers\Controller;
 
@@ -74,7 +75,12 @@ class ProfileController extends Controller {
 	 */
 	public function edit($id)
 	{
-        $user=Auth::user();
+        $user=UserProfile::find($id);
+        var_dump($user);
+        if(!isset($user->user_id) || $user->user_id != Session::get(SiteSessions::USER_ID))
+        {
+            return redirect("home");
+        }
         $gender=UserProfileRepository::getUserGender();
         $addressType=UserProfileRepository::getAddressTypes();
         $instituteType=UserProfileRepository::getInstituteType();
@@ -106,7 +112,11 @@ class ProfileController extends Controller {
      */
     public function editCV($id)
     {
-        $user=Auth::user();
+        $user=UserProfile::find($id);
+        if(!isset($user->user_id) || $user->user_id != Session::get(SiteSessions::USER_ID))
+        {
+            return redirect("home");
+        }
         $country=BasicSiteRepository::getListOfCountries();
 
         $clubDataMap=SportsRepository::getClubDataMap($this->getSportDataMap(Session::get(SiteSessions::USER_SPORT_TYPE)),true);
@@ -175,8 +185,13 @@ class ProfileController extends Controller {
      *
      * @param $id
      */
-    public function updateCV($id, TalentCVRequest $request)
+    public function updateCV($id, Request $request)
     {
+        //--------- Need to work over this function afterwards -------//
+        $this->validateCVData($request);
+        //--------- Need to work over this function afterwards -------//
+
+
         $user = Auth::user();
         $userProfile = UserProfile::find($user->user_id);
 
@@ -521,6 +536,35 @@ class ProfileController extends Controller {
                 return false;
                 break;
         }
+    }
+
+
+    /**
+     * --------- Need to implement this logic ------- Logic is that Validate data, if errors then create a session's flash
+     * and store all the user data in it and then make changes on the view to reflect it
+     *
+     * Validating data for CV
+     * @param $request
+     */
+    public function validateCVData($request)
+    {
+        $rules=[];
+        foreach($request->get("positions") as $key=>$value)
+        {
+            $rules['positions.'.$key]="in:".implode(",",array_keys(SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE))));
+        }
+        $rules['preferred_position']='in:'.implode(",",array_keys(SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE))));
+
+        $validator = Validator::make($request->all(),$rules);
+
+        if($validator->fails())
+        {
+            //dd($validator->errors());
+        }
+
+        //dd($validator);
+
+
     }
 
 

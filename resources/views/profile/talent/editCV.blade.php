@@ -14,7 +14,6 @@
                         {!! Form::model($talentProfile,['method'=>'PUT','url'=>'profile/'.Session::get('user_id').'/CV','novalidate','name'=>'talent_CV']) !!}
                         <div class="col-xs-12 col-lg-12 ">
                             <h1>Curriculum Vitae</h1>
-                            {{var_dump($errors->all())}}
                             @include("errors.error_raw_list")
                             <div ng-show="tab.isTabClicked(1)" class="tab_panel">
                                 <div class="row form_container">
@@ -34,6 +33,7 @@
                                 </div>
 
                                 <?php
+
                                     if(count($clubCareerInformation)==0)
                                     {
                                         $clubCareerInformation[0]=new talenthub\TalentCareerInformation();

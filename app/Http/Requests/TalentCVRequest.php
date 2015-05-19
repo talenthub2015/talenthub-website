@@ -54,14 +54,29 @@ class TalentCVRequest extends Request {
 ////            SportsRepository::getSchoolDataMap(BaseBallStatistics::$dataMap,true)['age']=>'digits_between:1,3|max:100',
 //		];
 
-
-//        for($i=0;$i<count($this->request->positions);$i++)
+//        foreach($this->request->get("positions") as $key=>$value)
 //        {
-//            $rules['positions.'.$i]="in:".implode(",",array_keys(SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE))));
+//            $rules['positions.'.$key]="in:".implode(",",array_keys(SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE))));
 //        }
+//        $rules['preferred_position']='in:'.implode(",",array_keys(SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE))));
 //
-//        //dd($this->request);
-//        return $rules;
+//        foreach($this->request->get("club_club_school_country") as $key=>$value)
+//        {
+//            $rules['club_club_school_country.'.$key]="in:".implode(',',array_keys(BasicSiteRepository::getListOfCountries()));
+//        }
+//        foreach($this->request->get("positions") as $key=>$value)
+//        {
+//            $rules['positions.'.$key]="in:5,6,7,8";
+//        }
+//        foreach($this->request->get("positions") as $key=>$value)
+//        {
+//            $rules['positions.'.$key]="in:5,6,7,8";
+//        }
+
+        $rules=[];
+
+        //dd($this->request);
+        return $rules;
 
 	}
 
