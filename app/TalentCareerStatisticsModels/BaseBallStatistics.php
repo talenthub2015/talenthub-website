@@ -19,7 +19,7 @@ class BaseBallStatistics extends Model {
      * Data map for mapping data from database to user representable form
      */
     public static $dataMap = array(
-        'batting' => 'param1', 'year' => 'param2', 'age' => 'param3', 'GP' => 'param4', 'AB' => 'param5', 'R' => 'param6',
+        'year' => 'param1', 'age' => 'param2', 'batting' => 'param3', 'GP' => 'param4', 'AB' => 'param5', 'R' => 'param6',
         'H' => 'param7', '2B' => 'param8','3B' => 'param9', 'HR' => 'param10','RBI' => 'param11', 'SB' => 'param12',
         'CS' => 'param13', 'BB' => 'param14','SO' => 'param15', 'fielding' => 'param16', 'POS' => 'param17',
         'G' => 'param18', 'GS' => 'param19', 'CG' => 'param20','INN' => 'param21', 'CH' => 'param22', 'PO' => 'param23',

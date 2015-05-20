@@ -9,11 +9,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <script src="{{asset('js/jquery-1.11.2.min.js')}}"></script>
-        <script src="{{asset('js/angular.min.js')}}"></script>
+
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
         <script src="{{asset('js/html5shiv.min.js')}}"></script>
         <script src="{{asset('js/respond.min.js')}}"></script>
         <script src="{{asset('js/basic_site_animation.js')}}"></script>
+        <script src="{{asset('js/form-validations.js')}}"></script>
+
 	</head>
     <body ng-app="app">
         @include("templates.guestHeader")
@@ -22,68 +24,22 @@
             <div class="container">
 
                 <h1>The mission of talenthub is to connect talent all over the world with managers of talent.</h1>
-                <div class="row">
-                    <div class="col-xs-12 col-lg-4 col-lg-offset-1">
+                <div class="row form_container">
+                    <div class="col-xs-12 col-lg-12">
                         <h4>Sign In</h4>
                         <div class="sign_in_container">
-                            <div class="form_container">
-                                {!! Form::open(['method'=>'post','url'=>'auth/login']) !!}
-                                @include("templates.forms.signin")
-                                {!! Form::close() !!}
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-xs-12 col-lg-4 col-lg-offset-2">
-                        <h4>WHO ARE YOU?</h4>
-
-                        <div role="usertypetabpanel" class="usertypetabpanel">
-
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" <?php if(Session::get('register_user_type')==\talenthub\Repositories\SiteConstants::USER_TALENT || Session::get('register_user_type')=='') echo "class='active'";?>><a href="#talent" aria-controls="home" role="tab" data-toggle="tab">Athlete</a></li>
-                                <!--li role="presentation"><a href="#parent" aria-controls="profile" role="tab" data-toggle="tab">Parent</a></li-->
-                                <li role="presentation" <?php if(Session::get('register_user_type')==\talenthub\Repositories\SiteConstants::USER_MANAGER) echo "class='active'";?>><a href="#coach" aria-controls="messages" role="tab" data-toggle="tab">Manager</a></li>
-                            </ul>
-
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-
-                                @if($errors->any())
-                                    <ul class="alert alert-danger">
+                            @if($errors->any())
+                                <div class="alert alert-danger">
                                     @foreach($errors->all() as $error)
-                                        <li>{{$error}}</li>
+                                        <p>{{$error}}</p>
                                     @endforeach
-                                    </ul>
-                                @endif
-                                <div role="usertypetabpanel" class="tab-pane fade in active" id="talent">
-                                    <div class="form_container">
-                                        {!! Form::open(['method'=>'post','url'=>'auth/register','name'=>'register_talent']) !!}
-                                            @include('templates.forms.registration',['user'=>\talenthub\Repositories\SiteConstants::USER_TALENT,'sport_types'=>$sport_types])
-                                        {!! Form::close() !!}
-                                    </div>
                                 </div>
-
-                                <!--div role="usertypetabpanel" class="tab-pane fade" id="parent">
-                                    <div class="form_container">
-                                        {!! Form::open(['method'=>'post','url'=>'auth/register','name'=>'register_parent']) !!}
-                                            @include('templates.forms/registration',['user'=>'parent'])
-                                        {!! Form::close() !!}
-                                    </div>
-                                </div-->
-
-                                <div role="usertypetabpanel" class="tab-pane fade" id="coach">
-                                    <div class="form_container">
-                                        {!! Form::open(['method'=>'post','url'=>'auth/register','name'=>'register_manager']) !!}
-                                            @include('templates.forms.registration',['user'=>\talenthub\Repositories\SiteConstants::USER_MANAGER,
-                                            'userManagerManagementLevel'=> $userManagerManagementLevel])
-                                        {!! Form::close() !!}
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endif
+                            {!! Form::open(['method'=>'post','url'=>'auth/login']) !!}
+                            @include("templates.forms.signin")
+                            {!! Form::close() !!}
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@ class Registrar implements RegistrarContract {
             'user_type'     =>  'required|in:'.SiteConstants::USER_TALENT.",".SiteConstants::USER_MANAGER,
             'sport_type'    =>  'required|in:'.implode(',',array_keys(BasicSiteRepository::getSportTypes())),
             'talent_type'   =>  'required_if:user_type,'.SiteConstants::USER_TALENT." | in:".
-                SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_STUDENT.",". SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_ASPIRING_PRO,
+                implode(",",array_keys(BasicSiteRepository::getUserManagementLevelType(SiteConstants::USER_TALENT))),
             'managementLevel'   => 'required_if:user_type,'.SiteConstants::USER_MANAGER.'|in:'.
                 implode(",",array_keys(BasicSiteRepository::getUserManagementLevelType(SiteConstants::USER_MANAGER))),
 		]);

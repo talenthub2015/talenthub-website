@@ -45,7 +45,7 @@ header {
   background-image: url("../../site_images/talenthub.jpg");
   background-position: center;
   background-size: 100% auto;
-  min-height: 800px;
+  min-height: 700px;
   height: auto;
   margin-top: 50px;
   color: #FFFFFF; }
@@ -59,21 +59,27 @@ header {
   .banner .usertypetabpanel {
     width: 100%;
     height: 350px; }
-    .banner .usertypetabpanel ul.nav-tabs li a {
-      color: #203f15 !important;
-      font-size: 14px;
-      font-weight: 700;
-      background-color: rgba(255, 255, 255, 0.75) !important; }
-    .banner .usertypetabpanel ul.nav-tabs li a:hover {
-      background-color: rgba(255, 255, 255, 0.95) !important; }
-    .banner .usertypetabpanel ul.nav-tabs li.active a {
-      background-color: white !important; }
+    .banner .usertypetabpanel ul.nav-tabs {
+      border-color: rgba(0, 0, 0, 0.75) !important; }
+      .banner .usertypetabpanel ul.nav-tabs li a {
+        color: #FFFFFF !important;
+        font-size: 14px;
+        font-weight: 700;
+        background-color: rgba(0, 0, 0, 0.4) !important; }
+      .banner .usertypetabpanel ul.nav-tabs li a:hover, .banner .usertypetabpanel ul.nav-tabs li a:focus {
+        background-color: rgba(0, 0, 0, 0.75) !important;
+        border-color: #000000 !important; }
+      .banner .usertypetabpanel ul.nav-tabs li.active a {
+        background-color: rgba(0, 0, 0, 0.75) !important;
+        border-color: #000000 !important; }
   .banner .sign_in_container {
-    background: #FFFFFF;
+    background: rgba(0, 0, 0, 0.5);
     padding: 15px; }
+  .banner .form_container .error_form_validation {
+    border: 1px solid #FF6347 !important; }
   .banner .form_container label {
     font-size: 12px;
-    color: #203f15; }
+    color: #ffffff; }
   .banner .form_container input, .banner .form_container select {
     font-size: 12px;
     color: #1a1a1a;
@@ -88,12 +94,37 @@ header {
   .banner .form_container input[type='checkbox'], .banner .form_container input[type='radio'] {
     width: auto;
     margin-right: 5px; }
+  .banner .form_container .forget_div {
+    float: right; }
+  .banner .form_container .forget_div a {
+    padding: 0px;
+    font-size: 12px;
+    color: #ffffff !important; }
+  .banner .form_container .t-button {
+    color: #FFFFFF;
+    background: #203f15;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: none;
+    text-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+    -moz-text-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+    -webkit-text-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25); }
+  .banner .form_container .t-button:hover, .banner .form_container .t-button:focus, .banner .form_container .t-button:visited {
+    color: #FFFFFF;
+    background: #204f1F; }
   .banner .tab-content {
-    background: #FFFFFF;
+    background: rgba(0, 0, 0, 0.75);
     padding: 15px;
     border-radius: 5px;
     -moz-border-radius: 5px;
-    -webkit-border-radius: 5px; }
+    -webkit-border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright: 0px;
+    -webkit-border-top-left-radius: 0px;
+    -webkit-border-top-right-radius: 0px; }
 
 footer {
   background: #203f15;

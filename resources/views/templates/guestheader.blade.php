@@ -16,8 +16,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Sign In</a></li>
-                        <li><a href="#">Forgot Password?</a></li>
+                        <li><a href="{{url('/')}}">Sign In</a></li>
+                        <li><a href="{{url("sign_up")}}">Join Talenthub</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

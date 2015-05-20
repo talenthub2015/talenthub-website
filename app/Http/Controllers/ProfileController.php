@@ -21,6 +21,8 @@ use talenthub\Repositories\UserProfileRepository;
 use talenthub\TalentCareerInformation;
 use talenthub\TalentCareerReferences;
 use talenthub\TalentCareerStatisticsModels\BaseBallStatistics;
+use talenthub\TalentCareerStatisticsModels\BasketBallStatistics;
+use talenthub\TalentCareerStatisticsModels\RugbyStatistics;
 use talenthub\User;
 use talenthub\UserProfile;
 
@@ -73,14 +75,9 @@ class ProfileController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit()
 	{
-        $user=UserProfile::find($id);
-        var_dump($user);
-        if(!isset($user->user_id) || $user->user_id != Session::get(SiteSessions::USER_ID))
-        {
-            return redirect("home");
-        }
+        $user=UserProfile::find(Session::get(SiteSessions::USER_ID));
         $gender=UserProfileRepository::getUserGender();
         $addressType=UserProfileRepository::getAddressTypes();
         $instituteType=UserProfileRepository::getInstituteType();
@@ -110,13 +107,8 @@ class ProfileController extends Controller {
      * Function to handle Edit CV request for Talent only
      * @param $id
      */
-    public function editCV($id)
+    public function editCV()
     {
-        $user=UserProfile::find($id);
-        if(!isset($user->user_id) || $user->user_id != Session::get(SiteSessions::USER_ID))
-        {
-            return redirect("home");
-        }
         $country=BasicSiteRepository::getListOfCountries();
 
         $clubDataMap=SportsRepository::getClubDataMap($this->getSportDataMap(Session::get(SiteSessions::USER_SPORT_TYPE)),true);
@@ -130,7 +122,7 @@ class ProfileController extends Controller {
 
         if(SiteConstants::isTalent(Session::get(SiteSessions::USER_TYPE)))
         {
-            $talentProfile=UserProfile::find($user->user_id);
+            $talentProfile=UserProfile::find(Session::get(SiteSessions::USER_ID));
             $clubCareerInformation = $talentProfile->careerInformation()->where('career_type','=',SiteConstants::CAREER_TYPE_CLUB)->get();
             $schoolCareerInformation = $talentProfile->careerInformation()->where('career_type','=',SiteConstants::CAREER_TYPE_SCHOOL)->get();
 
@@ -176,7 +168,7 @@ class ProfileController extends Controller {
         }
 
 
-        return redirect('profile/'.Session::get(SiteSessions::USER_ID)."/edit");
+        return redirect('profile/edit');
 	}
 
 
@@ -185,7 +177,7 @@ class ProfileController extends Controller {
      *
      * @param $id
      */
-    public function updateCV($id, Request $request)
+    public function updateCV(Request $request)
     {
         //--------- Need to work over this function afterwards -------//
         $this->validateCVData($request);
@@ -205,7 +197,7 @@ class ProfileController extends Controller {
         //Storing Club and School information and their respective sport statistics
         $this->storeClubSchoolInformation($userProfile,$request);
 
-        return redirect('/profile/'.Session::get(SiteSessions::USER_ID)."/editCV");
+        return redirect('profile/editCV');
     }
 
 	/**
@@ -295,6 +287,7 @@ class ProfileController extends Controller {
     {
         $sportDataMap = $this->getSportDataMap(Session::get(SiteSessions::USER_SPORT_TYPE));
         $formRequest = $request->all();
+        $careerStatisticsType="";
         $careerInformationFillAbles="";
         $careerTypeSportDataMap="";
         $careerCounts="";
@@ -377,6 +370,7 @@ class ProfileController extends Controller {
                     $careerStatistics = $this->getCareerStatisticsModelObject(Session::get(SiteSessions::USER_SPORT_TYPE));
                 }
 
+                $careerStatistics->statistic_type=$career_type;
                 foreach($careerTypeSportDataMap as $key=>$value)
                 {
                     $statisticField = $sportDataMap[$key];
@@ -458,13 +452,13 @@ class ProfileController extends Controller {
                 return BaseBallStatistics::$dataMap;
                 break;
             case SportsRepository::BASKETBALL:
-                return BaseBallStatistics::$dataMap;
+                return BasketBallStatistics::$dataMap;
                 break;
             case SportsRepository::FOOTBALL:
                 return BaseBallStatistics::$dataMap;
                 break;
             case SportsRepository::RUGBY:
-                return BaseBallStatistics::$dataMap;
+                return RugbyStatistics::$dataMap;
                 break;
             case SportsRepository::SOCCER:
                 return BaseBallStatistics::$dataMap;

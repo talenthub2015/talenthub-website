@@ -24,9 +24,9 @@ class SportsRepository {
 
     public static $sports_positions=array(
         self::BASEBALL => array("batting","fielding"),
-        self::BASKETBALL => array("batting","fielding"),
+        self::BASKETBALL => array("point guard","shooting guard","small forward","power forward","center"),
         self::FOOTBALL => array("batting","fielding"),
-        self::RUGBY => array("batting","fielding"),
+        self::RUGBY => array("forward","backline","kicker"),
         self::SOCCER => array("",""),
         self::SWIMMING => array("",""),
         self::TENNIS => array("",""),

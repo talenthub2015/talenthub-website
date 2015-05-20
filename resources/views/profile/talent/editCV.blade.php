@@ -2,6 +2,11 @@
 
 @section('content')
 
+    <?php
+
+            $sport_type=Session::get(\talenthub\Repositories\SiteSessions::USER_SPORT_TYPE);
+
+    ?>
     <div ng-app="edit-profile">
         <div class="container edit-profile" ng-controller="tabController as tab">
 
@@ -11,7 +16,7 @@
                 </div>
                 <div class="col-xs-12 col-lg-9">
                     <div class="row">
-                        {!! Form::model($talentProfile,['method'=>'PUT','url'=>'profile/'.Session::get('user_id').'/CV','novalidate','name'=>'talent_CV']) !!}
+                        {!! Form::model($talentProfile,['method'=>'PUT','url'=>'profile/CV','novalidate','name'=>'talent_CV']) !!}
                         <div class="col-xs-12 col-lg-12 ">
                             <h1>Curriculum Vitae</h1>
                             @include("errors.error_raw_list")
@@ -30,6 +35,16 @@
                                             {!! Form::select('preferred_position',$sportPositions,$talentProfile->preferred_position,['class'=>'form-control']) !!}
                                         </div>
                                     </div>
+
+                                    <div class="col-xs-12 col-lg-4">
+                                        <div class="form-group">
+                                            {!! Form::label('dominant_hand','Dominant Hand:') !!}
+                                            {!! Form::select('dominant_hand',['0'=>'--Select Option--','1'=>'Left Hand','2'=>'Right Hand',
+                                            '3'=>'Ambidextrous'],null,['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'0',
+                                            'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select an option']) !!}
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <?php
@@ -146,8 +161,20 @@
                                         <?php
                                             $sportDataMap = $clubDataMap;
                                             $sportStatistics = $clubCareerInformation[0]->careerSportStatistics(Session::get(\talenthub\Repositories\SiteSessions::USER_SPORT_TYPE))->get();
+
+                                            //dd($sport_type);
                                         ?>
-                                        @include('profile.talent.TalentCVForms.baseballCV',compact('sportDataMap','sportStatistics'))
+                                        @if($sport_type == \talenthub\Repositories\SportsRepository::BASEBALL)
+                                            @include('profile.talent.TalentCVForms.baseballCV',compact('sportDataMap','sportStatistics'))
+                                        @endif
+
+                                        @if($sport_type == \talenthub\Repositories\SportsRepository::BASKETBALL)
+                                            @include('profile.talent.TalentCVForms.basketballCV',compact('sportDataMap','sportStatistics'))
+                                        @endif
+
+                                        @if($sport_type == \talenthub\Repositories\SportsRepository::RUGBY)
+                                            @include('profile.talent.TalentCVForms.rugbyCV',compact('sportDataMap','sportStatistics'))
+                                        @endif
 
                                         <?php
                                             $clubReferences=$clubCareerInformation[0]->careerReferences()->get();
@@ -391,8 +418,13 @@
                                                     $sportDataMap = $clubDataMap;
                                                     $sportStatistics = $clubCareerInformation[$i]->careerSportStatistics(Session::get(\talenthub\Repositories\SiteSessions::USER_SPORT_TYPE))->get();
                                                 ?>
-                                                @include('profile.talent.TalentCVForms.baseballCV',compact('sportDataMap','sportStatistics'))
+                                                @if($sport_type == \talenthub\Repositories\SportsRepository::BASEBALL)
+                                                    @include('profile.talent.TalentCVForms.baseballCV',compact('sportDataMap','sportStatistics'))
+                                                @endif
 
+                                                @if($sport_type == \talenthub\Repositories\SportsRepository::BASKETBALL)
+                                                    @include('profile.talent.TalentCVForms.basketballCV',compact('sportDataMap','sportStatistics'))
+                                                @endif
 
                                                 <?php
                                                 $clubReferences=$clubCareerInformation[$i]->careerReferences()->get();
@@ -646,8 +678,13 @@
                                         $sportDataMap = $schoolDataMap;
                                         $sportStatistics = $schoolCareerInformation[0]->careerSportStatistics(Session::get(\talenthub\Repositories\SiteSessions::USER_SPORT_TYPE))->get();
                                         ?>
-                                        @include('profile.talent.TalentCVForms.baseballCV',compact('sportDataMap','sportStatistics'))
+                                        @if($sport_type == \talenthub\Repositories\SportsRepository::BASEBALL)
+                                            @include('profile.talent.TalentCVForms.baseballCV',compact('sportDataMap','sportStatistics'))
+                                        @endif
 
+                                        @if($sport_type == \talenthub\Repositories\SportsRepository::BASKETBALL)
+                                            @include('profile.talent.TalentCVForms.basketballCV',compact('sportDataMap','sportStatistics'))
+                                        @endif
                                         <h1>School References</h1>
 
                                         <?php
@@ -885,8 +922,13 @@
                                                     $sportStatistics = $schoolCareerInformation[$i]->careerSportStatistics(Session::get(\talenthub\Repositories\SiteSessions::USER_SPORT_TYPE))->get();
 
                                                     ?>
-                                                    @include('profile.talent.TalentCVForms.baseballCV',compact('sportDataMap','sportStatistics'))
+                                                    @if($sport_type == \talenthub\Repositories\SportsRepository::BASEBALL)
+                                                        @include('profile.talent.TalentCVForms.baseballCV',compact('sportDataMap','sportStatistics'))
+                                                    @endif
 
+                                                    @if($sport_type == \talenthub\Repositories\SportsRepository::BASKETBALL)
+                                                        @include('profile.talent.TalentCVForms.basketballCV',compact('sportDataMap','sportStatistics'))
+                                                    @endif
                                                     <h1>School References</h1>
 
                                                     <?php

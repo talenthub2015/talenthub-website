@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'WelcomeController@index');
+Route::get('sign_up', 'WelcomeController@signUp');
 
 Route::get('home', 'HomeController@index');
 
@@ -20,6 +21,11 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::resource('profile','ProfileController');
-Route::get('profile/{id}/editCV','ProfileController@editCV');
-Route::put('profile/{id}/CV','ProfileController@updateCV');
+
+Route::get("profile","ProfileController@index");
+Route::get('profile/edit','ProfileController@edit');
+Route::get('profile/editCV','ProfileController@editCV');
+//Route::put('profile/{id}/CV','ProfileController@updateCV');
+Route::put('profile/edit/{id}','ProfileController@update');
+Route::put('profile/CV','ProfileController@updateCV');
+

@@ -20,7 +20,7 @@
                         @endif
                     </ul>
                     <div class="row">
-                        {!! Form::model($userProfile,['method'=>'PUT','url'=>'profile/'.Session::get('user_id'),'novalidate','name'=>'user_profile']) !!}
+                        {!! Form::model($userProfile,['method'=>'PUT','url'=>'profile/edit/'.Session::get('user_id'),'novalidate','name'=>'user_profile']) !!}
                         <div class="col-xs-12 col-lg-12 ">
                             <h1>Personal Information</h1>
                             @include("errors.error_raw_list")
@@ -52,7 +52,7 @@
                                     <div class="col-xs-12 col-lg-4">
                                         <div class="form-group">
                                             {!! Form::label('dob','Date of Birth:') !!}
-                                            {!! Form::input('date','dob',null,['class'=>'form-control','data-validate'=>'date',
+                                            {!! Form::input('text','dob',null,['class'=>'form-control datepicker','data-validate'=>'date',
                                             'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Date should be in "DD-MM-YYYY" format']) !!}
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                     <div class="col-xs-12 col-lg-4">
                                         <div class="form-group">
                                             {!! Form::label('mobile_number','Mobile Number:') !!}
-                                            {!! Form::input('number','mobile_number',null,['class'=>'form-control','max'=>'12',
+                                            {!! Form::input('text','mobile_number',null,['class'=>'form-control','max'=>'12',
                                             'data-validate'=>'phoneNumber','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter numeric value']) !!}
                                         </div>
                                     </div>
@@ -413,14 +413,16 @@
                                         <div class="col-xs-12 col-lg-4">
                                             <div class="form-group">
                                                 {!! Form::label('school_contact_person_email','School Contact Person Email:') !!}
-                                                {!! Form::text('school_contact_person_email',null,['class'=>'form-control']) !!}
+                                                {!! Form::text('school_contact_person_email',null,['class'=>'form-control','data-validate'=>'email',
+                                                'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter email correctly.']) !!}
                                             </div>
                                         </div>
 
                                         <div class="col-xs-12 col-lg-4">
                                             <div class="form-group">
                                                 {!! Form::label('school_contact_person_phone','School Contact Person Phone:') !!}
-                                                {!! Form::text('school_contact_person_phone',null,['class'=>'form-control']) !!}
+                                                {!! Form::text('school_contact_person_phone',null,['class'=>'form-control','data-validate'=>'phoneNumber',
+                                                'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter contact number correctly.']) !!}
                                             </div>
                                         </div>
 
@@ -549,21 +551,21 @@
 
                                                 <div class="col-xs-12 col-lg-4">
                                                     <div class="form-group">
-                                                        {!! Form::label('potential_major_category_1','Potential Major (1st Choice:') !!}
+                                                        {!! Form::label('potential_major_category_1','Potential Major (1st Choice:)') !!}
                                                         {!! Form::text('potential_major_category_1',null,['class'=>'form-control']) !!}
                                                     </div>
                                                 </div>
 
                                                 <div class="col-xs-12 col-lg-4">
                                                     <div class="form-group">
-                                                        {!! Form::label('potential_major_category_2','Potential Major (2nd Choice:') !!}
+                                                        {!! Form::label('potential_major_category_2','Potential Major (2nd Choice:)') !!}
                                                         {!! Form::text('potential_major_category_2',null,['class'=>'form-control']) !!}
                                                     </div>
                                                 </div>
 
                                                 <div class="col-xs-12 col-lg-4">
                                                     <div class="form-group">
-                                                        {!! Form::label('potential_major_category_3','Potential Major (3rd Choice:') !!}
+                                                        {!! Form::label('potential_major_category_3','Potential Major (3rd Choice:)') !!}
                                                         {!! Form::text('potential_major_category_3',null,['class'=>'form-control']) !!}
                                                     </div>
                                                 </div>

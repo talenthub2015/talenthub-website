@@ -2,6 +2,14 @@
  * Created by piyush sharma on 12-05-2015.
  */
 $(document).ready(function(){
+
+    /*Defining Some Common calls to some functions which may be used to configure widgets like datepicker, etc. */
+
+    $("input.datepicker").datepicker();
+
+
+
+
     /*
     Defining functionality for Collapse and Expansion of content
     Structure .collapse-content > h1, .collapse-content > .collapsed-content
@@ -15,7 +23,8 @@ $(document).ready(function(){
         $(this).next(collapsedContent).slideUp(0);
     });
 
-    $(headers).on('click',function(){
+    $("div").on('click','.collapse-content .trigger',function(event){
+        event.stopPropagation();
         $(this).next(collapsedContent).slideToggle(slideSpeed);
     });
 
@@ -92,4 +101,15 @@ $(document).ready(function(){
         }
         return false;
     });
+
+
+
+
+
+
+
+
+
+
+
 });

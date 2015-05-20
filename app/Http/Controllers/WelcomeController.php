@@ -38,9 +38,23 @@ class WelcomeController extends Controller {
         {
             return redirect('/home');
         }
+        return view('welcome');
+	}
+
+
+    /**
+     * Redirect the user to Sign Up page
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
+    public function signUp()
+    {
+        if(Auth::user())
+        {
+            return redirect('/home');
+        }
         $sport_types=BasicSiteRepository::getSportTypes();
         $userManagerManagementLevel=BasicSiteRepository::getUserManagementLevelType(SiteConstants::USER_MANAGER);
-		return view('welcome',compact('sport_types','userManagerManagementLevel'));
-	}
+        return view('sign_up',compact('sport_types','userManagerManagementLevel'));
+    }
 
 }

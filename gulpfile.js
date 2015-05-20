@@ -40,6 +40,7 @@ elixir(function(mix) {
     mix.styles([
         'lib/css/basic_site_style.css',
         'lib/css/app.css',
+        'lib/css/jquery-ui.css',
         'lib/css/main.css',
     ],'public/css/main.css','resources/assets/');
 

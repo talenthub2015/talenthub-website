@@ -15,7 +15,11 @@ var number =/^\d+$/;
 var numberDecimal =/^\d+(\.?\d+)?$/;
 var phoneNumber=/^\d{9,12}$/;
 var text=/^\s+$/;
-var date = /^\d{2}(-:,\/)?\d{2}(-:,\/)?\d{4}$/;
+
+//------- Need to Check this Regular expression ----------
+var date = /^(\d{2}(-:,\/)?\d{2}(-:,\/)?\d{4})?(\d{4}(-:,\/)?\d{2}(-:,\/)?\d{2})?$/;
+//------- Need to Check this Regular expression ----------
+
 var email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 var url = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 var selectType = /^\s+$/;
@@ -36,14 +40,17 @@ $(document).ready(function(){
             var selects =   $(this).find('select');
             var textareas   =   $(this).find('textarea');
 
-            var formErrorStatus=false;
+            var formErrorStatus1=false;
+            var formErrorStatus2=false;
+            var formErrorStatus3=false;
 
             $(this).find("."+errorClassName).removeClass(errorClassName);
 
-            formErrorStatus = validateInputAndActiveToolTip(inputs) || validateInputAndActiveToolTip(selects)
-            || validateInputAndActiveToolTip(textareas);
+            formErrorStatus1 = validateInputAndActiveToolTip(inputs);
+            formErrorStatus2 = validateInputAndActiveToolTip(selects);
+            formErrorStatus3 = validateInputAndActiveToolTip(textareas);
 
-            if(formErrorStatus)
+            if(formErrorStatus1 || formErrorStatus2 || formErrorStatus3)
             {
                 event.preventDefault();
                 $(this).trigger('form-error');
@@ -100,14 +107,14 @@ $(document).ready(function(){
                     switch(validationType[i])
                     {
                         case "date":
-                            if($(element).val()=="dd-mm-yyyy")
-                            {
-                                break;
-                            }
-                            if(!date.test($(element).val()))
-                            {
-                                errorStatus=true;
-                            }
+                            //if($(element).val()=="")
+                            //{
+                            //    break;
+                            //}
+                            //if(!date.test($(element).val()))
+                            //{
+                            //    errorStatus=true;
+                            //}
 
                             break;
 
@@ -191,6 +198,19 @@ $(document).ready(function(){
                             {
                                 errorStatus=true;
                             }
+                            break;
+
+                        case "confirmPassword":
+                            var passwordField;
+                            if($(element).data('passwordFieldId') != undefined)
+                            {
+                                passwordField =  $(element).parents('form').find("#"+$(element).data('passwordFieldId')).val();
+                                if($(element).val()!= $(passwordField).val())
+                                {
+                                    errorStatus=true;
+                                }
+                            }
+                            break;
                     }
 
                     if(errorStatus)

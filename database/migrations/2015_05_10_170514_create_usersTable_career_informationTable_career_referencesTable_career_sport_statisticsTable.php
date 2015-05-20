@@ -120,9 +120,8 @@ class CreateUsersTableCareerInformationTableCareerReferencesTableCareerSportStat
              */
             $table->string('sport_type');
             $table->string('positions');
-            $table->string('position');
             $table->string('preferred_position');
-            $table->string('params');
+            $table->string('params');   //For storing other type of data, such as dominant hand or other information, data is stored as for eg. {dominant_hand:right}
 
             /*Managers Career profile attributes*/
             $table->string('almer_mater');
