@@ -16,7 +16,7 @@ $t-button-background-color-hover: #204f1F ;
 
 .t-button
 {
-  color:#FFFFFF;
+  color:#FFFFFF !important;
   background: $background-color-darkGreen;
   @include border-radius($t-button-border-radius);
   border:none;
@@ -26,6 +26,10 @@ $t-button-background-color-hover: #204f1F ;
 {
   color:#FFFFFF;
   background: $t-button-background-color-hover;
+}
+.form-control.t-button
+{
+  color:#FFFFFF;
 }
 
 body
@@ -45,7 +49,7 @@ header
   left:0px;
   width:100%;
   @include box-shadow(2px, 2px, 5px, 0px, rgba(0,0,0,0.75));
-  z-index: 10000;
+  z-index: 1000;
 }
 
 header {
@@ -61,7 +65,7 @@ header {
   {
     padding:0px 15px;
     width:auto;
-    margin-top: 10px;
+    margin-top: 0px;
     height: auto;
     img
     {
@@ -96,9 +100,8 @@ header {
     li > a:hover,li > a:visited,li > a:focus
     {
       color:$header-links-color-onHover !important;;
-      opacity: 0.7;
       background:none;
-      text-decoration: underline !important;
+      //text-decoration: underline !important;
     }
 
     li.has-dropdown > a
@@ -127,6 +130,50 @@ header {
     li.has-dropdown .dropdown > ul a:hover
     {
       background:rgba(0,0,0,0.15);
+    }
+
+    li.has-dropdown
+    {
+      position:relative;
+      .dropdown-menu
+      {
+        position:absolute;
+        top:100%;
+        left:0px;
+        display: none;
+        min-width:150px;
+        width:auto;
+        background:$color-cream;
+        padding:0px;
+        margin: 0px;
+        li
+        {
+          border-bottom:1px solid $color-darkGreen;
+          margin: 0px;
+          a
+          {
+            padding:5px 10px;
+            color:$color-darkGreen !important;
+            font-size: 12px;
+          }
+          a:hover,a:focus
+          {
+            background:$color-darkGreen;
+            color:$color-cream !important;
+          }
+        }
+        li:first-child
+        {
+          border-top:1px solid $color-darkGreen;
+        }
+      }
+    }
+    li.has-dropdown:hover
+    {
+      .dropdown-menu
+      {
+        display:block;
+      }
     }
   }
 }
@@ -211,7 +258,7 @@ footer
   {
     width:100%;
     font-size: 12px;
-    color:$background-color-darkGreen !important;
+    color:$background-color-darkGreen;
     padding:5px 10px;
     height:auto;
     line-height:150%;
@@ -255,5 +302,139 @@ footer
       }
     }
   }
+
+}
+
+
+
+
+
+
+.talent_profile
+{
+  .container
+  {
+    border-left:1px solid #e4e4e4;
+    border-right:1px solid #e4e4e4;
+  }
+  .cover_pic
+  {
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:300px;
+  }
+
+  .profile_image_container
+  {
+    @include border-radius(150px);
+    position:relative;
+    border:1px solid $color-darkGreen;
+    overflow: hidden;
+    width:250px;
+    height:250px;
+    margin-top: 75px;
+    margin-bottom: -25px;
+    img
+    {
+      margin:0px auto;
+      width:100%;
+    }
+    .change_profile_image
+    {
+      display:none;
+      position:absolute;
+      bottom:0px;
+      left:0px;
+      text-align: center;
+      padding:5px 15px;
+      width:100%;
+      background:rgba(0,0,0,0.50);
+      a
+      {
+        color:#fFFFFF;
+        font-weight: 700;
+      }
+    }
+  }
+  .profile_image_container:hover
+  {
+    .change_profile_image
+    {
+      display:block;
+    }
+  }
+
+  //User Profile Details such as name, sports, preferred position, etc.
+  .user_profile_details
+  {
+    height:300px;
+    max-height: 300px;
+    .user_name,.user_sport,.user_position,.user_management_level,.user_country
+    {
+      font-weight:700;
+      @include text-shadow(0px,0px,10px,null, rgba(0,0,0,0.75));
+      font-size:20px;
+      margin-bottom:15px;
+      color:rgba(255,255,255,1);
+    }
+    .user_name
+    {
+      font-size: 24px;
+    }
+    .user_sport span
+    {
+      font-style: italic;
+    }
+    .user_position
+    {
+      font-weight: 400;
+    }
+    .user_management_level
+    {
+      font-weight: 400;
+    }
+    .user_country
+    {
+      font-style: italic;
+    }
+
+    .user_personal_data_container
+    {
+      padding-top: 80px;
+      color:rgba(255,255,255,1);
+      height: 100%;
+    }
+    .user_personal_data_container:after
+    {
+      position:absolute;
+      right:15px;
+      top:-5px;
+      height:105%;
+      width:2px;
+      content:'';
+      background:rgba(0,0,0,1);
+    }
+
+
+    .about_container
+    {
+      margin-top: 80px;
+      p
+      {
+        font-size: 16px;
+        line-height: 180%;
+        font-weight: 400;
+        @include text-shadow(0px,0px,10px,null, rgba(0,0,0,0.75));
+        color:#FFFFFF;
+      }
+      p.about
+      {
+        margin-bottom: 25px;
+      }
+    }
+  }
+
+
 
 }

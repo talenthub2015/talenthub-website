@@ -32,6 +32,7 @@ class CreateUsersTableCareerInformationTableCareerReferencesTableCareerSportStat
             /*
              * Personal Information
              */
+            $table->text('profile_image_path');
             $table->string('first_name');
             $table->string('middle_name');
             $table->string('last_name');
@@ -50,6 +51,7 @@ class CreateUsersTableCareerInformationTableCareerReferencesTableCareerSportStat
             $table->string('graduation_year');
             $table->string('graduating_from');
             $table->string('ncaa');
+            $table->text('about');
             /*
              * Father's information
              */

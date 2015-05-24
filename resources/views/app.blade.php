@@ -12,16 +12,17 @@
     <!-- Disabling zooming on mobile phones -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+
     <script src="{{asset('js/jquery-1.11.2.min.js')}}"></script>
-    <script src="{{asset('js/jquery-ui.js')}}"></script>
+    <script src="{{asset('js/jquery-ui.min.js')}}"></script>
     <script src="{{asset('js/angular.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/html5shiv.min.js')}}"></script>
     <script src="{{asset('js/respond.min.js')}}"></script>
-    <script src="{{asset('js/basic_site_animation.js')}}"></script>
 
     <script src="{{asset('js/allangularscripts.js')}}"></script>
     <script src="{{asset('js/form-validations.js')}}"></script>
+    <script src="{{asset('js/basic_site_animation.js')}}"></script>
 
 
 </head>

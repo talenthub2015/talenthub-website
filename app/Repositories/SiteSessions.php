@@ -24,6 +24,8 @@ class SiteSessions
     const USER_MANAGEMENT_LEVEL = "user_management_level";
     const USER_SPORT_TYPE = "sport_type";
 
+    const USER_COMPLETING_PROFILE_FIRST_TIME = "user_completing_profile_first_type";
+
 
     /**
      * Setting Session data of a user while login

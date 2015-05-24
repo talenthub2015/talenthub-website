@@ -15,9 +15,9 @@ class UserProfile extends Model
 
     //Fillable fields for the profiles
     protected $fillable = [
-        'first_name', 'middle_name', 'last_name', 'dob', 'gender', 'height', 'weight', 'nationality', 'mobile_number',
+        'profile_image_path','first_name', 'middle_name', 'last_name', 'dob', 'gender', 'height', 'weight', 'nationality', 'mobile_number',
         'home_number', 'address_type', 'street_address', 'state_province', 'zip', 'country', 'graduation_year',
-        'graduating_from', 'ncaa', 'father_name', 'father_occupation', 'father_mobile_number', 'father_alumni',
+        'graduating_from', 'ncaa','about', 'father_name', 'father_occupation', 'father_mobile_number', 'father_alumni',
         'father_living_with', 'mother_name', 'mother_occupation', 'mother_mobile_number', 'mother_alumni',
         'mother_living_with', 'guardian_name', 'guardian_occupation', 'guardian_mobile_number', 'guardian_alumni',
         'guardian_living_with', 'school_type', 'school_name', 'school_address', 'school_city', 'school_state_province',
@@ -28,6 +28,11 @@ class UserProfile extends Model
         'reason_choice_major_1',
         'sport_type', 'positions', 'position', 'preferred_position', 'params'
     ];
+
+
+    public $getMutatedData = true;
+    public $setMutateData = true;
+
 
 
     /**
@@ -47,7 +52,11 @@ class UserProfile extends Model
      */
     public function getSportTypeAttribute($sport)
     {
-        return array_search($sport,BasicSiteRepository::getSportTypes());
+        if($this->getMutatedData)
+        {
+            return array_search($sport,BasicSiteRepository::getSportTypes());
+        }
+        return ucfirst($sport);
     }
 
 
@@ -84,15 +93,17 @@ class UserProfile extends Model
      */
     public function getPositionsAttribute($positions)
     {
-        $sportPositions = SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE));
-        $positionArray=array();
-        $positions = explode("|",$positions);
-        $i=0;
-        foreach($positions as $position)
-        {
-            $positionArray[$i++]=array_search($position,$sportPositions);
+        if($this->getMutatedData) {
+            $sportPositions = SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE));
+            $positionArray = array();
+            $positions = explode("|", $positions);
+            $i = 0;
+            foreach ($positions as $position) {
+                $positionArray[$i++] = array_search($position, $sportPositions);
+            }
+            return $positionArray;
         }
-        return $positionArray;
+        return ucfirst($positions);
     }
 
 
@@ -112,9 +123,68 @@ class UserProfile extends Model
      */
     public function getPreferredPositionAttribute($position)
     {
-        $sportPositions = SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE));
-        return array_search($position,$sportPositions);
+        if($this->getMutatedData) {
+            $sportPositions = SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE));
+            return array_search($position, $sportPositions);
+        }
+        return ucfirst($position);
     }
+
+
+    /**
+     * Getting param data from database and modifying it to an array of corresponding field values
+     * @param $param
+     */
+    public function getparamsAttribute($param)
+    {
+        if($this->getMutatedData) {
+            $finalArray = [];
+            $userProfileParamsKeys = SportsRepository::getExtraParamsKeysUserProfile();
+            foreach ($userProfileParamsKeys as $key) {
+                $finalArray[$key] = "";
+            }
+            $dataParam = explode("|", $param);
+
+            foreach ($dataParam as $data) {
+                $var = explode(":", $data);
+                if (in_array($var[0], $userProfileParamsKeys)) {
+                    $finalArray[array_search($var[0], $userProfileParamsKeys)] = $var[1];
+                }
+            }
+
+            return $finalArray;
+        }
+        return ucfirst($param);
+    }
+
+
+    /**
+     * Mutating Country before saving in database
+     * @param $country
+     */
+    public function setcountryAttribute($country)
+    {
+        if($this->setMutateData)
+        {
+            $this->attributes["country"]=BasicSiteRepository::getListOfCountries()[$country];
+        }
+    }
+
+    /**
+     * Mutating country before presenting it to a user
+     * @param $country
+     * @return mixed
+     */
+    public function getcountryAttribute($country)
+    {
+        if($this->getMutatedData)
+        {
+            return array_search($country,BasicSiteRepository::getListOfCountries());
+        }
+        return ucfirst($country);
+    }
+
+
 
 
 

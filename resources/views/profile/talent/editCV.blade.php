@@ -6,6 +6,8 @@
 
             $sport_type=Session::get(\talenthub\Repositories\SiteSessions::USER_SPORT_TYPE);
 
+            $userProfileExtraParamsKey = \talenthub\Repositories\SportsRepository::getExtraParamsKeysUserProfile();
+
     ?>
     <div ng-app="edit-profile">
         <div class="container edit-profile" ng-controller="tabController as tab">
@@ -22,28 +24,69 @@
                             @include("errors.error_raw_list")
                             <div ng-show="tab.isTabClicked(1)" class="tab_panel">
                                 <div class="row form_container">
-                                    <div class="col-xs-12 col-lg-4">
+                                    <div class="col-xs-12 col-lg-3">
                                         <div class="form-group">
                                             {!! Form::label('positions','Positions:') !!}
                                             {!! Form::select('positions[]',$sportPositions,$talentProfile->positions,['class'=>'form-control','multiple']) !!}
                                         </div>
                                     </div>
 
-                                    <div class="col-xs-12 col-lg-4">
+                                    <div class="col-xs-12 col-lg-3">
                                         <div class="form-group">
                                             {!! Form::label('preferred_position','Preferred Position:') !!}
                                             {!! Form::select('preferred_position',$sportPositions,$talentProfile->preferred_position,['class'=>'form-control']) !!}
                                         </div>
                                     </div>
 
-                                    <div class="col-xs-12 col-lg-4">
-                                        <div class="form-group">
-                                            {!! Form::label('dominant_hand','Dominant Hand:') !!}
-                                            {!! Form::select('dominant_hand',['0'=>'--Select Option--','1'=>'Left Hand','2'=>'Right Hand',
-                                            '3'=>'Ambidextrous'],null,['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'0',
-                                            'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select an option']) !!}
+                                    @if($sport_type == \talenthub\Repositories\SportsRepository::BASKETBALL)
+                                        <div class="col-xs-12 col-lg-3">
+                                            <div class="form-group">
+                                                {!! Form::label($userProfileExtraParamsKey["dominant_hand"],'Dominant Hand:') !!}
+                                                {!! Form::select($userProfileExtraParamsKey["dominant_hand"],
+                                                ['0'=>'--Select Option --','Left Hand'=>'Left Hand','Right Hand'=>'Right Hand','Ambidextrous'=>'Ambidextrous'],
+                                                $talentProfile->params["dominant_hand"],['class'=>'form-control','data-validate'=>'numberDecimal',
+                                                'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter a number correctly']) !!}
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
+
+                                    @if($sport_type == \talenthub\Repositories\SportsRepository::SOCCER)
+                                        <div class="col-xs-12 col-lg-3">
+                                            <div class="form-group">
+                                                {!! Form::label($userProfileExtraParamsKey["dominant_foot"],'Dominant Foot:') !!}
+                                                {!! Form::select($userProfileExtraParamsKey["dominant_foot"],
+                                                ['0'=>'--Select Option --','Left'=>'Left','Right'=>'Right'],
+                                                $talentProfile->params["dominant_foot"],['class'=>'form-control','data-validate'=>'select',
+                                                'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter a number correctly']) !!}
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($sport_type == \talenthub\Repositories\SportsRepository::RUGBY)
+
+                                        <div class="col-xs-12 col-lg-2">
+                                            <div class="form-group">
+                                                {!! Form::label($userProfileExtraParamsKey["speed_40"],'Speed(40m):') !!}
+                                                {!! Form::text($userProfileExtraParamsKey["speed_40"],$talentProfile->params["speed_40"],['class'=>'form-control',
+                                                'data-validate'=>'numberDecimal','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter a number correctly']) !!}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-lg-2">
+                                            <div class="form-group">
+                                                {!! Form::label($userProfileExtraParamsKey["speed_100"],'Speed(100m):') !!}
+                                                {!! Form::text($userProfileExtraParamsKey["speed_100"],$talentProfile->params["speed_100"],['class'=>'form-control',
+                                                'data-validate'=>'numberDecimal','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter a number correctly']) !!}
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-lg-2">
+                                            <div class="form-group">
+                                                {!! Form::label($userProfileExtraParamsKey["bench_press"],'Bench Press:') !!}
+                                                {!! Form::text($userProfileExtraParamsKey["bench_press"],$talentProfile->params["bench_press"],['class'=>'form-control',
+                                                'data-validate'=>'numberDecimal','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter a number correctly']) !!}
+                                            </div>
+                                        </div>
+                                    @endif
 
                                 </div>
 
@@ -164,19 +207,12 @@
 
                                             //dd($sport_type);
                                         ?>
-                                        @if($sport_type == \talenthub\Repositories\SportsRepository::BASEBALL)
-                                            @include('profile.talent.TalentCVForms.baseballCV',compact('sportDataMap','sportStatistics'))
-                                        @endif
 
-                                        @if($sport_type == \talenthub\Repositories\SportsRepository::BASKETBALL)
-                                            @include('profile.talent.TalentCVForms.basketballCV',compact('sportDataMap','sportStatistics'))
-                                        @endif
+                                        @include('profile.talent.TalentCVForms.getSportCVView',compact('sport_type','sportDataMap','sportStatistics'))
 
-                                        @if($sport_type == \talenthub\Repositories\SportsRepository::RUGBY)
-                                            @include('profile.talent.TalentCVForms.rugbyCV',compact('sportDataMap','sportStatistics'))
-                                        @endif
 
                                         <?php
+
                                             $clubReferences=$clubCareerInformation[0]->careerReferences()->get();
                                             if(count($clubReferences)==0)
                                             {
@@ -418,13 +454,8 @@
                                                     $sportDataMap = $clubDataMap;
                                                     $sportStatistics = $clubCareerInformation[$i]->careerSportStatistics(Session::get(\talenthub\Repositories\SiteSessions::USER_SPORT_TYPE))->get();
                                                 ?>
-                                                @if($sport_type == \talenthub\Repositories\SportsRepository::BASEBALL)
-                                                    @include('profile.talent.TalentCVForms.baseballCV',compact('sportDataMap','sportStatistics'))
-                                                @endif
 
-                                                @if($sport_type == \talenthub\Repositories\SportsRepository::BASKETBALL)
-                                                    @include('profile.talent.TalentCVForms.basketballCV',compact('sportDataMap','sportStatistics'))
-                                                @endif
+                                                @include('profile.talent.TalentCVForms.getSportCVView',compact('sport_type','sportDataMap','sportStatistics'))
 
                                                 <?php
                                                 $clubReferences=$clubCareerInformation[$i]->careerReferences()->get();
@@ -678,13 +709,8 @@
                                         $sportDataMap = $schoolDataMap;
                                         $sportStatistics = $schoolCareerInformation[0]->careerSportStatistics(Session::get(\talenthub\Repositories\SiteSessions::USER_SPORT_TYPE))->get();
                                         ?>
-                                        @if($sport_type == \talenthub\Repositories\SportsRepository::BASEBALL)
-                                            @include('profile.talent.TalentCVForms.baseballCV',compact('sportDataMap','sportStatistics'))
-                                        @endif
+                                        @include('profile.talent.TalentCVForms.getSportCVView',compact('sport_type','sportDataMap','sportStatistics'))
 
-                                        @if($sport_type == \talenthub\Repositories\SportsRepository::BASKETBALL)
-                                            @include('profile.talent.TalentCVForms.basketballCV',compact('sportDataMap','sportStatistics'))
-                                        @endif
                                         <h1>School References</h1>
 
                                         <?php
@@ -922,13 +948,8 @@
                                                     $sportStatistics = $schoolCareerInformation[$i]->careerSportStatistics(Session::get(\talenthub\Repositories\SiteSessions::USER_SPORT_TYPE))->get();
 
                                                     ?>
-                                                    @if($sport_type == \talenthub\Repositories\SportsRepository::BASEBALL)
-                                                        @include('profile.talent.TalentCVForms.baseballCV',compact('sportDataMap','sportStatistics'))
-                                                    @endif
+                                                    @include('profile.talent.TalentCVForms.getSportCVView',compact('sport_type','sportDataMap','sportStatistics'))
 
-                                                    @if($sport_type == \talenthub\Repositories\SportsRepository::BASKETBALL)
-                                                        @include('profile.talent.TalentCVForms.basketballCV',compact('sportDataMap','sportStatistics'))
-                                                    @endif
                                                     <h1>School References</h1>
 
                                                     <?php

@@ -12,15 +12,15 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less','resources/assets/lib/css/');
+    //mix.less('app.less','resources/assets/lib/css/');
 
-    mix.rubySass('welcomepage.scss','resources/assets/lib/css/');
+    //mix.rubySass('welcomepage.scss','resources/assets/lib/css/');
 
-    mix.styles([
-        "lib/css/basic_site_style.css",
-        "lib/css/app.css",
-        "lib/css/welcomepage.css",
-    ],'public/css/welcomepage.css','resources/assets/');
+    //mix.styles([
+    //    "lib/css/basic_site_style.css",
+    //    "lib/css/app.css",
+    //    "lib/css/welcomepage.css",
+    //],'public/css/welcomepage.css','resources/assets/');
 
     //mix.scripts([
     //    "jquery-1.11.2.min.js",
@@ -29,9 +29,9 @@ elixir(function(mix) {
     //    "respond.min.js"
     //],"public/js/allscripts.js","resources/assets/js");
 
-    mix.scripts([
-        "profile-edit.js",
-    ],"public/js/allangularscripts.js","resources/assets/lib/js");
+    //mix.scripts([
+    //    "profile-edit.js",
+    //],"public/js/allangularscripts.js","resources/assets/lib/js");
 
 
     mix.rubySass('main.scss','resources/assets/lib/css/');

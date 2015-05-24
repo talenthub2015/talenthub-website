@@ -35,29 +35,42 @@ $(document).ready(function(){
 
     $(forms).each(function(i,form){
         $(form).submit(function(event){
+            findFormELementsAndValidate(this,event);
+        });
 
-            var inputs  =   $(this).find('input');
-            var selects =   $(this).find('select');
-            var textareas   =   $(this).find('textarea');
-
-            var formErrorStatus1=false;
-            var formErrorStatus2=false;
-            var formErrorStatus3=false;
-
-            $(this).find("."+errorClassName).removeClass(errorClassName);
-
-            formErrorStatus1 = validateInputAndActiveToolTip(inputs);
-            formErrorStatus2 = validateInputAndActiveToolTip(selects);
-            formErrorStatus3 = validateInputAndActiveToolTip(textareas);
-
-            if(formErrorStatus1 || formErrorStatus2 || formErrorStatus3)
-            {
-                event.preventDefault();
-                $(this).trigger('form-error');
-                return false;
-            }
+        //Can Give class ".validate_this_form" to an element, so that when clicked it will validate the data of the form
+        $(form).find(".validate_this_form").click(function(event){
+            findFormELementsAndValidate(form,event);
         });
     });
+
+
+    function findFormELementsAndValidate(form_element,event)
+    {
+
+        var inputs  =   $(form_element).find('input');
+        var selects =   $(form_element).find('select');
+        var textareas   =   $(form_element).find('textarea');
+
+        var formErrorStatus1=false;
+        var formErrorStatus2=false;
+        var formErrorStatus3=false;
+
+        $(form_element).find("."+errorClassName).removeClass(errorClassName);
+
+        formErrorStatus1 = validateInputAndActiveToolTip(inputs);
+        formErrorStatus2 = validateInputAndActiveToolTip(selects);
+        formErrorStatus3 = validateInputAndActiveToolTip(textareas);
+
+
+        if(formErrorStatus1 || formErrorStatus2 || formErrorStatus3)
+        {
+            alert("In");
+            event.preventDefault();
+            $(form_element).trigger('form-error');
+            return false;
+        }
+    }
 
     function validateInputAndActiveToolTip(inputArray)
     {
@@ -210,6 +223,21 @@ $(document).ready(function(){
                                     errorStatus=true;
                                 }
                             }
+                            break;
+
+                        case "image":
+
+                            var Extension = $(element).val().substring($(element).val().lastIndexOf('.') + 1).toLowerCase();
+
+                            if (Extension == "gif" || Extension == "png" || Extension == "bmp" || Extension == "jpeg"
+                                || Extension == "jpg") {
+
+                            }
+                            else
+                            {
+                                errorStatus=true;
+                            }
+
                             break;
                     }
 

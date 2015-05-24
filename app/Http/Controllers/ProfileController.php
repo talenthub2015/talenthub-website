@@ -3,8 +3,13 @@
 use Illuminate\Database\Capsule\Manager;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 use talenthub\Http\Requests;
 use talenthub\Http\Controllers\Controller;
 
@@ -17,12 +22,16 @@ use talenthub\Repositories\BasicSiteRepository;
 use talenthub\Repositories\SiteConstants;
 use talenthub\Repositories\SiteSessions;
 use talenthub\Repositories\SportsRepository;
+use talenthub\Repositories\StorageLocationsRepository;
 use talenthub\Repositories\UserProfileRepository;
 use talenthub\TalentCareerInformation;
 use talenthub\TalentCareerReferences;
 use talenthub\TalentCareerStatisticsModels\BaseBallStatistics;
 use talenthub\TalentCareerStatisticsModels\BasketBallStatistics;
 use talenthub\TalentCareerStatisticsModels\RugbyStatistics;
+use talenthub\TalentCareerStatisticsModels\SoccerStatistics;
+use talenthub\TalentCareerStatisticsModels\SwimmingStatistics;
+use talenthub\TalentCareerStatisticsModels\TrackAndFieldStatistics;
 use talenthub\User;
 use talenthub\UserProfile;
 
@@ -35,8 +44,61 @@ class ProfileController extends Controller {
 	 */
 	public function index()
 	{
-		dd(session()->all());
+        Blade::setContentTags('<%', '%>');        // for variables and all things Blade
+        Blade::setEscapedContentTags('<%%', '%%>');   // for escaped data
+
+        $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
+        //$userProfile->unmuatedDataForPresentation();
+        $userProfile->getMutatedData = false;
+
+        $country=BasicSiteRepository::getListOfCountries();
+        $sportPositions=array_map('ucfirst',SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE)));
+
+		return view('profile.home',compact('userProfile','country','sportPositions'));
 	}
+
+
+    /**
+     *Function to upload Profile Image
+     */
+    public function uploadImage(Request $request)
+    {
+        if(!$request->hasFile("profile_image"))
+        {
+            return redirect()->back()->withErrors(["imageUploaded"=>'image not found']);
+        }
+        $validator = Validator::make($request->all(), ['profile_image'=>'required']);
+        $imageFile = $request->file("profile_image");
+        $imageExt = $imageFile->getClientOriginalExtension();
+        if(array_search(strtolower($imageExt),['jpg','jpeg','png','gif']))
+        {
+            dd($imageExt);
+            return redirect()->back()->withErrors(["imageUploaded"=>'File extension is not supported.']);
+        }
+        if($validator->fails())
+        {
+            $errors = $validator->errors();
+            dd($errors);
+            return redirect()->back()->withErrors($validator->errors());
+        }
+        $image = Image::make($imageFile)->fit(300,300);
+
+        $icon_image = Image::make($imageFile)->fit(60,60);
+        $small_image = Image::make($imageFile)->fit(100,100);
+
+        $this->createImageSourceDirectories();
+
+        $fileName=hash("md5",$imageFile->getClientOriginalName().Session::get(SiteSessions::USER_ID).Session::get(SiteSessions::USER_NAME));
+        $image->save(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_PATH.$fileName);
+        $icon_image->save(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_ICON_PATH.$fileName);
+        $small_image->save(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_SMALL_PATH.$fileName);
+
+        $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
+        $userProfile->profile_image_path = url(StorageLocationsRepository::USER_PROFILE_IMAGE_PATH.$fileName);
+        $userProfile->save();
+
+        return redirect()->back()->with(["imageUploaded"=>"successfully"]);
+    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -167,7 +229,10 @@ class ProfileController extends Controller {
             $managerProfile->managerCareerInformation;
         }
 
-
+        if(Session::has(SiteSessions::USER_COMPLETING_PROFILE_FIRST_TIME))
+        {
+            return redirect('profile/editCV');
+        }
         return redirect('profile/edit');
 	}
 
@@ -183,19 +248,25 @@ class ProfileController extends Controller {
         $this->validateCVData($request);
         //--------- Need to work over this function afterwards -------//
 
-
-        $user = Auth::user();
-        $userProfile = UserProfile::find($user->user_id);
-
+        $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
+        $userParamsData="";
         if(count($request->positions)>0)
         {
             $userProfile->positions=$request->positions;
             $userProfile->preferred_position = $request->preferred_position;
-            $userProfile->save();
         }
+
+        $userProfile->params=$this->getParamsDataForProfile($request);
+
+        $userProfile->save();
 
         //Storing Club and School information and their respective sport statistics
         $this->storeClubSchoolInformation($userProfile,$request);
+
+        if(Session::has(SiteSessions::USER_COMPLETING_PROFILE_FIRST_TIME))
+        {
+            return redirect('');
+        }
 
         return redirect('profile/editCV');
     }
@@ -210,6 +281,15 @@ class ProfileController extends Controller {
 	{
 		//
 	}
+
+
+    /**
+     *Returning the view after profile is completed
+     */
+    public function completed()
+    {
+        return view('profile.talent.profile_completed');
+    }
 
 
     /**
@@ -278,6 +358,27 @@ class ProfileController extends Controller {
 
 
     /**
+     *Getting the extra parameters of a user profile and modifying it in a form such as [dominant_hand:right|speed_40:50], etc.
+     * @param $request
+     */
+    public function getParamsDataForProfile($request)
+    {
+        $paramsData = "";
+        $userProfileParamsKeys = SportsRepository::getExtraParamsKeysUserProfile();
+
+        foreach($userProfileParamsKeys as $key=>$value)
+        {
+            if($request->has($value))
+            {
+                $paramsData.= $value.":".$request->get($value)."|";
+            }
+        }
+
+        return count($paramsData)>0 ? substr($paramsData,0,-1) : $paramsData;
+    }
+
+
+    /**
      * Store the full information of Career, statistics and references.
      * Also, save career based upon career type
      * @param $request
@@ -322,7 +423,8 @@ class ProfileController extends Controller {
             default:
                 return false;
         }
-
+//        var_dump($careerTypeSportDataMap);
+//        dd($formRequest);
         /*
          * For loop for storing Career Information
          */
@@ -354,7 +456,7 @@ class ProfileController extends Controller {
             /*
              * This code is for storing Sport statistics in the database
              */
-            $sportStatisticsCount = count($formRequest[$careerTypeSportDataMap["year"]][$i]);
+            $sportStatisticsCount = count($formRequest[array_values($careerTypeSportDataMap)[0]][$i]);
 
             $existingSportStatistics = $talentCareerInformation->careerSportStatistics(Session::get(SiteSessions::USER_SPORT_TYPE))->get();
 
@@ -461,19 +563,19 @@ class ProfileController extends Controller {
                 return RugbyStatistics::$dataMap;
                 break;
             case SportsRepository::SOCCER:
-                return BaseBallStatistics::$dataMap;
+                return SoccerStatistics::$dataMap;
                 break;
             case SportsRepository::SOFTBALL:
                 return BaseBallStatistics::$dataMap;
                 break;
             case SportsRepository::SWIMMING:
-                return BaseBallStatistics::$dataMap;
+                return SwimmingStatistics::$dataMap;
                 break;
             case SportsRepository::TENNIS:
                 return BaseBallStatistics::$dataMap;
                 break;
             case SportsRepository::TRACK_FIELD:
-                return BaseBallStatistics::$dataMap;
+                return TrackAndFieldStatistics::$dataMap;
                 break;
             case SportsRepository::WATERPOLO:
                 return BaseBallStatistics::$dataMap;
@@ -559,6 +661,26 @@ class ProfileController extends Controller {
         //dd($validator);
 
 
+    }
+
+
+    /**
+     *Check is directory exists or not , if not then creates the directories
+     */
+    public function createImageSourceDirectories()
+    {
+        if(!file_exists(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_PATH))
+        {
+            $result = File::makeDirectory(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_PATH, 0775, true);
+        }
+        if(!file_exists(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_SMALL_PATH))
+        {
+            $result = File::makeDirectory(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_SMALL_PATH, 0775, true);
+        }
+        if(!file_exists(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_ICON_PATH))
+        {
+            $result = File::makeDirectory(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_ICON_PATH, 0775, true);
+        }
     }
 
 

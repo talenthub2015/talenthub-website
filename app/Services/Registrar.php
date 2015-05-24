@@ -41,7 +41,8 @@ class Registrar implements RegistrarContract {
 			'password'  =>  $data['password'],
             'user_type' =>  $data['user_type'],
             'management_level' => $data['management_level'],
-            'sport_type'=>  $data['sport_type']
+            'sport_type'=>  $data['sport_type'],
+            'profile_image_path'=> $data['profile_image_path']
 		]);
 	}
 

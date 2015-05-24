@@ -27,10 +27,10 @@ class SportsRepository {
         self::BASKETBALL => array("point guard","shooting guard","small forward","power forward","center"),
         self::FOOTBALL => array("batting","fielding"),
         self::RUGBY => array("forward","backline","kicker"),
-        self::SOCCER => array("",""),
-        self::SWIMMING => array("",""),
+        self::SOCCER => array("goalkeeper","defender","midfielder","forward"),
+        self::SWIMMING => array("Breast Stroke","Butterfly","Back Stroke","Free Style","Diving"),
         self::TENNIS => array("",""),
-        self::TRACK_FIELD => array("",""),
+        self::TRACK_FIELD => array("class1","class2"),
         self::SOFTBALL => array("",""),
         self::WATERPOLO => array("","")
     );
@@ -141,6 +141,21 @@ class SportsRepository {
             }
         }
         return $dataMap;
+    }
+
+
+    /**
+     *Function has the array of User Profile extra parameters asked such as dominant hand, speed 40m, speed 100m, bench press, etc.
+     */
+    public static function getExtraParamsKeysUserProfile()
+    {
+        return [
+            'dominant_hand'=>'dominant_hand',
+            'dominant_foot'=>'dominant_foot',
+            'speed_40'=>'speed_40',
+            'speed_100'=>'speed_100',
+            'bench_press'=>'bench_press'
+        ];
     }
 
 }

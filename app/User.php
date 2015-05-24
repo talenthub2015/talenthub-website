@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Http\Request;
 use talenthub\Repositories\BasicSiteRepository;
+use talenthub\Repositories\SiteConstants;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -29,7 +30,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['username', 'password','user_type','sport_type','management_level'];
+	protected $fillable = ['username', 'password','user_type','sport_type','management_level','first_name','last_name','profile_image_path'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -56,6 +57,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function setSportTypeAttribute($value)
     {
         $this->attributes['sport_type'] = BasicSiteRepository::getSportTypes()[$value];
+    }
+
+
+    /*Mutator for setting Management Level.*/
+    public function setmanagementLevelAttribute($management_level)
+    {
+        return BasicSiteRepository::getUserManagementLevelType(SiteConstants::USER_MANAGER)[$management_level];
     }
 
 

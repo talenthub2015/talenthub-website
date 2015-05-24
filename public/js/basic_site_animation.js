@@ -5,7 +5,13 @@ $(document).ready(function(){
 
     /*Defining Some Common calls to some functions which may be used to configure widgets like datepicker, etc. */
 
-    $("input.datepicker").datepicker();
+    //$("").datepicker();
+    jQuery('form').on('focus',"input.datepicker", function(){
+        jQuery(this).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
 
 
 
