@@ -15,9 +15,10 @@ class UserProfile extends Model
 
     //Fillable fields for the profiles
     protected $fillable = [
-        'profile_image_path','first_name', 'middle_name', 'last_name', 'dob', 'gender', 'height', 'weight', 'nationality', 'mobile_number',
+        'profile_image_path','profile_icon_image_path','profile_small_image_path','profile_cover_image_path',
+        'first_name', 'middle_name', 'last_name', 'dob', 'gender', 'height', 'weight', 'nationality', 'mobile_number',
         'home_number', 'address_type', 'street_address', 'state_province', 'zip', 'country', 'graduation_year',
-        'graduating_from', 'ncaa','about', 'father_name', 'father_occupation', 'father_mobile_number', 'father_alumni',
+        'graduating_from', 'ncaa', 'about', 'summary', 'father_name', 'father_occupation', 'father_mobile_number', 'father_alumni',
         'father_living_with', 'mother_name', 'mother_occupation', 'mother_mobile_number', 'mother_alumni',
         'mother_living_with', 'guardian_name', 'guardian_occupation', 'guardian_mobile_number', 'guardian_alumni',
         'guardian_living_with', 'school_type', 'school_name', 'school_address', 'school_city', 'school_state_province',
@@ -66,6 +67,12 @@ class UserProfile extends Model
     public function careerInformation()
     {
         return $this->hasMany('talenthub\TalentCareerInformation','user_id');
+    }
+
+
+    public function awards()
+    {
+        return $this->hasOne('talenthub\Awards','user_id');
     }
 
 

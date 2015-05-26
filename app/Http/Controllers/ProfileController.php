@@ -1,6 +1,7 @@
 <?php namespace talenthub\Http\Controllers;
 
 use Illuminate\Database\Capsule\Manager;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
+use talenthub\Awards;
 use talenthub\Http\Requests;
 use talenthub\Http\Controllers\Controller;
 
@@ -54,7 +56,14 @@ class ProfileController extends Controller {
         $country=BasicSiteRepository::getListOfCountries();
         $sportPositions=array_map('ucfirst',SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE)));
 
-		return view('profile.home',compact('userProfile','country','sportPositions'));
+        $userCareerHistory=$userProfile->careerInformation;
+        $awards = $userProfile->awards;
+        if($awards == null)
+        {
+            $awards = new Awards();
+        }
+
+		return response()->view('profile.home',compact('userProfile','country','sportPositions','userCareerHistory','awards'));
 	}
 
 
@@ -63,12 +72,15 @@ class ProfileController extends Controller {
      */
     public function uploadImage(Request $request)
     {
-        if(!$request->hasFile("profile_image"))
+        if(!$request->hasFile("profile_image") && !$request->hasFile("cover_image"))
         {
             return redirect()->back()->withErrors(["imageUploaded"=>'image not found']);
         }
-        $validator = Validator::make($request->all(), ['profile_image'=>'required']);
-        $imageFile = $request->file("profile_image");
+        $imageFieldName= $request->hasFile("profile_image") ? "profile_image" : "cover_image";
+
+        $validator = Validator::make($request->all(), [$imageFieldName=>'required']);
+        $imageFile = $request->file($imageFieldName);
+
         $imageExt = $imageFile->getClientOriginalExtension();
         if(array_search(strtolower($imageExt),['jpg','jpeg','png','gif']))
         {
@@ -81,23 +93,86 @@ class ProfileController extends Controller {
             dd($errors);
             return redirect()->back()->withErrors($validator->errors());
         }
-        $image = Image::make($imageFile)->fit(300,300);
 
-        $icon_image = Image::make($imageFile)->fit(60,60);
-        $small_image = Image::make($imageFile)->fit(100,100);
-
-        $this->createImageSourceDirectories();
-
-        $fileName=hash("md5",$imageFile->getClientOriginalName().Session::get(SiteSessions::USER_ID).Session::get(SiteSessions::USER_NAME));
-        $image->save(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_PATH.$fileName);
-        $icon_image->save(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_ICON_PATH.$fileName);
-        $small_image->save(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_SMALL_PATH.$fileName);
+        $fileName=hash("md5",$imageFile->getClientOriginalName().Session::get(SiteSessions::USER_ID).Session::get(SiteSessions::USER_NAME)).".".$imageFile->getClientOriginalExtension();
 
         $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
-        $userProfile->profile_image_path = url(StorageLocationsRepository::USER_PROFILE_IMAGE_PATH.$fileName);
+
+        //Saving Profile Image
+        if($imageFieldName == "profile_image")
+        {
+            $image = Image::canvas(300, 300);
+            $image_updated  = Image::make($imageFile)->resize(300, 300);
+            $image->insert($image_updated, 'center');
+
+            $icon_image = Image::make($imageFile)->fit(300,300)->resize(60,60);
+            $small_image = Image::make($imageFile)->fit(300,300)->resize(100,100);
+
+            $this->createImageSourceDirectories(StorageLocationsRepository::USER_DIRECTORY_TYPE_PROFILE_IMAGES);
+
+            $image->save(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_PATH.$fileName);
+            $icon_image->save(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_ICON_PATH.$fileName);
+            $small_image->save(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_SMALL_PATH.$fileName);
+
+            $userProfile->profile_image_path = url(StorageLocationsRepository::USER_PROFILE_IMAGE_PATH.$fileName);
+            $userProfile->profile_icon_image_path = url(StorageLocationsRepository::USER_PROFILE_IMAGE_ICON_PATH.$fileName);
+            $userProfile->profile_small_image_path = url(StorageLocationsRepository::USER_PROFILE_IMAGE_SMALL_PATH.$fileName);
+        }
+        else if($imageFieldName == "cover_image")
+        {
+            $image = Image::canvas(1200, 350);
+            $image_updated  = Image::make($imageFile)->widen(1200)->crop(1200,350);
+            $image->insert($image_updated, 'center');
+
+            $this->createImageSourceDirectories(StorageLocationsRepository::USER_DIRECTORY_TYPE_COVER_IMAGES);
+
+            $image->save(public_path().StorageLocationsRepository::USER_COVER_IMAGE_PATH.$fileName);
+
+            $userProfile->profile_cover_image_path = url(StorageLocationsRepository::USER_COVER_IMAGE_PATH.$fileName);
+        }
+
         $userProfile->save();
 
         return redirect()->back()->with(["imageUploaded"=>"successfully"]);
+    }
+
+
+    /**
+     *Updating Profile Data as received from the User profile
+     */
+    public function updateProfileData(Request $request)
+    {
+
+        if(!Auth::check())
+        {
+            return response()->json(['request_status'=>'error','type'=>'user_not_logged_in']);
+        }
+
+        $validator = Validator::make(Input::all(),[
+                'country'=> 'in:'.implode(",",array_keys(BasicSiteRepository::getListOfCountries())),
+            ]);
+
+        if($validator->fails())
+        {
+            return response()->json(['request_status'=>'error','type'=>'validation_error']);
+        }
+
+
+        try
+        {
+            $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
+            $userProfile->first_name = Input::get("first_name");
+            $userProfile->last_name = Input::get("last_name");
+            $userProfile->about = Input::get("about");
+            $userProfile->country = Input::get("country");
+            $userProfile->save();
+        }
+        catch(ModelNotFoundException $e)
+        {
+            return response()->json(['request_status'=>'error','type'=>'user_not_found']);
+        }
+
+        return response()->json(['request_status'=>'successful']);
     }
 
 	/**
@@ -667,20 +742,86 @@ class ProfileController extends Controller {
     /**
      *Check is directory exists or not , if not then creates the directories
      */
-    public function createImageSourceDirectories()
+    public function createImageSourceDirectories($type)
     {
-        if(!file_exists(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_PATH))
+        //Creating Directories for User Profile Images
+        if($type == StorageLocationsRepository::USER_DIRECTORY_TYPE_PROFILE_IMAGES)
         {
-            $result = File::makeDirectory(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_PATH, 0775, true);
+            if(!file_exists(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_PATH))
+            {
+                $result = File::makeDirectory(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_PATH, 0775, true);
+            }
+            if(!file_exists(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_SMALL_PATH))
+            {
+                $result = File::makeDirectory(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_SMALL_PATH, 0775, true);
+            }
+            if(!file_exists(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_ICON_PATH))
+            {
+                $result = File::makeDirectory(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_ICON_PATH, 0775, true);
+            }
         }
-        if(!file_exists(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_SMALL_PATH))
+        //Creating Directories for User Cover Profile Images
+        else if($type == StorageLocationsRepository::USER_DIRECTORY_TYPE_COVER_IMAGES)
         {
-            $result = File::makeDirectory(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_SMALL_PATH, 0775, true);
+            if(!file_exists(public_path().StorageLocationsRepository::USER_COVER_IMAGE_PATH))
+            {
+                $result = File::makeDirectory(public_path().StorageLocationsRepository::USER_COVER_IMAGE_PATH, 0775, true);
+            }
         }
-        if(!file_exists(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_ICON_PATH))
+    }
+
+
+    /**
+     * Updating the profile Summary of a user
+     * @param $request
+     */
+    public function updateProfileSummary(Request $request)
+    {
+        if(!Auth::check())
         {
-            $result = File::makeDirectory(public_path().StorageLocationsRepository::USER_PROFILE_IMAGE_ICON_PATH, 0775, true);
+            return response()->json(['status'=>'error','type'=>'user_not_found']);
         }
+
+        $validator = Validator::make($request->all(),['summary'=>'required']);
+        if($validator->fails())
+        {
+            return response()->json(['status'=>'error','type'=>'summary_not_provided']);
+        }
+
+        $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
+        $userProfile->summary = $request["summary"];
+
+        $userProfile->save();
+
+        return response()->json(['status'=>'successful']);
+
+    }
+
+
+    /**
+     * Updating the profile Awards of a user
+     * @param $request
+     */
+    public function updateProfileAwards(Request $request)
+    {
+        if(!Auth::check())
+        {
+            return response()->json(['status'=>'error1','type'=>'user_not_found']);
+        }
+
+        $validator = Validator::make($request->all(),['award_details'=>'required']);
+        if($validator->fails())
+        {
+            return response()->json(['status'=>'error2','type'=>'summary_not_provided']);
+        }
+
+        $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
+        $awards = $userProfile->awards()->create($request->all());
+
+        $awards->save();
+
+        return response()->json(['status'=>'successful']);
+
     }
 
 

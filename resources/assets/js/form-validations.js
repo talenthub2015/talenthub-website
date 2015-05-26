@@ -65,7 +65,6 @@ $(document).ready(function(){
 
         if(formErrorStatus1 || formErrorStatus2 || formErrorStatus3)
         {
-            alert("In");
             event.preventDefault();
             $(form_element).trigger('form-error');
             return false;

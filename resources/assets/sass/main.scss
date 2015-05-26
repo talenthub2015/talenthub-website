@@ -26,6 +26,8 @@ $t-button-background-color-hover: #204f1F ;
 {
   color:#FFFFFF;
   background: $t-button-background-color-hover;
+  text-decoration: none;
+  @include box-shadow(0px, 0px, 10px, 0px, rgba(0,0,0,0.50))
 }
 .form-control.t-button
 {
@@ -37,6 +39,11 @@ body
   background:$color-cream;
   font-size: 12px;
   line-height:150%;
+}
+
+p
+{
+  position:relative;
 }
 
 
@@ -214,7 +221,7 @@ footer
 
 .body_container
 {
-  margin-top:50px;
+  margin-top:40px;
 }
 
 .nav-tabs
@@ -279,6 +286,7 @@ footer
 
 .edit-profile
 {
+  margin-top: 50px;
   .left_menu_container
   {
     background:rgba(0,0,0,0.15);
@@ -312,10 +320,27 @@ footer
 
 .talent_profile
 {
+  a.glyphicon
+  {
+    color:#FFFFFF;
+  }
+  p > a.edit.glyphicon
+  {
+    position:absolute;
+    top:5px;
+    right:-25px;
+  }
   .container
   {
-    border-left:1px solid #e4e4e4;
-    border-right:1px solid #e4e4e4;
+    position:relative;
+    @include box-shadow(0px,0px,5px,null,rgba(0,0,0,0.15));
+  }
+  .container:hover
+  {
+    .change_cover_pic_container
+    {
+      display: block;
+    }
   }
   .cover_pic
   {
@@ -323,6 +348,30 @@ footer
     top:0px;
     left:0px;
     height:300px;
+    width:100%;
+    background:rgba(0,0,0,0.75);
+    text-align: center;
+    overflow: hidden;
+    img
+    {
+      min-width:100%;
+      min-height:100%;
+      width:100%;
+      height:auto;
+    }
+  }
+  .change_cover_pic_container
+  {
+    position:absolute;
+    top:10px;
+    right:15px;
+    display:none;
+    .glyphicon.glyphicon-camera
+    {
+      font-size:30px;
+      cursor: pointer;
+      color:#FFFFFF;
+    }
   }
 
   .profile_image_container
@@ -335,10 +384,15 @@ footer
     height:250px;
     margin-top: 75px;
     margin-bottom: -25px;
+    z-index: 10;
     img
     {
       margin:0px auto;
-      width:100%;
+      min-width: 100%;
+      min-height: 100%;
+      width:auto;
+      height:auto;
+      background:rgba(0,0,0,0.75);
     }
     .change_profile_image
     {
@@ -368,8 +422,14 @@ footer
   //User Profile Details such as name, sports, preferred position, etc.
   .user_profile_details
   {
+    position:relative;
     height:300px;
     max-height: 300px;
+    background:rgba(0,0,0,0.25);
+    p
+    {
+      width:90%;
+    }
     .user_name,.user_sport,.user_position,.user_management_level,.user_country
     {
       font-weight:700;
@@ -410,7 +470,7 @@ footer
       position:absolute;
       right:15px;
       top:-5px;
-      height:105%;
+      height:100%;
       width:2px;
       content:'';
       background:rgba(0,0,0,1);
@@ -419,7 +479,8 @@ footer
 
     .about_container
     {
-      margin-top: 80px;
+      padding-top: 80px;
+      height: 300px;
       p
       {
         font-size: 16px;
@@ -432,9 +493,173 @@ footer
       {
         margin-bottom: 25px;
       }
+
+      .request_recommendations_container
+      {
+        position:absolute;
+        bottom:5px;
+        left:15px;
+        .t-button
+        {
+          padding:10px 15px;
+        }
+      }
     }
   }
 
 
+  .profile_content_container
+  {
+    padding:15px 0px;
+    margin-top:25px;
+    .container
+    {
+      background:#FFFFFF;
+      margin-bottom: 15px;
+      .row
+      {
+        p
+        {
+          font-size: 14px;
+          font-weight: 400;
+        }
+        a.glyphicon
+        {
+          color:$color-darkGreen;
+        }
+        .user_histroy
+        {
+          list-style: none;
+          padding:0px;
+          li
+          {
+            margin-bottom:15px;
+            p
+            {
+              margin-bottom: 5px;
+            }
+          }
+          .title
+          {
+            font-size: 20px;
+            font-weight: 700;
+            color:#1a1a1a;
+            margin: 0px;
+            margin-bottom: 5px;
+          }
+          .country
+          {
+            font-size: 16px;
+            font-weight: 400;
+            color:#222222;
+            font-style: italic;
+          }
+          .position
+          {
+            margin:0px;
+            font-size: 16px;
+            font-weight: 400;
+          }
+          .additional_information
+          {
+            font-size: 12px;
+          }
+        }
 
+      }
+    }
+    h1.headings
+    {
+      background:$background-color-darkGreen;
+      padding:10px 25px;
+      padding-right:100px;
+      margin:15px 0px;
+      color:#FFFFFF;
+      font-weight: 700;
+      display:inline-block;
+      font-size: 22px;
+      min-width:250px;
+    }
+    h1.headings:after
+    {
+      content:'';
+      display: table;
+      width:100%;
+    }
+  }
+}
+
+
+.profile_menu_container
+{
+  position:relative;
+  margin: 0px;
+  background:$color-cream;
+  .container
+  {
+    .row
+    {
+      border:1px solid $color-darkGreen;
+      border-bottom:1px solid $color-darkGreen;
+      background:#FFFFFF;
+      ul
+      {
+        list-style: none;
+        padding:0px;
+        li
+        {
+          a
+          {
+            color:$color-darkGreen;
+            font-size:12px;
+            font-weight:700;
+            padding:15px 25px;
+            border-left:1px solid #e4e4e4;
+          }
+          a:hover,a:focus
+          {
+            background:$color-darkGreen;
+            color:#FFFFFF;
+          }
+        }
+        li.active
+        {
+          a
+          {
+            background:$color-darkGreen;
+            color:#FFFFFF;
+          }
+        }
+        li:last-child
+        {
+          a
+          {
+            border-right:1px solid #e4e4e4;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+//For Modals
+.modal
+{
+  .show_loading_image
+  {
+    position:relative;
+    width:100%;
+    padding:25px 0px;
+    text-align: center;
+    img
+    {
+      height:100px;
+      width:auto;
+      display: block;
+      margin:0px auto;
+    }
+  }
 }

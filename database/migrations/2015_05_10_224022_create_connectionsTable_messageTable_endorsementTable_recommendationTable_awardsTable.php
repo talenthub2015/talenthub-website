@@ -126,9 +126,9 @@ class CreateConnectionsTableMessageTableEndorsementTableRecommendationTableAward
                 ->on('users')
                 ->onDelete('cascade');
 
-            $table->string('award_name');
-            $table->string('award_date');
-            $table->text('award_by');
+            $table->string('award_details');
+            //$table->string('award_date');
+            //$table->text('award_by');
             $table->timestamps();
         });
 

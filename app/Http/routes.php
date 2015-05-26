@@ -30,3 +30,6 @@ Route::get('profile/completed','ProfileController@completed');
 Route::put('profile/edit/{id}','ProfileController@update');
 Route::put('profile/CV','ProfileController@updateCV');
 Route::put('profile/uploadProfileImage','ProfileController@uploadImage');
+Route::put('profile/updateProfileData','ProfileController@updateProfileData');
+Route::put('profile/profileSummary','ProfileController@updateProfileSummary');
+Route::put('profile/profileAwards','ProfileController@updateProfileAwards');

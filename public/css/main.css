@@ -7493,7 +7493,11 @@ body .ui-tooltip {
 
 .t-button:hover, .t-button:focus, .t-button:visited {
   color: #FFFFFF;
-  background: #204f1F; }
+  background: #204f1F;
+  text-decoration: none;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); }
 
 .form-control.t-button {
   color: #FFFFFF; }
@@ -7502,6 +7506,9 @@ body {
   background: #f6f0d2;
   font-size: 12px;
   line-height: 150%; }
+
+p {
+  position: relative; }
 
 header {
   position: fixed;
@@ -7615,7 +7622,7 @@ footer {
     text-decoration: underline; }
 
 .body_container {
-  margin-top: 50px; }
+  margin-top: 40px; }
 
 .nav-tabs {
   border-bottom: 1px solid #203f15; }
@@ -7653,27 +7660,57 @@ footer {
   .form_container .form-control.error_form_validation {
     border: 1px solid #FF6347; }
 
-.edit-profile .left_menu_container {
-  background: rgba(0, 0, 0, 0.15); }
-  .edit-profile .left_menu_container .nav a {
-    color: #1a1a1a;
-    font-size: 12px; }
-  .edit-profile .left_menu_container .nav a.active {
-    font-weight: 700;
-    background: #203f15;
-    color: #FFFFFF; }
-  .edit-profile .left_menu_container .nav a:hover, .edit-profile .left_menu_container .nav a:focus {
-    background: #203f15;
-    color: #FFFFFF; }
+.edit-profile {
+  margin-top: 50px; }
+  .edit-profile .left_menu_container {
+    background: rgba(0, 0, 0, 0.15); }
+    .edit-profile .left_menu_container .nav a {
+      color: #1a1a1a;
+      font-size: 12px; }
+    .edit-profile .left_menu_container .nav a.active {
+      font-weight: 700;
+      background: #203f15;
+      color: #FFFFFF; }
+    .edit-profile .left_menu_container .nav a:hover, .edit-profile .left_menu_container .nav a:focus {
+      background: #203f15;
+      color: #FFFFFF; }
 
+.talent_profile a.glyphicon {
+  color: #FFFFFF; }
+.talent_profile p > a.edit.glyphicon {
+  position: absolute;
+  top: 5px;
+  right: -25px; }
 .talent_profile .container {
-  border-left: 1px solid #e4e4e4;
-  border-right: 1px solid #e4e4e4; }
+  position: relative;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15); }
+.talent_profile .container:hover .change_cover_pic_container {
+  display: block; }
 .talent_profile .cover_pic {
   position: absolute;
   top: 0px;
   left: 0px;
-  height: 300px; }
+  height: 300px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  text-align: center;
+  overflow: hidden; }
+  .talent_profile .cover_pic img {
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: auto; }
+.talent_profile .change_cover_pic_container {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  display: none; }
+  .talent_profile .change_cover_pic_container .glyphicon.glyphicon-camera {
+    font-size: 30px;
+    cursor: pointer;
+    color: #FFFFFF; }
 .talent_profile .profile_image_container {
   border-radius: 150px;
   -moz-border-radius: 150px;
@@ -7684,10 +7721,15 @@ footer {
   width: 250px;
   height: 250px;
   margin-top: 75px;
-  margin-bottom: -25px; }
+  margin-bottom: -25px;
+  z-index: 10; }
   .talent_profile .profile_image_container img {
     margin: 0px auto;
-    width: 100%; }
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    background: rgba(0, 0, 0, 0.75); }
   .talent_profile .profile_image_container .change_profile_image {
     display: none;
     position: absolute;
@@ -7703,8 +7745,12 @@ footer {
 .talent_profile .profile_image_container:hover .change_profile_image {
   display: block; }
 .talent_profile .user_profile_details {
+  position: relative;
   height: 300px;
-  max-height: 300px; }
+  max-height: 300px;
+  background: rgba(0, 0, 0, 0.25); }
+  .talent_profile .user_profile_details p {
+    width: 90%; }
   .talent_profile .user_profile_details .user_name, .talent_profile .user_profile_details .user_sport, .talent_profile .user_profile_details .user_position, .talent_profile .user_profile_details .user_management_level, .talent_profile .user_profile_details .user_country {
     font-weight: 700;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
@@ -7731,12 +7777,13 @@ footer {
     position: absolute;
     right: 15px;
     top: -5px;
-    height: 105%;
+    height: 100%;
     width: 2px;
     content: '';
     background: black; }
   .talent_profile .user_profile_details .about_container {
-    margin-top: 80px; }
+    padding-top: 80px;
+    height: 300px; }
     .talent_profile .user_profile_details .about_container p {
       font-size: 16px;
       line-height: 180%;
@@ -7747,6 +7794,98 @@ footer {
       color: #FFFFFF; }
     .talent_profile .user_profile_details .about_container p.about {
       margin-bottom: 25px; }
+    .talent_profile .user_profile_details .about_container .request_recommendations_container {
+      position: absolute;
+      bottom: 5px;
+      left: 15px; }
+      .talent_profile .user_profile_details .about_container .request_recommendations_container .t-button {
+        padding: 10px 15px; }
+.talent_profile .profile_content_container {
+  padding: 15px 0px;
+  margin-top: 25px; }
+  .talent_profile .profile_content_container .container {
+    background: #FFFFFF;
+    margin-bottom: 15px; }
+    .talent_profile .profile_content_container .container .row p {
+      font-size: 14px;
+      font-weight: 400; }
+    .talent_profile .profile_content_container .container .row a.glyphicon {
+      color: #203f15; }
+    .talent_profile .profile_content_container .container .row .user_histroy {
+      list-style: none;
+      padding: 0px; }
+      .talent_profile .profile_content_container .container .row .user_histroy li {
+        margin-bottom: 15px; }
+        .talent_profile .profile_content_container .container .row .user_histroy li p {
+          margin-bottom: 5px; }
+      .talent_profile .profile_content_container .container .row .user_histroy .title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin: 0px;
+        margin-bottom: 5px; }
+      .talent_profile .profile_content_container .container .row .user_histroy .country {
+        font-size: 16px;
+        font-weight: 400;
+        color: #222222;
+        font-style: italic; }
+      .talent_profile .profile_content_container .container .row .user_histroy .position {
+        margin: 0px;
+        font-size: 16px;
+        font-weight: 400; }
+      .talent_profile .profile_content_container .container .row .user_histroy .additional_information {
+        font-size: 12px; }
+  .talent_profile .profile_content_container h1.headings {
+    background: #203f15;
+    padding: 10px 25px;
+    padding-right: 100px;
+    margin: 15px 0px;
+    color: #FFFFFF;
+    font-weight: 700;
+    display: inline-block;
+    font-size: 22px;
+    min-width: 250px; }
+  .talent_profile .profile_content_container h1.headings:after {
+    content: '';
+    display: table;
+    width: 100%; }
+
+.profile_menu_container {
+  position: relative;
+  margin: 0px;
+  background: #f6f0d2; }
+  .profile_menu_container .container .row {
+    border: 1px solid #203f15;
+    border-bottom: 1px solid #203f15;
+    background: #FFFFFF; }
+    .profile_menu_container .container .row ul {
+      list-style: none;
+      padding: 0px; }
+      .profile_menu_container .container .row ul li a {
+        color: #203f15;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 15px 25px;
+        border-left: 1px solid #e4e4e4; }
+      .profile_menu_container .container .row ul li a:hover, .profile_menu_container .container .row ul li a:focus {
+        background: #203f15;
+        color: #FFFFFF; }
+      .profile_menu_container .container .row ul li.active a {
+        background: #203f15;
+        color: #FFFFFF; }
+      .profile_menu_container .container .row ul li:last-child a {
+        border-right: 1px solid #e4e4e4; }
+
+.modal .show_loading_image {
+  position: relative;
+  width: 100%;
+  padding: 25px 0px;
+  text-align: center; }
+  .modal .show_loading_image img {
+    height: 100px;
+    width: auto;
+    display: block;
+    margin: 0px auto; }
 
 /*# sourceMappingURL=main.css.map */
 /*# sourceMappingURL=main.css.map */
