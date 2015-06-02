@@ -45,6 +45,8 @@ Route::group(['middleware' => ['auth']],function(){
 
     //Show User CV - For Talent and Manager
     Route::get('profile/{id}/curriculumvitae','ProfileController@viewCV');
+    //Videos Page
+    Route::get('profile/{id}/videos','VideoController@index');
 
 
     ///////////////////////

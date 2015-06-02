@@ -553,60 +553,76 @@
                             <?php
                                 $awards = $talentProfile->awards;
                             ?>
+
                             <div role="tabpanel" class="tab-pane fade" id="awards">
                                 <h3 class="tab_heading">Awards Information</h3>
-                                <p>{!! $awards->award_details !!}</p>
+                                @if(count($awards)>0)
+                                    <p>{!! $awards->award_details !!}</p>
+                                @else
+                                    <p>No awards posted</p>
+                                @endif
+
                             </div>
+
 
                             <!-- Showing recommendations Information -->
                             <?php
                                 $recommendations = $talentProfile->recommendations;
                             ?>
-                            <div role="tabpanel" class="tab-pane fade" id="recommendations">
-                                <h3 class="tab_heading">Recommedations Information</h3>
-                                <ul>
-                                @foreach($recommendations as $key=>$recommendation)
-                                    <li>
-                                        <p><strong>{{$recommendation->name.", ".$recommendation->position." - ".$recommendation->organisation}}</strong></p>
-                                        <p>{{$recommendation->email}}</p>
+                                <div role="tabpanel" class="tab-pane fade" id="recommendations">
+                                    <h3 class="tab_heading">Recommedations Information</h3>
+                                    @if(count($recommendations)>0)
+                                        <ul>
+                                        @foreach($recommendations as $key=>$recommendation)
+                                            <li>
+                                                <p><strong>{{$recommendation->name.", ".$recommendation->position." - ".$recommendation->organisation}}</strong></p>
+                                                <p>{{$recommendation->email}}</p>
 
-                                        <div class="user_data_container">
-                                            <strong>Athletic Ability</strong>
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->athletic_ability}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->athletic_ability*10}}%">
-                                                </div>
-                                            </div>
+                                                <div class="user_data_container">
+                                                    <strong>Athletic Ability</strong>
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->athletic_ability}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->athletic_ability*10}}%">
+                                                        </div>
+                                                    </div>
 
-                                            <strong>Leadership Ability</strong>
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->leadership}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->leadership*10}}%">
-                                                </div>
-                                            </div>
+                                                    <strong>Leadership Ability</strong>
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->leadership}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->leadership*10}}%">
+                                                        </div>
+                                                    </div>
 
-                                            <strong>Team player</strong>
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->team_player}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->team_player*10}}%">
-                                                </div>
-                                            </div>
+                                                    <strong>Team player</strong>
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->team_player}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->team_player*10}}%">
+                                                        </div>
+                                                    </div>
 
-                                            <strong>Easy to work</strong>
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->easy_to_work}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->easy_to_work*10}}%">
+                                                    <strong>Easy to work</strong>
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->easy_to_work}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->easy_to_work*10}}%">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="user_data_container">
-                                            <strong>Comment on Athletic Ability</strong>
-                                            <p>{{$recommendation->comment_athletic_ability}}</p>
-                                        </div>
-                                        <div class="user_data_container">
-                                            <strong>Comment on Player Ability</strong>
-                                            <p>{{$recommendation->comment_player_personality}}</p>
-                                        </div>
-                                    </li>
-                                @endforeach
-                                </ul>
-                            </div>
+                                                <div class="user_data_container">
+                                                    <strong>Comment on Athletic Ability</strong>
+                                                    <p>{{$recommendation->comment_athletic_ability}}</p>
+                                                </div>
+                                                <div class="user_data_container">
+                                                    <strong>Comment on Player Ability</strong>
+                                                    <p>{{$recommendation->comment_player_personality}}</p>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                        </ul>
+                                        @else
+                                        <p>No recommendations requested.
+                                            @if($visitingUserId == $talentProfile->user_id)
+                                                <a href="{{url('request-recommendation')}}">Request Recommendation</a>
+                                            @endif
+                                        </p>
+                                    @endif
+                                </div>
+
                         </div>
                     </div>
                 </div>

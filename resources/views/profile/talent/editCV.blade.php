@@ -44,7 +44,7 @@
                                                 {!! Form::label($userProfileExtraParamsKey["dominant_hand"],'Dominant Hand:') !!}
                                                 {!! Form::select($userProfileExtraParamsKey["dominant_hand"],
                                                 ['0'=>'--Select Option --','Left Hand'=>'Left Hand','Right Hand'=>'Right Hand','Ambidextrous'=>'Ambidextrous'],
-                                                $talentProfile->params["dominant_hand"],['class'=>'form-control','data-validate'=>'numberDecimal',
+                                                $talentProfile->params["dominant_hand"],['class'=>'form-control','data-validate'=>'number',
                                                 'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter a number correctly']) !!}
                                             </div>
                                         </div>

@@ -180,6 +180,7 @@ class CreatePostsTableCommentsTableLikesTableSharesTableImagesTableImagesLikesTa
                 ->on('users')
                 ->onDelete('cascade');
 
+            $table->string('video_source'); //Stores source of the video, whether it is Youtube, own site, etc.
             $table->string('title');
             $table->string('descriptions');
             $table->text('video_url');
