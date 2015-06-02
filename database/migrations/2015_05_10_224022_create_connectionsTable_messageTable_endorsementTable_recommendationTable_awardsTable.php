@@ -69,6 +69,7 @@ class CreateConnectionsTableMessageTableEndorsementTableRecommendationTableAward
 
         /*
 		 * Create endorsement table
+         * It is a Pivot table
 		 */
         Schema::create('endorsements',function(Blueprint $table){
             /*
@@ -96,7 +97,7 @@ class CreateConnectionsTableMessageTableEndorsementTableRecommendationTableAward
 		 * Create recommendations table
 		 */
         Schema::create('recommendations',function(Blueprint $table){
-            $table->increments('recommendation_id')->signed();
+            $table->increments('recommendation_id')->unsigned();
             /*
              * Setting up foreign key of user_id to users table
              */
@@ -106,9 +107,18 @@ class CreateConnectionsTableMessageTableEndorsementTableRecommendationTableAward
                 ->on('users')
                 ->onDelete('cascade');
 
+            $table->string('recommender_type'); //Whether recommender is a coach or a talent
+            $table->string('status');   //Status can be waiting or complete
+            $table->string('name');
             $table->string('email');
-            $table->string('status');
-            $table->text('recommendations');
+            $table->string('organisation');
+            $table->string('position');
+            $table->string('athletic_ability',32);
+            $table->string('leadership',32);
+            $table->string('team_player',32);
+            $table->string('easy_to_work',32);
+            $table->text('comment_athletic_ability');
+            $table->text('comment_player_personality');
             $table->timestamps();
         });
 
@@ -116,7 +126,7 @@ class CreateConnectionsTableMessageTableEndorsementTableRecommendationTableAward
 		 * Create Awards table
 		 */
         Schema::create('awards',function(Blueprint $table){
-            $table->increments('award_id')->signed();
+            $table->increments('award_id')->unsigned();
             /*
              * Setting up foreign key of user_id to users table
              */

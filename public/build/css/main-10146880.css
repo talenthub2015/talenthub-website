@@ -7481,6 +7481,8 @@ body .ui-tooltip {
 }
 
 .t-button {
+  display: inline-block;
+  padding: 10px 15px;
   color: #FFFFFF !important;
   background: #203f15;
   border-radius: 5px;
@@ -7509,6 +7511,9 @@ body {
 
 p {
   position: relative; }
+
+.small_loading_image {
+  width: 15px; }
 
 header {
   position: fixed;
@@ -7800,12 +7805,21 @@ footer {
       left: 15px; }
       .talent_profile .user_profile_details .about_container .request_recommendations_container .t-button {
         padding: 10px 15px; }
+    .talent_profile .user_profile_details .about_container .endorese_user_container {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      font-size: 14px; }
+      .talent_profile .user_profile_details .about_container .endorese_user_container .t-button {
+        padding: 10px 15px; }
 .talent_profile .profile_content_container {
   padding: 15px 0px;
   margin-top: 25px; }
   .talent_profile .profile_content_container .container {
     background: #FFFFFF;
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px; }
     .talent_profile .profile_content_container .container .row p {
       font-size: 14px;
       font-weight: 400; }
@@ -7835,6 +7849,59 @@ footer {
         font-weight: 400; }
       .talent_profile .profile_content_container .container .row .user_histroy .additional_information {
         font-size: 12px; }
+    .talent_profile .profile_content_container .container .row .evangelists_container {
+      width: 100%; }
+      .talent_profile .profile_content_container .container .row .evangelists_container .endorser_container {
+        display: inline-block;
+        width: 150px;
+        height: 180px;
+        padding: 5px;
+        overflow: hidden; }
+        .talent_profile .profile_content_container .container .row .evangelists_container .endorser_container a {
+          display: block;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          overflow: hidden; }
+          .talent_profile .profile_content_container .container .row .evangelists_container .endorser_container a img {
+            min-width: 100%;
+            min-height: 150px;
+            width: 150px;
+            height: 150px; }
+          .talent_profile .profile_content_container .container .row .evangelists_container .endorser_container a .endorser_name {
+            font-size: 14px;
+            font-weight: 400;
+            color: #FFFFFF;
+            background: rgba(0, 0, 0, 0.75);
+            text-align: center;
+            padding: 2px; }
+        .talent_profile .profile_content_container .container .row .evangelists_container .endorser_container a:hover {
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75);
+          -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75);
+          -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75); }
+    .talent_profile .profile_content_container .container .row .row.evangelists_container {
+      width: auto; }
+      .talent_profile .profile_content_container .container .row .row.evangelists_container .endorser_container {
+        text-align: center;
+        height: auto;
+        padding: 5px;
+        overflow: hidden; }
+        .talent_profile .profile_content_container .container .row .row.evangelists_container .endorser_container a img {
+          width: 100%;
+          height: auto; }
+        .talent_profile .profile_content_container .container .row .row.evangelists_container .endorser_container a .endorser_name {
+          position: absolute;
+          bottom: 0px;
+          left: 0px;
+          font-size: 15px;
+          padding: 5px;
+          color: #FFFFFF;
+          background: rgba(0, 0, 0, 0.75);
+          text-align: center;
+          display: none;
+          width: 100%; }
+        .talent_profile .profile_content_container .container .row .row.evangelists_container .endorser_container a:hover .endorser_name {
+          display: block; }
   .talent_profile .profile_content_container h1.headings {
     background: #203f15;
     padding: 10px 25px;
@@ -7849,6 +7916,59 @@ footer {
     content: '';
     display: table;
     width: 100%; }
+  .talent_profile .profile_content_container .curriculum_vitae_container .left_menu_container {
+    background: rgba(32, 63, 21, 0.05);
+    font-size: 12px; }
+    .talent_profile .profile_content_container .curriculum_vitae_container .left_menu_container li a {
+      font-size: 14px;
+      color: #203f15;
+      padding: 15px 15px; }
+    .talent_profile .profile_content_container .curriculum_vitae_container .left_menu_container li.active a {
+      background: #203f15;
+      color: #FFFFFF; }
+  .talent_profile .profile_content_container .curriculum_vitae_container .tab-content {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 15px; }
+    .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .tab_heading {
+      color: #203f15;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0px;
+      margin-top: 25px;
+      margin-bottom: 15px; }
+      .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .tab_heading .edit_link {
+        font-size: 12px;
+        font-weight: 400; }
+    .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .tab_heading:first-child {
+      margin-top: 0px; }
+    .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .user_data_container {
+      margin-bottom: 5px; }
+      .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .user_data_container strong {
+        font-size: 14px;
+        font-weight: 700; }
+      .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .user_data_container .cv_heading {
+        font-size: 16px;
+        color: #1a1a1a;
+        font-weight: 700;
+        margin-bottom: 5px;
+        font-style: italic; }
+      .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .user_data_container .progress {
+        width: 60%; }
+    .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .sport_statistics .carrer_statistics {
+      padding: 5px;
+      border: 1px solid #dddddd;
+      background: #f4f4f4;
+      margin-bottom: 5px; }
+    .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1a1a1a;
+      display: inline-block;
+      min-width: 100px;
+      text-align: left; }
+    .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .user_data {
+      font-size: 12px;
+      font-weight: 400; }
 
 .profile_menu_container {
   position: relative;

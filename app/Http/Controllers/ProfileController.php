@@ -39,9 +39,7 @@ use talenthub\UserProfile;
 
 class ProfileController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
+	/**Displaying user's own profile	 *
 	 * @return Response
 	 */
 	public function index()
@@ -58,12 +56,18 @@ class ProfileController extends Controller {
 
         $userCareerHistory=$userProfile->careerInformation;
         $awards = $userProfile->awards;
+
         if($awards == null)
         {
             $awards = new Awards();
         }
 
-		return response()->view('profile.home',compact('userProfile','country','sportPositions','userCareerHistory','awards'));
+        $endorsements = $userProfile->endorsements()->take(10)->get();
+
+        //Setting whether profile is editable or not.
+        $profileEditable = true;
+
+		return response()->view('profile.user_profile',compact('userProfile','country','sportPositions','userCareerHistory','awards','endorsements','profileEditable'));
 	}
 
 
@@ -102,7 +106,9 @@ class ProfileController extends Controller {
         if($imageFieldName == "profile_image")
         {
             $image = Image::canvas(300, 300);
-            $image_updated  = Image::make($imageFile)->resize(300, 300);
+            $image_updated  = Image::make($imageFile)->resize(300, 300,function($constraint){
+                $constraint->aspectRatio();
+            });
             $image->insert($image_updated, 'center');
 
             $icon_image = Image::make($imageFile)->fit(300,300)->resize(60,60);
@@ -816,7 +822,15 @@ class ProfileController extends Controller {
         }
 
         $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
-        $awards = $userProfile->awards()->create($request->all());
+        $awards = $userProfile->awards;
+        if($awards==null)
+        {
+            $awards=$userProfile->awards()->create($request->all());
+        }
+        else
+        {
+            $awards->award_details = $request->award_details;
+        }
 
         $awards->save();
 
@@ -824,5 +838,142 @@ class ProfileController extends Controller {
 
     }
 
+
+    /**
+     *Showing User's Profile, A user can be manager or talent
+     */
+    public function showUserProfile($id)
+    {
+        Blade::setContentTags('<%', '%>');        // for variables and all things Blade
+        Blade::setEscapedContentTags('<%%', '%%>');   // for escaped data
+
+        $userProfile = UserProfile::find($id);
+
+        $userProfile->getMutatedData = false;
+
+        $country=BasicSiteRepository::getListOfCountries();
+        $sportPositions=array_map('ucfirst',SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE)));
+
+        $userCareerHistory=$userProfile->careerInformation;
+        $awards = $userProfile->awards;
+
+        if($awards == null)
+        {
+            $awards = new Awards();
+        }
+
+        $endorsements = $userProfile->endorsements()->take(10)->get();
+
+        $visitingUserEndorsed = $userProfile->endorsements()->wherePivot('user_id','=',$userProfile->user_id)
+            ->wherePivot('endorsement_by','=',Session::get(SiteSessions::USER_ID))
+            ->get();
+
+        if(count($visitingUserEndorsed)<=0)
+        {
+            $visitingUserEndorsed=0;
+        }
+        else
+        {
+            $visitingUserEndorsed=1;
+        }
+
+        //Setting whether profile is editable or not.
+        $profileEditable = false;
+        if($userProfile->user_id == Session::get(SiteSessions::USER_ID))
+        {
+            $profileEditable=true;
+        }
+
+        return view('profile.user_profile',compact('userProfile','country','sportPositions','userCareerHistory','awards','endorsements','visitingUserEndorsed','profileEditable'));
+    }
+
+
+    /**
+     * Function to show all list of evangelists
+     * @param $id
+     */
+    public function allEvangelists($id)
+    {
+        $userProfile = UserProfile::find($id);
+
+        $userProfile->getMutatedData = false;
+
+        $endorsements = $userProfile->endorsements;
+
+        return view('profile.evangelists',compact('userProfile','endorsements'));
+    }
+
+
+    /**
+     * Endorsing User
+     * @param Request $request
+     */
+    public function endorseUser(Request $request)
+    {
+        if(!Auth::check())
+        {
+            return response()->json(['status'=>'error','type'=>'user_not_logged_in']);
+        }
+
+        $validator = Validator::make(Input::all(),[
+            'user_id'=> 'required',
+        ]);
+
+        if($validator->fails())
+        {
+            return response()->json(['status'=>'error','type'=>'validation_error']);
+        }
+
+
+        try
+        {
+            $userProfile = UserProfile::find($request->user_id);
+            $userProfile->endorsements()->attach(Session::get(SiteSessions::USER_ID));
+            $userProfile->save();
+        }
+        catch(ModelNotFoundException $e)
+        {
+            return response()->json(['status'=>'error','type'=>'user_not_found']);
+        }
+
+        return response()->json(['status'=>'successful']);
+    }
+
+
+    /**
+     * Showing CV information of a talent or Manager
+     * @param $user_id
+     */
+    public function viewCV($user_id)
+    {
+        $userProfile = null;
+        try
+        {
+            $userProfile = UserProfile::findOrFail($user_id);
+            $userProfile->getMutatedData = false;
+        }
+        catch(ModelNotFoundException $e)
+        {
+            return abort(404);
+        }
+
+        if(SiteConstants::isTalent($userProfile->user_type))
+        {
+            $talentProfile=$userProfile;
+
+            return view('profile.talent.viewTalentCV',compact('talentProfile'));
+        }
+        else if(SiteConstants::isManager($userProfile->user_type))
+        {
+            $managerProfile=ManagerProfile::find($userProfile->user_id);
+
+            $careerInformation = $managerProfile->managerCareerInformation;
+
+            return view('profile.manager.viewManagerCV',compact('managerProfile','careerInformation'));
+        }
+
+        return redirect('profile');
+
+    }
 
 }

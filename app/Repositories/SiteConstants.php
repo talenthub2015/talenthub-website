@@ -14,22 +14,6 @@ class SiteConstants {
     /*
      * User Types of the site
      */
-//    const USER_TALENT_STUDENT = 100;
-//    const USER_TALENT_ASPIRING_PROFESSIONAL = 101;
-//    const USER_TALENT_STUDENT_ASPIRING_PROFESSIONAL = 102;
-//    const USER_TALENT_PARENT = 200;
-//    const USER_MANAGER_COACH_SCHOOL = 300;
-//    const USER_MANAGER_COACH_UNIVERSITY = 301;
-//    const USER_MANAGER_COACH_AMATEUR = 302;
-//    const USER_MANAGER_COACH_SEMI_PRO = 303;
-//    const USER_MANAGER_COACH_PROFESSIONAL = 304;
-//    const USER_MANAGER_AGENT_PROFESSIONAL = 310;
-//    const USER_MANAGER_AGENT_SEMI_PRO = 311;
-//    const USER_MANAGER_AGENT_AMATEUR = 312;
-//    const USER_MANAGER_SCOUT_PROFESSIONAL = 320;
-//    const USER_MANAGER_SCOUT_SEMI_PRO = 321;
-//    const USER_MANAGER_SCOUT_AMATEUR = 322;
-
     const USER_TALENT="talent";
     const USER_MANAGER="manager";
 
@@ -58,6 +42,23 @@ class SiteConstants {
 
 
 
+    //============== Requesting Recommendation ===================//
+    //Talent Recommendation - Recommender Type
+    const RECOMMENDER_COACH = "coach";
+    const RECOMMENDER_ATHLETE = "athlete";
+
+    //Talent Recommendation Status
+    const RECOMMENDATION_STATUS_WAITING = "recommendation_waiting";
+    const RECOMMENDATION_STATUS_COMPLETE = "recommendation_complete";
+
+    //-------------- Requesting Recommendation ------------//
+
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////            User Functions             ///////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Checks if a user is talent or not, talent include STUDENT, ASPIRING PROFESSIONAL, BOTH and PARENT of talent
@@ -123,5 +124,26 @@ class SiteConstants {
         }
         return false;
     }
+
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////        Recommendation Functions       ///////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     *Getting recommender type
+     */
+    public static function getRecommenderType()
+    {
+        return [
+            0=>"-- Select Option --",
+            self::RECOMMENDER_COACH => self::RECOMMENDER_COACH,
+            self::RECOMMENDER_ATHLETE => self::RECOMMENDER_ATHLETE
+        ];
+    }
+
+
 
 }

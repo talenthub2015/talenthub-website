@@ -30,4 +30,16 @@ class Awards extends Model
         return $this->belongsTo('talenthub\UserProfile','user_id');
     }
 
+
+    /**
+     *Inserting line break when extracting
+     */
+    public function getawardDetailsAttribute($award_details)
+    {
+        if($this->getMutatedData)
+        {
+            return preg_replace("/\r?\n/","<br>",$award_details);
+        }
+    }
+
 }

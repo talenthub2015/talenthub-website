@@ -21,15 +21,59 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+//Only Accessed By Authenticated user
+Route::group(['middleware' => ['auth']],function(){
 
-Route::get("profile","ProfileController@index");
-Route::get('profile/edit','ProfileController@edit');
-Route::get('profile/editCV','ProfileController@editCV');
-Route::get('profile/completed','ProfileController@completed');
+    //Registering and completing Profile - For Talent and Managers
+    Route::get('profile/edit','ProfileController@edit');
+    Route::get('profile/editCV','ProfileController@editCV');
+    Route::get('profile/completed','ProfileController@completed');
+    Route::put('profile/edit/{id}','ProfileController@update');
+    Route::put('profile/CV','ProfileController@updateCV');
 
-Route::put('profile/edit/{id}','ProfileController@update');
-Route::put('profile/CV','ProfileController@updateCV');
-Route::put('profile/uploadProfileImage','ProfileController@uploadImage');
-Route::put('profile/updateProfileData','ProfileController@updateProfileData');
-Route::put('profile/profileSummary','ProfileController@updateProfileSummary');
-Route::put('profile/profileAwards','ProfileController@updateProfileAwards');
+    //Showing Own Profile - For Talent and Manager
+    Route::get("profile","ProfileController@index");
+
+    //Showing a user Profile - as viewed by other user
+    Route::get("profile/{id}",'ProfileController@showUserProfile');
+    Route::get('profile/{id}/evangelists','ProfileController@allEvangelists');
+
+    //Getting and saving data from user's profile - For talent and manager
+    Route::put('profile/uploadProfileImage','ProfileController@uploadImage');
+    Route::put('profile/updateProfileData','ProfileController@updateProfileData');
+    Route::put('profile/profileSummary','ProfileController@updateProfileSummary');
+
+    //Show User CV - For Talent and Manager
+    Route::get('profile/{id}/curriculumvitae','ProfileController@viewCV');
+
+
+    ///////////////////////
+    //  Talent Pages    //
+    //////////////////////
+    Route::get('request-recommendation','RecommendationController@index');
+    Route::post('request-recommendation','RecommendationController@request');
+
+    //For Talents - Saving Awards and Endorsements
+    Route::put('profile/profileAwards','ProfileController@updateProfileAwards');
+    Route::put('profile/endorseUser','ProfileController@endorseUser');
+
+
+
+
+    ///////////////////////
+    //  Manager Pages   //
+    //////////////////////
+
+
+
+
+
+
+
+});
+
+/////////////////////////////
+//// User's Outside Site ////
+////////////////////////////
+Route::get('external/user/recommendation',"RecommendationController@recommendationForm");
+Route::put('external/user/post-recommendation',"RecommendationController@saveRecommendation");

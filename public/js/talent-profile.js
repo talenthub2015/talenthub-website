@@ -1,5 +1,5 @@
 
-var talentProfile = angular.module('talentProfile',[]);
+var talentProfile = angular.module('talentProfile',['ngSanitize']);
 
 talentProfile.constant("BROADCAST_UPDATE_PROFILE","updateProfile_event")
     .constant("BROADCAST_UPDATE_PROFILE_SUMMARY","updateSummary_event")
@@ -81,13 +81,14 @@ talentProfile.controller('ProfilePresented',['$scope','DataSharingService','BROA
 talentProfile.controller('ProfileDataController',['$scope','DataSharingService','BROADCAST_UPDATE_PROFILE_SUMMARY','BROADCAST_UPDATE_AWARDS',
     function($scope,DataSharingService,BROADCAST_UPDATE_PROFILE_SUMMARY,BROADCAST_UPDATE_AWARDS){
 
+
         $scope.$on(BROADCAST_UPDATE_PROFILE_SUMMARY,function(){
             console.log("Summary Updated" + DataSharingService.data.summary);
             $scope.summary = DataSharingService.data.summary;
         });
 
         $scope.$on(BROADCAST_UPDATE_AWARDS,function(){
-            $scope.awards = DataSharingService.data.award_details;
+            $scope.awards = (DataSharingService.data.award_details).replace(/\r?\n/g, "<br>");
         });
 
 }]);
@@ -163,20 +164,19 @@ talentProfile.controller('UserProfileUpdate',['$scope','ProfileOperationService'
         $scope.updateAwards = function(){
             $scope.sending_Data_to_server = true;
             $scope.server_message = "";
-
             var userData = {
                 user_id     :   $scope.user_id,
                 award_details     :   $scope.awards
             };
-            if($scope.summary == "")
+            if($scope.awards == "")
             {
                 return false;
             }
-            ProfileOperationService(userData,'profile/profileAwards').success(function(data){
-                console.log("Data Result : " + data.status);
+
+            ProfileOperationService(userData,'profileAwards').success(function(data){
+
                 if(data.status=="successful")
                 {
-                    console.log("Broadcasting data");
                     DataSharingService.prepareForBroadCast(userData,BROADCAST_UPDATE_AWARDS);
                     $scope.data_saved = true;
                     $scope.sending_Data_to_server = false;
@@ -198,6 +198,41 @@ talentProfile.controller('UserProfileUpdate',['$scope','ProfileOperationService'
 
         $scope.hideLoading = function(){
             $scope.sending_Data_to_server=false;
+        };
+}]);
+
+
+
+talentProfile.controller('UserEndorseController',['$scope','ProfileOperationService',
+    function($scope,ProfileOperationService){
+
+        $scope.endorse_request_in_progress=0;
+        $scope.endorseUserEvent = function(){
+
+
+            $scope.endorse_request_in_progress=1;
+            var userData = {
+                user_id     :   $scope.user_id
+            };
+            if($scope.endorsed == 1)
+            {
+                return;
+            }
+            $scope.endorsed = 1;
+            ProfileOperationService(userData,'../profile/endorseUser').success(function(data){
+                console.log(data.status);
+                if(data.status=="successful")
+                {
+                    $scope.endorse_status="Already Endorsed";
+                    $scope.endorsed = 1;
+                }
+                $scope.endorse_request_in_progress=0;
+            })
+                .error(function(data){
+                    alert("Some error occured at server side");
+                    $scope.endorse_request_in_progress=0;
+                    $scope.endorsed = 0;
+                });
         };
 }]);
 

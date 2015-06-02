@@ -114,7 +114,7 @@
                                                 <div class="form-group">
                                                     {!! Form::label('club_club_school_country[]','Country:') !!}
                                                     {!! Form::select('club_club_school_country[]',$country,$clubCareerInformation[0]->club_school_country,
-                                                    ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'0',
+                                                    ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'',
                                                     'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                 </div>
                                             </div>
@@ -134,7 +134,7 @@
                                                     {!! Form::label('club_club_league_level[]','League Level:') !!}
                                                     {!! Form::select('club_club_league_level[]',$clubLeagueLevel,
                                                     $clubCareerInformation[0]->club_league_level,['class'=>'form-control',
-                                                    'data-validate'=>'select','data-invalid-value'=>'0','data-toggle'=>'tooltip',
+                                                    'data-validate'=>'select','data-invalid-value'=>'','data-toggle'=>'tooltip',
                                                     'data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                 </div>
                                             </div>
@@ -155,7 +155,7 @@
                                                     {!! Form::label('club_club_average_league_status[]','Club Average League Status:') !!}
                                                     {!! Form::select('club_club_average_league_status[]',$clubLeagueStatus,
                                                     $clubCareerInformation[0]->club_average_league_status,['class'=>'form-control',
-                                                    'data-validate'=>'select','data-invalid-value'=>'0','data-toggle'=>'tooltip',
+                                                    'data-validate'=>'select','data-invalid-value'=>'','data-toggle'=>'tooltip',
                                                     'data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                 </div>
                                             </div>
@@ -363,7 +363,7 @@
                                                         <div class="form-group">
                                                             {!! Form::label('club_club_school_country[]','Country:') !!}
                                                             {!! Form::select('club_club_school_country[]',$country,$clubCareerInformation[$i]->club_school_country,
-                                                            ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'0',
+                                                            ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'',
                                                             'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                         </div>
                                                     </div>
@@ -383,7 +383,7 @@
                                                             {!! Form::label('club_club_league_level[]','League Level:') !!}
                                                             {!! Form::select('club_club_league_level[]',$clubLeagueLevel,
                                                             $clubCareerInformation[$i]->club_league_level,['class'=>'form-control',
-                                                            'data-validate'=>'select','data-invalid-value'=>'0','data-toggle'=>'tooltip',
+                                                            'data-validate'=>'select','data-invalid-value'=>'','data-toggle'=>'tooltip',
                                                             'data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                         </div>
                                                     </div>
@@ -404,7 +404,7 @@
                                                             {!! Form::label('club_club_average_league_status[]','Club Average League Status:') !!}
                                                             {!! Form::select('club_club_average_league_status[]',$clubLeagueStatus,
                                                             $clubCareerInformation[$i]->club_average_league_status,['class'=>'form-control',
-                                                            'data-validate'=>'select','data-invalid-value'=>'0','data-toggle'=>'tooltip',
+                                                            'data-validate'=>'select','data-invalid-value'=>'','data-toggle'=>'tooltip',
                                                             'data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                         </div>
                                                     </div>
@@ -621,7 +621,7 @@
                                                 <div class="form-group">
                                                     {!! Form::label('school_school_type[]','Current School Type:') !!}
                                                     {!! Form::select('school_school_type[]',$institutionType,$schoolCareerInformation[0]->school_type,
-                                                    ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'0',
+                                                    ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'',
                                                     'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                 </div>
                                             </div>
@@ -638,7 +638,7 @@
                                                 <div class="form-group">
                                                     {!! Form::label('school_club_school_country[]','Country of School:') !!}
                                                     {!! Form::select('school_club_school_country[]',$country,$schoolCareerInformation[0]->club_school_country,
-                                                    ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'0',
+                                                    ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'',
                                                     'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                 </div>
                                             </div>
@@ -649,7 +649,7 @@
                                                 <div class="form-group">
                                                     {!! Form::label('school_school_team_reputation[]','School Team Reputation:') !!}
                                                     {!! Form::select('school_school_team_reputation[]',$schoolTeamReputation,$schoolCareerInformation[0]->school_team_reputation,
-                                                    ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'0',
+                                                    ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'',
                                                     'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                 </div>
                                             </div>
@@ -659,7 +659,7 @@
                                                     {!! Form::label('school_school_team_side_level[]','School Team Side Level:') !!}
                                                     {!! Form::select('school_school_team_side_level[]',$schoolTeamSideLevel
                                                     ,$schoolCareerInformation[0]->school_team_side_level,['class'=>'form-control',
-                                                    'data-validate'=>'select','data-invalid-value'=>'0','data-toggle'=>'tooltip',
+                                                    'data-validate'=>'select','data-invalid-value'=>'','data-toggle'=>'tooltip',
                                                     'data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                 </div>
                                             </div>
@@ -833,8 +833,8 @@
                                         <div class="row form_container">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    {!! Form::label('school_additional_information[]','Additional Club Information:') !!}
-                                                    {!! Form::textarea('school_additional_information[]',$schoolReferences[0]->additional_information,['class'=>'form-control']) !!}
+                                                    {!! Form::label('school_additional_information[]','Additional School Information:') !!}
+                                                    {!! Form::textarea('school_additional_information[]',$schoolCareerInformation[0]->additional_information,['class'=>'form-control']) !!}
                                                 </div>
                                             </div>
                                         </div>
@@ -857,7 +857,7 @@
                                                             <div class="form-group">
                                                                 {!! Form::label('school_school_type[]','Current School Type:') !!}
                                                                 {!! Form::select('school_school_type[]',$institutionType,$schoolCareerInformation[$i]->school_type,
-                                                                ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'0',
+                                                                ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'',
                                                                 'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                             </div>
                                                         </div>
@@ -874,7 +874,7 @@
                                                             <div class="form-group">
                                                                 {!! Form::label('school_club_school_country[]','Country of School:') !!}
                                                                 {!! Form::select('school_club_school_country[]',$country,$schoolCareerInformation[$i]->club_school_country,
-                                                                ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'0',
+                                                                ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'',
                                                                 'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                             </div>
                                                         </div>
@@ -885,7 +885,7 @@
                                                             <div class="form-group">
                                                                 {!! Form::label('school_school_team_reputation[]','School Team Reputation:') !!}
                                                                 {!! Form::select('school_school_team_reputation[]',$schoolTeamReputation,$schoolCareerInformation[$i]->school_team_reputation,
-                                                                ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'0',
+                                                                ['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'',
                                                                 'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                             </div>
                                                         </div>
@@ -895,7 +895,7 @@
                                                                 {!! Form::label('school_school_team_side_level[]','School Team Side Level:') !!}
                                                                 {!! Form::select('school_school_team_side_level[]',$schoolTeamSideLevel
                                                                 ,$schoolCareerInformation[$i]->school_team_side_level,['class'=>'form-control',
-                                                                'data-validate'=>'select','data-invalid-value'=>'0','data-toggle'=>'tooltip',
+                                                                'data-validate'=>'select','data-invalid-value'=>'','data-toggle'=>'tooltip',
                                                                 'data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                             </div>
                                                         </div>
@@ -1078,7 +1078,7 @@
                                                     <div class="row form_container">
                                                         <div class="col-xs-12">
                                                             <div class="form-group">
-                                                                {!! Form::label('school_additional_information[]','Additional Club Information:') !!}
+                                                                {!! Form::label('school_additional_information[]','Additional School Information:') !!}
                                                                 {!! Form::textarea('school_additional_information[]',$schoolCareerInformation[$i]->additional_information,['class'=>'form-control']) !!}
                                                             </div>
                                                         </div>

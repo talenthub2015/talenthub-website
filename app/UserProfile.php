@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Session;
 use talenthub\Repositories\BasicSiteRepository;
 use talenthub\Repositories\SiteSessions;
 use talenthub\Repositories\SportsRepository;
+use talenthub\Repositories\UserProfileRepository;
 
 class UserProfile extends Model
 {
@@ -62,7 +63,7 @@ class UserProfile extends Model
 
 
     /**
-     *Relationship of User with Career information i.e. user has many career information
+     *Relationship of Talent User with talent Career information i.e. user has many career information
      */
     public function careerInformation()
     {
@@ -70,9 +71,31 @@ class UserProfile extends Model
     }
 
 
+    /**Relationship of User with Awards i.e. user has a award information
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function awards()
     {
         return $this->hasOne('talenthub\Awards','user_id');
+    }
+
+
+    /**
+     * Presenting Many to Many relationship with other users
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function endorsements()
+    {
+        return $this->belongsToMany('talenthub\UserProfile','endorsements','user_id','endorsement_by');
+    }
+
+
+    /**Relationship between user profile and recommendations
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function recommendations()
+    {
+        return $this->hasMany('talenthub\Talent\Recommendations',"user_id");
     }
 
 
@@ -191,6 +214,70 @@ class UserProfile extends Model
         return ucfirst($country);
     }
 
+
+    /**
+     * Setting Gender
+     * @param $gender
+     */
+    public function setgenderAttribute($gender)
+    {
+        if($this->setMutateData)
+        {
+            $this->attributes["gender"] = UserProfileRepository::getUserGender()[$gender];
+        }
+        $this->attributes["gender"]=$gender;
+    }
+
+    /**
+     * Getting Gender
+     * @param $gender
+     */
+    public function getgenderAttribute($gender)
+    {
+        if($this->getMutateData)
+        {
+            return array_search($gender,UserProfileRepository::getUserGender());
+        }
+        return $gender;
+    }
+
+
+    /**
+     * Setting Address Type
+     * @param $gender
+     */
+    public function setaddressTypeAttribute($addressType)
+    {
+        if($this->setMutateData)
+        {
+            $this->attributes["address_type"] = UserProfileRepository::getAddressTypes()[$addressType];
+        }
+        $this->attributes["address_type"]=$addressType;
+    }
+
+    /**
+     * Getting Address Type
+     * @param $gender
+     */
+    public function getaddressTypeAttribute($addressType)
+    {
+        if($this->getMutateData)
+        {
+            return array_search($addressType,UserProfileRepository::getAddressTypes());
+        }
+        return $addressType;
+    }
+
+
+    /**
+     * Inserting line break befor showing it on profile
+     * @param $academic_achivements
+     * @return mixed
+     */
+    public function getacademicAchivementsAttribute($academic_achivements)
+    {
+        return preg_replace("/\r?\n/","<br>",$academic_achivements);
+    }
 
 
 

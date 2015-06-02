@@ -17,8 +17,9 @@
 
     <script src="{!! asset('js/js-variables.js') !!}"></script>
     <script src="{!! asset('js/jquery-1.11.2.min.js') !!}"></script>
-    <script src="{!!asset('js/jquery-ui.min.js')!!}"></script>
-    <script src="{!!asset('js/angular.min.js')!!}"></script>
+    <script src="{!! asset('js/jquery-ui.min.js')!!}"></script>
+    <script src="{!! asset('js/angular.min.js')!!}"></script>
+    <script src="{!! asset('js/angular-sanitize.min.js') !!}"></script>
     <script src="{!!asset('js/bootstrap.min.js')!!}"></script>
     <script src="{!!asset('js/html5shiv.min.js')!!}"></script>
     <script src="{!!asset('js/respond.min.js')!!}"></script>
@@ -39,8 +40,12 @@
 <body >
 
 
-    @include('templates.userHeader')
-
+    @if(Auth::check())
+        @include('templates.userHeader')
+    @endif
+    @if(!Auth::check())
+        @include('templates.guestHeader')
+    @endif
 
     <div class="body_container" >
         @yield('content')

@@ -60,7 +60,7 @@
                                     <div class="col-xs-12 col-lg-4">
                                         <div class="form-group">
                                             {!! Form::label('gender','Gender:') !!}
-                                            {!! Form::select('gender',$gender,null,['class'=>'form-control','data-validate'=>'select','data-invalidValue'=>'0',
+                                            {!! Form::select('gender',$gender,null,['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'',
                                             'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                                         <div class="form-group">
                                             {!! Form::label('country','Country:') !!}
                                             {!! Form::select('country',$country,null,['class'=>'form-control','data-validate'=>'select',
-                                            'data-invalidValue'=>'0','data-toggle'=>'tooltip','data-placement'=>'bottom',
+                                            'data-invalid-value'=>'','data-toggle'=>'tooltip','data-placement'=>'bottom',
                                             'title'=>'Select proper option from the list provided.']) !!}
                                         </div>
                                     </div>
@@ -163,7 +163,7 @@
                                             <div class="form-group">
                                                 {!! Form::label('graduating_from','Graduating From:') !!}
                                                 {!! Form::select('graduating_from',$instituteType,null,['class'=>'form-control',
-                                                'data-validate'=>'select','data-invalidValue'=>'0','data-toggle'=>'tooltip','data-placement'=>'bottom',
+                                                'data-validate'=>'select','data-invalid-value'=>'','data-toggle'=>'tooltip','data-placement'=>'bottom',
                                                 'title'=>'Select proper option from the list provided.']) !!}
                                             </div>
                                         </div>
@@ -344,7 +344,7 @@
                                             <div class="form-group">
                                                 {!! Form::label('school_type','School Type:') !!}
                                                 {!! Form::select('school_type',$instituteType,null,['class'=>'form-control',
-                                                'data-validate'=>'select','data-invalidValue'=>'0','data-toggle'=>'tooltip','data-placement'=>'bottom',
+                                                'data-validate'=>'select','data-invalid-value'=>'','data-toggle'=>'tooltip','data-placement'=>'bottom',
                                                 'title'=>'Select proper option from the list provided.']) !!}
                                             </div>
                                         </div>
@@ -394,7 +394,7 @@
                                             <div class="form-group">
                                                 {!! Form::label('school_country','School Country:') !!}
                                                 {!! Form::select('school_country',$country,null,['class'=>'form-control',
-                                                'data-validate'=>'select','data-invalidValue'=>'0','data-toggle'=>'tooltip','data-placement'=>'bottom',
+                                                'data-validate'=>'select','data-invalid-value'=>'','data-toggle'=>'tooltip','data-placement'=>'bottom',
                                                 'title'=>'Select proper option from the list provided.']) !!}
                                             </div>
                                         </div>
@@ -438,7 +438,7 @@
                                             <div class="form-group">
                                                 {!! Form::label('grade_avg','Current Grade Average:') !!}
                                                 {!! Form::select('grade_avg',$gradeAverage,null,['class'=>'form-control',
-                                                'data-validate'=>'select','data-invalidValue'=>'0','data-toggle'=>'tooltip','data-placement'=>'bottom',
+                                                'data-validate'=>'select','data-invalid-value'=>'','data-toggle'=>'tooltip','data-placement'=>'bottom',
                                                 'title'=>'Select proper option from the list provided.']) !!}
                                             </div>
                                         </div>

@@ -6,6 +6,7 @@ $header-links-color : #FFFFFF;
 $header-links-color-onHover : #FFFFFF;
 
 $color-darkGreen : #203f15;
+$color-lightGreen : rgba(32,63,21,.05);
 
 $color-cream : #f6f0d2;
 
@@ -16,6 +17,8 @@ $t-button-background-color-hover: #204f1F ;
 
 .t-button
 {
+  display: inline-block;
+  padding:10px 15px;
   color:#FFFFFF !important;
   background: $background-color-darkGreen;
   @include border-radius($t-button-border-radius);
@@ -44,6 +47,12 @@ body
 p
 {
   position:relative;
+}
+
+
+.small_loading_image
+{
+  width:15px;
 }
 
 
@@ -504,6 +513,18 @@ footer
           padding:10px 15px;
         }
       }
+
+      .endorese_user_container
+      {
+        position:absolute;
+        bottom:15px;
+        right:15px;
+        font-size: 14px;
+        .t-button
+        {
+          padding:10px 15px;
+        }
+      }
     }
   }
 
@@ -516,6 +537,8 @@ footer
     {
       background:#FFFFFF;
       margin-bottom: 15px;
+      padding-top:5px;
+      padding-bottom:5px;
       .row
       {
         p
@@ -566,6 +589,88 @@ footer
           }
         }
 
+
+        .evangelists_container
+        {
+          width:100%;
+          .endorser_container
+          {
+            display:inline-block;
+            width:150px;
+            height:180px;
+            padding:5px;
+            overflow: hidden;
+            a
+            {
+              display: block;
+              position:relative;
+              width:100%;
+              height:100%;
+              overflow: hidden;
+              img
+              {
+                min-width:100%;
+                min-height:150px;
+                width:150px;
+                height:150px;
+              }
+              .endorser_name
+              {
+                font-size: 14px;
+                font-weight: 400;
+                color:#FFFFFF;
+                background:rgba(0,0,0,0.75);
+                text-align: center;
+                padding:2px;
+              }
+            }
+            a:hover
+            {
+              @include box-shadow(0px,0px,5px,null,rgba(0,0,0,0.75));
+            }
+          }
+        }
+
+        .row.evangelists_container
+        {
+          width:auto;
+          .endorser_container
+          {
+            text-align: center;
+            height:auto;
+            padding:5px;
+            overflow: hidden;
+            a
+            {
+              img
+              {
+                width:100%;
+                height:auto;
+              }
+              .endorser_name
+              {
+                position:absolute;
+                bottom:0px;
+                left:0px;
+                font-size: 15px;
+                padding:5px;
+                color:#FFFFFF;
+                background:rgba(0,0,0,0.75);
+                text-align: center;
+                display: none;
+                width:100%;
+              }
+            }
+            a:hover
+            {
+              .endorser_name
+              {
+                display: block;
+              }
+            }
+          }
+        }
+
       }
     }
     h1.headings
@@ -585,6 +690,106 @@ footer
       content:'';
       display: table;
       width:100%;
+    }
+
+
+    .curriculum_vitae_container
+    {
+      .left_menu_container
+      {
+        background:$color-lightGreen;
+        font-size: 12px;
+          li
+          {
+            a
+            {
+              font-size: 14px;
+              color:$color-darkGreen;
+              padding:15px 15px;
+            }
+          }
+        li.active
+        {
+          a
+          {
+            background:$color-darkGreen;
+            color:#FFFFFF;
+          }
+        }
+      }
+      .tab-content
+      {
+        border:1px solid rgba(0,0,0,0.1);
+        padding:15px;
+        .tab_heading
+        {
+          color:$color-darkGreen;
+          font-size: 20px;
+          font-weight: 700;
+          margin:0px;
+          margin-top: 25px;
+          margin-bottom: 15px;
+          .edit_link
+          {
+            font-size: 12px;
+            font-weight: 400;
+          }
+        }
+        .tab_heading:first-child
+        {
+          margin-top: 0px;
+        }
+        .user_data_container
+        {
+          margin-bottom:5px;
+          strong
+          {
+            font-size: 14px;
+            font-weight: 700;
+          }
+          .cv_heading
+          {
+            font-size: 16px;
+            color:#1a1a1a;
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-style: italic;
+          }
+          .progress
+          {
+            width:60%;
+          }
+        }
+
+        .sport_statistics
+        {
+          .sport_statistics_heading
+          {
+
+          }
+          .carrer_statistics
+          {
+            padding:5px;
+            border:1px solid #dddddd;
+            background:#f4f4f4;
+            margin-bottom: 5px;
+          }
+        }
+        .label
+        {
+          font-size: 12px;
+          font-weight: 700;
+          color:#1a1a1a;
+          display: inline-block;
+          min-width:100px;
+          text-align: left;
+        }
+        .user_data
+        {
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
     }
   }
 }
