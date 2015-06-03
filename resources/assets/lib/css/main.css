@@ -487,6 +487,58 @@ footer {
     .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .user_data {
       font-size: 12px;
       font-weight: 400; }
+  .talent_profile .profile_content_container .video_container {
+    margin-top: 25px;
+    margin-bottom: 25px; }
+    .talent_profile .profile_content_container .video_container .videos {
+      max-height: 200px;
+      height: 200px;
+      width: 100%;
+      overflow: hidden;
+      border: 2px solid #203f15;
+      position: relative;
+      margin-bottom: 15px; }
+      .talent_profile .profile_content_container .video_container .videos img {
+        min-height: 100%;
+        width: auto;
+        margin: 0px auto;
+        display: block;
+        text-align: center; }
+      .talent_profile .profile_content_container .video_container .videos .play_button {
+        position: absolute;
+        font-size: 50px;
+        color: #FFFFFF;
+        top: 35%;
+        left: 0px;
+        width: 100%;
+        text-align: center;
+        font-weight: 400;
+        cursor: pointer; }
+  .talent_profile .profile_content_container .image_container {
+    margin-top: 25px;
+    margin-bottom: 25px; }
+    .talent_profile .profile_content_container .image_container .images {
+      max-height: 200px;
+      height: 200px;
+      width: 100%;
+      overflow: hidden;
+      border: 2px solid #203f15;
+      position: relative;
+      margin-bottom: 15px; }
+      .talent_profile .profile_content_container .image_container .images img {
+        min-height: 100%;
+        height: 100%;
+        width: auto;
+        margin: 0px auto;
+        display: block;
+        text-align: center; }
+  .talent_profile .profile_content_container .video_modal_container .modal .modal-dialog {
+    background: none !important; }
+  .talent_profile .profile_content_container .video_modal_container .modal .modal-body {
+    text-align: center !important; }
+    .talent_profile .profile_content_container .video_modal_container .modal .modal-body iframe {
+      text-align: center;
+      margin: 0px auto; }
 
 .profile_menu_container {
   position: relative;

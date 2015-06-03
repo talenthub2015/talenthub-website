@@ -100,6 +100,25 @@ class UserProfile extends Model
 
 
     /**
+     *Relationship between userProfile and videos uploaded by the user
+     */
+    public function videos()
+    {
+        return $this->hasMany('\talenthub\Media\Videos',"user_id");
+    }
+
+    /**
+     *Relationship between userProfile and Images uploaded by the user
+     */
+    public function images()
+    {
+        return $this->hasMany('\talenthub\Media\Images',"user_id");
+    }
+
+
+
+
+    /**
      * Modify the data got from the user and save it in database in form "position1|position2"
      * @param $positionArray
      */

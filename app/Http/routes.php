@@ -47,7 +47,10 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('profile/{id}/curriculumvitae','ProfileController@viewCV');
     //Videos Page
     Route::get('profile/{id}/videos','VideoController@index');
-
+    Route::post('profile/videos','VideoController@store');
+    //Images Page
+    Route::get('profile/{id}/Images','ImageController@index');
+    Route::post('profile/Images','ImageController@store');
 
     ///////////////////////
     //  Talent Pages    //

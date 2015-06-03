@@ -8,9 +8,9 @@
                     <li <?php echo $active_menu == 1 ? "class='active'" : "" ?>>
                         <a href="<?php echo url('profile/'.$userProfile->user_id); ?>">Profile</a>
                     </li>
-                    <li <?php echo $active_menu == 2 ? "class='active'" : "" ?>><a href="<?php echo url('profile/'.Session::get(\talenthub\Repositories\SiteSessions::USER_ID).'/curriculumvitae'); ?>">Curriculum Vitae</a></li>
-                    <li <?php echo $active_menu == 3 ? "class='active'" : "" ?>><a href="<?php echo url('profile/'.Session::get(\talenthub\Repositories\SiteSessions::USER_ID).'/videos'); ?>">Videos</a></li>
-                    <li <?php echo $active_menu == 4 ? "class='active'" : "" ?>><a href="<?php echo url('profile'); ?>">Photos</a></li>
+                    <li <?php echo $active_menu == 2 ? "class='active'" : "" ?>><a href="<?php echo url('profile/'.$userProfile->user_id.'/curriculumvitae'); ?>">Curriculum Vitae</a></li>
+                    <li <?php echo $active_menu == 3 ? "class='active'" : "" ?>><a href="<?php echo url('profile/'.$userProfile->user_id.'/videos'); ?>">Videos</a></li>
+                    <li <?php echo $active_menu == 4 ? "class='active'" : "" ?>><a href="<?php echo url('profile/'.$userProfile->user_id.'/Images'); ?>">Photos</a></li>
                 </ul>
             </div>
         </div>

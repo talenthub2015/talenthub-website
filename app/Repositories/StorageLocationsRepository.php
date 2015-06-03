@@ -13,6 +13,7 @@ class StorageLocationsRepository {
 
     const USER_DIRECTORY_TYPE_PROFILE_IMAGES = "profile_images";
     const USER_DIRECTORY_TYPE_COVER_IMAGES = "cover_images";
+    const USER_DIRECTORY_TYPE_SPORT_IMAGES = "sport_images";
 
     const USER_PROFILE_IMAGE_PATH = '/storage/app/user_profile_data/images/original_images/';
     const USER_PROFILE_IMAGE_ICON_PATH = '/storage/app/user_profile_data/images/icon_images/';
@@ -21,5 +22,8 @@ class StorageLocationsRepository {
     const USER_DEFAULT_PROFILE_IMAGE_PATH = 'images/talenthub_logo.png';
 
     const USER_COVER_IMAGE_PATH = '/storage/app/user_profile_data/images/cover_images/';
+
+    //USER IMAGES SAVED FOR COACHES TO SEE
+    const USER_SPORT_IMAGES_STORAGE_PATH = '/storage/app/user_images/images/';
 
 }

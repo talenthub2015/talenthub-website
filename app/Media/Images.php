@@ -1,15 +1,14 @@
 <?php namespace talenthub\Media;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Videos extends Model {
+class Images extends Model {
 
-	protected $table = "videos";
+    protected $table = "images";
 
-    protected $primaryKey = "video_id";
+    protected $primaryKey = "image_id";
 
-    protected $fillable = ['user_id','video_source','title','descriptions','video_url','added_on'];
+    protected $fillable = ['user_id','title','descriptions','image_url','added_on'];
 
     protected $dates = ["added_on"];
 
@@ -41,7 +40,5 @@ class Videos extends Model {
         }
         return $added_on;
     }
-
-
 
 }
