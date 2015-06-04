@@ -323,13 +323,19 @@ footer {
       left: 15px; }
       .talent_profile .user_profile_details .about_container .request_recommendations_container .t-button {
         padding: 10px 15px; }
-    .talent_profile .user_profile_details .about_container .endorese_user_container {
+    .talent_profile .user_profile_details .about_container .visiting_user_operations {
       position: absolute;
       bottom: 15px;
-      right: 15px;
-      font-size: 14px; }
-      .talent_profile .user_profile_details .about_container .endorese_user_container .t-button {
-        padding: 10px 15px; }
+      right: 15px; }
+      .talent_profile .user_profile_details .about_container .visiting_user_operations .operation_button {
+        font-size: 14px;
+        margin-right: 15px; }
+        .talent_profile .user_profile_details .about_container .visiting_user_operations .operation_button .t-button {
+          padding: 10px 15px; }
+      .talent_profile .user_profile_details .about_container .visiting_user_operations .loading {
+        width: 30px;
+        height: auto;
+        vertical-align: middle; }
 .talent_profile .profile_content_container {
   padding: 15px 0px;
   margin-top: 25px; }
@@ -532,13 +538,6 @@ footer {
         margin: 0px auto;
         display: block;
         text-align: center; }
-  .talent_profile .profile_content_container .video_modal_container .modal .modal-dialog {
-    background: none !important; }
-  .talent_profile .profile_content_container .video_modal_container .modal .modal-body {
-    text-align: center !important; }
-    .talent_profile .profile_content_container .video_modal_container .modal .modal-body iframe {
-      text-align: center;
-      margin: 0px auto; }
 
 .profile_menu_container {
   position: relative;
@@ -576,5 +575,22 @@ footer {
     width: auto;
     display: block;
     margin: 0px auto; }
+
+.video_modal_container .modal .modal-dialog {
+  background: none !important; }
+.video_modal_container .modal .modal-body {
+  text-align: center !important; }
+  .video_modal_container .modal .modal-body iframe {
+    text-align: center;
+    margin: 0px auto; }
+
+.image_modal_container {
+  background: rgba(0, 0, 0, 0.5); }
+  .image_modal_container .modal .modal-dialog {
+    width: auto;
+    max-width: 90%; }
+    .image_modal_container .modal .modal-dialog .modal-body img {
+      width: 100%;
+      height: auto; }
 
 /*# sourceMappingURL=main.css.map */

@@ -5,6 +5,9 @@
 
 <script>angular.module("talentProfile").constant("CSRF_TOKEN", '{!! csrf_token() !!}');</script>
 
+<?php
+    $visitingUserId = \Illuminate\Support\Facades\Session::get(\talenthub\Repositories\SiteSessions::USER_ID);
+?>
 
 <div class="talent_profile" ng-app="talentProfile">
 
@@ -49,8 +52,28 @@
                     @endif
                 </p>
 
-                @if($profileEditable)
+
+                @if($profileEditable && $visitingUserId == $userProfile->user_id)
                     <p class="request_recommendations_container"><a href="<% url('request-recommendation') %>" class="t-button">Request Recommendations</a></p>
+                @endif
+                @if($visitingUserId != $userProfile->user_id)
+                    <p class="visiting_user_operations" ng-controller="VisitingUserOperationController"
+                            ng-init="user_id = <% $userProfile->user_id %>">
+                        <span class="operation_button" ng-init="favourited = <% $visitingUserFavourited %>">
+                            <a href class="t-button" ng-click="favouriteUserEvent()">
+                                <span ng-show="favourite_request_in_progress != 1" class="glyphicon" ng-class="{'glyphicon-star-empty' : favourited == 0, 'glyphicon-star' : favourited == 1}"></span>
+                                <span ng-show="favourite_request_in_progress == 1"><img src="<% asset('site_images/loading.gif')%>" class="loading"></span>
+                                {{favourited == 1 ? favourite_status = "Favourite" : favourite_status = "Favourite" }}
+                            </a>
+                        </span>
+
+                        <span class="operation_button" ng-init="endorsed = <% $visitingUserEndorsed %>">
+                            <a href class="t-button" ng-click="endorseUserEvent()" ng-show="endorsed == 0">
+                                <span class="glyphicon" ng-class="{'glyphicon-plus' : endorsed == 0}"></span>
+                                <span ng-show="endorse_request_in_progress == 1"><img src="<% asset('site_images/loading.gif')%>" class="loading"></span>
+                                {{endorsed == 1 ? endorse_status = "Already Endorsed" : endorse_status = "Endorse"}}
+                            </a>
+                    </p>
                 @endif
             </div>
         </div>

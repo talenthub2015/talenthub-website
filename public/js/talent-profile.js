@@ -203,22 +203,61 @@ talentProfile.controller('UserProfileUpdate',['$scope','ProfileOperationService'
 
 
 
-talentProfile.controller('UserEndorseController',['$scope','ProfileOperationService',
+talentProfile.controller('VisitingUserOperationController',['$scope','ProfileOperationService',
     function($scope,ProfileOperationService){
 
+        //Favourite Variables
+        $scope.favourite_request_in_progress = 0;
+        $scope.favourite_status = "";
+
+
+        //Endorsement Variables
         $scope.endorse_request_in_progress=0;
+        $scope.endorse_status = "";
+
+
+        //Method to favourite request to the server
+        $scope.favouriteUserEvent = function(){
+
+            var userData = {
+                user_id     :   $scope.user_id //User id of the user, to whom you are favouriting
+            };
+            $scope.favourite_request_in_progress=1;
+            ProfileOperationService(userData,'../profile/favourite').success(function(data){
+                console.log(data.status);
+                if(data.status=="successful")
+                {
+                    if(data.operation_done_type == "added")
+                    {
+                        $scope.favourited = 1;
+                    }
+                    else if(data.operation_done_type == "removed")
+                    {
+                        $scope.favourited = 0;
+                    }
+                    $scope.favourite_status="Favourite";
+                }
+                $scope.favourite_request_in_progress=0;
+            })
+                .error(function(data){
+                    alert("Some error occured at server side");
+                    $scope.favourite_request_in_progress=0;
+                    $scope.favourited = 0;
+                });
+        };
+
+
+        //Method to send endorse request to the server
         $scope.endorseUserEvent = function(){
 
-
-            $scope.endorse_request_in_progress=1;
             var userData = {
-                user_id     :   $scope.user_id
+                user_id     :   $scope.user_id //User id of the user, to whom you are endorsing
             };
             if($scope.endorsed == 1)
             {
                 return;
             }
-            $scope.endorsed = 1;
+            $scope.endorse_request_in_progress=1;
             ProfileOperationService(userData,'../profile/endorseUser').success(function(data){
                 console.log(data.status);
                 if(data.status=="successful")
@@ -234,6 +273,7 @@ talentProfile.controller('UserEndorseController',['$scope','ProfileOperationServ
                     $scope.endorsed = 0;
                 });
         };
+
 }]);
 
 

@@ -58,10 +58,10 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('request-recommendation','RecommendationController@index');
     Route::post('request-recommendation','RecommendationController@request');
 
-    //For Talents - Saving Awards and Endorsements
+    //For Talents - Saving Awards, Endorsements and favouriting
     Route::put('profile/profileAwards','ProfileController@updateProfileAwards');
     Route::put('profile/endorseUser','ProfileController@endorseUser');
-
+    Route::put('profile/favourite','ProfileController@favouriteUser');
 
 
 

@@ -90,6 +90,17 @@ class UserProfile extends Model
     }
 
 
+
+    /**
+     * Presenting Many to Many relationship with other users for Connections table/Favourites
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function favourites()
+    {
+        return $this->belongsToMany('talenthub\UserProfile','connections','user_id','connected_to');
+    }
+
+
     /**Relationship between user profile and recommendations
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

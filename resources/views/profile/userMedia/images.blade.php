@@ -34,7 +34,7 @@
                         </div>
                         <div class="col-xs-6 col-lg-4">
                             <div class="form-group">
-                                {!! Form::label('title','Video Title:') !!}
+                                {!! Form::label('title','Image Title:') !!}
                                 {!! Form::text('title',null,['class'=>'form-control','data-validate'=>'require',
                                 'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter a title for the video.']) !!}
                             </div>
@@ -58,7 +58,7 @@
                         ?>
                         <div class="col-xs-4 col-lg-3">
                             <div class="images">
-                                <img src="{{url($image->image_url)}}">
+                                <img src="{{url($image->image_url)}}" data-toggle="modal" data-target="#image{{$imageCount}}">
                             </div>
                         </div>
                     @endforeach
@@ -68,6 +68,30 @@
 
         </div>
 
+    </div>
+
+
+    <div class="image_modal_container">
+        {{$imageCount = 0}}
+        @foreach($images as $key=>$image)
+            <?php
+            $imageCount++;
+            ?>
+            <div class="modal fade" id="image{{$imageCount}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">{{$image->title}}</h4>
+                        </div>
+                        <div class="modal-body" >
+                            <img src="{{$image->image_url}}">
+                            <p>{{$image->descriptions}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
     </div>
 
 @stop

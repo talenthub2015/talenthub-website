@@ -884,7 +884,22 @@ class ProfileController extends Controller {
             $profileEditable=true;
         }
 
-        return view('profile.user_profile',compact('userProfile','country','sportPositions','userCareerHistory','awards','endorsements','visitingUserEndorsed','profileEditable'));
+        //Setting whether profile is favourited by visiting user or not
+        $visitingUserFavourited = $userProfile->favourites()->wherePivot('user_id','=',$userProfile->user_id)
+            ->wherePivot('connected_to','=',Session::get(SiteSessions::USER_ID))
+            ->get();
+        if(count($visitingUserFavourited)>0)
+        {
+            $visitingUserFavourited=1;
+        }
+        else
+        {
+            $visitingUserFavourited=0;
+        }
+
+        return view('profile.user_profile',
+            compact('userProfile','country','sportPositions','userCareerHistory','awards','endorsements',
+                'visitingUserEndorsed','profileEditable','visitingUserFavourited'));
     }
 
 
@@ -974,6 +989,54 @@ class ProfileController extends Controller {
 
         return redirect('profile');
 
+    }
+
+
+    /**
+     * Function to favourite User with id contained in $request object
+     * Favourited by User with current session
+     * @param $favouriting_user_id
+     */
+    public function favouriteUser(Request $request)
+    {
+        if(!Auth::check())
+        {
+            return response()->json(['status'=>'error','type'=>'user_not_logged_in']);
+        }
+
+        $validator = Validator::make(Input::all(),[
+            'user_id'=> 'required',
+        ]);
+
+        if($validator->fails())
+        {
+            return response()->json(['status'=>'error','type'=>'validation_error']);
+        }
+
+        $operation_performed = "";
+
+        try
+        {
+            $userProfile = UserProfile::find($request->user_id);
+            $isAlreadyFavourite = $userProfile->favourites()->wherePivot('connected_to','=',Session::get(SiteSessions::USER_ID))->get();
+            if(count($isAlreadyFavourite)>0)
+            {
+                $userProfile->favourites()->detach(Session::get(SiteSessions::USER_ID));
+                $operation_performed = "removed";
+            }
+            else
+            {
+                $userProfile->favourites()->attach(Session::get(SiteSessions::USER_ID));
+                $operation_performed = "added";
+            }
+            $userProfile->save();
+        }
+        catch(ModelNotFoundException $e)
+        {
+            return response()->json(['status'=>'error','type'=>'user_not_found']);
+        }
+
+        return response()->json(['status'=>'successful','operation_done_type'=>$operation_performed]);
     }
 
 }
