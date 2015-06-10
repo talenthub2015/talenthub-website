@@ -63,7 +63,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     /*Mutator for setting Management Level.*/
     public function setmanagementLevelAttribute($management_level)
     {
-        return BasicSiteRepository::getUserManagementLevelType(SiteConstants::USER_MANAGER)[$management_level];
+        if(SiteConstants::isManager($this->attributes['user_type']))
+        {
+            $this->attributes['management_level']=BasicSiteRepository::getUserManagementLevelType(SiteConstants::USER_MANAGER)[$management_level];
+        }
+        else if(SiteConstants::isTalent($this->attributes['user_type']))
+        {
+            $this->attributes['management_level']=BasicSiteRepository::getUserManagementLevelType(SiteConstants::USER_TALENT)[$management_level];
+        }
     }
 
 

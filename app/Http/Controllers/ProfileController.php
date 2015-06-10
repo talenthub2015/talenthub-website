@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -885,9 +886,11 @@ class ProfileController extends Controller {
         }
 
         //Setting whether profile is favourited by visiting user or not
-        $visitingUserFavourited = $userProfile->favourites()->wherePivot('user_id','=',$userProfile->user_id)
-            ->wherePivot('connected_to','=',Session::get(SiteSessions::USER_ID))
+        $visitingUserFavourited = DB::table('connections')
+            ->where('user_id','=',Session::get(SiteSessions::USER_ID))
+            ->where('connected_to','=',$userProfile->user_id)
             ->get();
+
         if(count($visitingUserFavourited)>0)
         {
             $visitingUserFavourited=1;
@@ -1005,7 +1008,7 @@ class ProfileController extends Controller {
         }
 
         $validator = Validator::make(Input::all(),[
-            'user_id'=> 'required',
+            'connect_to_user_id'=> 'required',
         ]);
 
         if($validator->fails())
@@ -1017,16 +1020,16 @@ class ProfileController extends Controller {
 
         try
         {
-            $userProfile = UserProfile::find($request->user_id);
-            $isAlreadyFavourite = $userProfile->favourites()->wherePivot('connected_to','=',Session::get(SiteSessions::USER_ID))->get();
+            $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
+            $isAlreadyFavourite = $userProfile->favourites()->wherePivot('connected_to','=',$request->connect_to_user_id)->get();
             if(count($isAlreadyFavourite)>0)
             {
-                $userProfile->favourites()->detach(Session::get(SiteSessions::USER_ID));
+                $userProfile->favourites()->detach($request->connect_to_user_id);
                 $operation_performed = "removed";
             }
             else
             {
-                $userProfile->favourites()->attach(Session::get(SiteSessions::USER_ID));
+                $userProfile->favourites()->attach($request->connect_to_user_id);
                 $operation_performed = "added";
             }
             $userProfile->save();
@@ -1037,6 +1040,21 @@ class ProfileController extends Controller {
         }
 
         return response()->json(['status'=>'successful','operation_done_type'=>$operation_performed]);
+    }
+
+
+    /**
+     *Showing List of favourites of a user
+     */
+    public function showFavourites($user_id)
+    {
+        $userProfile = UserProfile::find($user_id);
+
+        $userProfile->getMutatedData = false;
+
+        $favourites = $userProfile->favourites()->wherePivot('user_id','=',$userProfile->user_id)->get();
+
+        return view('profile.favourites',compact('userProfile','favourites'));
     }
 
 }

@@ -63,6 +63,8 @@ class CreateConnectionsTableMessageTableEndorsementTableRecommendationTableAward
 
             $table->string('subject');
             $table->text('message');
+            $table->string('from_user_message_status');   //Status of read or unread
+            $table->string('to_user_message_status');   //Status of read or unread
             $table->timestamp('sent_on');
             $table->timestamps();
         });

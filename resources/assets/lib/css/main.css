@@ -145,7 +145,8 @@ footer {
     text-decoration: underline; }
 
 .body_container {
-  margin-top: 40px; }
+  margin-top: 40px;
+  min-height: 550px; }
 
 .nav-tabs {
   border-bottom: 1px solid #203f15; }
@@ -577,7 +578,9 @@ footer {
     margin: 0px auto; }
 
 .video_modal_container .modal .modal-dialog {
-  background: none !important; }
+  background: none !important;
+  width: auto;
+  max-width: 80%; }
 .video_modal_container .modal .modal-body {
   text-align: center !important; }
   .video_modal_container .modal .modal-body iframe {
@@ -592,5 +595,6 @@ footer {
     .image_modal_container .modal .modal-dialog .modal-body img {
       width: 100%;
       height: auto; }
+
 
 /*# sourceMappingURL=main.css.map */

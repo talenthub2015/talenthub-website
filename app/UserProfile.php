@@ -128,6 +128,18 @@ class UserProfile extends Model
 
 
 
+    /**
+     * Presenting Many to Many relationship with other users for Messages
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function messages()
+    {
+        return $this->belongsToMany('talenthub\UserProfile','messages','user_id','to_user_id')
+            ->withPivot('subject','message','sent_on','status');
+    }
+
+
+
 
     /**
      * Modify the data got from the user and save it in database in form "position1|position2"

@@ -34,14 +34,16 @@ elixir(function(mix) {
     //],"public/js/allangularscripts.js","resources/assets/lib/js");
 
 
-    mix.rubySass('main.scss','resources/assets/lib/css/');
+    mix.sass('main.scss','resources/assets/lib/css/');
     mix.sass('site_animation.scss','resources/assets/lib/css/');
+    mix.sass('message.scss','resources/assets/lib/css/');
 
     mix.styles([
         'lib/css/basic_site_style.css',
         'lib/css/app.css',
         'lib/css/jquery-ui.css',
         'lib/css/main.css',
+        'lib/css/message.css'
     ],'public/css/main.css','resources/assets/');
 
     mix.styles([

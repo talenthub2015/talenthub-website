@@ -72,7 +72,7 @@
 
 
     <div class="image_modal_container">
-        {{$imageCount = 0}}
+        <?php $imageCount = 0; ?>
         @foreach($images as $key=>$image)
             <?php
             $imageCount++;

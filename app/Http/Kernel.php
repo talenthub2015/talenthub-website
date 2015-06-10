@@ -27,6 +27,7 @@ class Kernel extends HttpKernel {
 		'auth' => 'talenthub\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'guest' => 'talenthub\Http\Middleware\RedirectIfAuthenticated',
+        'admin' => 'talenthub\Http\Middleware\Admin',
 	];
 
 }

@@ -14,6 +14,8 @@ class SiteConstants {
     /*
      * User Types of the site
      */
+    const USER_ADMIN = "admin";
+
     const USER_TALENT="talent";
     const USER_MANAGER="manager";
 

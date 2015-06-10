@@ -231,6 +231,7 @@ footer
 .body_container
 {
   margin-top:40px;
+  min-height:550px;
 }
 
 .nav-tabs
@@ -944,6 +945,8 @@ footer
     .modal-dialog
     {
       background:none !important;
+      width:auto;
+      max-width: 80%;
 
     }
     .modal-body

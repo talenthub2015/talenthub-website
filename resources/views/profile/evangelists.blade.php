@@ -45,7 +45,7 @@
                         <div class="row evangelists_container">
                             @foreach($endorsements as $endorser)
                                 <div class="col-xs-6 col-lg-3 endorser_container">
-                                    <a href="">
+                                    <a href="{{url('profile/'.$endorser->user_id)}}">
                                         <img src="{{ $endorser->profile_image_path }}" class="img-thumbnail">
                                         <div class="endorser_name">{{ $endorser->first_name." ".$endorser->last_name }} </div>
                                     </a>

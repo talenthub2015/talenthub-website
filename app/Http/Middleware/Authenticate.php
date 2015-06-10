@@ -2,6 +2,8 @@
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use talenthub\Repositories\SiteConstants;
+use talenthub\Repositories\UserProfileRepository;
 
 class Authenticate {
 
@@ -43,6 +45,14 @@ class Authenticate {
 				return redirect()->guest('/');
 			}
 		}
+
+        $user = $this->auth->user();
+
+        if(!SiteConstants::isTalent($user->user_type) && !SiteConstants::isManager($user->user_type) &&
+            !SiteConstants::isCoach($user->user_type) && !SiteConstants::isAgent($user->user_type))
+        {
+            return redirect('auth/logout');
+        }
 
 		return $next($request);
 	}

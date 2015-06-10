@@ -11,6 +11,8 @@
 |
 */
 
+include_once('admin_routes.php');
+
 Route::get('/', 'WelcomeController@index');
 Route::get('sign_up', 'WelcomeController@signUp');
 
@@ -52,6 +54,10 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('profile/{id}/Images','ImageController@index');
     Route::post('profile/Images','ImageController@store');
 
+    //Favoutires Page
+    Route::get('profile/{id}/favourites','ProfileController@showFavourites');
+
+
     ///////////////////////
     //  Talent Pages    //
     //////////////////////
@@ -71,6 +77,18 @@ Route::group(['middleware' => ['auth']],function(){
 
 
 
+
+    //////////////////////
+    /// Messages Pages //
+    /////////////////////
+    Route::get('messages','MessageController@index');
+    Route::get('sentMessages','MessageController@sentMessages');
+    Route::get('viewMessage/{message_id}',['as'=>'viewMessage', 'uses'=>'MessageController@viewMessage']);
+
+    //Sending Message to a user
+    Route::put('profile/sendMessage','MessageController@sendMessage');
+    Route::post('reply-forward-Message','MessageController@replyOrForwardMessage');
+    Route::put('moveTrash','MessageController@moveToTrash');
 
 
 

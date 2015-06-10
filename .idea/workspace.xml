@@ -2,10 +2,87 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1c968e4-fc5c-4a97-b134-8fc965a76b71" name="Default" comment="">
-      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\build\css\main-07597dd7.css" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/managers_database/add_manager.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/admin_app.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/template/admin_header.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/admin_home.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/admin_routes.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/profile/favourites.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/message/template/left_hand_side_menu.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sass/message.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/message/messages.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/message/sentMessages.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/message/viewMessage.blade.php" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\build\css\main-69b94284.css" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\cover_images\058023fbbb83e2be13dada4ecdd76ec6.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\cover_images\3899181c433e6117eeb8848e703eeb85.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\cover_images\71dff9fdd8e597629c47570550c4f2b3.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\cover_images\b34d9aea121e71aa40f8c7eb5eae66f0.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\cover_images\ca1e3d28cf5730daeb9b10f2f54fb565.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\058023fbbb83e2be13dada4ecdd76ec6.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\07be31a43b677714ca2494ee8fc3b5c3.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\36e52249916ac921c608d419422b5a5e.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\43bb22e37385d94f26d252e3112185ba.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\48d37f104827143ca5be099d68e38ede.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\76050740db4d9c7cdfc4dcc97872e925.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\85e41ee3651e61a4b11027220db5b383.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\8aca95af3c77d51ce5050f5bc77a4b51.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\a5ca77e08593d5b66be96566cf9ad438.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\aa85e3e005c259c5583ad6e58b1fb374.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\b1de065b66436744daea958ca606df4a.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\c1f9216d0b26dd28325a62dd31c68903.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\ddf01ad39baba0709471bf8cdb3d5a35.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\df94ce7654754103abab4a3529c7b019.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\ede57dab115f1de810c15802c4f843a3.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\ee289556695aabe16c536ba2e11fde33.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\fc320aad7373486039358e8757486f03.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\icon_images\ff952f6589bd655be9a4a97cbef786bd.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\058023fbbb83e2be13dada4ecdd76ec6.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\07be31a43b677714ca2494ee8fc3b5c3.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\36e52249916ac921c608d419422b5a5e.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\43bb22e37385d94f26d252e3112185ba.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\48d37f104827143ca5be099d68e38ede.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\76050740db4d9c7cdfc4dcc97872e925.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\85e41ee3651e61a4b11027220db5b383.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\8aca95af3c77d51ce5050f5bc77a4b51.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\a5ca77e08593d5b66be96566cf9ad438.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\aa85e3e005c259c5583ad6e58b1fb374.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\b1de065b66436744daea958ca606df4a.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\c1f9216d0b26dd28325a62dd31c68903.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\ddf01ad39baba0709471bf8cdb3d5a35.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\df94ce7654754103abab4a3529c7b019.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\ede57dab115f1de810c15802c4f843a3.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\ee289556695aabe16c536ba2e11fde33.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\fc320aad7373486039358e8757486f03.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\original_images\ff952f6589bd655be9a4a97cbef786bd.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\058023fbbb83e2be13dada4ecdd76ec6.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\07be31a43b677714ca2494ee8fc3b5c3.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\36e52249916ac921c608d419422b5a5e.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\43bb22e37385d94f26d252e3112185ba.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\48d37f104827143ca5be099d68e38ede.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\76050740db4d9c7cdfc4dcc97872e925.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\85e41ee3651e61a4b11027220db5b383.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\8aca95af3c77d51ce5050f5bc77a4b51.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\a5ca77e08593d5b66be96566cf9ad438.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\aa85e3e005c259c5583ad6e58b1fb374.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\b1de065b66436744daea958ca606df4a.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\c1f9216d0b26dd28325a62dd31c68903.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\ddf01ad39baba0709471bf8cdb3d5a35.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\df94ce7654754103abab4a3529c7b019.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\ede57dab115f1de810c15802c4f843a3.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\ee289556695aabe16c536ba2e11fde33.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\fc320aad7373486039358e8757486f03.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\storage\app\user_profile_data\images\small_images\ff952f6589bd655be9a4a97cbef786bd.JPG" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/cb98bd34b18450d3a04f6c44e960b66fb79c4c5d/main.scssc" afterPath="$PROJECT_DIR$/.sass-cache/cb98bd34b18450d3a04f6c44e960b66fb79c4c5d/main.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_05_10_224022_create_connectionsTable_messageTable_endorsementTable_recommendationTable_awardsTable.php" afterPath="$PROJECT_DIR$/database/migrations/2015_05_10_224022_create_connectionsTable_messageTable_endorsementTable_recommendationTable_awardsTable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Kernel.php" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/SiteConstants.php" afterPath="$PROJECT_DIR$/app/Repositories/SiteConstants.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/UserProfile.php" afterPath="$PROJECT_DIR$/app/UserProfile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/profile/evangelists.blade.php" afterPath="$PROJECT_DIR$/resources/views/profile/evangelists.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/profile/userMedia/images.blade.php" afterPath="$PROJECT_DIR$/resources/views/profile/userMedia/images.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/css/main.css.map" afterPath="$PROJECT_DIR$/public/build/css/main.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css.map" afterPath="$PROJECT_DIR$/public/css/main.css.map" />
@@ -13,10 +90,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/lib/css/main.css" afterPath="$PROJECT_DIR$/resources/assets/lib/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/main.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/main.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/password.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/password.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/rev-manifest.json" afterPath="$PROJECT_DIR$/public/build/rev-manifest.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/talent-profile.js" afterPath="$PROJECT_DIR$/public/js/talent-profile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/templates/userHeader.blade.php" afterPath="$PROJECT_DIR$/resources/views/templates/userHeader.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/profile/user_profile.blade.php" afterPath="$PROJECT_DIR$/resources/views/profile/user_profile.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/profile/userMedia/videos.blade.php" afterPath="$PROJECT_DIR$/resources/views/profile/userMedia/videos.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="thub.iws" />
@@ -42,63 +122,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ImageController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ImageController.php">
+      <file leaf-file-name="admin_routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/admin_routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-50.346153" vertical-offset="255" max-vertical-offset="2091">
-              <caret line="92" column="38" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
+            <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="357">
+              <caret line="13" column="26" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="26" />
               <folding>
-                <element signature="e#45#63#0#PHP" expanded="true" />
+                <element signature="e#6#95#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Images.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Media/Images.php">
+      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="850">
-              <caret line="10" column="43" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="43" />
+            <state vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="493">
+              <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserProfile.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/UserProfile.php">
+      <file leaf-file-name="add_manager.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/managers_database/add_manager.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.961538" vertical-offset="1279" max-vertical-offset="5406">
-              <caret line="97" column="32" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.3558776" vertical-offset="0" max-vertical-offset="1768">
+              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/sass/main.scss">
+      <file leaf-file-name="editCV.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/editCV.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6625" vertical-offset="16059" max-vertical-offset="16796">
-              <caret line="976" column="22" selection-start-line="976" selection-start-column="22" selection-end-line="976" selection-end-column="22" />
+            <state vertical-scroll-proportion="-15.692307" vertical-offset="5151" max-vertical-offset="20689">
+              <caret line="327" column="50" selection-start-line="323" selection-start-column="44" selection-end-line="327" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="images.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/profile/userMedia/images.blade.php">
+      <file leaf-file-name="admin_header.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/template/admin_header.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49671054" vertical-offset="310" max-vertical-offset="1734">
-              <caret line="36" column="62" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="videos.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/profile/userMedia/videos.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0" vertical-offset="794" max-vertical-offset="1785">
-              <caret line="62" column="108" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="108" />
+            <state vertical-scroll-proportion="-10.961538" vertical-offset="72" max-vertical-offset="714">
+              <caret line="21" column="72" selection-start-line="21" selection-start-column="72" selection-end-line="21" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -112,39 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/TalentCareerInformation.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" />
-        <option value="$PROJECT_DIR$/app/Endorsements.php" />
-        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/evangelists.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/show_user_profile.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/home.blade.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/SiteConstants.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/request_recommendation.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/app.blade.php" />
-        <option value="$PROJECT_DIR$/app/Talent/Recommendations.php" />
-        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/guest/recommendationThanks.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/ExternalUser/PostRecommendationRequest.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_05_10_224022_create_connectionsTable_messageTable_endorsementTable_recommendationTable_awardsTable.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/RecommendationController.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/guest/recommendation_form.blade.php" />
-        <option value="$PROJECT_DIR$/public/js/form-validations.js" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/TalentCVForms/getSportCVView.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/TalentCVForms/ViewStatistics/getSportCVView.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/TalentCVForms/soccerCV.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/getSportCVView.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/soccerCV.blade.php" />
-        <option value="$PROJECT_DIR$/app/Awards.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/baseballCV.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/basketballCV.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/rugbyCV.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/swimmingCV.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/trackAndFieldCV.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/editCV.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/talent/viewTalentCV.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_05_11_000152_create_postsTable_commentsTable_likesTable_sharesTable_imagesTable_images_likesTable_videosTable_videos_likesTable.php" />
         <option value="$PROJECT_DIR$/app/Repositories/AssetsConstantRepository.php" />
         <option value="$PROJECT_DIR$/resources/views/profile/template/userIntroBanner.blade.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
@@ -152,17 +189,50 @@
         <option value="$PROJECT_DIR$/app/Media/Videos.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" />
         <option value="$PROJECT_DIR$/resources/views/templates/menu/user_profile_menu.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/userMedia/videos.blade.php" />
         <option value="$PROJECT_DIR$/app/Media/Images.php" />
         <option value="$PROJECT_DIR$/app/Repositories/StorageLocationsRepository.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ImageController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/app/UserProfile.php" />
-        <option value="$PROJECT_DIR$/public/js/talent-profile.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/user_profile.blade.php" />
-        <option value="$PROJECT_DIR$/resources/assets/sass/main.scss" />
         <option value="$PROJECT_DIR$/resources/views/profile/userMedia/images.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/profile/user_profile.blade.php" />
+        <option value="$PROJECT_DIR$/storage/framework/views/8db82a95042e82f45f2826b601ecb48f" />
+        <option value="$PROJECT_DIR$/resources/views/profile/userMedia/videos.blade.php" />
+        <option value="$PROJECT_DIR$/app/UserProfile.php" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/resources/assets/sass/message.scss" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_05_10_224022_create_connectionsTable_messageTable_endorsementTable_recommendationTable_awardsTable.php" />
+        <option value="$PROJECT_DIR$/resources/views/message/messages.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/message/sentMessages.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/MessageController.php" />
+        <option value="$PROJECT_DIR$/resources/views/message/template/left_hand_side_menu.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/templates/userHeader.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/talent-profile.js" />
+        <option value="$PROJECT_DIR$/resources/views/profile/favourites.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/profile/evangelists.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/message/viewMessage.blade.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Passwords/CanResetPassword.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Passwords/DatabaseTokenRepository.php" />
+        <option value="$PROJECT_DIR$/resources/assets/sass/main.scss" />
+        <option value="$PROJECT_DIR$/resources/views/auth/password.blade.php" />
+        <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Passwords/PasswordBroker.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Guard.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
+        <option value="$PROJECT_DIR$/app/ManagerDatabaseModel/ManagersDatabase.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/SiteConstants.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_06_10_191145_create_ManagersDatabaseTable.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/admin_app.blade.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php" />
+        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/Admin.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/admin_home.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/admin_routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/template/admin_header.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/managers_database/add_manager.blade.php" />
       </list>
     </option>
   </component>
@@ -204,6 +274,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -284,7 +355,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="userMedia" />
+              <option name="myItemId" value="talent" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -330,19 +401,107 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Media" />
+              <option name="myItemId" value="ManagerDatabaseModel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Middleware" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Founders Market" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="Guard&#9;null&#9;null&#10;Password&#9;null&#9;null&#10;TokenRe&#9;null&#9;null&#10;PasswordBroker&#9;null&#9;null&#10;UserProvider&#9;null&#9;null&#10;QueryB&#9;null&#9;null&#10;Validator&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -400,7 +559,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1320" height="784" extended-state="7" />
+    <frame x="-8" y="-8" width="1320" height="784" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -411,6 +570,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -418,11 +579,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -443,397 +602,425 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/guest/recommendation_form.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/evangelists.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2236842" vertical-offset="0" max-vertical-offset="3043">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/guest/recommendationThanks.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="357">
-          <caret line="8" column="95" selection-start-line="8" selection-start-column="95" selection-end-line="8" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/templates/menu/left_menu_edit_profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="647">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/framework/views/5fd50bfc6eedd0d74760f268495cfbae">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3753943" vertical-offset="918" max-vertical-offset="6256">
-          <caret line="68" column="53" selection-start-line="68" selection-start-column="53" selection-end-line="68" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/request_recommendation.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25164473" vertical-offset="0" max-vertical-offset="1020">
-          <caret line="9" column="68" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/SportsRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8026316" vertical-offset="2129" max-vertical-offset="2737">
-          <caret line="30" column="95" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/UserProfileRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.73077" vertical-offset="0" max-vertical-offset="2788">
-          <caret line="52" column="43" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33274958" vertical-offset="7290" max-vertical-offset="10404">
-          <caret line="440" column="97" selection-start-line="440" selection-start-column="97" selection-end-line="440" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/TalentCareerStatisticsModels/SoccerStatistics.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5748792" vertical-offset="0" max-vertical-offset="697">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ManagerProfile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28824475" vertical-offset="178" max-vertical-offset="901">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/TalentCVForms/getSportCVView.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0547504" vertical-offset="0" max-vertical-offset="1071">
-          <caret line="2" column="48" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/TalentCVForms/soccerCV.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47532895" vertical-offset="0" max-vertical-offset="6358">
-          <caret line="17" column="77" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/framework/views/b7127f5714a2a6e2990eeba6382eecf3">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08443709" vertical-offset="0" max-vertical-offset="1275">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/baseballCV.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3207238" vertical-offset="0" max-vertical-offset="1734">
-          <caret line="83" column="52" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/getSportCVView.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="1122">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/soccerCV.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.4194079" vertical-offset="765" max-vertical-offset="3383">
-          <caret line="30" column="62" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/trackAndFieldCV.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2582237" vertical-offset="0" max-vertical-offset="1105">
-          <caret line="36" column="75" selection-start-line="36" selection-start-column="75" selection-end-line="36" selection-end-column="75" />
-          <caret line="37" column="72" selection-start-line="37" selection-start-column="72" selection-end-line="37" selection-end-column="72" />
-          <caret line="38" column="74" selection-start-line="38" selection-start-column="74" selection-end-line="38" selection-end-column="74" />
-          <caret line="39" column="74" selection-start-line="39" selection-start-column="74" selection-end-line="39" selection-end-column="74" />
-          <caret line="40" column="74" selection-start-line="40" selection-start-column="74" selection-end-line="40" selection-end-column="74" />
-          <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
-          <caret line="42" column="74" selection-start-line="42" selection-start-column="74" selection-end-line="42" selection-end-column="74" />
-          <caret line="43" column="74" selection-start-line="43" selection-start-column="74" selection-end-line="43" selection-end-column="74" />
-          <caret line="44" column="74" selection-start-line="44" selection-start-column="74" selection-end-line="44" selection-end-column="74" />
-          <caret line="45" column="75" selection-start-line="45" selection-start-column="75" selection-end-line="45" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/swimmingCV.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27960527" vertical-offset="0" max-vertical-offset="1802">
-          <caret line="10" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/rugbyCV.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08388158" vertical-offset="0" max-vertical-offset="2431">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/ViewStatistics/basketballCV.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16425121" vertical-offset="0" max-vertical-offset="1054">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="425">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_05_11_000152_create_postsTable_commentsTable_likesTable_sharesTable_imagesTable_images_likesTable_videosTable_videos_likesTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67105263" vertical-offset="2669" max-vertical-offset="5321">
-          <caret line="182" column="111" selection-start-line="182" selection-start-column="111" selection-end-line="182" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/BasicSiteRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="13.393092" vertical-offset="0" max-vertical-offset="10897">
-          <caret line="484" column="37" selection-start-line="484" selection-start-column="37" selection-end-line="484" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.55921054" vertical-offset="459" max-vertical-offset="1207">
+          <caret line="47" column="71" selection-start-line="47" selection-start-column="71" selection-end-line="47" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/favourites.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44763514" vertical-offset="1588" max-vertical-offset="57494">
-          <caret line="132" column="14" selection-start-line="132" selection-start-column="14" selection-end-line="132" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Awards.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26086956" vertical-offset="178" max-vertical-offset="867">
-          <caret line="20" column="90" selection-start-line="16" selection-start-column="4" selection-end-line="20" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/AssetsConstantRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="323">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ManagerCareerInformation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="884">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/vlucas/phpdotenv/src/Dotenv.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34621578" vertical-offset="3712" max-vertical-offset="4539">
-          <caret line="231" column="27" selection-start-line="231" selection-start-column="27" selection-end-line="231" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/editCV.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.230769" vertical-offset="1231" max-vertical-offset="20689">
-          <caret line="85" column="168" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="168" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/SiteConstants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5748792" vertical-offset="459" max-vertical-offset="2533">
-          <caret line="53" column="61" selection-start-line="53" selection-start-column="61" selection-end-line="53" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.273752" vertical-offset="2176" max-vertical-offset="3570">
-          <caret line="138" column="50" selection-start-line="138" selection-start-column="50" selection-end-line="138" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/form-validations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1912" max-vertical-offset="4471">
-          <caret line="138" column="43" selection-start-line="138" selection-start-column="43" selection-end-line="138" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-          <caret line="20" column="65" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/madcoda/php-youtube-api/lib/Madcoda/Youtube.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49758455" vertical-offset="7528" max-vertical-offset="8806">
-          <caret line="461" column="29" selection-start-line="461" selection-start-column="18" selection-end-line="461" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/TalentCareerInformation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30756578" vertical-offset="493" max-vertical-offset="5049">
-          <caret line="46" column="41" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.423077" vertical-offset="288" max-vertical-offset="1292">
-          <caret line="39" column="9" selection-start-line="31" selection-start-column="8" selection-end-line="39" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Media/Videos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.692308" vertical-offset="280" max-vertical-offset="901">
-          <caret line="42" column="5" selection-start-line="7" selection-start-column="4" selection-end-line="42" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/templates/menu/user_profile_menu.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33552632" vertical-offset="0" max-vertical-offset="608">
-          <caret line="12" column="138" selection-start-line="12" selection-start-column="138" selection-end-line="12" selection-end-column="138" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/viewTalentCV.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27960527" vertical-offset="0" max-vertical-offset="10897">
-          <caret line="10" column="37" selection-start-line="8" selection-start-column="12" selection-end-line="10" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/template/userIntroBanner.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08388158" vertical-offset="0" max-vertical-offset="608">
-          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/StorageLocationsRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5748792" vertical-offset="0" max-vertical-offset="621">
-          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/user_profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3834197" vertical-offset="849" max-vertical-offset="6953">
-          <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="82" />
+        <state vertical-scroll-proportion="0.61513156" vertical-offset="0" max-vertical-offset="782">
+          <caret line="22" column="85" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="85" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/talent-profile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4558359" vertical-offset="3752" max-vertical-offset="4845">
-          <caret line="275" column="0" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.22239748" vertical-offset="3633" max-vertical-offset="5440">
+          <caret line="222" column="16" selection-start-line="222" selection-start-column="16" selection-end-line="222" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/message/viewMessage.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44763514" vertical-offset="653" max-vertical-offset="1360">
-          <caret line="63" column="33" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.19572368" vertical-offset="0" max-vertical-offset="2261">
+          <caret line="7" column="74" selection-start-line="7" selection-start-column="74" selection-end-line="7" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/security-core/Symfony/Component/Security/Core/Authentication/Provider/UserAuthenticationProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35197368" vertical-offset="7" max-vertical-offset="2482">
+          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Passwords/TokenRepositoryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32850242" vertical-offset="0" max-vertical-offset="765">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Auth/CanResetPassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24637681" vertical-offset="0" max-vertical-offset="621">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/reset.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Mail/Mailer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5748792" vertical-offset="0" max-vertical-offset="629">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41062802" vertical-offset="0" max-vertical-offset="646">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/emails/password.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="621">
+          <caret line="0" column="66" selection-start-line="0" selection-start-column="52" selection-end-line="0" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/password.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.26923" vertical-offset="153" max-vertical-offset="986">
+          <caret line="40" column="85" selection-start-line="40" selection-start-column="85" selection-end-line="40" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Passwords/DatabaseTokenRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38808373" vertical-offset="1136" max-vertical-offset="3332">
+          <caret line="83" column="46" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_4.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34703946" vertical-offset="401" max-vertical-offset="18615">
+          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Authenticatable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0547504" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Passwords/CanResetPassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0547504" vertical-offset="0" max-vertical-offset="621">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Auth/Guard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.807692" vertical-offset="0" max-vertical-offset="1802">
+          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Auth/UserProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54911435" vertical-offset="271" max-vertical-offset="918">
+          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Auth/Authenticatable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0547504" vertical-offset="0" max-vertical-offset="799">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.192307" vertical-offset="101" max-vertical-offset="748">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding>
+            <element signature="e#50#92#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Auth/PasswordBroker.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1095008" vertical-offset="0" max-vertical-offset="1394">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Passwords/PasswordBroker.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2363636" vertical-offset="0" max-vertical-offset="4947">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Guard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.032095" vertical-offset="7157" max-vertical-offset="13192">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="e#35#56#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39774558" vertical-offset="1691" max-vertical-offset="2584">
+          <caret line="114" column="53" selection-start-line="114" selection-start-column="53" selection-end-line="114" selection-end-column="53" />
+          <folding>
+            <element signature="e#45#73#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08388158" vertical-offset="51" max-vertical-offset="1326">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55921054" vertical-offset="14195" max-vertical-offset="17221">
-          <caret line="890" column="40" selection-start-line="890" selection-start-column="40" selection-end-line="890" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ImageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-50.346153" vertical-offset="255" max-vertical-offset="2091">
-          <caret line="92" column="38" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
-          <folding>
-            <element signature="e#45#63#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/UserProfile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.961538" vertical-offset="1279" max-vertical-offset="5406">
-          <caret line="97" column="32" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Media/Images.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="850">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/userMedia/videos.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0" vertical-offset="794" max-vertical-offset="1785">
-          <caret line="62" column="108" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="108" />
+        <state vertical-scroll-proportion="4.5906734" vertical-offset="11894" max-vertical-offset="17510">
+          <caret line="892" column="0" selection-start-line="892" selection-start-column="0" selection-end-line="892" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/sass/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6625" vertical-offset="16059" max-vertical-offset="16796">
-          <caret line="976" column="22" selection-start-line="976" selection-start-column="22" selection-end-line="976" selection-end-column="22" />
+        <state vertical-scroll-proportion="-4.3333335" vertical-offset="3740" max-vertical-offset="16847">
+          <caret line="233" column="13" selection-start-line="233" selection-start-column="13" selection-end-line="233" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/userMedia/images.blade.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_05_14_202154_create_manager_career_historyTable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49671054" vertical-offset="310" max-vertical-offset="1734">
-          <caret line="36" column="62" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.49275362" vertical-offset="306" max-vertical-offset="1003">
+          <caret line="37" column="11" selection-start-line="14" selection-start-column="8" selection-end-line="37" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/UserProfile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-58.384617" vertical-offset="80" max-vertical-offset="5610">
+          <caret line="99" column="82" selection-start-line="99" selection-start-column="75" selection-end-line="99" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ManagerDatabaseModel/ManagersDatabase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="340">
+          <caret line="11" column="79" selection-start-line="11" selection-start-column="79" selection-end-line="11" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1666">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.31400967" vertical-offset="195" max-vertical-offset="816">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-41.192307" vertical-offset="0" max-vertical-offset="1241">
+          <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Authenticate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60225445" vertical-offset="0" max-vertical-offset="1071">
+          <caret line="25" column="5" selection-start-line="9" selection-start-column="4" selection-end-line="25" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_06_10_191145_create_ManagersDatabaseTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.231884" vertical-offset="0" max-vertical-offset="935">
+          <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/templates/userHeader.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6924342" vertical-offset="548" max-vertical-offset="1258">
+          <caret line="57" column="70" selection-start-line="0" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/user_profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05592105" vertical-offset="0" max-vertical-offset="7956">
+          <caret line="2" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76811594" vertical-offset="237" max-vertical-offset="1139">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/SiteConstants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30112723" vertical-offset="0" max-vertical-offset="2567">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5748792" vertical-offset="1411" max-vertical-offset="2907">
+          <caret line="111" column="33" selection-start-line="111" selection-start-column="33" selection-end-line="111" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin_home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.136876" vertical-offset="0" max-vertical-offset="621">
+          <caret line="5" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="493">
+          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin_app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56199676" vertical-offset="382" max-vertical-offset="1054">
+          <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="663">
+          <caret line="29" column="14" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/admin_routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="357">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="26" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34299517" vertical-offset="144" max-vertical-offset="884">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding>
+            <element signature="e#44#56#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46537843" vertical-offset="0" max-vertical-offset="697">
+          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/template/admin_header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.961538" vertical-offset="72" max-vertical-offset="714">
+          <caret line="21" column="72" selection-start-line="21" selection-start-column="72" selection-end-line="21" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10404">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/talent/editCV.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.692307" vertical-offset="5151" max-vertical-offset="20689">
+          <caret line="327" column="50" selection-start-line="323" selection-start-column="44" selection-end-line="327" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/managers_database/add_manager.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3558776" vertical-offset="0" max-vertical-offset="1768">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
           <folding />
         </state>
       </provider>

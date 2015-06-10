@@ -220,7 +220,7 @@ talentProfile.controller('VisitingUserOperationController',['$scope','ProfileOpe
         $scope.favouriteUserEvent = function(){
 
             var userData = {
-                user_id     :   $scope.user_id //User id of the user, to whom you are favouriting
+                connect_to_user_id     :   $scope.user_id //User id of the user, to whom you are favouriting
             };
             $scope.favourite_request_in_progress=1;
             ProfileOperationService(userData,'../profile/favourite').success(function(data){
@@ -274,6 +274,41 @@ talentProfile.controller('VisitingUserOperationController',['$scope','ProfileOpe
                 });
         };
 
+}]);
+
+
+talentProfile.controller('VisitingUserModalOperationsController',['$scope','ProfileOperationService',
+    function($scope,ProfileOperationService)
+    {
+        $scope.sending_Data_to_server = false;
+
+        //Method to send endorse request to the server
+        $scope.sendMessage = function(){
+
+            var userData = {
+                user_id     :   $scope.user_id,     //User id of the user, who is sending the message
+                to_user_id  :   $scope.to_user_id,   //User id of the user, to whom the message is being send
+                subject     :   $scope.subject,
+                message     :   $scope.message
+
+            };
+
+            $scope.sending_Data_to_server=true;
+            ProfileOperationService(userData,'../profile/sendMessage').success(function(data){
+                console.log("hi");
+                console.log(data.status + " Type: " + data.type);
+                if(data.status=="successful")
+                {
+                    $scope.message_sent = true;
+                }
+                $scope.sending_Data_to_server=false;
+            })
+                .error(function(data){
+                    alert("Some error occured at server side");
+                    $scope.sending_Data_to_server=false;
+                    $scope.message_sent = false;
+                });
+        };
 }]);
 
 

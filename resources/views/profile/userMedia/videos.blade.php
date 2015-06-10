@@ -9,6 +9,42 @@
         $visitingUserId = \Illuminate\Support\Facades\Session::get(\talenthub\Repositories\SiteSessions::USER_ID);
         $profileEditable = false;
 
+        $video_thubnail_url = array();
+        $video_embed_code = array();
+
+        $videoCount = 0;
+        foreach($videos as $key=>$video)
+            {
+                if($userVideo = $youtube->getVideoInfo($youtube->parseVIdFromURL($video->video_url)))
+                {
+                    $video_thubnail_url[$videoCount]="";
+                    $video_embed_code[$videoCount] = "";
+
+                    if(isset($userVideo->snippet->thumbnails->default->url))
+                    {
+                        $video_thubnail_url[$videoCount] = $userVideo->snippet->thumbnails->default->url;
+                    }
+                    else if(isset($userVideo->snippet->thumbnails->medium->url))
+                    {
+                        $video_thubnail_url[$videoCount] = $userVideo->snippet->thumbnails->medium->url;
+                    }
+                    else if(isset($userVideo->snippet->thumbnails->high->url))
+                    {
+                        $video_thubnail_url[$videoCount] = $userVideo->snippet->thumbnails->high->url;
+                    }
+                    if(isset($userVideo->player->embedHtml))
+                    {
+                        $video_embed_code[$videoCount] = $userVideo->player->embedHtml;
+                    }
+                }
+                else
+                {
+                    $video_thubnail_url[$videoCount]=null;
+                    $video_embed_code[$videoCount] = null;
+                }
+                $videoCount++;
+            }
+
         ?>
         @include('profile.template.userIntroBanner',compact('userProfile','profileEditable'))
 
@@ -51,19 +87,17 @@
                     {!! Form::close() !!}
                 @endif
                 <div class="row video_container">
-                    <?php $videoCount = 0; ?>
-                    @foreach($videos as $key=>$video)
-                        <?php
-                            $videoCount++;
-                            $userVideo = $youtube->getVideoInfo($youtube->parseVIdFromURL($video->video_url));
-                            ?>
-                    <div class="col-xs-4 col-lg-3">
-                        <div class="videos">
-                            <img src="{{$userVideo->snippet->thumbnails->medium->url}}">
-                            <div class="play_button" data-toggle="modal" data-target="#video{{$videoCount}}"><span class="glyphicon glyphicon-play-circle"></span></div>
-                        </div>
-                    </div>
-                    @endforeach
+
+                    @for($count=0;$count<$videoCount; $count++)
+                        @if($video_thubnail_url[$count]!=null)
+                            <div class="col-xs-4 col-lg-3">
+                                <div class="videos">
+                                    <img src="{!! $video_thubnail_url[$count] !!}">
+                                    <div class="play_button" data-toggle="modal" data-target="#video{{$count}}"><span class="glyphicon glyphicon-play-circle"></span></div>
+                                </div>
+                            </div>
+                        @endif
+                    @endfor
                 </div>
 
             </div>
@@ -74,26 +108,32 @@
 
 
     <div class="video_modal_container">
-        {{$videoCount = 0}}
+        {{$count = 0}}
         @foreach($videos as $key=>$video)
             <?php
-            $videoCount++;
-            $userVideo = $youtube->getVideoInfo($youtube->parseVIdFromURL($video->video_url));
+            if($video_embed_code[$count]!=null)
+            {
+
+
             ?>
-            <div class="modal fade" id="video{{$videoCount}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">{{$video->title}}</h4>
-                        </div>
-                        <div class="modal-body" >
-                            {!! $userVideo->player->embedHtml !!}
-                            <p>{{$video->descriptions}}</p>
+                <div class="modal fade" id="video{{$count}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">{{$video->title}}</h4>
+                            </div>
+                            <div class="modal-body" >
+                                {!! $video_embed_code[$count] !!}
+                                <p>{{$video->descriptions}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php
+            }
+            $count++;
+            ?>
         @endforeach
     </div>
 
