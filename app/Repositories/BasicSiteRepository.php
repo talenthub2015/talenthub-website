@@ -19,24 +19,6 @@ class BasicSiteRepository {
  */
     public static function getUserType()
     {
-//        return array(
-//            SiteConstants::USER_TALENT_STUDENT=>strtolower("student"),
-//            SiteConstants::USER_TALENT_ASPIRING_PROFESSIONAL=>strtolower("aspiring professional"),
-//            SiteConstants::USER_TALENT_STUDENT_ASPIRING_PROFESSIONAL=>strtolower("student_aspiring_professional"),
-//            SiteConstants::USER_TALENT_PARENT=>strtolower("parent"),
-//            SiteConstants::USER_MANAGER_COACH_SCHOOL=>strtolower("coach_school"),
-//            SiteConstants::USER_MANAGER_COACH_UNIVERSITY=>strtolower("coach_university"),
-//            SiteConstants::USER_MANAGER_COACH_AMATEUR=>strtolower("coach_amature"),
-//            SiteConstants::USER_MANAGER_COACH_SEMI_PRO=>strtolower("coach_semi_pro"),
-//            SiteConstants::USER_MANAGER_COACH_PROFESSIONAL=>strtolower("coach_professional"),
-//            SiteConstants::USER_MANAGER_AGENT_AMATEUR=>strtolower("agent_amateur"),
-//            SiteConstants::USER_MANAGER_AGENT_SEMI_PRO=>strtolower("agent_semi_pro"),
-//            SiteConstants::USER_MANAGER_AGENT_PROFESSIONAL=>strtolower("agent_professional"),
-//            SiteConstants::USER_MANAGER_SCOUT_AMATEUR=>strtolower("scout_amateur"),
-//            SiteConstants::USER_MANAGER_SCOUT_SEMI_PRO=>strtolower("scout_semi_pro"),
-//            SiteConstants::USER_MANAGER_SCOUT_PROFESSIONAL=>strtolower("scout_professional"),
-//            );
-
         return array(
             SiteConstants::USER_TALENT,
             SiteConstants::USER_PARENT,
@@ -45,6 +27,23 @@ class BasicSiteRepository {
             SiteConstants::USER_MANAGER_SCOUT
         );
     }
+
+
+    /**
+     * Retuning Manager Types
+     * @return array
+     */
+    public static function getManagerTypes()
+    {
+        return [
+            '1'=>SiteConstants::USER_MANAGER_COACH,
+            '2'=>SiteConstants::USER_MANAGER_AGENT,
+            '3'=>SiteConstants::USER_MANAGER_SCOUT,
+        ];
+    }
+
+
+
 
     /**
      * Defining user management level type involved in the website
@@ -636,6 +635,136 @@ class BasicSiteRepository {
             "Zimbabwe"=>"Zimbabwe",
 
         );
+    }
+
+
+    /**
+     * American States
+     * @return array
+     */
+    public static function getAmericanState($withNumericIndex = true)
+    {
+        if ($withNumericIndex) {
+            return [
+                1 => "Alabama",
+                2 => "Alaska",
+                3 => "American Samoa",
+                4 => "Arizona",
+                5 => "Arkansas",
+                6 => "California",
+                7 => "Colorado",
+                8 => "Connecticut",
+                9 => "District of Columbia",
+                10 => "Delaware",
+                11 => "Florida",
+                12 => "Georgia",
+                13 => "Guam",
+                14 => "Hawaii",
+                15 => "Idaho",
+                16 => "Illinois",
+                17 => "Indiana",
+                18 => "Iowa",
+                19 => "Kansas",
+                20 => "Kentucky",
+                21 => "Louisiana",
+                22 => "Maine",
+                23 => "Maryland",
+                24 => "Massachusetts",
+                25 => "Michigan",
+                26 => "Minnesota",
+                27 => "Mississippi",
+                28 => "Missouri",
+                29 => "Montana",
+                30 => "Nebraska",
+                31 => "Nevada",
+                32 => "New Hampshire",
+                33 => "New Jersey",
+                34 => "New Mexico",
+                35 => "New York",
+                36 => "North Carolina",
+                37 => "North Marianas Islands",
+                38 => "North Dakota",
+                39 => "Ohio",
+                40 => "Oklahoma",
+                41 => "Oregon",
+                42 => "Pennsylvania",
+                43 => "Puerto Rico",
+                44 => "Rhode Island",
+                45 => "South Carolina",
+                46 => "South Dakota",
+                47 => "Tennessee",
+                48 => "Texas",
+                49 => "Utah",
+                50 => "Vermont",
+                51 => "Virginia",
+                52 => "Virgin Islands",
+                53 => "Washington",
+                54 => "West Virginia",
+                55 => "Wisconsin",
+                56 => "Wyoming",
+            ];
+        }
+        else
+        {
+            return [
+                "Alabama" => "Alabama",
+                "Alaska" => "Alaska",
+                "American Samoa" => "American Samoa",
+                "Arizona" => "Arizona",
+                "Arkansas" => "Arkansas",
+                "California" => "California",
+                "Colorado" => "Colorado",
+                "Connecticut" => "Connecticut",
+                "District of Columbia" => "District of Columbia",
+                "Delaware" => "Delaware",
+                "Florida" => "Florida",
+                "Georgia" => "Georgia",
+                "Guam" => "Guam",
+                "Hawaii" => "Hawaii",
+                "Idaho" => "Idaho",
+                "Illinois" => "Illinois",
+                "Indiana" => "Indiana",
+                "Iowa" => "Iowa",
+                "Kansas" => "Kansas",
+                "Kentucky" => "Kentucky",
+                "Louisiana" => "Louisiana",
+                "Maine" => "Maine",
+                "Maryland" => "Maryland",
+                "Massachusetts" => "Massachusetts",
+                "Michigan" => "Michigan",
+                "Minnesota" => "Minnesota",
+                "Mississippi" => "Mississippi",
+                "Missouri" => "Missouri",
+                "Montana" => "Montana",
+                "Nebraska" => "Nebraska",
+                "Nevada" => "Nevada",
+                "New Hampshire" => "New Hampshire",
+                "New Jersey" => "New Jersey",
+                "New Mexico" => "New Mexico",
+                "New York" => "New York",
+                "North Carolina" => "North Carolina",
+                "North Marianas Islands" => "North Marianas Islands",
+                "North Dakota" => "North Dakota",
+                "Ohio" => "Ohio",
+                "Oklahoma" => "Oklahoma",
+                "Oregon" => "Oregon",
+                "Pennsylvania" => "Pennsylvania",
+                "Puerto Rico" => "Puerto Rico",
+                "Rhode Island" => "Rhode Island",
+                "South Carolina" => "South Carolina",
+                "South Dakota" => "South Dakota",
+                "Tennessee" => "Tennessee",
+                "Texas" => "Texas",
+                "Utah" => "Utah",
+                "Vermont" => "Vermont",
+                "Virginia" => "Virginia",
+                "Virgin Islands" => "Virgin Islands",
+                "Washington" => "Washington",
+                "West Virginia" => "West Virginia",
+                "Wisconsin" => "Wisconsin",
+                "Wyoming" => "Wyoming"
+            ];
+        }
     }
 
 }

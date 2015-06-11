@@ -267,7 +267,10 @@ class UserProfile extends Model
         {
             $this->attributes["gender"] = UserProfileRepository::getUserGender()[$gender];
         }
-        $this->attributes["gender"]=$gender;
+        else
+        {
+            $this->attributes["gender"]=$gender;
+        }
     }
 
     /**
@@ -294,7 +297,10 @@ class UserProfile extends Model
         {
             $this->attributes["address_type"] = UserProfileRepository::getAddressTypes()[$addressType];
         }
-        $this->attributes["address_type"]=$addressType;
+        else
+        {
+            $this->attributes["address_type"]=$addressType;
+        }
     }
 
     /**

@@ -98,7 +98,7 @@ $(document).ready(function(){
                 if(validationType[i]==="require")
                 {
                     required=true;
-                    if(whitespace.test($(element).val()))
+                    if(whitespace.test($(element).val()) || $(element).val() == null)
                     {
                         $(element).addClass(errorClassName);
                         $(element).tooltip();

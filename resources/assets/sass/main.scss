@@ -917,6 +917,39 @@ footer
 
 
 
+.database_content_container
+{
+  .container
+  {
+    padding: 15px;
+    background: #FFFFFF;
+    .row > div
+    {
+      border-right:1px solid #FFFFFF;
+    }
+    .strip_heading
+    {
+      background:$background-color-darkGreen;
+      color:#FFFFFF;
+      a
+      {
+        color:#FFFFFF;
+        font-size: 18px;
+        font-weight: 700;
+        padding:15px;
+        display: block;
+        text-align: center;
+      }
+    }
+    p
+    {
+      font-size: 14px;
+    }
+  }
+}
+
+
+
 
 //For Modals
 .modal

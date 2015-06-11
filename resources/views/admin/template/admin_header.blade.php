@@ -18,7 +18,7 @@
                             <li><a href="{{url('admin/home')}}">Home</a></li>
                             <li class="has-dropdown"><a href>Database</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{url('admin/viewMangers')}}">View Managers</a></li>
+                                    <li><a href="{{url('admin/viewManager')}}">View Managers</a></li>
                                     <li><a href="{{url('admin/addManager')}}">Add Managers</a></li>
                                 </ul>
                             </li>

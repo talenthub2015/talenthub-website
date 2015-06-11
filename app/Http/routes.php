@@ -57,6 +57,9 @@ Route::group(['middleware' => ['auth']],function(){
     //Favoutires Page
     Route::get('profile/{id}/favourites','ProfileController@showFavourites');
 
+    //Database Page
+    Route::get('database','DatabaseController@index');
+
 
     ///////////////////////
     //  Talent Pages    //

@@ -158,4 +158,20 @@ class SportsRepository {
         ];
     }
 
+
+
+
+
+    /**
+     *Returns the Type of genders a sport can consists.
+     * @return array
+     */
+    public static function getSportsGender()
+    {
+        return [
+            '1'=>'Male',
+            '2'=>'Female'
+        ];
+    }
+
 }

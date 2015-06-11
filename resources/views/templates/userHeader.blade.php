@@ -33,12 +33,7 @@
                                 <li><a href="{!! url('profile/edit') !!}"><span class="glyphicon glyphicon-list-alt"></span> Policies</a></li>
                             </ul>
                         </li>
-                        <li class="has-dropdown"><a href="{!!  url('profile')  !!}">Database</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="">Update 1</a></li>
-                                <li><a href="">Update 2</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="{!!  url('database')  !!}">Database</a></li>
                         <li class="has-dropdown"><a href="{!!  url('profile')  !!}">Notifications</a>
                             <ul class="dropdown-menu">
                                 <li><a href="">Update 1</a></li>

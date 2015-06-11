@@ -8048,6 +8048,24 @@ footer {
       .profile_menu_container .container .row ul li:last-child a {
         border-right: 1px solid #e4e4e4; }
 
+.database_content_container .container {
+  padding: 15px;
+  background: #FFFFFF; }
+  .database_content_container .container .row > div {
+    border-right: 1px solid #FFFFFF; }
+  .database_content_container .container .strip_heading {
+    background: #203f15;
+    color: #FFFFFF; }
+    .database_content_container .container .strip_heading a {
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 15px;
+      display: block;
+      text-align: center; }
+  .database_content_container .container p {
+    font-size: 14px; }
+
 .modal .show_loading_image {
   position: relative;
   width: 100%;
