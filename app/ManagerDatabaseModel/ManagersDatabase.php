@@ -91,11 +91,18 @@ class ManagersDatabase extends Model {
     /**
      * Scope to filter database with name
      */
-    public function scopeName($query,$name)
+    public function scopeName($query,$name,$queryAsOr=false)
     {
         if($name!=null && $name != 'null')
         {
-            $query->where('coach_name','like','%'.$name.'%');
+            if($queryAsOr)
+            {
+                $query->orWhere('coach_name','like','%'.$name.'%');
+            }
+            else
+            {
+                $query->where('coach_name','like','%'.$name.'%');
+            }
         }
         return $query;
     }
@@ -103,24 +110,63 @@ class ManagersDatabase extends Model {
     /**
      * Scope to filter database with manager type
      */
-    public function scopeManagerType($query,$manager_type)
+    public function scopeManagerType($query,$manager_type,$queryAsOr=false)
     {
         if($manager_type!=null && $manager_type != 'null')
         {
-            $query->where('manager_type','=',$manager_type);
+            if($queryAsOr)
+            {
+                $query->orWhere('manager_type','=',$manager_type);
+            }
+            else
+            {
+                $query->where('manager_type','=',$manager_type);
+            }
         }
         return $query;
     }
 
 
     /**
+     * Scope to filter database with Management Level
+     * @param $query
+     * @param $institution_type
+     */
+    public function scopeManagementLevel($query,$management_level,$queryAsOr=false)
+    {
+        if($management_level != null && $management_level != 'null')
+        {
+            if($queryAsOr)
+            {
+                $query->orWhere('management_level','=',$management_level);
+            }
+            else
+            {
+                $query->where('management_level','=',$management_level);
+            }
+        }
+        return $query;
+    }
+
+
+
+
+
+    /**
      * Scope to filter database with sport
      */
-    public function scopeSport($query,$sport)
+    public function scopeSport($query,$sport,$queryAsOr=false)
     {
         if($sport!=null && $sport != 'null')
         {
-            $query->where('sport_type','=',$sport);
+            if($queryAsOr)
+            {
+                $query->orWhere('sport_type','=',$sport);
+            }
+            else
+            {
+                $query->where('sport_type','=',$sport);
+            }
         }
         return $query;
     }
@@ -128,11 +174,18 @@ class ManagersDatabase extends Model {
     /**
      * Scope to filter database with sport gender
      */
-    public function scopeSportGender($query,$sport_gender)
+    public function scopeSportGender($query,$sport_gender,$queryAsOr=false)
     {
         if($sport_gender !=null && $sport_gender != 'null')
         {
-            $query->where('sport_gender','=',$sport_gender);
+            if($queryAsOr)
+            {
+                $query->orWhere('sport_gender','=',$sport_gender);
+            }
+            else
+            {
+                $query->where('sport_gender','=',$sport_gender);
+            }
         }
         return $query;
     }
@@ -140,13 +193,69 @@ class ManagersDatabase extends Model {
     /**
      * Scope to filter database with state
      */
-    public function scopeState($query,$state)
+    public function scopeState($query,$state,$queryAsOr=false)
     {
         if($state !=null && $state != 'null')
         {
-            $query->where('state','=',$state);
+            if($queryAsOr)
+            {
+                $query->orWhere('state','=',$state);
+            }
+            else
+            {
+                $query->where('state','=',$state);
+            }
         }
         return $query;
     }
+
+
+    /**
+     * Scope to filter database with Institution Type
+     * @param $query
+     * @param $institution_type
+     */
+    public function scopeInstitutionType($query,$institution_type,$queryAsOr=false)
+    {
+        if($institution_type != null && $institution_type != 'null')
+        {
+            if($queryAsOr)
+            {
+                $query->orWhere('institution_type','=',$institution_type);
+            }
+            else
+            {
+                $query->where('institution_type','=',$institution_type);
+            }
+        }
+    }
+
+
+
+    /**
+     * Scope to filter database with Country
+     * @param $query
+     * @param $country
+     */
+    public function scopeCountry($query,$country,$queryAsOr=false)
+    {
+        if($country != null && $country != 'null')
+        {
+            if($queryAsOr)
+            {
+                $query->orWhere('country','=',$country);
+            }
+            else
+            {
+                $query->where('country','=',$country);
+            }
+        }
+    }
+
+
+
+
+
+
 
 }

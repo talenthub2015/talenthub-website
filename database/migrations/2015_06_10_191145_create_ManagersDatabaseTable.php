@@ -36,6 +36,27 @@ class CreateManagersDatabaseTable extends Migration {
             $table->timestamps();
 
         });
+
+        Schema::create('managers_contacted',function(Blueprint $table){
+            $table->integer('user_id')->unsigned();
+
+            //Delete on cascade
+            $table->foreign('user_id')
+                ->references('user_id')
+                ->on('users')
+                ->onDelete('cascade');
+
+            $table->integer('manager_id')->unsigned();
+
+            //Delete on cascade
+            $table->foreign('manager_id')
+                ->references('id')
+                ->on('managers_database')
+                ->onDelete('cascade');
+
+
+            $table->timestamp('contacted_on');
+        });
 	}
 
 	/**
@@ -45,6 +66,12 @@ class CreateManagersDatabaseTable extends Migration {
 	 */
 	public function down()
 	{
+        Schema::table('managers_contacted',function(Blueprint $table){
+            $table->dropForeign('managers_contacted_user_id_foreign');
+            $table->dropForeign('managers_contacted_manager_id_foreign');
+        });
+        Schema::drop('managers_contacted');
+
 		Schema::drop('managers_database');
 	}
 

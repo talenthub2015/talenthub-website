@@ -20,7 +20,8 @@
 
         <br>
 
-        {!! Form::open() !!}
+        {!! Form::open(['method'=>'post','url'=>'database/searchOpportunities']) !!}
+
         <div class="row form_container">
             <div class="col-xs-4 col-lg-3">
                 <div class="form-group">
@@ -34,18 +35,36 @@
                     {!! Form::text('gender',$userProfile->gender,['class'=>'form-control','disabled']) !!}
                 </div>
             </div>
-            <div class="col-xs-4 col-lg-3">
-                <div class="form-group">
-                    {!! Form::label('state','State') !!}
-                    {!! Form::select('state',$state,null,['class'=>'form-control']) !!}
+
+            @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_STUDENT)
+                <div class="col-xs-4 col-lg-3">
+                    <div class="form-group">
+                        {!! Form::label('state','US State') !!}
+                        {!! Form::select('state',$state,null,['class'=>'form-control','data-validate'=>'require|select',
+                        'data-invalid-value'=>'0','data-toggle'=>"tooltip", 'data-placement'=>"bottom", 'title'=>"Select a valid option"]) !!}
+                    </div>
                 </div>
-            </div>
-            <div class="col-xs-4 col-lg-3">
-               <div class="form-group">
-                   {!! Form::label('institution_type','Institution Type') !!}
-                   {!! Form::select('institution_type',$institution_type,null,['class'=>'form-control']) !!}
-               </div>
-            </div>
+
+                <div class="col-xs-4 col-lg-3">
+                   <div class="form-group">
+                       {!! Form::label('institution_type','Institution Type') !!}
+                       {!! Form::select('institution_type',$institution_type,null,['class'=>'form-control','data-validate'=>'require|select',
+                       'data-invalid-value'=>'0','data-toggle'=>"tooltip", 'data-placement'=>"bottom", 'title'=>"Select a valid option"]) !!}
+                   </div>
+                </div>
+            @endif
+
+            @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_ASPIRING_PRO)
+                <div class="col-xs-4 col-lg-3">
+                    <div class="form-group">
+                        {!! Form::label('country','Country of Interest') !!}
+                        {!! Form::select('country',$country,null,['class'=>'form-control','data-validate'=>'require|select',
+                        'data-invalid-value'=>'0','data-toggle'=>"tooltip", 'data-placement'=>"bottom", 'title'=>"Select a valid option"]) !!}
+                    </div>
+                </div>
+            @endif
+
+
 
         </div>
         {!! Form::submit('Search',['class'=>'btn btn-primary t-button']) !!}

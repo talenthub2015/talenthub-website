@@ -568,7 +568,8 @@ footer {
 
 .database_content_container .container {
   padding: 15px;
-  background: #FFFFFF; }
+  background: #FFFFFF;
+  margin-bottom: 15px; }
   .database_content_container .container .row > div {
     border-right: 1px solid #FFFFFF; }
   .database_content_container .container .strip_heading {
@@ -583,6 +584,9 @@ footer {
       text-align: center; }
   .database_content_container .container p {
     font-size: 14px; }
+  .database_content_container .container .table .btn {
+    padding: 2px 5px;
+    font-size: 10px; }
 
 .modal .show_loading_image {
   position: relative;

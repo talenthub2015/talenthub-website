@@ -59,7 +59,13 @@ Route::group(['middleware' => ['auth']],function(){
 
     //Database Page
     Route::get('database','DatabaseController@index');
+    Route::get('database/talent-opportunities/{state?}/{institution_tye?}/{gender?}/{sport_type?}/{country?}','DatabaseController@talentOpportunities');
 
+    //Searching Database for Opportunities
+    Route::post('database/searchOpportunities','DatabaseController@searchOpportunities');
+
+    //Talent Contacting Manager
+    Route::post('database/contactManager','DatabaseController@contactManager');
 
     ///////////////////////
     //  Talent Pages    //

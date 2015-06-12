@@ -923,6 +923,7 @@ footer
   {
     padding: 15px;
     background: #FFFFFF;
+    margin-bottom: 15px;
     .row > div
     {
       border-right:1px solid #FFFFFF;
@@ -944,6 +945,13 @@ footer
     p
     {
       font-size: 14px;
+    }
+
+
+    .table .btn
+    {
+      padding:1px 5px;
+      font-size: 11px;
     }
   }
 }
