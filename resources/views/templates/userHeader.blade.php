@@ -29,8 +29,8 @@
                                     <li><a href="{!! url('profile/edit') !!}"><span class="glyphicon glyphicon-hand-right"></span> Professional Process Help</a></li>
                                 @endif
                                 <li><a href="{!! url('FAQ') !!}"><span class="glyphicon glyphicon-question-sign"></span> Help Centre</a></li>
-                                <li><a href="{!! url('profile/edit') !!}"><span class="glyphicon glyphicon-lock"></span> Privacy Settings</a></li>
-                                <li><a href="{!! url('profile/edit') !!}"><span class="glyphicon glyphicon-cog"></span> General Settings</a></li>
+                                <li><a href="{!! url('settings/privacy') !!}"><span class="glyphicon glyphicon-lock"></span> Privacy Settings</a></li>
+                                <li><a href="{!! url('settings/general') !!}"><span class="glyphicon glyphicon-cog"></span> General Settings</a></li>
                                 <li><a href="{!! url('profile/edit') !!}"><span class="glyphicon glyphicon-list-alt"></span> Policies</a></li>
                             </ul>
                         </li>

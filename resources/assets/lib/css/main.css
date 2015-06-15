@@ -9,15 +9,18 @@
   border: none;
   text-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
   -moz-text-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
-  -webkit-text-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25); }
+  -webkit-text-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); }
 
 .t-button:hover, .t-button:focus, .t-button:visited {
   color: #FFFFFF;
   background: #204f1F;
   text-decoration: none;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); }
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75); }
 
 .form-control.t-button {
   color: #FFFFFF; }
@@ -732,6 +735,59 @@ footer {
       color: #FFFFFF;
       font-size: 16px;
       line-height: 200%; }
+
+.settings_container {
+  background: url('../../site_images/talenthub.jpg') fixed;
+  background-size: cover;
+  margin-bottom: -60px;
+  padding-bottom: 55px;
+  min-height: 600px; }
+  .settings_container .container {
+    position: relative;
+    top: 25px;
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid #1a1a1a;
+    padding: 15px; }
+    .settings_container .container h1 {
+      font-weight: 700;
+      font-size: 28px;
+      color: #FFFFFF;
+      text-shadow: 2px 2px 10px black;
+      -moz-text-shadow: 2px 2px 10px black;
+      -webkit-text-shadow: 2px 2px 10px black;
+      border-bottom: 2px solid #FFFFFF;
+      padding-bottom: 5px; }
+    .settings_container .container p {
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 180%;
+      text-shadow: 2px 2px 10px black;
+      -moz-text-shadow: 2px 2px 10px black;
+      -webkit-text-shadow: 2px 2px 10px black; }
+    .settings_container .container .form_container .checkbox {
+      font-size: 16px;
+      color: #FFFFFF;
+      line-height: 150%;
+      margin-bottom: 20px; }
+      .settings_container .container .form_container .checkbox strong {
+        font-weight: 400;
+        text-decoration: underline; }
+    .settings_container .container .short_form_container {
+      margin-bottom: 15px;
+      margin-top: 15px; }
+      .settings_container .container .short_form_container .side_label {
+        font-size: 16px;
+        font-weight: 400; }
+      .settings_container .container .short_form_container p {
+        font-weight: 300;
+        font-size: 15px; }
+      .settings_container .container .short_form_container .action {
+        font-size: 14px;
+        font-weight: 700;
+        color: #f6f0d2; }
+      .settings_container .container .short_form_container .form-group {
+        margin-bottom: 0px; }
 
 
 /*# sourceMappingURL=main.css.map */

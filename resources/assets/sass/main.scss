@@ -27,13 +27,14 @@ $t-button-background-color-hover: #204f1F ;
   @include border-radius($t-button-border-radius);
   border:none;
   @include text-shadow(1px, 1px, 2px, 0px, rgba(0,0,0,0.25));
+  @include box-shadow(0px, 0px, 10px, 0px, rgba(0,0,0,0.50))
 }
 .t-button:hover,.t-button:focus,.t-button:visited
 {
   color:#FFFFFF;
   background: $t-button-background-color-hover;
   text-decoration: none;
-  @include box-shadow(0px, 0px, 10px, 0px, rgba(0,0,0,0.50))
+  @include box-shadow(0px, 0px, 10px, 0px, rgba(0,0,0,0.75))
 }
 .form-control.t-button
 {
@@ -1157,5 +1158,88 @@ footer
       font-size: 16px;
       line-height: 200%;
     }
+  }
+}
+
+
+
+
+
+.settings_container
+{
+  background:url('../../site_images/talenthub.jpg') fixed;
+  background-size: cover;
+  margin-bottom: -60px;
+  padding-bottom: 55px;
+  min-height: 600px;
+  .container
+  {
+    position:relative;
+    top: 25px;
+    background:rgba(0,0,0,0.75);
+    border:1px solid #1a1a1a;
+    padding:15px;
+
+    h1
+    {
+      font-weight: 700;
+      font-size:28px;
+      color:#FFFFFF;
+      @include text-shadow(2px,2px,10px,null,rgba(0,0,0,1));
+      border-bottom: 2px solid #FFFFFF;
+      padding-bottom: 5px;
+    }
+    p
+    {
+      color:#FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 180%;
+      @include text-shadow(2px,2px,10px,null,rgba(0,0,0,1));
+    }
+
+    .form_container
+    {
+      .checkbox
+      {
+        font-size: 16px;
+        color:#FFFFFF;
+        line-height: 150%;
+        margin-bottom: 20px;
+        strong
+        {
+          font-weight: 400;
+          text-decoration: underline;
+        }
+      }
+    }
+
+
+    .short_form_container
+    {
+      margin-bottom: 15px;
+      margin-top: 15px;
+      .side_label
+      {
+        font-size: 16px;
+        font-weight: 400;
+      }
+      p
+      {
+        font-weight: 300;
+        font-size: 15px;
+      }
+      .action
+      {
+        font-size: 14px;
+        font-weight: 700;
+        color:$color-cream;
+      }
+      .form-group
+      {
+        margin-bottom: 0px;
+      }
+    }
+
   }
 }

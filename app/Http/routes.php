@@ -47,6 +47,21 @@ Route::get('user-agreement',function(){
 //Only Accessed By Authenticated user
 Route::group(['middleware' => ['auth']],function(){
 
+
+    /////////////////////////////////////////////
+    /////////   User Settings      //////////////
+    ////////////////////////////////////////////
+
+    Route::get('settings/privacy','SettingsController@privacySettings');
+    Route::put('settings/privacy','SettingsController@updatePrivacySettings');
+
+    Route::get('settings/general','SettingsController@generalSettings');
+    Route::put('settings/general','SettingsController@updateGeneralSettings');
+
+    /////////////////////////////////////////////
+    /////////   User Settings      //////////////
+    ////////////////////////////////////////////
+
     //Registering and completing Profile - For Talent and Managers
     Route::get('profile/edit','ProfileController@edit');
     Route::get('profile/editCV','ProfileController@editCV');
