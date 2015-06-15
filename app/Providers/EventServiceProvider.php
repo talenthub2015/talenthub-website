@@ -14,6 +14,9 @@ class EventServiceProvider extends ServiceProvider {
 		'event.name' => [
 			'EventListener',
 		],
+        'talenthub\Events\NotifyUser'=>[
+            'talenthub\Handlers\Events\NotificationSaved'
+        ],
 	];
 
 	/**

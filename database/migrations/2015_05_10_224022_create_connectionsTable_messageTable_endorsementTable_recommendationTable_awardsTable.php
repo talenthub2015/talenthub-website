@@ -16,7 +16,8 @@ class CreateConnectionsTableMessageTableEndorsementTableRecommendationTableAward
 		/*
 		 * Create connections table
 		 */
-        Schema::create('connections',function(Blueprint $table){
+        Schema::create('favourite',function(Blueprint $table){
+            $table->bigIncrements("favourite_id")->unsigned();
             /*
              * Setting up foreign key of user_id
              */
@@ -28,13 +29,12 @@ class CreateConnectionsTableMessageTableEndorsementTableRecommendationTableAward
             /*
              * Setting up foreign key of connected_to to user_id of user
              */
-            $table->integer('connected_to')->unsigned();
-            $table->foreign('connected_to')
+            $table->integer('favourited_to')->unsigned();
+            $table->foreign('favourited_to')
                 ->references('user_id')
                 ->on('users')
                 ->onDelete('cascade');
 
-            $table->string('status');
             $table->timestamps();
         });
 
@@ -193,14 +193,14 @@ class CreateConnectionsTableMessageTableEndorsementTableRecommendationTableAward
         Schema::drop('messages');
 
         /*
-         * Removing foreign key(s) set on endorsements.
+         * Removing foreign key(s) set on Favourites.
          * After that deleting the table
          */
-        Schema::table('connections',function(Blueprint $table){
-            $table->dropForeign('connections_user_id_foreign');
-            $table->dropForeign('connections_connected_to_foreign');
+        Schema::table('favourite',function(Blueprint $table){
+            $table->dropForeign('favourite_user_id_foreign');
+            $table->dropForeign('favourite_favourited_to_foreign');
         });
-        Schema::drop('connections');
+        Schema::drop('favourite');
 	}
 
 }

@@ -92,12 +92,24 @@ class UserProfile extends Model
 
 
     /**
-     * Presenting Many to Many relationship with other users for Connections table/Favourites
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * Presenting Has many relationship with other users for Connections table/Favourites
+     * Here this relation is : where you favourited others
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
     public function favourites()
     {
-        return $this->belongsToMany('talenthub\UserProfile','connections','user_id','connected_to');
+        return $this->hasMany('talenthub\Favourites','user_id');
+    }
+
+
+    /**
+     * Presenting Has many relationship with other users for Connections table/Favourites
+     * Here this relation is : where others favourited you
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function favouritedByOthers()
+    {
+        return $this->hasMany('talenthub\Favourites','favourited_to');
     }
 
 

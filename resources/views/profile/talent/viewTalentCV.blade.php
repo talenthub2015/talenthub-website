@@ -633,4 +633,13 @@
 
     </div>
 
+
+
+    <script>
+        var tab = '{{ Input::get('tab') }}';
+        $(document).ready(function(){
+            $('#curriculum a[href="#'+tab+'"]').tab('show');
+        });
+    </script>
+
 @stop

@@ -17,6 +17,7 @@ class CreateNotificationsTable extends Migration {
          */
         Schema::create('notifications',function(Blueprint $table){
 
+            $table->increments('notification_id')->unsigned();
             /*
              * Setting up foreign key of notification_to
              */
@@ -28,22 +29,12 @@ class CreateNotificationsTable extends Migration {
             /*
              * Setting up foreign key of notification_from
              */
-            $table->integer('notification_from')->unsigned();
-            $table->foreign('notification_from')
-                ->references('user_id')
-                ->on('users')
-                ->onDelete('cascade');
+            $table->integer('notification_from');
+
+            $table->string('status');   //Whether it is seen by the user or not
 
             $table->string('notification_type');
-
-            /*
-             * Setting up foreign key of post_id
-             */
-            $table->bigInteger('post_id')->unsigned();
-            $table->foreign('post_id')
-                ->references('post_id')
-                ->on('posts')
-                ->onDelete('cascade');
+            $table->bigInteger('source_id');
 
             $table->timestamp('notification_on');
             $table->timestamps();
@@ -64,7 +55,6 @@ class CreateNotificationsTable extends Migration {
         Schema::table('notifications',function(Blueprint $table){
             $table->dropForeign('notifications_notification_to_foreign');
             $table->dropForeign('notifications_notification_from_foreign');
-            $table->dropForeign('notifications_post_id_foreign');
         });
         Schema::drop('notifications');
 	}

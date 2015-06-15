@@ -23,6 +23,27 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+//Static Pages
+
+Route::get("about",function(){
+    return view('static.about_us');
+});
+Route::get("contact",function(){
+    return view('static.contact_us');
+});
+Route::get('FAQ',function(){
+    return view('static.FAQ');
+});
+Route::get('pro-process-help',function(){
+    return view('static.professional_process_help');
+});
+Route::get('scholarship-process',function(){
+    return view('static.scholarship_process');
+});
+Route::get('user-agreement',function(){
+    return view('static.user_agreement');
+});
+
 //Only Accessed By Authenticated user
 Route::group(['middleware' => ['auth']],function(){
 
@@ -56,6 +77,7 @@ Route::group(['middleware' => ['auth']],function(){
 
     //Favoutires Page
     Route::get('profile/{id}/favourites','ProfileController@showFavourites');
+    Route::get('profile/{id}/favouritedYou','ProfileController@showWhoFavouritedYou');
 
     //Database Page
     Route::get('database','DatabaseController@index');
@@ -66,6 +88,10 @@ Route::group(['middleware' => ['auth']],function(){
 
     //Talent Contacting Manager
     Route::post('database/contactManager','DatabaseController@contactManager');
+
+
+    //Notification Read by a user
+    Route::post('profile/notificationRead','ProfileController@notificationReadByUser');
 
     ///////////////////////
     //  Talent Pages    //

@@ -146,6 +146,7 @@ return [
 		'talenthub\Providers\ConfigServiceProvider',
 		'talenthub\Providers\EventServiceProvider',
 		'talenthub\Providers\RouteServiceProvider',
+        'talenthub\Providers\NavBarComposerServiceProvider',
 
 
 	],

@@ -1,11 +1,13 @@
 <?php namespace talenthub\Http\Controllers;
 
+use Exception;
 use Illuminate\Database\Capsule\Manager;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use talenthub\Awards;
+use talenthub\Events\NotifyUser;
 use talenthub\Http\Requests;
 use talenthub\Http\Controllers\Controller;
 
@@ -21,6 +24,7 @@ use talenthub\Http\Requests\TalentCVRequest;
 use talenthub\Http\Requests\UserProfileRequest;
 use talenthub\ManagerCareerInformation;
 use talenthub\ManagerProfile;
+use talenthub\Notifications;
 use talenthub\Repositories\BasicSiteRepository;
 use talenthub\Repositories\SiteConstants;
 use talenthub\Repositories\SiteSessions;
@@ -886,10 +890,11 @@ class ProfileController extends Controller {
         }
 
         //Setting whether profile is favourited by visiting user or not
-        $visitingUserFavourited = DB::table('connections')
+        $visitingUserFavourited = DB::table('favourite')
             ->where('user_id','=',Session::get(SiteSessions::USER_ID))
-            ->where('connected_to','=',$userProfile->user_id)
+            ->where('favourited_to','=',$userProfile->user_id)
             ->get();
+
 
         if(count($visitingUserFavourited)>0)
         {
@@ -948,6 +953,7 @@ class ProfileController extends Controller {
             $userProfile = UserProfile::find($request->user_id);
             $userProfile->endorsements()->attach(Session::get(SiteSessions::USER_ID));
             $userProfile->save();
+            Event::fire(new NotifyUser($request->user_id,Session::get(SiteSessions::USER_ID),Notifications::NOTIFICATION_TYPE_ENDORSEMENT,null));
         }
         catch(ModelNotFoundException $e)
         {
@@ -1002,6 +1008,7 @@ class ProfileController extends Controller {
      */
     public function favouriteUser(Request $request)
     {
+
         if(!Auth::check())
         {
             return response()->json(['status'=>'error','type'=>'user_not_logged_in']);
@@ -1021,22 +1028,30 @@ class ProfileController extends Controller {
         try
         {
             $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
-            $isAlreadyFavourite = $userProfile->favourites()->wherePivot('connected_to','=',$request->connect_to_user_id)->get();
+            $isAlreadyFavourite = $userProfile->favourites()->where('favourited_to','=',$request->connect_to_user_id)->get();
             if(count($isAlreadyFavourite)>0)
             {
-                $userProfile->favourites()->detach($request->connect_to_user_id);
+                //$userProfile->favourites()->detach($request->connect_to_user_id);
+                $userProfile->favourites()->where('favourited_to','=',$request->connect_to_user_id)->delete();
                 $operation_performed = "removed";
             }
             else
             {
-                $userProfile->favourites()->attach($request->connect_to_user_id);
+//                $userProfile->favourites()->attach($request->connect_to_user_id);
+                $userProfile->favourites()->create(['favourited_to'=>$request->connect_to_user_id])
+                    ->save();
                 $operation_performed = "added";
+                Event::fire(new NotifyUser($request->connect_to_user_id,Session::get(SiteSessions::USER_ID),Notifications::NOTIFICATION_TYPE_FAVOURITE,null));
             }
-            $userProfile->save();
+            //$userProfile->save();
         }
         catch(ModelNotFoundException $e)
         {
             return response()->json(['status'=>'error','type'=>'user_not_found']);
+        }
+        catch(Exception $e)
+        {
+            return $e;
         }
 
         return response()->json(['status'=>'successful','operation_done_type'=>$operation_performed]);
@@ -1052,9 +1067,56 @@ class ProfileController extends Controller {
 
         $userProfile->getMutatedData = false;
 
-        $favourites = $userProfile->favourites()->wherePivot('user_id','=',$userProfile->user_id)->get();
-
+        $favourites = $userProfile->favourites()->join('users','users.user_id','=','favourite.favourited_to')
+            ->get();
         return view('profile.favourites',compact('userProfile','favourites'));
+    }
+
+    /**
+     * Showing List of User who favourited you
+     * @param $user_id
+     * @return \Illuminate\View\View
+     */
+    public function showWhoFavouritedYou($user_id)
+    {
+        $userProfile = UserProfile::find($user_id);
+
+        $userProfile->getMutatedData = false;
+
+//        $favouritedYou = DB::table('favourite')->join('users','users.user_id','=','favourite.user_id')
+//            ->where('favourite.favourited_to','=',$userProfile->user_id)
+//            ->get();
+
+        $favouritedYou = $userProfile->favouritedByOthers()->join('users','users.user_id','=','favourite.user_id')
+            ->get();
+
+        return view('profile.who_favourited_you',compact('userProfile','favouritedYou'));
+    }
+
+
+    /**
+     * Notification is read by a user, so status of the notification is updated in the database
+     * @param Request $request
+     */
+    public function notificationReadByUser(Request $request)
+    {
+        if(!$request->has("notification_id"))
+        {
+            return response()->json(['status'=>'error','error_type'=>'NOTIFICATION_ID_MISSING']);
+        }
+
+        try
+        {
+            $notification = Notifications::find($request->notification_id);
+            $notification->status = Notifications::NOTIFICATION_STATUS_READ;
+            $notification->save();
+        }
+        catch(ModelNotFoundException $e)
+        {
+            return response()->json(['status'=>'error','error_type'=>'NOTIFICATION_NOT_FOUND']);
+        }
+
+        return response()->json(['status'=>'successful']);
     }
 
 }

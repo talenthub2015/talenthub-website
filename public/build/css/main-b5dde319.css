@@ -7515,6 +7515,16 @@ p {
 .small_loading_image {
   width: 15px; }
 
+.badge {
+  font-size: 10px;
+  background: #ff7d00;
+  color: #f6f0d2;
+  height: 18px;
+  width: 18px;
+  padding: 4px;
+  line-height: 12px;
+  margin: 0px 5px; }
+
 header {
   position: fixed;
   background-color: #203f15;
@@ -7562,7 +7572,6 @@ header {
       background: none; }
     header ul.navbar-nav li.has-dropdown > a {
       display: inline-block;
-      width: 80%;
       padding-right: 5px; }
     header ul.navbar-nav li.has-dropdown .dropdown {
       display: inline-block;
@@ -7601,11 +7610,86 @@ header {
             color: #f6f0d2 !important; }
         header ul.navbar-nav li.has-dropdown .dropdown-menu li:first-child {
           border-top: 1px solid #203f15; }
+      header ul.navbar-nav li.has-dropdown .badge {
+        font-size: 9px;
+        background: #ff7d00;
+        color: #f6f0d2;
+        height: 15px;
+        width: 15px;
+        padding: 2px;
+        line-height: 12px; }
+      header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container {
+        width: 300px; }
+        header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a {
+          display: block;
+          padding: 0px !important; }
+          header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification {
+            padding: 5px;
+            display: block; }
+            header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row {
+              margin: 0px -5px; }
+              header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-xs-1, header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-lg-1 {
+                margin: 0px -5px;
+                padding: 0px 5px; }
+              header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-xs-2, header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-lg-2 {
+                margin: 0px -5px;
+                padding: 0px 5px; }
+              header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-xs-3, header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-lg-3 {
+                margin: 0px -5px;
+                padding: 0px 5px; }
+              header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-xs-4, header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-lg-4 {
+                margin: 0px -5px;
+                padding: 0px 5px; }
+              header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-xs-5, header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-lg-5 {
+                margin: 0px -5px;
+                padding: 0px 5px; }
+              header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-xs-6, header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-lg-6 {
+                margin: 0px -5px;
+                padding: 0px 5px; }
+              header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-xs-7, header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-lg-7 {
+                margin: 0px -5px;
+                padding: 0px 5px; }
+              header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-xs-8, header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-lg-8 {
+                margin: 0px -5px;
+                padding: 0px 5px; }
+              header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-xs-9, header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-lg-9 {
+                margin: 0px -5px;
+                padding: 0px 5px; }
+              header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-xs-10, header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-lg-10 {
+                margin: 0px -5px;
+                padding: 0px 5px; }
+              header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-xs-11, header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-lg-11 {
+                margin: 0px -5px;
+                padding: 0px 5px; }
+              header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-xs-12, header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .row .col-lg-12 {
+                margin: 0px -5px;
+                padding: 0px 5px; }
+            header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .image_container img {
+              margin-left: 2px;
+              padding: 1px !important;
+              border: 1px solid #1a1a1a; }
+            header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .notification_heading {
+              font-size: 10px;
+              font-weight: 300;
+              margin: 0px;
+              padding: 0px 5px;
+              white-space: normal; }
+              header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .notification_heading strong {
+                font-weight: 400;
+                font-size: 11px; }
+            header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .date {
+              font-style: italic;
+              font-size: 8px; }
+            header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification .action {
+              color: #ff7d00; }
+          header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification.read {
+            background: rgba(0, 0, 0, 0.2); }
+          header ul.navbar-nav li.has-dropdown .dropdown-menu.notifications_container a .notification.unread {
+            background: transparent; }
     header ul.navbar-nav li.has-dropdown:hover .dropdown-menu {
       display: block; }
 
 footer {
-  margin-top: 50px;
   background: #203f15;
   box-shadow: -1px -1px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -1px -1px 5px 0px rgba(0, 0, 0, 0.75);
@@ -7628,7 +7712,8 @@ footer {
 
 .body_container {
   margin-top: 40px;
-  min-height: 550px; }
+  min-height: 550px;
+  padding-bottom: 50px; }
 
 .nav-tabs {
   border-bottom: 1px solid #203f15; }
@@ -8067,8 +8152,8 @@ footer {
   .database_content_container .container p {
     font-size: 14px; }
   .database_content_container .container .table .btn {
-    padding: 2px 5px;
-    font-size: 10px; }
+    padding: 1px 5px;
+    font-size: 11px; }
 
 .modal .show_loading_image {
   position: relative;
@@ -8099,6 +8184,36 @@ footer {
     .image_modal_container .modal .modal-dialog .modal-body img {
       width: 100%;
       height: auto; }
+
+.static_pages_container {
+  background: url('../../site_images/talenthub.jpg') fixed;
+  background-size: cover;
+  margin-bottom: -60px;
+  padding-bottom: 55px; }
+  .static_pages_container .container {
+    position: relative;
+    top: 25px;
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid #1a1a1a; }
+    .static_pages_container .container h1 {
+      font-weight: 700;
+      font-size: 28px;
+      color: #FFFFFF;
+      text-shadow: 2px 2px 10px black;
+      -moz-text-shadow: 2px 2px 10px black;
+      -webkit-text-shadow: 2px 2px 10px black; }
+    .static_pages_container .container p {
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 180%;
+      text-shadow: 2px 2px 10px black;
+      -moz-text-shadow: 2px 2px 10px black;
+      -webkit-text-shadow: 2px 2px 10px black; }
+    .static_pages_container .container ul, .static_pages_container .container ol {
+      color: #FFFFFF;
+      font-size: 16px;
+      line-height: 200%; }
 
 
 /*# sourceMappingURL=main.css.map */

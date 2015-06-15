@@ -3,14 +3,17 @@
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use talenthub\Events\NotifyUser;
 use talenthub\Http\Requests;
 use talenthub\Http\Controllers\Controller;
 
 use talenthub\Http\Requests\ExternalUser\PostRecommendationRequest;
+use talenthub\Notifications;
 use talenthub\Repositories\SiteConstants;
 use talenthub\Repositories\SiteSessions;
 use talenthub\Talent\Recommendations;
@@ -115,6 +118,8 @@ class RecommendationController extends Controller {
         }
         $recommendation->status = SiteConstants::RECOMMENDATION_STATUS_COMPLETE;
         $recommendation->save();
+
+        Event::fire(new NotifyUser($recommendation->user_id,null,Notifications::NOTIFICATION_TYPE_RECOMMENDATION,$recommendation->recommendation_id));
 
         return view('profile.guest.recommendationThanks');
 

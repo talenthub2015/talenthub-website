@@ -223,8 +223,9 @@ talentProfile.controller('VisitingUserOperationController',['$scope','ProfileOpe
                 connect_to_user_id     :   $scope.user_id //User id of the user, to whom you are favouriting
             };
             $scope.favourite_request_in_progress=1;
-            ProfileOperationService(userData,'../profile/favourite').success(function(data){
+            ProfileOperationService(userData,'/profile/favourite').success(function(data){
                 console.log(data.status);
+                console.log(data);
                 if(data.status=="successful")
                 {
                     if(data.operation_done_type == "added")
