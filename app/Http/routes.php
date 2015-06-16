@@ -140,13 +140,25 @@ Route::group(['middleware' => ['auth']],function(){
     Route::post('reply-forward-Message','MessageController@replyOrForwardMessage');
     Route::put('moveTrash','MessageController@moveToTrash');
 
-
-
-
 });
 
 /////////////////////////////
 //// User's Outside Site ////
 ////////////////////////////
-Route::get('external/user/recommendation',"RecommendationController@recommendationForm");
-Route::put('external/user/post-recommendation',"RecommendationController@saveRecommendation");
+Route::group(['middleware' => ['guest']],function(){
+    Route::get("profile/{id}",'ProfileController@showUserProfile');
+    Route::get('profile/{id}/evangelists','ProfileController@allEvangelists');
+    Route::get('profile/{id}/curriculumvitae','ProfileController@viewCV');
+    //Videos Page
+    Route::get('profile/{id}/videos','VideoController@index');
+    //Images Page
+    Route::get('profile/{id}/Images','ImageController@index');
+
+
+
+
+    //--------------------- Posting Recommendation for a user ------------------------//
+    Route::get('external/user/recommendation',"RecommendationController@recommendationForm");
+    Route::put('external/user/post-recommendation',"RecommendationController@saveRecommendation");
+    //--------------------- Posting Recommendation for a user ------------------------//
+});

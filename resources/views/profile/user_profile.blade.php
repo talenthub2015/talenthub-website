@@ -56,7 +56,7 @@
                 @if($profileEditable && $visitingUserId == $userProfile->user_id)
                     <p class="request_recommendations_container"><a href="<% url('request-recommendation') %>" class="t-button">Request Recommendations</a></p>
                 @endif
-                @if($visitingUserId != $userProfile->user_id)
+                @if($visitingUserId !=null && $visitingUserId != $userProfile->user_id)
                     <p class="visiting_user_operations" ng-controller="VisitingUserOperationController"
                             ng-init="user_id = <% $userProfile->user_id %>">
                         <span class="operation_button" ng-init="favourited = <% $visitingUserFavourited %>">

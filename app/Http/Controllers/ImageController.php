@@ -14,6 +14,7 @@ use talenthub\Media\Images;
 use talenthub\Repositories\SiteSessions;
 use talenthub\Repositories\StorageLocationsRepository;
 use talenthub\UserProfile;
+use talenthub\UserSettings;
 
 class ImageController extends Controller {
 
@@ -24,6 +25,11 @@ class ImageController extends Controller {
      */
     public function index($id)
     {
+        if($this->checkIfGuestDoNotHavePermission($id,UserSettings::PRIVACY_TYPE_IMAGES))
+        {
+            return redirect('/');
+        }
+
         $images = null;
         $userProfile = null;
 
@@ -112,6 +118,26 @@ class ImageController extends Controller {
                 $result = File::makeDirectory(public_path().StorageLocationsRepository::USER_SPORT_IMAGES_STORAGE_PATH, 0775, true);
             }
         }
+    }
+
+
+
+    /**
+     * Checking if a user/Guest have permission for a given part or not
+     * @param $profile_id
+     * @param $privacy_type
+     * @return boolean
+     */
+    public function checkIfGuestDoNotHavePermission($profile_id,$privacy_type)
+    {
+        $userProfileSetting = UserSettings::where('user_id','=',$profile_id)
+            ->where('setting_type','=',$privacy_type)->first();
+
+        if($userProfileSetting != null && $userProfileSetting->setting_value == UserSettings::PRIVACY_SET)
+        {
+            return true;
+        }
+        return false;
     }
 
 }

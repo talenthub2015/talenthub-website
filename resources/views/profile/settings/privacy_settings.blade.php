@@ -9,15 +9,15 @@
 
             foreach($userSettings as $key=>$setting)
             {
-                if(in_array(\talenthub\Http\Controllers\SettingsController::PRIVACY_TYPE_PROFILE,$setting) && $setting["setting_value"] == \talenthub\Http\Controllers\SettingsController::PRIVACY_SET)
+                if(in_array(\talenthub\UserSettings::PRIVACY_TYPE_PROFILE,$setting) && $setting["setting_value"] == \talenthub\UserSettings::PRIVACY_SET)
                 {
                     $profileChecked="checked";
                 }
-                if(in_array(\talenthub\Http\Controllers\SettingsController::PRIVACY_TYPE_VIDEOS,$setting) && $setting["setting_value"] == \talenthub\Http\Controllers\SettingsController::PRIVACY_SET)
+                if(in_array(\talenthub\UserSettings::PRIVACY_TYPE_VIDEOS,$setting) && $setting["setting_value"] == \talenthub\UserSettings::PRIVACY_SET)
                 {
                     $videoChecked="checked";
                 }
-                if(in_array(\talenthub\Http\Controllers\SettingsController::PRIVACY_TYPE_IMAGES,$setting) && $setting["setting_value"] == \talenthub\Http\Controllers\SettingsController::PRIVACY_SET)
+                if(in_array(\talenthub\UserSettings::PRIVACY_TYPE_IMAGES,$setting) && $setting["setting_value"] == \talenthub\UserSettings::PRIVACY_SET)
                 {
                     $imageChecked="checked";
                 }
@@ -43,21 +43,21 @@
                 <div class="col-xs-12 col-lg-12">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="privacy_settings[]" value="{{\talenthub\Http\Controllers\SettingsController::PRIVACY_TYPE_PROFILE}}" {{$profileChecked}}>
+                            <input type="checkbox" name="privacy_settings[]" value="{{\talenthub\UserSettings::PRIVACY_TYPE_PROFILE}}" {{$profileChecked}}>
                             Only Talenthub registered users can view my <strong>Profile</strong>.
                         </label>
                     </div>
 
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="privacy_settings[]" value="{{\talenthub\Http\Controllers\SettingsController::PRIVACY_TYPE_VIDEOS}}" {{$videoChecked}}>
+                            <input type="checkbox" name="privacy_settings[]" value="{{\talenthub\UserSettings::PRIVACY_TYPE_VIDEOS}}" {{$videoChecked}}>
                             Only Talenthub registered users can view my <strong>Videos</strong>.
                         </label>
                     </div>
 
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="privacy_settings[]" value="{{\talenthub\Http\Controllers\SettingsController::PRIVACY_TYPE_IMAGES}}" {{$imageChecked}}>
+                            <input type="checkbox" name="privacy_settings[]" value="{{\talenthub\UserSettings::PRIVACY_TYPE_IMAGES}}" {{$imageChecked}}>
                             Only Talenthub registered users can view my <strong>Images</strong>.
                         </label>
                     </div>

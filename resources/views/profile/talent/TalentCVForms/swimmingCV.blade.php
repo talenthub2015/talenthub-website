@@ -93,8 +93,8 @@ $event_type=["0"=>"-- Select Type --"];
         ?>
     </div>
     <div class="text-center">
-        <button class="t-button duplicate_content_button" type="button"
+        <button class="btn btn-info statistic_button duplicate_content_button" type="button"
                 data-target-duplicate-content=".carrer_statistics"
-                data-place-duplicate-content=".career_statistics_duplicated">Add more</button>"
+                data-place-duplicate-content=".career_statistics_duplicated">Add More Sport Statistic</button>
     </div>
 </div>

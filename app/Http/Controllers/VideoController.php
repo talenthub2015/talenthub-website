@@ -14,6 +14,7 @@ use talenthub\Repositories\SiteSessions;
 use talenthub\User;
 use talenthub\UserProfile;
 use Madcoda\Youtube;
+use talenthub\UserSettings;
 
 class VideoController extends Controller {
 
@@ -24,6 +25,11 @@ class VideoController extends Controller {
 	 */
 	public function index($id)
 	{
+        if($this->checkIfGuestDoNotHavePermission($id,UserSettings::PRIVACY_TYPE_VIDEOS))
+        {
+            return redirect('/');
+        }
+
         $videos = null;
         $userProfile = null;
 
@@ -65,6 +71,27 @@ class VideoController extends Controller {
 //    $video = $youtube->getVideoInfo($youtube->parseVIdFromURL($request->get("video_url")));
 //        dd($video);
         return redirect('profile/'.Session::get(SiteSessions::USER_ID).'/videos');
+    }
+
+
+
+
+    /**
+     * Checking if a user/Guest have permission for a given part or not
+     * @param $profile_id
+     * @param $privacy_type
+     * @return boolean
+     */
+    public function checkIfGuestDoNotHavePermission($profile_id,$privacy_type)
+    {
+        $userProfileSetting = UserSettings::where('user_id','=',$profile_id)
+            ->where('setting_type','=',$privacy_type)->first();
+
+        if($userProfileSetting != null && $userProfileSetting->setting_value == UserSettings::PRIVACY_SET)
+        {
+            return true;
+        }
+        return false;
     }
 
 }

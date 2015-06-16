@@ -36,6 +36,29 @@ $t-button-background-color-hover: #204f1F ;
   text-decoration: none;
   @include box-shadow(0px, 0px, 10px, 0px, rgba(0,0,0,0.75))
 }
+
+.statistic_button,.references_button
+{
+  padding:2px 15px;
+  font-size: 12px;
+}
+
+.add_more_club_school_information_button
+{
+  font-size: 16px;
+  padding:10px 25px;
+}
+
+.save_cv_button
+{
+  padding:15px 50px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+
+
+
 .form-control.t-button
 {
   color:#FFFFFF;
@@ -1238,6 +1261,17 @@ footer
       .form-group
       {
         margin-bottom: 0px;
+      }
+
+      ul.alert.alert-danger
+      {
+        padding:5px;
+        margin-bottom: 5px;
+        li.alert
+        {
+          padding:5px;
+          margin-bottom: 5px;
+        }
       }
     }
 

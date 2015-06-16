@@ -322,9 +322,9 @@
 
                                             </div>
                                             <div class="text-center">
-                                                <button class="t-button duplicate_content_button" type="button"
+                                                <button class="btn btn-info references_button duplicate_content_button" type="button"
                                                         data-target-duplicate-content=".club_references_duplication_content"
-                                                        data-place-duplicate-content=".club_references_duplicated_content">Add more</button>"
+                                                        data-place-duplicate-content=".club_references_duplicated_content">Add More References</button>
                                             </div>
                                         </div>
 
@@ -567,9 +567,9 @@
 
                                                     </div>
                                                     <div class="text-center">
-                                                        <button class="t-button duplicate_content_button" type="button"
+                                                        <button class="btn btn-info references_button duplicate_content_button" type="button"
                                                                 data-target-duplicate-content=".club_references_duplication_content"
-                                                                data-place-duplicate-content=".club_references_duplicated_content">Add more</button>"
+                                                                data-place-duplicate-content=".club_references_duplicated_content">Add More References</button>
                                                     </div>
                                                 </div>
 
@@ -592,9 +592,9 @@
                                         ?>
                                     </div>
                                     <div>
-                                        <button class="t-button duplicate_content_button" type="button"
+                                        <button class="t-button add_more_club_school_information_button duplicate_content_button" type="button"
                                                 data-target-duplicate-content=".full_club_information_for_duplication"
-                                                data-place-duplicate-content=".club_information_for_duplicated_data">Add more</button>
+                                                data-place-duplicate-content=".club_information_for_duplicated_data">Add More Club Information</button>
                                     </div>
                                 </div>
 
@@ -824,9 +824,9 @@
 
                                             </div>
                                             <div class="text-center">
-                                                <button class="t-button duplicate_content_button" type="button"
+                                                <button class="btn btn-info references_button duplicate_content_button" type="button"
                                                         data-target-duplicate-content=".school_references_duplication_content"
-                                                        data-place-duplicate-content=".school_references_duplicated_content">Add more</button>"
+                                                        data-place-duplicate-content=".school_references_duplicated_content">Add More References</button>
                                             </div>
                                         </div>
 
@@ -1069,9 +1069,9 @@
 
                                                         </div>
                                                         <div class="text-center">
-                                                            <button class="t-button duplicate_content_button" type="button"
+                                                            <button class="btn btn-info references_button duplicate_content_button" type="button"
                                                                     data-target-duplicate-content=".school_references_duplication_content"
-                                                                    data-place-duplicate-content=".school_references_duplicated_content">Add more</button>"
+                                                                    data-place-duplicate-content=".school_references_duplicated_content">Add More References</button>
                                                         </div>
                                                     </div>
 
@@ -1093,19 +1093,20 @@
 
                                     </div>
                                     <div>
-                                        <button class="t-button duplicate_content_button" type="button"
+                                        <button class="t-button add_more_club_school_information_button duplicate_content_button" type="button"
                                                 data-target-duplicate-content=".full_school_information_for_duplication"
-                                                data-place-duplicate-content=".school_information_for_duplicated_data">Add more</button>
+                                                data-place-duplicate-content=".school_information_for_duplicated_data">Add More School Information</button>
                                     </div>
                                 </div>
 
 
                             </div>
 
+                            <hr>
 
                             <div class="row">
                                 <div class="col-xs-12 col-lg-4 col-lg-offset-4">
-                                    {!! Form::submit('Update Profile Data',['class'=>'btn btn-primary form-control']) !!}
+                                    {!! Form::submit('Update CV Data',['class'=>'btn btn-success  save_cv_button ']) !!}
                                 </div>
 
                             </div>

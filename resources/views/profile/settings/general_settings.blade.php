@@ -28,15 +28,27 @@
 
             <hr>
 
-            {!! Form::open(['method'=>'put','url'=>'']) !!}
-            <div class="row short_form_container">
+            {!! Form::open(['method'=>'put','url'=>'settings/general']) !!}
+            {!! Form::hidden('setting_type',\talenthub\UserSettings::GENERAL_TYPE_EMAIL) !!}
+            <div class="row form_container short_form_container">
+                @if(Session::has("setting_type") && Session::get("setting_type") == \talenthub\UserSettings::GENERAL_TYPE_EMAIL)
+
+                    @include('errors.error_raw_list')
+
+                    @if(Session::get("general_update_status") == "successful")
+                        <div class="col-xs-12">
+                            <div class="alert alert-success">Your email address successfully changed.</div>
+                        </div>
+                    @endif
+                @endif
                 <div class="col-xs-3 col-lg-2">
                     <p><span class="side_label">Email</span></p>
                 </div>
 
                 <div class="col-xs-3 col-lg-4">
                     <div class="form-group">
-                        {!! Form::text('email',null,['class'=>'form-control']) !!}
+                        {!! Form::text('email',$userProfile->username,['class'=>'form-control','data-validate'=>'require|email',
+                        'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter a valid email']) !!}
                     </div>
                 </div>
 
@@ -48,27 +60,40 @@
             <hr>
 
 
-            {!! Form::open(['method'=>'put','url'=>'']) !!}
+            {!! Form::open(['method'=>'put','url'=>'settings/general']) !!}
+            {!! Form::hidden('setting_type',\talenthub\UserSettings::GENERAL_TYPE_PASSWORD) !!}
             <div>
-                <div class="row short_form_container">
+                @if(Session::has("setting_type") && Session::get("setting_type") == \talenthub\UserSettings::GENERAL_TYPE_PASSWORD)
+
+                    @include('errors.error_raw_list')
+
+                    @if(Session::get("general_update_status") == "successful")
+                        <div class="col-xs-12">
+                            <div class="alert alert-success">Your password updated successfully.</div>
+                        </div>
+                    @endif
+                @endif
+                <div class="row form_container short_form_container">
                     <div class="col-xs-3 col-lg-2">
                         <p><span class="side_label">New Password</span></p>
                     </div>
 
                     <div class="col-xs-3 col-lg-4">
                         <div class="form-group">
-                            {!! Form::text('email',null,['class'=>'form-control']) !!}
+                            {!! Form::input('password','password',null,['class'=>'form-control','data-validate'=>'require',
+                            'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Password is required']) !!}
                         </div>
                     </div>
                 </div>
-                <div class="row short_form_container">
+                <div class="row form_container short_form_container">
                     <div class="col-xs-3 col-lg-2">
                         <p><span class="side_label">Confirm Password</span></p>
                     </div>
 
                     <div class="col-xs-3 col-lg-4">
                         <div class="form-group">
-                            {!! Form::text('email',null,['class'=>'form-control']) !!}
+                            {!! Form::input('password','password_confirmation',null,['class'=>'form-control','data-validate'=>'require|confirmPassword',
+                            'data-password-field-id'=>'password','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Confirm your password correctly']) !!}
                         </div>
                     </div>
 

@@ -41,6 +41,7 @@ use talenthub\TalentCareerStatisticsModels\SwimmingStatistics;
 use talenthub\TalentCareerStatisticsModels\TrackAndFieldStatistics;
 use talenthub\User;
 use talenthub\UserProfile;
+use talenthub\UserSettings;
 
 class ProfileController extends Controller {
 
@@ -852,12 +853,17 @@ class ProfileController extends Controller {
         Blade::setContentTags('<%', '%>');        // for variables and all things Blade
         Blade::setEscapedContentTags('<%%', '%%>');   // for escaped data
 
+        if($this->checkIfGuestDoNotHavePermission($id,UserSettings::PRIVACY_TYPE_PROFILE))
+        {
+            return redirect('/');
+        }
+
         $userProfile = UserProfile::find($id);
 
         $userProfile->getMutatedData = false;
 
         $country=BasicSiteRepository::getListOfCountries();
-        $sportPositions=array_map('ucfirst',SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE)));
+//        $sportPositions=array_map('ucfirst',SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE)));
 
         $userCareerHistory=$userProfile->careerInformation;
         $awards = $userProfile->awards;
@@ -906,7 +912,7 @@ class ProfileController extends Controller {
         }
 
         return view('profile.user_profile',
-            compact('userProfile','country','sportPositions','userCareerHistory','awards','endorsements',
+            compact('userProfile','country','userCareerHistory','awards','endorsements',
                 'visitingUserEndorsed','profileEditable','visitingUserFavourited'));
     }
 
@@ -1117,6 +1123,25 @@ class ProfileController extends Controller {
         }
 
         return response()->json(['status'=>'successful']);
+    }
+
+
+    /**
+     * Checking if a user/Guest have permission for a given part or not
+     * @param $profile_id
+     * @param $privacy_type
+     * @return boolean
+     */
+    public function checkIfGuestDoNotHavePermission($profile_id,$privacy_type)
+    {
+        $userProfileSetting = UserSettings::where('user_id','=',$profile_id)
+            ->where('setting_type','=',$privacy_type)->first();
+
+        if($userProfileSetting != null && $userProfileSetting->setting_value == UserSettings::PRIVACY_SET)
+        {
+            return true;
+        }
+        return false;
     }
 
 }

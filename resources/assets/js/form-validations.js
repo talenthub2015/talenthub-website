@@ -216,7 +216,7 @@ $(document).ready(function(){
                             var passwordField;
                             if($(element).data('passwordFieldId') != undefined)
                             {
-                                passwordField =  $(element).parents('form').find("#"+$(element).data('passwordFieldId')).val();
+                                passwordField =  $(element).parents('form').find("input[name='"+$(element).data('passwordFieldId')+"']");
                                 if($(element).val()!= $(passwordField).val())
                                 {
                                     errorStatus=true;

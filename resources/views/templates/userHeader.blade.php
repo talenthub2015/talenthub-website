@@ -121,7 +121,15 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><div><input type="text"></div></li>
+                        <li>
+                            <div class="form_container">
+                                {!! Form::open(['method'=>'post','url'=>'']) !!}
+                                <div>
+                                    {!! Form::text('search_users',null,['class'=>'form-control']) !!}
+                                </div>
+                                {!! Form::close() !!}
+                            </div>
+                        </li>
                         <li class="has-dropdown"><a href="{!!  url('auth/logout') !!}">Logout</a>
                             <!--div class="dropdown"><span class="caret" data-toggle="dropdown"></span>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
