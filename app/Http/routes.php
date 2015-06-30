@@ -14,6 +14,7 @@
 include_once('admin_routes.php');
 
 Route::get('/', 'WelcomeController@index');
+
 Route::get('sign_up', 'WelcomeController@signUp');
 
 Route::get('home', 'HomeController@index');
@@ -44,23 +45,14 @@ Route::get('user-agreement',function(){
     return view('static.user_agreement');
 });
 
+
+
+
 //Only Accessed By Authenticated user
 Route::group(['middleware' => ['auth']],function(){
 
-
-    /////////////////////////////////////////////
-    /////////   User Settings      //////////////
-    ////////////////////////////////////////////
-
-    Route::get('settings/privacy','SettingsController@privacySettings');
-    Route::put('settings/privacy','SettingsController@updatePrivacySettings');
-
-    Route::get('settings/general','SettingsController@generalSettings');
-    Route::put('settings/general','SettingsController@updateGeneralSettings');
-
-    /////////////////////////////////////////////
-    /////////   User Settings      //////////////
-    ////////////////////////////////////////////
+    Route::get("account-not-confirmed","ProfileController@accountNotConfirmed");
+    Route::get("resend-confirmation-link","ProfileController@resendConfirmationLink");
 
     //Registering and completing Profile - For Talent and Managers
     Route::get('profile/edit','ProfileController@edit');
@@ -69,83 +61,105 @@ Route::group(['middleware' => ['auth']],function(){
     Route::put('profile/edit/{id}','ProfileController@update');
     Route::put('profile/CV','ProfileController@updateCV');
 
-    //Showing Own Profile - For Talent and Manager
-    Route::get("profile","ProfileController@index");
-
-    //Showing a user Profile - as viewed by other user
-    Route::get("profile/{id}",'ProfileController@showUserProfile');
-    Route::get('profile/{id}/evangelists','ProfileController@allEvangelists');
-
-    //Getting and saving data from user's profile - For talent and manager
-    Route::put('profile/uploadProfileImage','ProfileController@uploadImage');
-    Route::put('profile/updateProfileData','ProfileController@updateProfileData');
-    Route::put('profile/profileSummary','ProfileController@updateProfileSummary');
-
-    //Show User CV - For Talent and Manager
-    Route::get('profile/{id}/curriculumvitae','ProfileController@viewCV');
-    //Videos Page
-    Route::get('profile/{id}/videos','VideoController@index');
-    Route::post('profile/videos','VideoController@store');
-    //Images Page
-    Route::get('profile/{id}/Images','ImageController@index');
-    Route::post('profile/Images','ImageController@store');
-
-    //Favoutires Page
-    Route::get('profile/{id}/favourites','ProfileController@showFavourites');
-    Route::get('profile/{id}/favouritedYou','ProfileController@showWhoFavouritedYou');
-
-    //Database Page
-    Route::get('database','DatabaseController@index');
-    Route::get('database/talent-opportunities/{state?}/{institution_tye?}/{gender?}/{sport_type?}/{country?}','DatabaseController@talentOpportunities');
-
-    //Searching Database for Opportunities
-    Route::post('database/searchOpportunities','DatabaseController@searchOpportunities');
-
-    //Talent Contacting Manager
-    Route::post('database/contactManager','DatabaseController@contactManager');
 
 
-    //Notification Read by a user
-    Route::post('profile/notificationRead','ProfileController@notificationReadByUser');
+    Route::group(['middleware'=>['account_confirmation']],function(){
 
-    ///////////////////////
-    //  Talent Pages    //
-    //////////////////////
-    Route::get('request-recommendation','RecommendationController@index');
-    Route::post('request-recommendation','RecommendationController@request');
+        /////////////////////////////////////////////
+        /////////   User Settings      //////////////
+        ////////////////////////////////////////////
 
-    //For Talents - Saving Awards, Endorsements and favouriting
-    Route::put('profile/profileAwards','ProfileController@updateProfileAwards');
-    Route::put('profile/endorseUser','ProfileController@endorseUser');
-    Route::put('profile/favourite','ProfileController@favouriteUser');
+        Route::get('settings/privacy','SettingsController@privacySettings');
+        Route::put('settings/privacy','SettingsController@updatePrivacySettings');
+
+        Route::get('settings/general','SettingsController@generalSettings');
+        Route::put('settings/general','SettingsController@updateGeneralSettings');
+
+        /////////////////////////////////////////////
+        /////////   User Settings      //////////////
+        ////////////////////////////////////////////
+
+        //Showing Own Profile - For Talent and Manager
+        Route::get("profile","ProfileController@index");
+
+        //Showing a user Profile - as viewed by other user
+        Route::get("profile/{id}",'ProfileController@showUserProfile');
+        Route::get('profile/{id}/evangelists','ProfileController@allEvangelists');
+
+        //Getting and saving data from user's profile - For talent and manager
+        Route::put('profile/uploadProfileImage','ProfileController@uploadImage');
+        Route::put('profile/updateProfileData','ProfileController@updateProfileData');
+        Route::put('profile/profileSummary','ProfileController@updateProfileSummary');
+
+        //Show User CV - For Talent and Manager
+        Route::get('profile/{id}/curriculumvitae','ProfileController@viewCV');
+        //Videos Page
+        Route::get('profile/{id}/videos','VideoController@index');
+        Route::post('profile/videos','VideoController@store');
+        //Images Page
+        Route::get('profile/{id}/Images','ImageController@index');
+        Route::post('profile/Images','ImageController@store');
+
+        //Favoutires Page
+        Route::get('profile/{id}/favourites','ProfileController@showFavourites');
+        Route::get('profile/{id}/favouritedYou','ProfileController@showWhoFavouritedYou');
+
+        //Database Page
+        Route::get('database','DatabaseController@index');
+        Route::get('database/talent-opportunities/{state?}/{institution_tye?}/{gender?}/{sport_type?}/{country?}','DatabaseController@talentOpportunities');
+
+        //Searching Database for Opportunities
+        Route::post('database/searchOpportunities','DatabaseController@searchOpportunities');
+
+        //Talent Contacting Manager
+        Route::post('database/contactManager','DatabaseController@contactManager');
+
+
+        //Notification Read by a user
+        Route::post('profile/notificationRead','ProfileController@notificationReadByUser');
+
+        ///////////////////////
+        //  Talent Pages    //
+        //////////////////////
+        Route::get('request-recommendation','RecommendationController@index');
+        Route::post('request-recommendation','RecommendationController@request');
+
+        //For Talents - Saving Awards, Endorsements and favouriting
+        Route::put('profile/profileAwards','ProfileController@updateProfileAwards');
+        Route::put('profile/endorseUser','ProfileController@endorseUser');
+        Route::put('profile/favourite','ProfileController@favouriteUser');
 
 
 
-    ///////////////////////
-    //  Manager Pages   //
-    //////////////////////
+        ///////////////////////
+        //  Manager Pages   //
+        //////////////////////
 
 
 
 
-    //////////////////////
-    /// Messages Pages //
-    /////////////////////
-    Route::get('messages','MessageController@index');
-    Route::get('sentMessages','MessageController@sentMessages');
-    Route::get('viewMessage/{message_id}',['as'=>'viewMessage', 'uses'=>'MessageController@viewMessage']);
+        //////////////////////
+        /// Messages Pages //
+        /////////////////////
+        Route::get('messages','MessageController@index');
+        Route::get('sentMessages','MessageController@sentMessages');
+        Route::get('viewMessage/{message_id}',['as'=>'viewMessage', 'uses'=>'MessageController@viewMessage']);
 
-    //Sending Message to a user
-    Route::put('profile/sendMessage','MessageController@sendMessage');
-    Route::post('reply-forward-Message','MessageController@replyOrForwardMessage');
-    Route::put('moveTrash','MessageController@moveToTrash');
+        //Sending Message to a user
+        Route::put('profile/sendMessage','MessageController@sendMessage');
+        Route::post('reply-forward-Message','MessageController@replyOrForwardMessage');
+        Route::put('moveTrash','MessageController@moveToTrash');
+
+    });
 
 });
+
+
 
 /////////////////////////////
 //// User's Outside Site ////
 ////////////////////////////
-Route::group(['middleware' => ['guest']],function(){
+Route::group(['middleware' => ['guest'],'prefix'=>'external'],function(){
     Route::get("profile/{id}",'ProfileController@showUserProfile');
     Route::get('profile/{id}/evangelists','ProfileController@allEvangelists');
     Route::get('profile/{id}/curriculumvitae','ProfileController@viewCV');
@@ -158,7 +172,7 @@ Route::group(['middleware' => ['guest']],function(){
 
 
     //--------------------- Posting Recommendation for a user ------------------------//
-    Route::get('external/user/recommendation',"RecommendationController@recommendationForm");
-    Route::put('external/user/post-recommendation',"RecommendationController@saveRecommendation");
+    Route::get('user/recommendation',"RecommendationController@recommendationForm");
+    Route::put('user/post-recommendation',"RecommendationController@saveRecommendation");
     //--------------------- Posting Recommendation for a user ------------------------//
 });

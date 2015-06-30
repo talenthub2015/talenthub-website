@@ -24,7 +24,7 @@ class UserProfile extends Model
         'mother_living_with', 'guardian_name', 'guardian_occupation', 'guardian_mobile_number', 'guardian_alumni',
         'guardian_living_with', 'school_type', 'school_name', 'school_address', 'school_city', 'school_state_province',
         'school_zip', 'school_country', 'school_contact_person_name', 'school_contact_person_phone',
-        'current_gpa', 'grade_avg', 'academic_achivements', 'sat_verbal', 'sat_math', 'sat_writing', 'sat_reading',
+        'grade_avg', 'academic_achivements', 'sat_verbal', 'sat_math', 'sat_writing', 'sat_reading',
         'sat_overall', 'pact', 'act', 'psat', 'potential_major_category_1', 'potential_major_1',
         'potential_major_category_2', 'potential_major_2', 'potential_major_category_3', 'potential_major_3',
         'reason_choice_major_1',
@@ -33,7 +33,7 @@ class UserProfile extends Model
 
 
     public $getMutatedData = true;
-    public $setMutateData = true;
+    public $setMutatedData = true;
 
 
 
@@ -248,7 +248,7 @@ class UserProfile extends Model
      */
     public function setcountryAttribute($country)
     {
-        if($this->setMutateData)
+        if($this->setMutatedData)
         {
             $this->attributes["country"]=BasicSiteRepository::getListOfCountries()[$country];
         }
@@ -275,13 +275,13 @@ class UserProfile extends Model
      */
     public function setgenderAttribute($gender)
     {
-        if($this->setMutateData)
+        if($this->setMutatedData)
         {
-            $this->attributes["gender"] = UserProfileRepository::getUserGender()[$gender];
+            $this->attributes["gender"] = ($gender != null && $gender != "") ? UserProfileRepository::getUserGender()[$gender] : "";
         }
         else
         {
-            $this->attributes["gender"]=$gender;
+            $this->attributes["gender"]=($gender != null && $gender != "") ? $gender : "";
         }
     }
 
@@ -291,7 +291,7 @@ class UserProfile extends Model
      */
     public function getgenderAttribute($gender)
     {
-        if($this->getMutateData)
+        if($this->getMutatedData)
         {
             return array_search($gender,UserProfileRepository::getUserGender());
         }
@@ -305,13 +305,13 @@ class UserProfile extends Model
      */
     public function setaddressTypeAttribute($addressType)
     {
-        if($this->setMutateData)
+        if($this->setMutatedData)
         {
-            $this->attributes["address_type"] = UserProfileRepository::getAddressTypes()[$addressType];
+            $this->attributes["address_type"] = ($addressType != 0 && $addressType != null) ? UserProfileRepository::getAddressTypes()[$addressType] : "";
         }
         else
         {
-            $this->attributes["address_type"]=$addressType;
+            $this->attributes["address_type"]=  ($addressType != 0 && $addressType != null) ? $addressType : "";
         }
     }
 
@@ -321,7 +321,7 @@ class UserProfile extends Model
      */
     public function getaddressTypeAttribute($addressType)
     {
-        if($this->getMutateData)
+        if($this->getMutatedData)
         {
             return array_search($addressType,UserProfileRepository::getAddressTypes());
         }
@@ -340,6 +340,218 @@ class UserProfile extends Model
     }
 
 
+
+
+    /**Common function for setting Living With database field of Father, Mother and Guardian.
+     * @param $living_with
+     */
+    public function setLivingWithDataFields($living_with,$database_field_name)
+    {
+        if($this->setMutatedData)
+        {
+            $this->attributes[$database_field_name]=($living_with != null && $living_with != "") ? UserProfileRepository::getLivingWithType()[$living_with] : "";
+        }
+        else
+        {
+            $this->attributes[$database_field_name]=($living_with != null && $living_with != "") ? $living_with : "";
+        }
+    }
+
+
+    /**Setting Data field father_living_with to corresponding data as provided by the user
+     * @param $living_with_father
+     */
+    public function setfatherLivingWithAttribute($living_with_father)
+    {
+        $this->setLivingWithDataFields($living_with_father,"father_living_with");
+    }
+
+    /**Setting Data field father_living_with to corresponding data as provided by the user
+     * @param $living_with_father
+     */
+    public function getfatherLivingWithAttribute($living_with_father)
+    {
+        if($this->getMutatedData)
+        {
+            return array_search($living_with_father,UserProfileRepository::getLivingWithType());
+        }
+        else
+        {
+            return $living_with_father;
+        }
+    }
+
+
+    /**Setting Data field mother_living_with to corresponding data as provided by the user
+     * @param $living_with_mother
+     */
+    public function setmotherLivingWithAttribute($living_with_mother)
+    {
+        $this->setLivingWithDataFields($living_with_mother,"mother_living_with");
+    }
+
+    /**Setting Data field mother_living_with to corresponding data as provided by the user
+     * @param $living_with_mother
+     */
+    public function getmotherLivingWithAttribute($living_with_mother)
+    {
+        if($this->getMutatedData)
+        {
+            return array_search($living_with_mother,UserProfileRepository::getLivingWithType());
+        }
+        else
+        {
+            return $living_with_mother;
+        }
+    }
+
+
+
+    /**Setting Data field guardian_living_with to corresponding data as provided by the user
+     * @param $living_with_guardian
+     */
+    public function setguardianLivingWithAttribute($living_with_guardian)
+    {
+        $this->setLivingWithDataFields($living_with_guardian,"guardian_living_with");
+    }
+
+    /**Setting Data field guardian_living_with to corresponding data as provided by the user
+     * @param $living_with_guardian
+     */
+    public function getguardianLivingWithAttribute($living_with_guardian)
+    {
+        if($this->getMutatedData)
+        {
+            return array_search($living_with_guardian,UserProfileRepository::getLivingWithType());
+        }
+        else
+        {
+            return $living_with_guardian;
+        }
+    }
+
+
+
+    /**
+     * Setting Graduting From Field
+     * @param $gender
+     */
+    public function setgraduatingFromAttribute($graduatingFrom)
+    {
+        if($this->setMutatedData)
+        {
+            $this->attributes["graduating_from"] = ($graduatingFrom != 0 && $graduatingFrom != null) ? UserProfileRepository::getInstituteType()[$graduatingFrom] : "";
+        }
+        else
+        {
+            $this->attributes["graduating_from"]=  ($graduatingFrom != 0 && $graduatingFrom != null) ? $graduatingFrom : "";
+        }
+    }
+
+    /**
+     * Getting Address Type
+     * @param $gender
+     */
+    public function getgraduatingFromAttribute($graduatingFrom)
+    {
+        if($this->getMutatedData)
+        {
+            return array_search($graduatingFrom,UserProfileRepository::getInstituteType());
+        }
+        return $graduatingFrom;
+    }
+
+
+
+
+    /**
+     * Setting Graduting From Field
+     * @param $gender
+     */
+    public function setschoolTypeAttribute($school_type)
+    {
+        if($this->setMutatedData)
+        {
+            $this->attributes["school_type"] = ($school_type != 0 && $school_type != null) ? UserProfileRepository::getInstituteType()[$school_type] : "";
+        }
+        else
+        {
+            $this->attributes["school_type"]=  ($school_type != 0 && $school_type != null) ? $school_type : "";
+        }
+    }
+
+    /**
+     * Getting Address Type
+     * @param $gender
+     */
+    public function getschoolTypeAttribute($school_type)
+    {
+        if($this->getMutatedData)
+        {
+            return array_search($school_type,UserProfileRepository::getInstituteType());
+        }
+        return $school_type;
+    }
+
+
+
+
+    /**
+     * Mutating Country before saving in database
+     * @param $country
+     */
+    public function setschoolCountryAttribute($country)
+    {
+        if($this->setMutatedData)
+        {
+            $this->attributes["school_country"]=BasicSiteRepository::getListOfCountries()[$country];
+        }
+    }
+
+    /**
+     * Mutating country before presenting it to a user
+     * @param $country
+     * @return mixed
+     */
+    public function getschoolCountryAttribute($country)
+    {
+        if($this->getMutatedData)
+        {
+            return array_search($country,BasicSiteRepository::getListOfCountries());
+        }
+        return ucfirst($country);
+    }
+
+
+    /**
+     * Mutating grade_avg before saving in database
+     * @param $grade_avg
+     */
+    public function setgradeAvgAttribute($grade_avg)
+    {
+        if($this->setMutatedData)
+        {
+            $this->attributes["grade_avg"] = ($grade_avg != 0 && $grade_avg != null) ? UserProfileRepository::getGradeAverageType()[$grade_avg] : "";
+        }
+        else
+        {
+            $this->attributes["grade_avg"]=  ($grade_avg != 0 && $grade_avg != null) ? $grade_avg : "";
+        }
+    }
+
+    /**
+     * Mutating grade_avg before presenting it to a user
+     * @param $grade_avg
+     * @return mixed
+     */
+    public function getgradeAvgAttribute($grade_avg)
+    {
+        if($this->getMutatedData)
+        {
+            return array_search($grade_avg,UserProfileRepository::getGradeAverageType());
+        }
+        return ucfirst($grade_avg);
+    }
 
 
 

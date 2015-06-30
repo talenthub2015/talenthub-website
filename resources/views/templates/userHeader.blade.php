@@ -10,7 +10,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{!! url('profile') !!}"><img src="{!! asset('images/talenthub_logo.png') !!}"></a>
+                    <a class="navbar-brand" href="{!! url('profile') !!}"><span class="brand">Talenthub</span></a>
                 </div>
 
                 @if(Auth::user())
@@ -121,7 +121,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
+                        <!--li>
                             <div class="form_container">
                                 {!! Form::open(['method'=>'post','url'=>'']) !!}
                                 <div>
@@ -129,7 +129,7 @@
                                 </div>
                                 {!! Form::close() !!}
                             </div>
-                        </li>
+                        </li-->
                         <li class="has-dropdown"><a href="{!!  url('auth/logout') !!}">Logout</a>
                             <!--div class="dropdown"><span class="caret" data-toggle="dropdown"></span>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">

@@ -24,6 +24,7 @@
                             @include("errors.error_raw_list")
                             <div ng-show="tab.isTabClicked(1)" class="tab_panel">
                                 <div class="row form_container">
+                                    @if(count($sportPositions)>0)
                                     <div class="col-xs-12 col-lg-3">
                                         <div class="form-group">
                                             {!! Form::label('positions','Positions:') !!}
@@ -37,14 +38,15 @@
                                             {!! Form::select('preferred_position',$sportPositions,$talentProfile->preferred_position,['class'=>'form-control']) !!}
                                         </div>
                                     </div>
+                                    @endif
 
-                                    @if($sport_type == \talenthub\Repositories\SportsRepository::BASKETBALL)
+                                    @if(in_array($sport_type,[\talenthub\Repositories\SportsRepository::BASKETBALL, \talenthub\Repositories\SportsRepository::TENNIS]))
                                         <div class="col-xs-12 col-lg-3">
                                             <div class="form-group">
                                                 {!! Form::label($userProfileExtraParamsKey["dominant_hand"],'Dominant Hand:') !!}
                                                 {!! Form::select($userProfileExtraParamsKey["dominant_hand"],
                                                 ['0'=>'--Select Option --','Left Hand'=>'Left Hand','Right Hand'=>'Right Hand','Ambidextrous'=>'Ambidextrous'],
-                                                $talentProfile->params["dominant_hand"],['class'=>'form-control','data-validate'=>'number',
+                                                $talentProfile->params["dominant_hand"],['class'=>'form-control','data-validate'=>'select',
                                                 'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter a number correctly']) !!}
                                             </div>
                                         </div>
@@ -160,6 +162,7 @@
                                                 </div>
                                             </div>
 
+                                            @if(count($sportPositions)>0)
                                             <div class="col-xs-12 col-lg-4">
                                                 <div class="form-group">
                                                     {!! Form::label('club_club_school_most_played_position[]','Most Played Position for club:') !!}
@@ -169,6 +172,7 @@
                                                     'data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                 </div>
                                             </div>
+                                            @endif
                                         </div>
 
                                         <div class="row form_container">
@@ -409,6 +413,7 @@
                                                         </div>
                                                     </div>
 
+                                                    @if(count($sportPositions)>0)
                                                     <div class="col-xs-12 col-lg-4">
                                                         <div class="form-group">
                                                             {!! Form::label('club_club_school_most_played_position[]','Most Played Position for club:') !!}
@@ -417,6 +422,7 @@
                                                             'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                         </div>
                                                     </div>
+                                                    @endif
                                                 </div>
 
                                                 <div class="row form_container">
@@ -664,6 +670,7 @@
                                                 </div>
                                             </div>
 
+                                            @if(count($sportPositions)>0)
                                             <div class="col-xs-12 col-lg-4">
                                                 <div class="form-group">
                                                     {!! Form::label('school_club_school_most_played_position[]','Most Played Position for School:') !!}
@@ -672,6 +679,7 @@
                                                     'data-invalid-value'=>'','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                                 </div>
                                             </div>
+                                            @endif
 
                                         </div>
 
@@ -900,6 +908,7 @@
                                                             </div>
                                                         </div>
 
+                                                        @if(count($sportPositions)>0)
                                                         <div class="col-xs-12 col-lg-4">
                                                             <div class="form-group">
                                                                 {!! Form::label('school_club_school_most_played_position[]','Most Played Position for School:') !!}
@@ -909,6 +918,7 @@
                                                                 'title'=>'Select proper option from the list provided.']) !!}
                                                             </div>
                                                         </div>
+                                                        @endif
 
                                                     </div>
 

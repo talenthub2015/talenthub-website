@@ -47,7 +47,7 @@ switch($sport_type)
     break;
     case \talenthub\Repositories\SportsRepository::TENNIS:
     ?>
-    @include('',$data)
+    @include('profile.talent.TalentCVForms.tennisCV',$data)
     <?php
     break;
 

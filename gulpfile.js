@@ -12,15 +12,14 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    //mix.less('app.less','resources/assets/lib/css/');
+    mix.less('app.less','resources/assets/lib/css/');
 
-    //mix.rubySass('welcomepage.scss','resources/assets/lib/css/');
+    mix.rubySass('welcomepage.scss','resources/assets/lib/css/');
 
-    //mix.styles([
-    //    "lib/css/basic_site_style.css",
-    //    "lib/css/app.css",
-    //    "lib/css/welcomepage.css",
-    //],'public/css/welcomepage.css','resources/assets/');
+    mix.styles([
+        "lib/css/app.css",
+        "lib/css/welcomepage.css",
+    ],'public/css/welcomepage.css','resources/assets/');
 
     //mix.scripts([
     //    "jquery-1.11.2.min.js",
@@ -37,9 +36,9 @@ elixir(function(mix) {
     mix.sass('main.scss','resources/assets/lib/css/');
     mix.sass('site_animation.scss','resources/assets/lib/css/');
     mix.sass('message.scss','resources/assets/lib/css/');
+    mix.sass('emails.scss','resources/assets/lib/css/');
 
     mix.styles([
-        'lib/css/basic_site_style.css',
         'lib/css/app.css',
         'lib/css/jquery-ui.css',
         'lib/css/main.css',
@@ -49,6 +48,10 @@ elixir(function(mix) {
     mix.styles([
         'lib/css/site_animation.css'
     ],'public/css/site_animation.css','resources/assets/');
+
+    mix.styles([
+        'lib/css/emails.css'
+    ],'public/css/emails.css','resources/assets/');
 
     mix.version(["public/css/welcomepage.css","public/css/main.css"]);
 

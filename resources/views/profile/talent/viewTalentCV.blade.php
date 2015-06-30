@@ -67,18 +67,19 @@
                                     <div class="col-xs-6 col-lg-4">
                                         <div class="user_data_container">
                                             <label class="label">Mobile Number:</label>
-                                            <span class="user_data">{{$talentProfile->gender}}</span>
+                                            <span class="user_data">{{$talentProfile->mobile_number}}</span>
                                         </div>
 
                                         <div class="user_data_container">
                                             <label class="label">Home Number:</label>
-                                            <span class="user_data">{{$talentProfile->height}}</span>
+                                            <span class="user_data">{{$talentProfile->home_number}}</span>
                                         </div>
 
-                                        @if($talentProfile->address_type != 0)
+                                        @if(array_search($talentProfile->address_type,\talenthub\Repositories\UserProfileRepository::getAddressTypes()) != 0)
                                             <div class="user_data_container">
                                                 <label class="label">{{$talentProfile->address_type }} Address:</label>
-                                                <span class="user_data">{{$talentProfile->weight}}</span>
+                                                <br>
+                                                <span class="user_data">{!! $talentProfile->street_address.", ".$talentProfile->state_province.($talentProfile->zip != "" ? "-".$talentProfile->zip : "").",<br>".$talentProfile->country !!}</span>
                                             </div>
                                         @endif
                                     </div>
@@ -86,18 +87,18 @@
                                     <div class="col-xs-6 col-lg-4">
                                         <div class="user_data_container">
                                             <label class="label">Graduation Year:</label>
-                                            <span class="user_data">{{$talentProfile->gender}}</span>
+                                            <span class="user_data">{{$talentProfile->graduation_year}}</span>
                                         </div>
 
                                         <div class="user_data_container">
                                             <label class="label">Graduating From:</label>
-                                            <span class="user_data">{{$talentProfile->height}}</span>
+                                            <span class="user_data">{{$talentProfile->graduating_from}}</span>
                                         </div>
 
 
                                         <div class="user_data_container">
                                             <label class="label">NCAA Clearning ID:</label>
-                                            <span class="user_data">{{$talentProfile->weight}}</span>
+                                            <span class="user_data">{{$talentProfile->ncaa}}</span>
                                         </div>
                                     </div>
                                 </div>

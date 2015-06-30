@@ -77,7 +77,7 @@ class TalentCareerInformation extends Model {
                 break;
 
             case SportsRepository::TENNIS:
-                return $this->hasMany('talenthub\TalentCareerStatisticsModels\BaseBallStatistics','career_id');
+                return $this->hasMany('talenthub\TalentCareerStatisticsModels\TennisStatistics','career_id');
                 break;
 
             case SportsRepository::TRACK_FIELD:
@@ -276,7 +276,14 @@ class TalentCareerInformation extends Model {
     {
         if($this->setMutateData)
         {
-            $this->attributes["club_school_most_played_position"] = SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE))[$most_played_position];
+            if($most_played_position != null || $most_played_position != "")
+            {
+                $this->attributes["club_school_most_played_position"] = SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE))[$most_played_position];
+            }
+            else
+            {
+                $this->attributes["club_school_most_played_position"] = "";
+            }
         }
     }
 

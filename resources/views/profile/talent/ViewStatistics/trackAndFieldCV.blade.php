@@ -34,16 +34,16 @@ for($i=0;$i<count($sportStatistics);$i++)
                     </tr>
                     <tbody class="form_container">
                     <tr>
-                        <td>{!! $sportStatistics[0]->$dataMap["event_name"] !!}</td>
-                        <td>{!! $sportStatistics[0]->$dataMap["seasons"] !!}</td>
-                        <td>{!! $sportStatistics[0]->$dataMap["best1_min"] !!}</td>
-                        <td>{!! $sportStatistics[0]->$dataMap["best1_sec"] !!}</td>
-                        <td>{!! $sportStatistics[0]->$dataMap["best1_hun"] !!}</td>
-                        <td>{!! $sportStatistics[0]->$dataMap["best1_date"] !!}</td>
-                        <td>{!! $sportStatistics[0]->$dataMap["best2_min"] !!}</td>
-                        <td>{!! $sportStatistics[0]->$dataMap["best2_sec"] !!}</td>
-                        <td>{!! $sportStatistics[0]->$dataMap["best2_hun"] !!}</td>
-                        <td>{!! $sportStatistics[0]->$dataMap["best2_date"] !!}</td>
+                        <td>{!! $sportStatistics[$i]->$dataMap["event_name"] !!}</td>
+                        <td>{!! $sportStatistics[$i]->$dataMap["seasons"] !!}</td>
+                        <td>{!! $sportStatistics[$i]->$dataMap["best1_min"] !!}</td>
+                        <td>{!! $sportStatistics[$i]->$dataMap["best1_sec"] !!}</td>
+                        <td>{!! $sportStatistics[$i]->$dataMap["best1_hun"] !!}</td>
+                        <td>{!! $sportStatistics[$i]->$dataMap["best1_date"] !!}</td>
+                        <td>{!! $sportStatistics[$i]->$dataMap["best2_min"] !!}</td>
+                        <td>{!! $sportStatistics[$i]->$dataMap["best2_sec"] !!}</td>
+                        <td>{!! $sportStatistics[$i]->$dataMap["best2_hun"] !!}</td>
+                        <td>{!! $sportStatistics[$i]->$dataMap["best2_date"] !!}</td>
                     </tr>
                     </tbody>
                 </table>

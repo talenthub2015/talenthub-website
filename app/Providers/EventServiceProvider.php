@@ -17,6 +17,9 @@ class EventServiceProvider extends ServiceProvider {
         'talenthub\Events\NotifyUser'=>[
             'talenthub\Handlers\Events\NotificationSaved'
         ],
+        'talenthub\Events\SendMail'=>[
+            'talenthub\Handlers\Events\SendingMailToUser'
+        ],
 	];
 
 	/**

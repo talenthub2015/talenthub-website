@@ -37,7 +37,7 @@
                 </p>
                 <p class="user_sport"><span><% $userProfile->sport_type %></span> | <span><% $userProfile->dob %></span>
                 <p class="user_position"><span><% $userProfile->preferred_position %></span></p>
-                <p class="user_management_level"><span><% $userProfile->management_level %></span></p>
+                <p class="user_management_level"><span><% ucfirst($userProfile->management_level) %></span></p>
                 <p class="user_country"><span ng-init="country = '<% $userProfile->country %>'">{{country}}</span>
                     @if($profileEditable)
                         <a href class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#updateProfileData"></a>
@@ -302,7 +302,7 @@
                                             <div class="form-group">
                                                 {!! Form::label('about',"About:") !!}
                                                 {!! Form::textarea('about',null,['class'=>'form-control','ng-model'=>'about',
-                                                'ng-init'=>'about = "'.$userProfile->about.'"']) !!}
+                                                'ng-init'=>'about = "'.$userProfile->about.'"','maxlength'=>'200']) !!}
                                             </div>
                                         </div>
                                     </div>

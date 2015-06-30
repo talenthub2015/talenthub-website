@@ -27,8 +27,9 @@ class CreateUsersTableCareerInformationTableCareerReferencesTableCareerSportStat
             $table->string('password');
             $table->string('user_type');    //Data can talent, coach, agent and scouts
             $table->string('management_level'); // Depends upon the user_type, refer constants defined in the site
-            $table->boolean('active');
+            $table->boolean('active');      //Account confirmed by the user
             $table->string('remember_token');
+            $table->string('confirmation_token');   //Token to confirm the account
             /*
              * Personal Information
              */

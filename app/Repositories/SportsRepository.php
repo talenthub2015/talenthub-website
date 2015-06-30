@@ -11,8 +11,8 @@ namespace talenthub\Repositories;
 
 class SportsRepository {
 
-    const BASEBALL = 'Base Ball';
-    const BASKETBALL = 'Basket Ball';
+    const BASEBALL = 'Baseball';
+    const BASKETBALL = 'Basketball';
     const FOOTBALL = 'Football';
     const RUGBY = 'Rugby';
     const SOCCER = 'Soccer';
@@ -29,7 +29,7 @@ class SportsRepository {
         self::RUGBY => array("forward","backline","kicker"),
         self::SOCCER => array("goalkeeper","defender","midfielder","forward"),
         self::SWIMMING => array("Breast Stroke","Butterfly","Back Stroke","Free Style","Diving"),
-        self::TENNIS => array("",""),
+        self::TENNIS => array(),
         self::TRACK_FIELD => array("class1","class2"),
         self::SOFTBALL => array("",""),
         self::WATERPOLO => array("","")

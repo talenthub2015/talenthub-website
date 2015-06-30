@@ -51,15 +51,18 @@ header {
   {
     background:none;
     border:none;
-    min-height: 20px;
+    min-height: 40px;
     margin-bottom: 0px;
   }
   .navbar-brand
   {
     padding:0px 15px;
     width:auto;
-    margin-top: 10px;
+    margin-top: 0px;
     height: auto;
+    line-height: 100%;
+    font-size: 34px;
+
     img
     {
       width:30px;
@@ -69,8 +72,8 @@ header {
 
     .brand
     {
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 34px;
+      font-weight: 800;
       color:#FFFFFF;
       vertical-align: middle;
     }
@@ -78,13 +81,28 @@ header {
 
   ul.navbar-nav
   {
+    margin-top: 5px;
     margin-bottom: 0px;
+    li
+    {
+      position:relative;
+      border-right:1px solid #1a1a1a;
+      &:last-child
+      {
+        border-right: none;
+      }
+    }
     li > a
       {
-        color:$header-links-color !important;
-        font-size: 16px;
-        font-weight: 400;
+      color:$header-links-color !important;
+      font-size: 14px;
+      font-weight: 600;
+      padding:5px 15px !important;
+      &:hover
+      {
+        opacity: 0.8;
       }
+    }
     li > a:hover
       {
         color:$header-links-color-onHover !important;;
@@ -119,7 +137,10 @@ $banner-form-padding:5px;
   h1
   {
     font-weight: 700;
-    @include text-shadow(5px, 5px, 15px, 10px, rgba(0,0,0,0.75));
+    @include text-shadow(0px, 0px, 20px, null, rgba(0,0,0,1));
+    font-size: 36px;
+    text-align: center;
+    line-height: 180%;
   }
 
   .container
@@ -246,6 +267,7 @@ footer
   color:#FFFFFF;
   .nav
   {
+    width: 100%;
     li{
       a{
         font-size: 11px;
@@ -263,6 +285,12 @@ footer
       {
         background:none !important;
         text-decoration: underline;
+      }
+      &.copyright
+      {
+        min-width:200px;
+        text-align: right;
+        margin-top: 5px;
       }
     }
   }

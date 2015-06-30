@@ -39,10 +39,12 @@ class Registrar implements RegistrarContract {
         return User::create([
 			'username'  =>  $data['username'],
 			'password'  =>  $data['password'],
+            'active'    =>  0,
             'user_type' =>  $data['user_type'],
             'management_level' => $data['management_level'],
             'sport_type'=>  $data['sport_type'],
-            'profile_image_path'=> $data['profile_image_path']
+            'profile_image_path'=> $data['profile_image_path'],
+            'confirmation_token'=>bcrypt(time()),
 		]);
 	}
 

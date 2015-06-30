@@ -30,7 +30,7 @@
 @if($user == "talent")
     <div class="form-group">
         {!! Form::label('talent_type',"Talent Type:") !!}
-        {!! Form::select('talent_type',['0'=>'-- Select Option --','1'=>'Student','2'=>'Aspiring Professional'],null,
+        {!! Form::select('talent_type',['0'=>'-- Select Option --','1'=>'Student Athlete','2'=>'Aspiring Professional'],null,
         ['class'=>'form-control','data-validate'=>'require|select','data-invalid-value'=>'0','data-toggle'=>'tooltip','data-placement'=>'bottom',
         'title'=>'Select a valid option']) !!}
     </div>

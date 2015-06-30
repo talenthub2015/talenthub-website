@@ -191,17 +191,17 @@ if(count($sportStatistics)==0)
                                 </tr>
                                 <tbody class="form_container">
                                 <tr>
-                                    <td>{!! Form::text($sportDataMap["forward_GP"],$sportStatistics[0]->$dataMap["forward_GP"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["forward_GS"],$sportStatistics[0]->$dataMap["forward_GS"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["forward_GC"],$sportStatistics[0]->$dataMap["forward_GC"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["forward_LTA"],$sportStatistics[0]->$dataMap["forward_LTA"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["forward_LTS"],$sportStatistics[0]->$dataMap["forward_LTS"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["forward_LJA"],$sportStatistics[0]->$dataMap["forward_LJA"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["forward_LJS"],$sportStatistics[0]->$dataMap["forward_LJS"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["forward_YC"],$sportStatistics[0]->$dataMap["forward_YC"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["forward_RC"],$sportStatistics[0]->$dataMap["forward_RC"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["forward_TR"],$sportStatistics[0]->$dataMap["forward_TR"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["forward_TA"],$sportStatistics[0]->$dataMap["forward_TA"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["forward_GP"],$sportStatistics[$i]->$dataMap["forward_GP"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["forward_GS"],$sportStatistics[$i]->$dataMap["forward_GS"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["forward_GC"],$sportStatistics[$i]->$dataMap["forward_GC"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["forward_LTA"],$sportStatistics[$i]->$dataMap["forward_LTA"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["forward_LTS"],$sportStatistics[$i]->$dataMap["forward_LTS"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["forward_LJA"],$sportStatistics[$i]->$dataMap["forward_LJA"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["forward_LJS"],$sportStatistics[$i]->$dataMap["forward_LJS"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["forward_YC"],$sportStatistics[$i]->$dataMap["forward_YC"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["forward_RC"],$sportStatistics[$i]->$dataMap["forward_RC"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["forward_TR"],$sportStatistics[$i]->$dataMap["forward_TR"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["forward_TA"],$sportStatistics[$i]->$dataMap["forward_TA"],['class'=>'form-control']) !!}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -230,13 +230,13 @@ if(count($sportStatistics)==0)
                                 </tr>
                                 <tbody class="form_container">
                                 <tr>
-                                    <td>{!! Form::text($sportDataMap["back_GP"],$sportStatistics[0]->$dataMap["back_GP"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["back_GS"],$sportStatistics[0]->$dataMap["back_GS"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["back_GC"],$sportStatistics[0]->$dataMap["back_GC"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["back_YC"],$sportStatistics[0]->$dataMap["back_YC"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["back_RC"],$sportStatistics[0]->$dataMap["back_RC"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["back_TR"],$sportStatistics[0]->$dataMap["back_TR"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["back_TA"],$sportStatistics[0]->$dataMap["back_TA"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["back_GP"],$sportStatistics[$i]->$dataMap["back_GP"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["back_GS"],$sportStatistics[$i]->$dataMap["back_GS"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["back_GC"],$sportStatistics[$i]->$dataMap["back_GC"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["back_YC"],$sportStatistics[$i]->$dataMap["back_YC"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["back_RC"],$sportStatistics[$i]->$dataMap["back_RC"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["back_TR"],$sportStatistics[$i]->$dataMap["back_TR"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["back_TA"],$sportStatistics[$i]->$dataMap["back_TA"],['class'=>'form-control']) !!}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -264,14 +264,14 @@ if(count($sportStatistics)==0)
                                 </tr>
                                 <tbody class="form_container">
                                 <tr>
-                                    <td>{!! Form::text($sportDataMap["kick_CA"],$sportStatistics[0]->$dataMap["kick_CA"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["kick_CS"],$sportStatistics[0]->$dataMap["kick_CS"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["kick_SC"],$sportStatistics[0]->$dataMap["kick_SC"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["kick_LC"],$sportStatistics[0]->$dataMap["kick_LC"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["kick_PA"],$sportStatistics[0]->$dataMap["kick_PA"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["kick_PS"],$sportStatistics[0]->$dataMap["kick_PS"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["kick_SP"],$sportStatistics[0]->$dataMap["kick_SP"],['class'=>'form-control']) !!}</td>
-                                    <td>{!! Form::text($sportDataMap["kick_LP"],$sportStatistics[0]->$dataMap["kick_LP"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["kick_CA"],$sportStatistics[$i]->$dataMap["kick_CA"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["kick_CS"],$sportStatistics[$i]->$dataMap["kick_CS"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["kick_SC"],$sportStatistics[$i]->$dataMap["kick_SC"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["kick_LC"],$sportStatistics[$i]->$dataMap["kick_LC"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["kick_PA"],$sportStatistics[$i]->$dataMap["kick_PA"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["kick_PS"],$sportStatistics[$i]->$dataMap["kick_PS"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["kick_SP"],$sportStatistics[$i]->$dataMap["kick_SP"],['class'=>'form-control']) !!}</td>
+                                    <td>{!! Form::text($sportDataMap["kick_LP"],$sportStatistics[$i]->$dataMap["kick_LP"],['class'=>'form-control']) !!}</td>
                                 </tr>
                                 </tbody>
                             </table>

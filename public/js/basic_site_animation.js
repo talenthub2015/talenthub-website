@@ -9,7 +9,8 @@ $(document).ready(function(){
     jQuery('form').on('focus',"input.datepicker", function(){
         jQuery(this).datepicker({
             changeMonth: true,
-            changeYear: true
+            changeYear: true,
+            yearRange: '1950:c'
         });
     });
 

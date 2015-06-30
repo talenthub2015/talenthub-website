@@ -79,14 +79,14 @@ class BasicSiteRepository {
             0 => '-- Select Sport --',
             1 => SportsRepository::BASEBALL,
             2 => SportsRepository::BASKETBALL,
-            3 => SportsRepository::FOOTBALL,
+            //3 => SportsRepository::FOOTBALL,
             4 => SportsRepository::RUGBY,
             5 => SportsRepository::SOCCER,
             6 => SportsRepository::SWIMMING,
             7 => SportsRepository::TENNIS,
             8 => SportsRepository::TRACK_FIELD,
-            9 => SportsRepository::SOFTBALL,
-            10 => SportsRepository::WATERPOLO
+            //9 => SportsRepository::SOFTBALL,
+            //10 => SportsRepository::WATERPOLO
         );
     }
 

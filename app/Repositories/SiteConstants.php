@@ -25,9 +25,9 @@ class SiteConstants {
     const USER_PARENT="parent";
 
     /*Management LEVEL for talent*/
-    const USER_TALENT_MANAGEMENT_LEVEL_STUDENT = "student";
+    const USER_TALENT_MANAGEMENT_LEVEL_STUDENT = "student athlete";
     const USER_TALENT_MANAGEMENT_LEVEL_ASPIRING_PRO = "aspiring professional";
-    const USER_TALENT_MANAGEMENT_LEVEL_STUDENT_ASPIRING_PRO = "student and aspiring professional";
+    const USER_TALENT_MANAGEMENT_LEVEL_STUDENT_ASPIRING_PRO = "student athlete and aspiring professional";
 
     /*Management LEVEL for Manager*/
     const USER_MANAGER_MANAGEMENT_LEVEL_PRO = "professional";

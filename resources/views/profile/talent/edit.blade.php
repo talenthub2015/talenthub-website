@@ -60,21 +60,21 @@
                                     <div class="col-xs-12 col-lg-4">
                                         <div class="form-group">
                                             {!! Form::label('gender','Gender:') !!}
-                                            {!! Form::select('gender',$gender,null,['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'',
+                                            {!! Form::select('gender',$gender,$userProfile->gender,['class'=>'form-control','data-validate'=>'select','data-invalid-value'=>'',
                                             'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select proper option from the list provided.']) !!}
                                         </div>
                                     </div>
 
                                     <div class="col-xs-12 col-lg-2">
                                         <div class="form-group">
-                                            {!! Form::label('height','Height:') !!}
+                                            {!! Form::label('height','Height (meters):') !!}
                                             {!! Form::input('text','height',null,['class'=>'form-control','data-validate'=>'number',
                                             'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter numeric value']) !!}
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-lg-2">
                                         <div class="form-group">
-                                            {!! Form::label('weight','Weight:') !!}
+                                            {!! Form::label('weight','Weight (kg):') !!}
                                             {!! Form::input('text','weight',null,['class'=>'form-control','data-validate'=>'number',
                                             'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter numeric value']) !!}
                                         </div>
@@ -110,7 +110,8 @@
                                     <div class="col-xs-12 col-lg-4">
                                         <div class="form-group">
                                             {!! Form::label('address_type','Address Type:') !!}
-                                            {!! Form::select('address_type',$addressType,null,['class'=>'form-control']) !!}
+                                            {!! Form::select('address_type',$addressType,$userProfile->address_type,['class'=>'form-control']) !!}
+
                                         </div>
                                     </div>
 
@@ -162,7 +163,7 @@
                                         <div class="col-xs-12 col-lg-4">
                                             <div class="form-group">
                                                 {!! Form::label('graduating_from','Graduating From:') !!}
-                                                {!! Form::select('graduating_from',$instituteType,null,['class'=>'form-control',
+                                                {!! Form::select('graduating_from',$instituteType,$userProfile->graduating_from,['class'=>'form-control',
                                                 'data-validate'=>'select','data-invalid-value'=>'','data-toggle'=>'tooltip','data-placement'=>'bottom',
                                                 'title'=>'Select proper option from the list provided.']) !!}
                                             </div>
@@ -226,7 +227,7 @@
 
                                         <div class="col-xs-12 col-lg-4">
                                             <div class="form-group">
-                                                {!! Form::label('father_living_with','Father Living With:') !!}
+                                                {!! Form::label('father_living_with','Living with Father:') !!}
                                                 {!! Form::select('father_living_with',$livingWith,null,['class'=>'form-control']) !!}
                                             </div>
                                         </div>
@@ -261,8 +262,8 @@
                                     <div class="row form_container">
                                         <div class="col-xs-12 col-lg-4">
                                             <div class="form-group">
-                                                {!! Form::label('mother_mobile_number','Mother Mobile Number:') !!}
-                                                {!! Form::text('mother_mobile_number',null,['class'=>'form-control','data-validate'=>'phoneNumber',
+                                                {!! Form::label('mother_mobile','Mother Mobile Number:') !!}
+                                                {!! Form::text('mother_mobile',null,['class'=>'form-control','data-validate'=>'phoneNumber',
                                                 'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter correct mobile number.']) !!}
                                             </div>
                                         </div>
@@ -276,7 +277,7 @@
 
                                         <div class="col-xs-12 col-lg-4">
                                             <div class="form-group">
-                                                {!! Form::label('mother_living_with','Mother Living With:') !!}
+                                                {!! Form::label('mother_living_with','Living with Mother:') !!}
                                                 {!! Form::select('mother_living_with',$livingWith,null,['class'=>'form-control']) !!}
                                             </div>
                                         </div>
@@ -313,8 +314,8 @@
                                     <div class="row form_container">
                                         <div class="col-xs-12 col-lg-4">
                                             <div class="form-group">
-                                                {!! Form::label('guardian_mobile_number','Guardian Mobile Number:') !!}
-                                                {!! Form::text('guardian_mobile_number',null,['class'=>'form-control','data-validate'=>'phoneNumber',
+                                                {!! Form::label('guardian_mobile','Guardian Mobile Number:') !!}
+                                                {!! Form::text('guardian_mobile',null,['class'=>'form-control','data-validate'=>'phoneNumber',
                                                 'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter correct mobile number.']) !!}
                                             </div>
                                         </div>
@@ -328,7 +329,7 @@
 
                                         <div class="col-xs-12 col-lg-4">
                                             <div class="form-group">
-                                                {!! Form::label('guardian_living_with','Guardian Living With:') !!}
+                                                {!! Form::label('guardian_living_with','Living with Guardian:') !!}
                                                 {!! Form::select('guardian_living_with',$livingWith,null,['class'=>'form-control']) !!}
                                             </div>
                                         </div>

@@ -26,8 +26,9 @@ class Kernel extends HttpKernel {
 	protected $routeMiddleware = [
 		'auth' => 'talenthub\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
-		'guest' => 'talenthub\Http\Middleware\RedirectIfAuthenticated',
+        'guest' => 'talenthub\Http\Middleware\RedirectIfAuthenticated',
         'admin' => 'talenthub\Http\Middleware\Admin',
+        'account_confirmation'  =>  'talenthub\Http\Middleware\AccountConfirmation'
 	];
 
 }

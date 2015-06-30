@@ -3,6 +3,7 @@
 use Carbon\Carbon;
 use Dotenv;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use talenthub\Http\Requests;
 use talenthub\Http\Controllers\Controller;
@@ -87,7 +88,7 @@ class VideoController extends Controller {
         $userProfileSetting = UserSettings::where('user_id','=',$profile_id)
             ->where('setting_type','=',$privacy_type)->first();
 
-        if($userProfileSetting != null && $userProfileSetting->setting_value == UserSettings::PRIVACY_SET)
+        if(Auth::guest() && $userProfileSetting != null && $userProfileSetting->setting_value == UserSettings::PRIVACY_SET)
         {
             return true;
         }

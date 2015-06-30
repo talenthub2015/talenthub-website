@@ -3,8 +3,10 @@
 use Carbon\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use talenthub\Events\SendMail;
 use talenthub\Http\Requests;
 use talenthub\Http\Controllers\Controller;
 
@@ -15,6 +17,7 @@ use talenthub\Repositories\SiteConstants;
 use talenthub\Repositories\SiteSessions;
 use talenthub\Repositories\SportsRepository;
 use talenthub\Repositories\UserProfileRepository;
+use talenthub\User;
 use talenthub\UserProfile;
 
 class DatabaseController extends Controller {
@@ -177,6 +180,9 @@ class DatabaseController extends Controller {
 
         try
         {
+            $user = User::find(Session::get(SiteSessions::USER_ID));
+            $manager = ManagersDatabase::find($request->manager_id);
+            Event::fire(new SendMail(SendMail::MAIL_TYPE_CONTACT_MANAGER,$manager->email,[],["manager"=>$manager,"talent"=>$user]));
             DB::table('managers_contacted')->insert(['user_id'=>$request->talent_id,'manager_id'=>$request->manager_id,'contacted_on'=>Carbon::now()]);
         }
         catch(QueryException $e)

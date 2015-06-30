@@ -10,12 +10,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use talenthub\Awards;
 use talenthub\Events\NotifyUser;
+use talenthub\Events\SendMail;
 use talenthub\Http\Requests;
 use talenthub\Http\Controllers\Controller;
 
@@ -38,6 +40,7 @@ use talenthub\TalentCareerStatisticsModels\BasketBallStatistics;
 use talenthub\TalentCareerStatisticsModels\RugbyStatistics;
 use talenthub\TalentCareerStatisticsModels\SoccerStatistics;
 use talenthub\TalentCareerStatisticsModels\SwimmingStatistics;
+use talenthub\TalentCareerStatisticsModels\TennisStatistics;
 use talenthub\TalentCareerStatisticsModels\TrackAndFieldStatistics;
 use talenthub\User;
 use talenthub\UserProfile;
@@ -227,6 +230,7 @@ class ProfileController extends Controller {
 	public function edit()
 	{
         $user=UserProfile::find(Session::get(SiteSessions::USER_ID));
+
         $gender=UserProfileRepository::getUserGender();
         $addressType=UserProfileRepository::getAddressTypes();
         $instituteType=UserProfileRepository::getInstituteType();
@@ -237,6 +241,7 @@ class ProfileController extends Controller {
         if(SiteConstants::isTalent(Session::get(SiteSessions::USER_TYPE)))
         {
             $userProfile=UserProfile::find($user->user_id);
+
             return view('profile.talent.edit',compact('userProfile','gender','addressType','instituteType','country','livingWith','gradeAverage'));
         }
         else if(SiteConstants::isCoach(Session::get(SiteSessions::USER_TYPE)))
@@ -293,11 +298,20 @@ class ProfileController extends Controller {
         if(SiteConstants::isTalent(Session::get(SiteSessions::USER_TYPE)))
         {
             $user=UserProfile::find($id);
+
             foreach($request->all() as $key=>$value)
             {
                 if(isset($user->$key))
                     $user->$key=$value;
             }
+            //Modifying Data fields of User, the data that doesn't need to be stored in the database
+            $user->gender = $request->gender > 0 ? $request->gender : null;
+            $user->address_type = $request->address_type > 0 ? $request->address_type : null;
+            $user->graduating_from = $request->graduating_from > 0 ? $request->graduating_from : null;
+            $user->father_living_with = $request->father_living_with > 0 ? $request->father_living_with : null;
+            $user->mother_living_with = $request->mother_living_with > 0 ? $request->mother_living_with : null;
+            $user->guardian_living_with = $request->guardian_living_with > 0 ? $request->guardian_living_with : null;
+            $user->grade_avg = $request->grade_avg > 0 ? $request->grade_avg : null;
 
             $user->save();
         }
@@ -352,22 +366,12 @@ class ProfileController extends Controller {
 
         if(Session::has(SiteSessions::USER_COMPLETING_PROFILE_FIRST_TIME))
         {
-            return redirect('');
+            Session::pull(SiteSessions::USER_COMPLETING_PROFILE_FIRST_TIME);
+            return redirect('profile/completed');
         }
 
         return redirect('profile/editCV');
     }
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
 
 
     /**
@@ -510,6 +514,7 @@ class ProfileController extends Controller {
             default:
                 return false;
         }
+
 //        var_dump($careerTypeSportDataMap);
 //        dd($formRequest);
         /*
@@ -531,7 +536,7 @@ class ProfileController extends Controller {
             foreach($careerInformationFillAbles as $value)
             {
                 $requestField=$fieldPrefix.$value;
-                $talentCareerInformation->$value = $formRequest[$requestField][$i];
+                $talentCareerInformation->$value = isset($formRequest[$requestField][$i]) ? $formRequest[$requestField][$i] : null ;
             }
 
             if($i>=$existingCareerCount)
@@ -626,6 +631,9 @@ class ProfileController extends Controller {
             }
         }
         //dd($formRequest);
+
+//        var_dump($careerTypeSportDataMap);
+//        dd($request->all());
     }
 
 
@@ -659,7 +667,7 @@ class ProfileController extends Controller {
                 return SwimmingStatistics::$dataMap;
                 break;
             case SportsRepository::TENNIS:
-                return BaseBallStatistics::$dataMap;
+                return TennisStatistics::$dataMap;
                 break;
             case SportsRepository::TRACK_FIELD:
                 return TrackAndFieldStatistics::$dataMap;
@@ -732,11 +740,14 @@ class ProfileController extends Controller {
     public function validateCVData($request)
     {
         $rules=[];
-        foreach($request->get("positions") as $key=>$value)
+        if($request->has("positions"))
         {
-            $rules['positions.'.$key]="in:".implode(",",array_keys(SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE))));
+            foreach($request->get("positions") as $key=>$value)
+            {
+                $rules['positions.'.$key]="in:".implode(",",array_keys(SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE))));
+            }
+            $rules['preferred_position']='in:'.implode(",",array_keys(SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE))));
         }
-        $rules['preferred_position']='in:'.implode(",",array_keys(SportsRepository::getSportPositions(Session::get(SiteSessions::USER_SPORT_TYPE))));
 
         $validator = Validator::make($request->all(),$rules);
 
@@ -976,6 +987,11 @@ class ProfileController extends Controller {
      */
     public function viewCV($user_id)
     {
+        if($this->checkIfGuestDoNotHavePermission($user_id,UserSettings::PRIVACY_TYPE_PROFILE))
+        {
+            return redirect('/');
+        }
+
         $userProfile = null;
         try
         {
@@ -1137,11 +1153,34 @@ class ProfileController extends Controller {
         $userProfileSetting = UserSettings::where('user_id','=',$profile_id)
             ->where('setting_type','=',$privacy_type)->first();
 
-        if($userProfileSetting != null && $userProfileSetting->setting_value == UserSettings::PRIVACY_SET)
+        if(Auth::guest() && $userProfileSetting != null && $userProfileSetting->setting_value == UserSettings::PRIVACY_SET)
         {
             return true;
         }
         return false;
     }
+
+
+    /**
+     *User account is not confirmed. Displaying message to user
+     */
+    public function accountNotConfirmed()
+    {
+        return view('account_not_confirmed');
+    }
+
+    /**
+     *Resending confirmation link to the User
+     */
+    public function resendConfirmationLink()
+    {
+        $user = User::find(Session::get(SiteSessions::USER_ID));
+        $user->confirmation_token = bcrypt(time());
+        $user->save();
+        Event::fire(new SendMail(SendMail::MAIL_TYPE_USER_CONFIRMATION,$user->username,[],$user));
+        Session::flash("resent_confirmation_link",'successful');
+        return redirect('account-not-confirmed');
+    }
+
 
 }

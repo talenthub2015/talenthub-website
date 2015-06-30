@@ -1,3 +1,21 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Open Sans';
+  font-weight: 400; }
+
+p {
+  font-size: 12px;
+  font-weight: 400; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  font-size: 16px;
+  font-family: 'Open Sans'; }
+
+label {
+  font-weight: 600; }
+
 .t-button {
   display: inline-block;
   padding: 10px 15px;
@@ -76,31 +94,39 @@ header {
   header .navbar {
     background: none;
     border: none;
-    min-height: 20px;
+    min-height: 40px;
     margin-bottom: 0px; }
   header .navbar-brand {
     padding: 0px 15px;
     width: auto;
     margin-top: 0px;
-    height: auto; }
+    height: auto;
+    line-height: 100%;
+    font-size: 34px; }
     header .navbar-brand img {
       width: 30px;
       height: auto;
       display: inline; }
     header .navbar-brand .brand {
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 34px;
+      font-weight: 800;
       color: #FFFFFF;
       vertical-align: middle; }
   header ul.navbar-nav {
+    margin-top: 5px;
     margin-bottom: 0px; }
     header ul.navbar-nav li {
-      position: relative; }
+      position: relative;
+      border-right: 1px solid #1a1a1a; }
+      header ul.navbar-nav li:last-child {
+        border-right: none; }
     header ul.navbar-nav li > a {
       color: #FFFFFF !important;
-      font-size: 12px;
-      font-weight: 400;
+      font-size: 14px;
+      font-weight: 600;
       padding: 5px 15px !important; }
+      header ul.navbar-nav li > a:hover {
+        opacity: 0.8; }
     header ul.navbar-nav li > a:hover, header ul.navbar-nav li > a:visited, header ul.navbar-nav li > a:focus {
       color: #FFFFFF !important;
       background: none; }
@@ -231,21 +257,27 @@ footer {
   padding: 10px;
   font-size: 11px;
   color: #FFFFFF; }
-  footer .nav li a {
-    font-size: 11px;
-    color: #FFFFFF !important;
-    padding: 5px 15px !important;
-    display: inline-block; }
-    footer .nav li a img {
-      display: inline-block;
-      margin: 0px 5px;
-      vertical-align: middle; }
-  footer .nav li a:hover, footer .nav li a:focus {
-    background: none !important;
-    text-decoration: underline; }
+  footer .nav {
+    width: 100%; }
+    footer .nav li a {
+      font-size: 11px;
+      color: #FFFFFF !important;
+      padding: 5px 15px !important;
+      display: inline-block; }
+      footer .nav li a img {
+        display: inline-block;
+        margin: 0px 5px;
+        vertical-align: middle; }
+    footer .nav li a:hover, footer .nav li a:focus {
+      background: none !important;
+      text-decoration: underline; }
+    footer .nav li.copyright {
+      min-width: 200px;
+      text-align: right;
+      margin-top: 5px; }
 
 .body_container {
-  margin-top: 40px;
+  margin-top: 50px;
   min-height: 550px;
   padding-bottom: 50px; }
 
@@ -286,7 +318,8 @@ footer {
     border: 1px solid #FF6347; }
 
 .edit-profile {
-  margin-top: 50px; }
+  margin-top: 50px;
+  padding-top: 10px; }
   .edit-profile .left_menu_container {
     background: rgba(0, 0, 0, 0.15); }
     .edit-profile .left_menu_container .nav a {
@@ -748,6 +781,20 @@ footer {
       color: #FFFFFF;
       font-size: 16px;
       line-height: 200%; }
+      .static_pages_container .container ul > li, .static_pages_container .container ol > li {
+        font-weight: 600;
+        margin-bottom: 15px; }
+        .static_pages_container .container ul > li > ul > li, .static_pages_container .container ol > li > ul > li {
+          font-weight: 700;
+          font-size: 14px;
+          margin-bottom: 5px;
+          line-height: 150%; }
+          .static_pages_container .container ul > li > ul > li p, .static_pages_container .container ol > li > ul > li p {
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 5px; }
+      .static_pages_container .container ul p, .static_pages_container .container ol p {
+        padding-left: 25px; }
 
 .settings_container {
   background: url('../../site_images/talenthub.jpg') fixed;
@@ -807,6 +854,10 @@ footer {
         .settings_container .container .short_form_container ul.alert.alert-danger li.alert {
           padding: 5px;
           margin-bottom: 5px; }
+
+.miscellaneous_content {
+  position: relative;
+  top: 15px; }
 
 
 /*# sourceMappingURL=main.css.map */

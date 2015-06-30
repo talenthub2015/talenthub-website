@@ -10,7 +10,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{url('home')}}"><img src="{{asset("site_images/talenthub_logo.png")}}"/> <span class="brand">Talenthub</span></a>
+                    <a class="navbar-brand" href="{{url('home')}}"><span class="brand">Talenthub</span></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->

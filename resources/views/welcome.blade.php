@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Talenthub</title>
+        <link rel="stylesheet" href="{{url('fonts/fonts.css')}}">
         <link rel="stylesheet" href="{{asset(elixir("css/welcomepage.css"))}}">
         <!--link rel="stylesheet" href="css/welcomepage.css"-->
 
@@ -22,11 +23,10 @@
 
         <section class="banner">
             <div class="container">
-
-                <h1>The mission of talenthub is to connect talent all over the world with managers of talent.</h1>
+                <h1 class="sign_in_container">The mission of Talenthub is to connect sport talent all over the world with the relevant managers of sport talent who can help progress the sport talents careers.</h1>
+                <br>
                 <div class="row form_container">
                     <div class="col-xs-12 col-lg-12">
-                        <h4>Sign In</h4>
                         <div class="sign_in_container">
                             @if($errors->any())
                                 <div class="alert alert-danger">
