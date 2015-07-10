@@ -39,7 +39,7 @@
 @if($user == "manager")
 <div class="form-group">
     {!! Form::label('managerType',"Manager Type:") !!}
-    {!! Form::select('managerType',['0'=>'-- Select Option --','1'=>'Coach','2'=>'Agent','3'=>'Scout'],null,['class'=>'form-control',
+    {!! Form::select('managerType',array_map("ucfirst",$managerTypes),null,['class'=>'form-control',
     'data-validate'=>'require|select','data-invalid-value'=>'0','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Select a valid option']) !!}
 </div>
 <div class="form-group">

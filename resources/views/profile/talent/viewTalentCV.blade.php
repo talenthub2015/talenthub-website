@@ -28,7 +28,9 @@
                         <!-- Nav tabs -->
                         <ul class="nav left_menu_container" role="tablist" id="curriculum">
                             <li role="presentation" class="active"><a href="#personal" aria-controls="personal" role="tab" data-toggle="tab">Personal Information</a></li>
-                            <li role="presentation"><a href="#academic" aria-controls="academic" role="tab" data-toggle="tab">Academic Information</a></li>
+                            @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) != \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_ASPIRING_PRO)
+                                <li role="presentation"><a href="#academic" aria-controls="academic" role="tab" data-toggle="tab">Academic Information</a></li>
+                            @endif
                             <li role="presentation"><a href="#club" aria-controls="club" role="tab" data-toggle="tab">Club Information</a></li>
                             <li role="presentation"><a href="#school" aria-controls="school" role="tab" data-toggle="tab">School Information</a></li>
                             <li role="presentation"><a href="#awards" aria-controls="awards" role="tab" data-toggle="tab">Awards</a></li>
@@ -376,7 +378,7 @@
                                         <div class="col-xs-6 col-lg-4">
                                             <div class="user_data_container">
                                                 <label class="label">Potential Major (1st Choice:)</label>
-                                                <span class="user_data">{{$talentProfile->school_contact_person_email}}</span>
+                                                <span class="user_data">{{$talentProfile->potential_major_category_1}}</span>
                                             </div>
                                         </div>
 
@@ -384,7 +386,7 @@
                                         <div class="col-xs-6 col-lg-4">
                                             <div class="user_data_container">
                                                 <label class="label">Potential Major (2nd Choice:)</label>
-                                                <span class="user_data">{{$talentProfile->school_contact_person_email}}</span>
+                                                <span class="user_data">{{$talentProfile->potential_major_category_2}}</span>
                                             </div>
                                         </div>
                                         @endif
@@ -393,7 +395,7 @@
                                         <div class="col-xs-6 col-lg-4">
                                             <div class="user_data_container">
                                                 <label class="label">Potential Major (3rd Choice:)</label>
-                                                <span class="user_data">{{$talentProfile->school_contact_person_email}}</span>
+                                                <span class="user_data">{{$talentProfile->potential_major_category_3}}</span>
                                             </div>
                                         </div>
                                         @endif
@@ -403,7 +405,8 @@
 
                             <!-- Showing club Information -->
                             <?php
-                                $clubCareerInformation = $talentProfile->careerInformation()->where('career_type','=',\talenthub\Repositories\SiteConstants::CAREER_TYPE_CLUB)->get();
+                                $clubCareerInformation = $talentProfile->careerInformation(\talenthub\Repositories\SiteConstants::CAREER_TYPE_CLUB)->get();
+                                $clubCount = 0;
                             ?>
                             <div role="tabpanel" class="tab-pane fade" id="club">
                                 <h3 class="tab_heading">Club Information
@@ -412,74 +415,82 @@
                                     @endif
                                 </h3>
                                 @foreach($clubCareerInformation as $key=>$club)
-                                    <?php
-                                        $sportStatistics = $club->careerSportStatistics($talentProfile->sport_type)->get();
-                                        $clubReferences = $club->careerReferences;
-                                        $club->getMutatedData = false;
-                                    ?>
+                                    @if($club->club_school_name != "")
+                                            <?php
+                                                $clubCount++;
+                                                $sportStatistics = $club->careerSportStatistics($talentProfile->sport_type)->get();
+                                                $clubReferences = $club->careerReferences;
+                                                $club->getMutatedData = false;
+                                            ?>
 
-                                    <div class="user_data_container">
-                                        <p class="cv_heading">{{$club->club_school_name.", ".$club->club_school_country}}</p>
-                                        <p>{{ucfirst($club->club_school_most_played_position) .", Seasons:".$club->club_season_played}}</p>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-xs-6 col-lg-4">
                                             <div class="user_data_container">
-                                                <label class="label">League Name:</label>
-                                                <span class="user_data">{{$club->club_league_name}}</span>
+                                                <p class="cv_heading">{{$club->club_school_name.", ".$club->club_school_country}}</p>
+                                                <p>{{ucfirst($club->club_school_most_played_position) .", Seasons:".$club->club_season_played}}</p>
                                             </div>
-                                        </div>
 
-                                        <div class="col-xs-6 col-lg-4">
+                                            <div class="row">
+                                                <div class="col-xs-6 col-lg-4">
+                                                    <div class="user_data_container">
+                                                        <label class="label">League Name:</label>
+                                                        <span class="user_data">{{$club->club_league_name}}</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-6 col-lg-4">
+                                                    <div class="user_data_container">
+                                                        <label class="label">League Level:</label>
+                                                        <span class="user_data">{{$club->club_league_level}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="user_data_container">
-                                                <label class="label">League Level:</label>
-                                                <span class="user_data">{{$club->club_league_level}}</span>
+                                                <label class="label">Club Average League Status:</label>
+                                                <span class="user_data">{{$club->club_average_league_status}}</span>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="user_data_container">
-                                        <label class="label">Club Average League Status:</label>
-                                        <span class="user_data">{{$club->club_average_league_status}}</span>
-                                    </div>
 
-                                    <div class="user_data_container">
-                                        <p><strong>Coach</strong> - {{$club->club_school_coach_name." - ".$club->club_school_coach_email." - ".$club->club_school_coach_mobile_number}}</p>
-                                    </div>
+                                            <div class="user_data_container">
+                                                <p><strong>Coach</strong> - {{$club->club_school_coach_name." - ".$club->club_school_coach_email." - ".$club->club_school_coach_mobile_number}}</p>
+                                            </div>
 
-                                    <div class="sport_statistics">
-                                        <?php
-                                            $sport_type=$talentProfile->sport_type;
-                                        ?>
-                                        <br>
-                                        <h4 class="cv_heading">Sport Statistics</h4>
-                                        @include('profile.talent.ViewStatistics.getSportCVView',compact('sportStatistics','sport_type'))
-                                    </div>
+                                            <div class="sport_statistics">
+                                                <?php
+                                                    $sport_type=$talentProfile->sport_type;
+                                                ?>
+                                                <br>
+                                                <h4 class="cv_heading">Sport Statistics</h4>
+                                                @include('profile.talent.ViewStatistics.getSportCVView',compact('sportStatistics','sport_type'))
+                                            </div>
 
-                                    <h4 class="cv_heading">Club References</h4>
-                                    <ul>
-                                    @foreach($clubReferences as $key => $reference)
-                                        <div class="user_data_container">
-                                            <li><p>
-                                                <strong>{{$reference->name.", ".$reference->occupation}}</strong><br>
-                                                {{$reference->email." - ".$reference->contact_number}}<br>
-                                                <Strong>Relationship</strong> : {{$reference->relationship}}
-                                            </p>
-                                            </li>
-                                        </div>
-                                    @endforeach
-                                    </ul>
+                                            <h4 class="cv_heading">Club References</h4>
+                                            <ul>
+                                            @foreach($clubReferences as $key => $reference)
+                                                <div class="user_data_container">
+                                                    <li><p>
+                                                        <strong>{{$reference->name.", ".$reference->occupation}}</strong><br>
+                                                        {{$reference->email." - ".$reference->contact_number}}<br>
+                                                        <Strong>Relationship</strong> : {{$reference->relationship}}
+                                                    </p>
+                                                    </li>
+                                                </div>
+                                            @endforeach
+                                            </ul>
 
-                                    <br>
-                                    <hr>
-                                    <br>
+                                            <br>
+                                            <hr>
+                                            <br>
+                                    @endif
 
                                 @endforeach
+
+                                @if($clubCount==0)
+                                    <h3 class="alert alert-info">No Club Information</h3>
+                                @endif
                             </div>
 
                             <!-- Showing school Information -->
                             <?php
-                            $schoolCareerInformation = $talentProfile->careerInformation()->where('career_type','=',\talenthub\Repositories\SiteConstants::CAREER_TYPE_SCHOOL)->get();
+                            $schoolCareerInformation = $talentProfile->careerInformation(\talenthub\Repositories\SiteConstants::CAREER_TYPE_SCHOOL)->get();
+                            $schoolCount = 0;
                             ?>
                             <div role="tabpanel" class="tab-pane fade" id="school">
                                 <h3 class="tab_heading">School Information
@@ -489,65 +500,72 @@
                                 </h3>
 
                                 @foreach($schoolCareerInformation as $key=>$school)
-                                    <?php
-                                    $sportStatistics = $school->careerSportStatistics($talentProfile->sport_type)->get();
-                                    $schoolReferences = $school->careerReferences;
-                                    $school->getMutatedData = false;
-                                    ?>
+                                    @if($school->club_school_name != "")
+                                            <?php
+                                                $schoolCount++;
+                                                $sportStatistics = $school->careerSportStatistics($talentProfile->sport_type)->get();
+                                                $schoolReferences = $school->careerReferences;
+                                                $school->getMutatedData = false;
+                                            ?>
 
-                                    <div class="user_data_container">
-                                        <p class="cv_heading">{{$school->club_school_name.", ".$school->club_school_country}}<br>{{$school->school_type}}</p>
-                                        <p>{{ucfirst($school->club_school_most_played_position)}}</p>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-xs-6 col-lg-6">
                                             <div class="user_data_container">
-                                                <label class="label">Team Reputation:</label>
-                                                <span class="user_data">{{$school->school_team_reputation}}</span>
+                                                <p class="cv_heading">{{$school->club_school_name.", ".$school->club_school_country}}<br>{{$school->school_type}}</p>
+                                                <p>{{ucfirst($school->club_school_most_played_position)}}</p>
                                             </div>
-                                        </div>
 
-                                        <div class="col-xs-6 col-lg-6">
+                                            <div class="row">
+                                                <div class="col-xs-6 col-lg-6">
+                                                    <div class="user_data_container">
+                                                        <label class="label">Team Reputation:</label>
+                                                        <span class="user_data">{{$school->school_team_reputation}}</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-6 col-lg-6">
+                                                    <div class="user_data_container">
+                                                        <label class="label">Team Side Level:</label>
+                                                        <span class="user_data">{{$school->school_team_side_level}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="user_data_container">
-                                                <label class="label">Team Side Level:</label>
-                                                <span class="user_data">{{$school->school_team_side_level}}</span>
+                                                <p><strong>Coach</strong> - {{$school->club_school_coach_name." - ".$school->club_school_coach_email." - ".$school->club_school_coach_mobile_number}}</p>
                                             </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="user_data_container">
-                                        <p><strong>Coach</strong> - {{$school->club_school_coach_name." - ".$school->club_school_coach_email." - ".$school->club_school_coach_mobile_number}}</p>
-                                    </div>
-
-                                    <div class="sport_statistics">
-                                        <?php
-                                        $sport_type=$talentProfile->sport_type;
-                                        ?>
-                                        <br>
-                                        <h4 class="cv_heading">Sport Statistics</h4>
-                                        @include('profile.talent.ViewStatistics.getSportCVView',compact('sportStatistics','sport_type'))
-                                    </div>
-
-                                    <h4 class="cv_heading">School References</h4>
-                                    <ul>
-                                        @foreach($schoolReferences as $key => $reference)
-                                            <div class="user_data_container">
-                                                <li><p>
-                                                        <strong>{{$reference->name.", ".$reference->occupation}}</strong><br>
-                                                        {{$reference->email." - ".$reference->contact_number}}<br>
-                                                        <Strong>Relationship</strong> : {{$reference->relationship}}
-                                                    </p>
-                                                </li>
+                                            <div class="sport_statistics">
+                                                <?php
+                                                $sport_type=$talentProfile->sport_type;
+                                                ?>
+                                                <br>
+                                                <h4 class="cv_heading">Sport Statistics</h4>
+                                                @include('profile.talent.ViewStatistics.getSportCVView',compact('sportStatistics','sport_type'))
                                             </div>
-                                        @endforeach
-                                    </ul>
 
-                                    <br>
-                                    <hr>
-                                    <br>
+                                            <h4 class="cv_heading">School References</h4>
+                                            <ul>
+                                                @foreach($schoolReferences as $key => $reference)
+                                                    <div class="user_data_container">
+                                                        <li><p>
+                                                                <strong>{{$reference->name.", ".$reference->occupation}}</strong><br>
+                                                                {{$reference->email." - ".$reference->contact_number}}<br>
+                                                                <Strong>Relationship</strong> : {{$reference->relationship}}
+                                                            </p>
+                                                        </li>
+                                                    </div>
+                                                @endforeach
+                                            </ul>
+
+                                            <br>
+                                            <hr>
+                                            <br>
+                                    @endif
 
                                 @endforeach
+
+                                @if($schoolCount==0)
+                                    <h3 class="alert alert-info">No School Information</h3>
+                                @endif
                             </div>
 
                             <!-- Showing awards Information -->
@@ -568,51 +586,53 @@
 
                             <!-- Showing recommendations Information -->
                             <?php
-                                $recommendations = $talentProfile->recommendations;
+                                $recommendations = $talentProfile->recommendations(\talenthub\Repositories\SiteConstants::RECOMMENDATION_STATUS_COMPLETE)->get();
                             ?>
                                 <div role="tabpanel" class="tab-pane fade" id="recommendations">
                                     <h3 class="tab_heading">Recommedations Information</h3>
                                     @if(count($recommendations)>0)
                                         <ul>
                                         @foreach($recommendations as $key=>$recommendation)
-                                            <li>
-                                                <p><strong>{{$recommendation->name.", ".$recommendation->position." - ".$recommendation->organisation}}</strong></p>
-                                                <p>{{$recommendation->email}}</p>
+                                            @if($recommendation->status == \talenthub\Repositories\SiteConstants::RECOMMENDATION_STATUS_COMPLETE)
+                                                <li>
+                                                    <p><strong>{{$recommendation->name.", ".$recommendation->position." - ".$recommendation->organisation}}</strong></p>
+                                                    <p>{{$recommendation->email}}</p>
 
-                                                <div class="user_data_container">
-                                                    <strong>Athletic Ability</strong>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->athletic_ability}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->athletic_ability*10}}%">
+                                                    <div class="user_data_container">
+                                                        <strong>Athletic Ability</strong>
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->athletic_ability}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->athletic_ability*10}}%">
+                                                            </div>
+                                                        </div>
+
+                                                        <strong>Leadership Ability</strong>
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->leadership}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->leadership*10}}%">
+                                                            </div>
+                                                        </div>
+
+                                                        <strong>Team player</strong>
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->team_player}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->team_player*10}}%">
+                                                            </div>
+                                                        </div>
+
+                                                        <strong>Easy to work</strong>
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->easy_to_work}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->easy_to_work*10}}%">
+                                                            </div>
                                                         </div>
                                                     </div>
-
-                                                    <strong>Leadership Ability</strong>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->leadership}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->leadership*10}}%">
-                                                        </div>
+                                                    <div class="user_data_container">
+                                                        <strong>Comment on Athletic Ability</strong>
+                                                        <p>{{$recommendation->comment_athletic_ability}}</p>
                                                     </div>
-
-                                                    <strong>Team player</strong>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->team_player}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->team_player*10}}%">
-                                                        </div>
+                                                    <div class="user_data_container">
+                                                        <strong>Comment on Player Ability</strong>
+                                                        <p>{{$recommendation->comment_player_personality}}</p>
                                                     </div>
-
-                                                    <strong>Easy to work</strong>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$recommendation->easy_to_work}}" aria-valuemin="0" aria-valuemax="10" style="width: {{$recommendation->easy_to_work*10}}%">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="user_data_container">
-                                                    <strong>Comment on Athletic Ability</strong>
-                                                    <p>{{$recommendation->comment_athletic_ability}}</p>
-                                                </div>
-                                                <div class="user_data_container">
-                                                    <strong>Comment on Player Ability</strong>
-                                                    <p>{{$recommendation->comment_player_personality}}</p>
-                                                </div>
-                                            </li>
+                                                </li>
+                                            @endif
                                         @endforeach
                                         </ul>
                                         @else

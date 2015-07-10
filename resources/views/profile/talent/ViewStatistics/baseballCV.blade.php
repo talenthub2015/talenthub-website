@@ -24,18 +24,18 @@
                 <table class="table">
                     <caption>Batting</caption>
                     <tr>
-                        <th title="">GP</th>
-                        <th title="">AB</th>
-                        <th title="">R</th>
-                        <th title="">H</th>
-                        <th title="">2B</th>
-                        <th title="">3B</th>
-                        <th title="">HR</th>
-                        <th title="">RBI</th>
-                        <th title="">SB</th>
-                        <th title="">CS</th>
-                        <th title="">BB</th>
-                        <th title="">SO</th>
+                        <th title="Games Played">GP</th>
+                        <th title="At Bat">AB</th>
+                        <th title="Runs Scored">R</th>
+                        <th title="Hits">H</th>
+                        <th title="Double">2B</th>
+                        <th title="Triple">3B</th>
+                        <th title="Home Runs">HR</th>
+                        <th title="Runs Batted In">RBI</th>
+                        <th title="Stolen Base">SB</th>
+                        <th title="Caught Stealing">CS</th>
+                        <th title="Base on Balls">BB</th>
+                        <th title="Strike Out">SO</th>
 
                     </tr>
                     <tbody class="form_container">
@@ -58,16 +58,16 @@
                 <table class="table">
                     <caption>Fielding</caption>
                     <tr>
-                        <th title="">POS</th>
-                        <th title="">G</th>
-                        <th title="">GS</th>
-                        <th title="">CG</th>
-                        <th title="">Inn</th>
-                        <th title="">CH</th>
-                        <th title="">PO</th>
-                        <th title="">A</th>
-                        <th title="">E</th>
-                        <th title="">DP</th>
+                        <th title="Position">POS</th>
+                        <th title="Games">G</th>
+                        <th title="Games Started">GS</th>
+                        <th title="Complete Games">CG</th>
+                        <th title="Innings">Inn</th>
+                        <th title="Chances">CH</th>
+                        <th title="Put Out">PO</th>
+                        <th title="Assists">A</th>
+                        <th title="Errors">E</th>
+                        <th title="Double Plays">DP</th>
 
                     </tr>
                     <tbody>

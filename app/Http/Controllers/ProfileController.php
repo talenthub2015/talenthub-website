@@ -32,6 +32,7 @@ use talenthub\Repositories\SiteConstants;
 use talenthub\Repositories\SiteSessions;
 use talenthub\Repositories\SportsRepository;
 use talenthub\Repositories\StorageLocationsRepository;
+use talenthub\Repositories\UserMetaRepository;
 use talenthub\Repositories\UserProfileRepository;
 use talenthub\TalentCareerInformation;
 use talenthub\TalentCareerReferences;
@@ -43,6 +44,7 @@ use talenthub\TalentCareerStatisticsModels\SwimmingStatistics;
 use talenthub\TalentCareerStatisticsModels\TennisStatistics;
 use talenthub\TalentCareerStatisticsModels\TrackAndFieldStatistics;
 use talenthub\User;
+use talenthub\UserMeta;
 use talenthub\UserProfile;
 use talenthub\UserSettings;
 
@@ -111,6 +113,8 @@ class ProfileController extends Controller {
 
         $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
 
+        $image_type_stored = "";
+
         //Saving Profile Image
         if($imageFieldName == "profile_image")
         {
@@ -132,23 +136,30 @@ class ProfileController extends Controller {
             $userProfile->profile_image_path = url(StorageLocationsRepository::USER_PROFILE_IMAGE_PATH.$fileName);
             $userProfile->profile_icon_image_path = url(StorageLocationsRepository::USER_PROFILE_IMAGE_ICON_PATH.$fileName);
             $userProfile->profile_small_image_path = url(StorageLocationsRepository::USER_PROFILE_IMAGE_SMALL_PATH.$fileName);
+
+            $image_type_stored = "profile_image";
         }
         else if($imageFieldName == "cover_image")
         {
-            $image = Image::canvas(1200, 350);
-            $image_updated  = Image::make($imageFile)->widen(1200)->crop(1200,350);
-            $image->insert($image_updated, 'center');
+//            $image = Image::canvas(1200, 350);
+//            $image_updated  = Image::make($imageFile)->widen(1200)->crop(1200,350);
+//            $image->insert($image_updated, 'center');
 
+            $image  = Image::make($imageFile)->widen(1200);
             $this->createImageSourceDirectories(StorageLocationsRepository::USER_DIRECTORY_TYPE_COVER_IMAGES);
 
             $image->save(public_path().StorageLocationsRepository::USER_COVER_IMAGE_PATH.$fileName);
 
             $userProfile->profile_cover_image_path = url(StorageLocationsRepository::USER_COVER_IMAGE_PATH.$fileName);
+
+            $image_type_stored = "cover_image";
         }
 
         $userProfile->save();
 
-        return redirect()->back()->with(["imageUploaded"=>"successfully"]);
+//        return redirect()->back()->with(["imageUploaded"=>"successfully"]);
+
+        return redirect('profile/'.Session::get(SiteSessions::USER_ID).'/uploadImageSetting')->with(["imageUploaded"=>"successfully",'image_type'=>$image_type_stored]);
     }
 
 
@@ -190,36 +201,7 @@ class ProfileController extends Controller {
         return response()->json(['request_status'=>'successful']);
     }
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -1180,6 +1162,50 @@ class ProfileController extends Controller {
         Event::fire(new SendMail(SendMail::MAIL_TYPE_USER_CONFIRMATION,$user->username,[],$user));
         Session::flash("resent_confirmation_link",'successful');
         return redirect('account-not-confirmed');
+    }
+
+
+    /**
+     * Setting uploaded Image position - Either Cover Image or Profile Image
+     * @param $id
+     */
+    public function uploadedImageSetting($id)
+    {
+        Session::reflash();
+        $image_type = Session::has('image_type') ? Session::get('image_type') : "";
+        $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
+        return view('profile.configure_cover_image',compact('userProfile','image_type'));
+    }
+
+
+    /**
+     *Saving Uploaded Image Settings - Either for Cover image or profile image
+     */
+    public function saveUploadedImageSetting(Request $request)
+    {
+        if($request->image_type == "profile_image")
+        {
+            $userMeta = UserMeta::profileImageTop()->first();
+            $userMeta = count($userMeta) == 0 ? new UserMeta() : $userMeta;
+
+            $userMeta->user_id = Session::get(SiteSessions::USER_ID);
+            $userMeta->meta_type = UserMetaRepository::PROFILE_IMAGE_TOP_POSITION;
+            $userMeta->meta_value = $request->top_adjusted;
+            $userMeta->save();
+        }
+        else if($request->image_type == "cover_image")
+        {
+            $userMeta = UserMeta::coverImageTop()->first();
+            $userMeta = count($userMeta) == 0 ? new UserMeta() : $userMeta;
+
+            $userMeta->user_id = Session::get(SiteSessions::USER_ID);
+            $userMeta->meta_type = UserMetaRepository::COVER_IMAGE_TOP_POSITION;
+            $userMeta->meta_value = $request->top_adjusted;
+
+            $userMeta->save();
+        }
+
+        return redirect('profile');
     }
 
 

@@ -63,6 +63,7 @@ Route::group(['middleware' => ['auth']],function(){
 
 
 
+
     Route::group(['middleware'=>['account_confirmation']],function(){
 
         /////////////////////////////////////////////
@@ -85,6 +86,11 @@ Route::group(['middleware' => ['auth']],function(){
         //Showing a user Profile - as viewed by other user
         Route::get("profile/{id}",'ProfileController@showUserProfile');
         Route::get('profile/{id}/evangelists','ProfileController@allEvangelists');
+
+
+        //Configuring Cover Image Pages
+        Route::get('profile/{id}/uploadImageSetting',"ProfileController@uploadedImageSetting");
+        Route::put('profile/uploadImageSetting',"ProfileController@saveUploadedImageSetting");
 
         //Getting and saving data from user's profile - For talent and manager
         Route::put('profile/uploadProfileImage','ProfileController@uploadImage');
@@ -172,7 +178,7 @@ Route::group(['middleware' => ['guest'],'prefix'=>'external'],function(){
 
 
     //--------------------- Posting Recommendation for a user ------------------------//
-    Route::get('user/recommendation',"RecommendationController@recommendationForm");
+    Route::get('user/recommendation/{user_id}/{recommendation_id}/{user_name}',"RecommendationController@recommendationForm");
     Route::put('user/post-recommendation',"RecommendationController@saveRecommendation");
     //--------------------- Posting Recommendation for a user ------------------------//
 });

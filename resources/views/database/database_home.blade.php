@@ -7,11 +7,11 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-lg-6 strip_heading">
-                <a href="">Scholarship Opportunities</a>
+                <a>Scholarship Opportunities</a>
             </div>
 
             <div class="col-xs-12 col-lg-6 strip_heading">
-                <a href="">Scholarship Process Help</a>
+                <a href="{{url('scholarship-process')}}">Scholarship Process Help</a>
             </div>
         </div>
 

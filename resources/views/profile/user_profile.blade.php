@@ -13,7 +13,13 @@
 
     <div class="container">
         <div class="cover_pic">
-            <img src="<% $userProfile->profile_cover_image_path != "" ? $userProfile->profile_cover_image_path : asset('site_images/talenthub.jpg')%>">
+            @if($userProfile->profile_cover_image_path != "" )
+                <?php
+                    $coverUserMeta = $userProfile->userMeta(talenthub\Repositories\UserMetaRepository::COVER_IMAGE_TOP_POSITION)->first();
+                ?>
+                <img src="<% $userProfile->profile_cover_image_path != "" ? $userProfile->profile_cover_image_path : ""%>"
+                        style="top:<% $coverUserMeta->meta_value.'px' %>">
+            @endif
         </div>
 
         <div class="row user_profile_details" ng-controller="ProfilePresented">
@@ -99,7 +105,7 @@
             <div class="row">
                 <div class="col-xs-12 col-lg-10">
                     <h1 class="headings">Summary</h1>
-                    <p ng-init="summary = '<% $userProfile->summary !="" ? $userProfile->summary : "Please Provide summary about your profile." %>'">{{summary}}
+                    <p ng-init="summary = '<% $userProfile->summary !="" ? $userProfile->summary : "Please provide a summary about yourself." %>'">{{summary}}
                         @if($profileEditable)
                             <a href class="edit glyphicon glyphicon-pencil" data-toggle="modal" data-target="#updateProfileSummary" title="Edit Summary"></a>
                         @endif
@@ -116,23 +122,29 @@
                         @foreach($userCareerHistory as $careerInformation)
                             <%$careerInformation->getMutatedData = false%>
                             @if($careerInformation->career_type == \talenthub\Repositories\SiteConstants::CAREER_TYPE_CLUB)
-                                <li>
-                                    <h2 class="title"><% ucfirst($careerInformation->club_school_name) %>, <span class="country"><% ucfirst($careerInformation->club_school_country) %></span></h2>
-                                    <p><span class="position"><% ucfirst($careerInformation->club_school_most_played_position) %></span></p>
-                                    <p><span class="league"><% ucfirst($careerInformation->club_league_name) %></span> <span class="league_level"><% ucfirst($careerInformation->club_league_level) %></span>
-                                        <span class="league_status"><% ucfirst($careerInformation->club_average_league_status) %></span></p>
-                                    <p class="additional_information"><% ucfirst($careerInformation->additional_information) %></p>
-                                </li>
+
+                                @if($careerInformation->club_school_name)
+                                    <li>
+                                        <h2 class="title"><% ucfirst($careerInformation->club_school_name) %></h2>
+                                        <p><span class="league"><% ucfirst($careerInformation->club_league_name) %></span></p>
+                                        <p><span class="league_level"><% ucfirst($careerInformation->club_league_level) %></span></p>
+                                        <p><span class="league_status"><% ucfirst($careerInformation->club_average_league_status) %></span></p>
+                                    </li>
+                                @endif
                             @endif
 
                             @if($careerInformation->career_type == \talenthub\Repositories\SiteConstants::CAREER_TYPE_SCHOOL)
-                                <li>
-                                    <h2 class="title"><% ucfirst($careerInformation->club_school_name) %> - <% ucfirst($careerInformation->school_type) %>, <span class="country"><% ucfirst($careerInformation->club_school_country) %></span></h2>
-                                    <p><span class="position"><% ucfirst($careerInformation->club_school_most_played_position) %></span></p>
-                                    <p><span class="league">School Team Reputation : <% ucfirst($careerInformation->school_team_reputation) %></span><Br>School Team Level: <span class="league_level"><% ucfirst($careerInformation->school_team_side_level) %></span>
-                                        <span class="league_status"><% ucfirst($careerInformation->club_average_league_status) %></span></p>
-                                    <p class="additional_information"><% ucfirst($careerInformation->additional_information) %></p>
-                                </li>
+                                @if($careerInformation->club_school_name)
+                                    <li>
+                                        <h2 class="title"><% ucfirst($careerInformation->club_school_name) %></h2>
+                                        @if($careerInformation->school_team_side_level != "")
+                                            <p>School Team Level: <span class="league_level"><% ucfirst($careerInformation->school_team_side_level) %></span></p>
+                                        @endif
+                                        @if($careerInformation->school_team_reputation)
+                                            <p>School Team Reputation : <span class="league"><% ucfirst($careerInformation->school_team_reputation) %></span></p>
+                                        @endif
+                                    </li>
+                                @endif
                             @endif
                         @endforeach
                     </ul>

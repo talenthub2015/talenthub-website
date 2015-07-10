@@ -54,7 +54,8 @@ class WelcomeController extends Controller {
         }
         $sport_types=BasicSiteRepository::getSportTypes();
         $userManagerManagementLevel=BasicSiteRepository::getUserManagementLevelType(SiteConstants::USER_MANAGER);
-        return view('sign_up',compact('sport_types','userManagerManagementLevel'));
+        $managerTypes = array_merge(["0"=>"-- Select Option --"],BasicSiteRepository::getManagerTypes());
+        return view('sign_up',compact('sport_types','userManagerManagementLevel','managerTypes'));
     }
 
 }

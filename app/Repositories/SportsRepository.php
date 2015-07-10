@@ -28,7 +28,7 @@ class SportsRepository {
         self::FOOTBALL => array("batting","fielding"),
         self::RUGBY => array("forward","backline","kicker"),
         self::SOCCER => array("goalkeeper","defender","midfielder","forward"),
-        self::SWIMMING => array("Breast Stroke","Butterfly","Back Stroke","Free Style","Diving"),
+        self::SWIMMING => array("Breast-stroke ","Butterfly","Back-stroke","Freestyle","Diving"),
         self::TENNIS => array(),
         self::TRACK_FIELD => array("class1","class2"),
         self::SOFTBALL => array("",""),

@@ -359,7 +359,8 @@ footer {
     min-width: 100%;
     min-height: 100%;
     width: 100%;
-    height: auto; }
+    height: auto;
+    position: relative; }
 .talent_profile .change_cover_pic_container {
   position: absolute;
   top: 10px;
@@ -406,7 +407,7 @@ footer {
   position: relative;
   height: 300px;
   max-height: 300px;
-  background: rgba(0, 0, 0, 0.25); }
+  background: rgba(0, 0, 0, 0.5); }
   .talent_profile .user_profile_details p {
     width: 90%; }
   .talent_profile .user_profile_details .user_name, .talent_profile .user_profile_details .user_sport, .talent_profile .user_profile_details .user_position, .talent_profile .user_profile_details .user_management_level, .talent_profile .user_profile_details .user_country {
@@ -858,6 +859,19 @@ footer {
 .miscellaneous_content {
   position: relative;
   top: 15px; }
+
+.cover_image_setting_container {
+  width: 100%; }
+  .cover_image_setting_container .cover_image_demo {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border: 1px solid #1a1a1a;
+    cursor: s-resize; }
+    .cover_image_setting_container .cover_image_demo img {
+      min-width: 100%;
+      width: 100%;
+      height: auto; }
 
 
 /*# sourceMappingURL=main.css.map */

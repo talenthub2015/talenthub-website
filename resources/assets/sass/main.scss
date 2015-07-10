@@ -505,6 +505,7 @@ footer
       min-height:100%;
       width:100%;
       height:auto;
+      position:relative;
     }
   }
   .change_cover_pic_container
@@ -572,7 +573,7 @@ footer
     position:relative;
     height:300px;
     max-height: 300px;
-    background:rgba(0,0,0,0.25);
+    background:rgba(0,0,0,0.50);
     p
     {
       width:90%;
@@ -1328,4 +1329,25 @@ footer
 {
   position:relative;
   top:15px;
+}
+
+
+.cover_image_setting_container
+{
+  width:100%;
+  .cover_image_demo
+  {
+    width:100%;
+    height:300px;
+    overflow:hidden;
+    border:1px solid #1a1a1a;
+    cursor:s-resize;
+
+    img
+    {
+      min-width:100%;
+      width:100%;
+      height:auto;
+    }
+  }
 }

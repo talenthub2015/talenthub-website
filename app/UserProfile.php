@@ -3,8 +3,10 @@
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Session;
 use talenthub\Repositories\BasicSiteRepository;
+use talenthub\Repositories\SiteConstants;
 use talenthub\Repositories\SiteSessions;
 use talenthub\Repositories\SportsRepository;
+use talenthub\Repositories\UserMetaRepository;
 use talenthub\Repositories\UserProfileRepository;
 
 class UserProfile extends Model
@@ -65,9 +67,17 @@ class UserProfile extends Model
     /**
      *Relationship of Talent User with talent Career information i.e. user has many career information
      */
-    public function careerInformation()
+    public function careerInformation($career_type = null)
     {
-        return $this->hasMany('talenthub\TalentCareerInformation','user_id');
+        if($career_type == null)
+        {
+            return $this->hasMany('talenthub\TalentCareerInformation','user_id');
+        }
+        else if($career_type == SiteConstants::CAREER_TYPE_CLUB || $career_type == SiteConstants::CAREER_TYPE_SCHOOL)
+        {
+            return $this->hasMany('talenthub\TalentCareerInformation','user_id')
+                ->where('career_type','=',$career_type);
+        }
     }
 
 
@@ -116,9 +126,17 @@ class UserProfile extends Model
     /**Relationship between user profile and recommendations
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function recommendations()
+    public function recommendations($withStatus=null)
     {
-        return $this->hasMany('talenthub\Talent\Recommendations',"user_id");
+        if($withStatus == null)
+        {
+            return $this->hasMany('talenthub\Talent\Recommendations',"user_id");
+        }
+        else
+        {
+            return $this->hasMany('talenthub\Talent\Recommendations',"user_id")
+                ->where("status",'=',$withStatus);
+        }
     }
 
 
@@ -148,6 +166,29 @@ class UserProfile extends Model
     {
         return $this->belongsToMany('talenthub\UserProfile','messages','user_id','to_user_id')
             ->withPivot('subject','message','sent_on','status');
+    }
+
+
+    /**
+     * Relationship between userprofile and user meta fields
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function userMeta($meta_type = null)
+    {
+        if($meta_type==null)
+        {
+            return $this->hasMany('talenthub\UserMeta','user_id');
+        }
+        else if($meta_type == UserMetaRepository::COVER_IMAGE_TOP_POSITION)
+        {
+            return $this->hasMany('talenthub\UserMeta','user_id')
+                ->where('meta_type','=',UserMetaRepository::COVER_IMAGE_TOP_POSITION);
+        }
+        else if($meta_type == UserMetaRepository::PROFILE_IMAGE_TOP_POSITION)
+        {
+            return $this->hasMany('talenthub\UserMeta','user_id')
+                ->where('meta_type','=',UserMetaRepository::PROFILE_IMAGE_TOP_POSITION);
+        }
     }
 
 

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use talenthub\Events\NotifyUser;
+use talenthub\Events\SendMail;
 use talenthub\Http\Requests;
 use talenthub\Http\Controllers\Controller;
 
@@ -17,6 +18,7 @@ use talenthub\Notifications;
 use talenthub\Repositories\SiteConstants;
 use talenthub\Repositories\SiteSessions;
 use talenthub\Talent\Recommendations;
+use talenthub\UserProfile;
 
 class RecommendationController extends Controller {
 
@@ -56,7 +58,9 @@ class RecommendationController extends Controller {
 
         $recommendation->save();
 
+        $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
         //Send Mail to the Desired Person for recommendation
+        Event::fire(new SendMail(SendMail::MAIL_TYPE_REQUEST_RECOMMENDATION,$recommendation->email,[],["recommendation"=>$recommendation,"userProfile"=>$userProfile]));
 
         Session::flash('recommendation_request_status','success');
         return redirect()->back();
@@ -67,17 +71,18 @@ class RecommendationController extends Controller {
      *External user posting recommendation for talent
      * @param Request $request
      */
-    public function recommendationForm()
+    public function recommendationForm($user_id,$recommendation_id,$user_name)
     {
-        if(!Request::has("user_id") || !Request::has("recommendation_id") || !Request::has("user_name"))
+        if(is_null($user_id) || is_null($recommendation_id) || is_null($user_name))
         {
             return "Your link is incorrect, please use the correct link as provided in your mail";
         }
+
         $recommendationData=null;
 
         try {
-            $recommendationData = Recommendations::findOrFail(Request::get("recommendation_id"));
-            if(Request::get("user_id") != $recommendationData->user_id)
+            $recommendationData = Recommendations::findOrFail($recommendation_id);
+            if($user_id != $recommendationData->user_id)
             {
                 throw new ModelNotFoundException();
             }

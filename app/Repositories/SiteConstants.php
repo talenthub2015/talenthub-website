@@ -81,7 +81,7 @@ class SiteConstants {
      */
     public static function isManager($user_type)
     {
-        if(in_array($user_type,array(self::USER_MANAGER_COACH,self::USER_MANAGER_AGENT, self::USER_MANAGER_SCOUT)))
+        if(in_array($user_type,array(self::USER_MANAGER,self::USER_MANAGER_COACH,self::USER_MANAGER_AGENT, self::USER_MANAGER_SCOUT)))
         {
             return true;
         }

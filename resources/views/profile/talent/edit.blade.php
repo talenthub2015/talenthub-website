@@ -12,7 +12,7 @@
                 <div class="col-xs-12 col-lg-9">
                     <ul class="nav nav-tabs">
                         <li ng-class="{active:tab.isTabClicked(1)}"><a href ng-click="tab.tabClicked(1)" >Personal Info</a></li>
-                        @if(Session::get("user_type")!=101)
+                        @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) != \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_ASPIRING_PRO)
                             <li ng-class="{active:tab.isTabClicked(2)}"><a href ng-click="tab.tabClicked(2)" >Parent(s) Info</a></li>
                             <li ng-class="{active:tab.isTabClicked(3)}"><a href ng-click="tab.tabClicked(3)" >Guardian Info</a></li>
                             <li ng-class="{active:tab.isTabClicked(4)}"><a href ng-click="tab.tabClicked(4)" >Academic Info</a></li>

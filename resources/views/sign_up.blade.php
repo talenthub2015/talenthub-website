@@ -70,7 +70,7 @@
                             <div class="form_container">
                                 {!! Form::open(['method'=>'post','url'=>'auth/register','name'=>'register_manager']) !!}
                                 @include('templates.forms.registration',['user'=>\talenthub\Repositories\SiteConstants::USER_MANAGER,
-                                'userManagerManagementLevel'=> $userManagerManagementLevel])
+                                'userManagerManagementLevel'=> $userManagerManagementLevel,'managerTypes'=>$managerTypes])
                                 {!! Form::close() !!}
                             </div>
                         </div>

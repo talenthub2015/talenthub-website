@@ -54,6 +54,12 @@ class Authenticate {
             return redirect('auth/logout');
         }
 
+        //Temporary Middleware for Managers
+        if(SiteConstants::isManager($user->user_type))
+        {
+            return view("profile.manager.under_construction");
+        }
+
 		return $next($request);
 	}
 

@@ -21,15 +21,15 @@ for($i=0;$i<count($sportStatistics);$i++)
             <div class="col-xs-11 col-xs-offset-1">
                 <table class="table">
                     <tr>
-                        <th title="">GP</th>
-                        <th title="">GS</th>
-                        <th title="">PTS</th>
-                        <th title="">OREB</th>
-                        <th title="">REB</th>
-                        <th title="">AST</th>
-                        <th title="">STL</th>
-                        <th title="">BLK</th>
-                        <th title="">TOV</th>
+                        <th title="Games Played">GP</th>
+                        <th title="Games Started">GS</th>
+                        <th title="Points">PTS</th>
+                        <th title="Offensive Rebounds">OREB</th>
+                        <th title="Rebounds">REB</th>
+                        <th title="Assists">AST</th>
+                        <th title="Steals">STL</th>
+                        <th title="Blocks">BLK</th>
+                        <th title="Turnovers">TOV</th>
 
                     </tr>
                     <tbody class="form_container">

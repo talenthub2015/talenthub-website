@@ -34,17 +34,17 @@ $dataMap = talenthub\TalentCareerStatisticsModels\SoccerStatistics::$dataMap;
                         <div class="col-xs-11 col-xs-offset-1">
                             <table class="table">
                                 <tr>
-                                    <th title="">GP</th>
-                                    <th title="">GS</th>
+                                    <th title="Games Played">GP</th>
+                                    <th title="Games Started">GS</th>
                                     <th title="">W</th>
                                     <th title="">D</th>
                                     <th title="">L</th>
                                     <th title="">GA</th>
                                     <th title="">PKG</th>
                                     <th title="">CS</th>
-                                    <th title="">YC</th>
-                                    <th title="">RC</th>
-                                    <th title="">MP</th>
+                                    <th title="Yellow Cards">YC</th>
+                                    <th title="Red Cards">RC</th>
+                                    <th title="Minutes Played">MP</th>
 
                                 </tr>
                                 <tbody class="form_container">
@@ -81,14 +81,14 @@ $dataMap = talenthub\TalentCareerStatisticsModels\SoccerStatistics::$dataMap;
                         <div class="col-xs-11 col-xs-offset-1">
                             <table class="table">
                                 <tr>
-                                    <th title="">GP</th>
-                                    <th title="">GS</th>
-                                    <th title="">G</th>
-                                    <th title="">A</th>
+                                    <th title="Games Played">GP</th>
+                                    <th title="Games Started">GS</th>
+                                    <th title="Goals">G</th>
+                                    <th title="Assists">A</th>
                                     <th title="">CS</th>
-                                    <th title="">YC</th>
-                                    <th title="">RC</th>
-                                    <th title="">MP</th>
+                                    <th title="Yellow Cards">YC</th>
+                                    <th title="Red Cards">RC</th>
+                                    <th title="Minutes Played">MP</th>
 
                                 </tr>
                                 <tbody class="form_container">
@@ -121,13 +121,13 @@ $dataMap = talenthub\TalentCareerStatisticsModels\SoccerStatistics::$dataMap;
                         <div class="col-xs-11 col-xs-offset-1">
                             <table class="table">
                                 <tr>
-                                    <th title="">GP</th>
-                                    <th title="">GS</th>
-                                    <th title="">G</th>
-                                    <th title="">A</th>
-                                    <th title="">YC</th>
-                                    <th title="">RC</th>
-                                    <th title="">MP</th>
+                                    <th title="Games Played">GP</th>
+                                    <th title="Games Started">GS</th>
+                                    <th title="Goals">G</th>
+                                    <th title="Assists">A</th>
+                                    <th title="Yellow Cards">YC</th>
+                                    <th title="Red Cards">RC</th>
+                                    <th title="Minutes Played">MP</th>
                                 </tr>
                                 <tbody class="form_container">
                                 <tr>
@@ -158,14 +158,14 @@ $dataMap = talenthub\TalentCareerStatisticsModels\SoccerStatistics::$dataMap;
                         <div class="col-xs-11 col-xs-offset-1">
                             <table class="table">
                                 <tr>
-                                    <th title="">GP</th>
-                                    <th title="">GS</th>
-                                    <th title="">G</th>
-                                    <th title="">A</th>
+                                    <th title="Games Played">GP</th>
+                                    <th title="Games Started">GS</th>
+                                    <th title="Goals">G</th>
+                                    <th title="Assists">A</th>
                                     <th title="">PKG</th>
-                                    <th title="">YC</th>
-                                    <th title="">RC</th>
-                                    <th title="">MP</th>
+                                    <th title="Yellow Cards">YC</th>
+                                    <th title="Red Cards">RC</th>
+                                    <th title="Minutes Played">MP</th>
                                 </tr>
                                 <tbody class="form_container">
                                 <tr>

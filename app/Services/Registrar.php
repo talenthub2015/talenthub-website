@@ -36,16 +36,33 @@ class Registrar implements RegistrarContract {
 	 */
 	public function create(array $data)
 	{
-        return User::create([
-			'username'  =>  $data['username'],
-			'password'  =>  $data['password'],
-            'active'    =>  0,
-            'user_type' =>  $data['user_type'],
-            'management_level' => $data['management_level'],
-            'sport_type'=>  $data['sport_type'],
-            'profile_image_path'=> $data['profile_image_path'],
-            'confirmation_token'=>bcrypt(time()),
-		]);
+        if(SiteConstants::isManager($data["user_type"]))
+        {
+            $userType = BasicSiteRepository::getManagerTypes()[$data["managerType"]];
+            return User::create([
+                'username'  =>  $data['username'],
+                'password'  =>  $data['password'],
+                'active'    =>  0,
+                'user_type' =>  $userType,
+                'management_level' => $data['management_level'],
+                'sport_type'=>  $data['sport_type'],
+                'profile_image_path'=> $data['profile_image_path'],
+                'confirmation_token'=>bcrypt(time()),
+            ]);
+        }
+        else if(SiteConstants::isTalent($data["user_type"]))
+        {
+            return User::create([
+                'username'  =>  $data['username'],
+                'password'  =>  $data['password'],
+                'active'    =>  0,
+                'user_type' =>  $data['user_type'],
+                'management_level' => $data['management_level'],
+                'sport_type'=>  $data['sport_type'],
+                'profile_image_path'=> $data['profile_image_path'],
+                'confirmation_token'=>bcrypt(time()),
+            ]);
+        }
 	}
 
 }

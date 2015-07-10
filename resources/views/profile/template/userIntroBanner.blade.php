@@ -1,6 +1,8 @@
 <div class="container">
     <div class="cover_pic">
-        <img src="{{ $userProfile->profile_cover_image_path != "" ? $userProfile->profile_cover_image_path : asset('site_images/talenthub.jpg')}}">
+        @if($userProfile->profile_cover_image_path != "" )
+            <img src="<% $userProfile->profile_cover_image_path != "" ? $userProfile->profile_cover_image_path : ""%>">
+        @endif
     </div>
 
     <div class="row user_profile_details">
@@ -16,7 +18,7 @@
             </p>
             <p class="user_sport"><span>{{ $userProfile->sport_type }}</span> | <span>{{ $userProfile->dob }}</span>
             <p class="user_position"><span>{{ $userProfile->preferred_position }}</span></p>
-            <p class="user_management_level"><span>{{ $userProfile->management_level }}</span></p>
+            <p class="user_management_level"><span>{{ ucfirst($userProfile->management_level) }}</span></p>
             <p class="user_country"><span >{{ $userProfile->country }}</span>
             </p>
         </div>

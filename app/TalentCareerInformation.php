@@ -38,7 +38,7 @@ class TalentCareerInformation extends Model {
      * Variable used to check whether need to mutate values while retrieving values form database or saving in it.
      */
     public $getMutatedData = true;  //Getting Mutated data from database.
-    public $setMutateData = true;   //Setting data to be mutated before saving to database
+    public $setMutatedData = true;   //Setting data to be mutated before saving to database
 
 
     /**
@@ -109,9 +109,13 @@ class TalentCareerInformation extends Model {
      */
     public function setschoolTypeAttribute($school_type)
     {
-        if($this->setMutateData)
+        if($this->setMutatedData)
         {
-            $this->attributes["school_type"] = UserProfileRepository::getInstituteType()[$school_type];
+            $this->attributes["school_type"] = ($school_type != 0 && $school_type != null) ? UserProfileRepository::getInstituteType()[$school_type] : "";
+        }
+        else
+        {
+            $this->attributes["school_type"]=  ($school_type != 0 && $school_type != null) ? $school_type : "";
         }
     }
 
@@ -126,6 +130,7 @@ class TalentCareerInformation extends Model {
         {
             return array_search($school_type,UserProfileRepository::getInstituteType());
         }
+
         return $school_type;
     }
 
@@ -136,9 +141,13 @@ class TalentCareerInformation extends Model {
      */
     public function setclubSchoolCountryAttribute($country)
     {
-        if($this->setMutateData)
+        if($this->setMutatedData)
         {
-            $this->attributes["club_school_country"] = BasicSiteRepository::getListOfCountries()[$country];
+            $this->attributes["club_school_country"] = ($country != 0 && $country != null) ? BasicSiteRepository::getListOfCountries()[$country] : "";
+        }
+        else
+        {
+            $this->attributes["club_school_country"]=  ($country != 0 && $country != null) ? $country : "";
         }
     }
 
@@ -163,9 +172,13 @@ class TalentCareerInformation extends Model {
      */
     public function setclubLeagueLevelAttribute($league_level)
     {
-        if($this->setMutateData)
+        if($this->setMutatedData)
         {
-            $this->attributes["club_league_level"] = SportsRepository::getClubLeagueLevel()[$league_level];
+            $this->attributes["club_league_level"] = ($league_level != 0 && $league_level != null) ? SportsRepository::getClubLeagueLevel()[$league_level] : "";
+        }
+        else
+        {
+            $this->attributes["club_league_level"]=  ($league_level != 0 && $league_level != null) ? $league_level : "";
         }
     }
 
@@ -191,9 +204,13 @@ class TalentCareerInformation extends Model {
      */
     public function setclubAverageLeagueStatusAttribute($league_status)
     {
-        if($this->setMutateData)
+        if($this->setMutatedData)
         {
-            $this->attributes["club_average_league_status"] = SportsRepository::getClubLeagueStatus()[$league_status];
+            $this->attributes["club_average_league_status"] = ($league_status != 0 && $league_status != null) ? SportsRepository::getClubLeagueStatus()[$league_status] : "";
+        }
+        else
+        {
+            $this->attributes["club_average_league_status"]=  ($league_status != 0 && $league_status != null) ? $league_status : "";
         }
     }
 
@@ -218,9 +235,13 @@ class TalentCareerInformation extends Model {
      */
     public function setschoolTeamReputationAttribute($school_reputation)
     {
-        if($this->setMutateData)
+        if($this->setMutatedData)
         {
-            $this->attributes["school_team_reputation"] = SportsRepository::getSchoolTeamReputation()[$school_reputation];
+            $this->attributes["school_team_reputation"] = ($school_reputation != 0 && $school_reputation != null) ? SportsRepository::getSchoolTeamReputation()[$school_reputation] : "";
+        }
+        else
+        {
+            $this->attributes["school_team_reputation"]=  ($school_reputation != 0 && $school_reputation != null) ? $school_reputation : "";
         }
     }
 
@@ -246,9 +267,13 @@ class TalentCareerInformation extends Model {
      */
     public function setschoolTeamSideLevelAttribute($school_team_level)
     {
-        if($this->setMutateData)
+        if($this->setMutatedData)
         {
-            $this->attributes["school_team_side_level"] = SportsRepository::getSchoolTeamSideLevel()[$school_team_level];
+            $this->attributes["school_team_side_level"] = ($school_team_level != 0 && $school_team_level != null) ? SportsRepository::getSchoolTeamSideLevel()[$school_team_level] : "";
+        }
+        else
+        {
+            $this->attributes["school_team_side_level"]=  ($school_team_level != 0 && $school_team_level != null) ? $school_team_level : "";
         }
     }
 

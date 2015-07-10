@@ -48,6 +48,13 @@ class SendingMailToUser {
 
                 break;
 
+            case SendMail::MAIL_TYPE_REQUEST_RECOMMENDATION:
+
+                $view = "emails.request_recommendation";
+                $subject = $data["userProfile"]->first_name." ".$data["userProfile"]->last_name." requested you for your recommendation.";
+
+                break;
+
             default:
 
                 break;

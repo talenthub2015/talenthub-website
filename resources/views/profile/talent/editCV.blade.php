@@ -108,7 +108,11 @@
                                                 <div class="form-group">
                                                     {!! Form::label('club_club_school_name[]','Current Club Name:') !!}
                                                     {!! Form::text('club_club_school_name[]',$clubCareerInformation[0]->club_school_name,
-                                                    ['class'=>'form-control']) !!}
+                                                    ['class'=>'form-control','data-validate'=>'require_with','data-require-with-fields'=>
+                                                    'club_club_school_country, club_club_league_name, club_club_league_level, club_club_season_played,
+                                                    club_club_average_league_status, club_club_school_coach_name, club_club_school_coach_email,
+                                                    club_club_school_coach_mobile_number',
+                                                    'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Please also provide Club name as well.']) !!}
                                                 </div>
                                             </div>
 
@@ -359,7 +363,11 @@
                                                         <div class="form-group">
                                                             {!! Form::label('club_club_school_name[]','Current Club Name:') !!}
                                                             {!! Form::text('club_club_school_name[]',$clubCareerInformation[$i]->club_school_name,
-                                                            ['class'=>'form-control']) !!}
+                                                            ['class'=>'form-control','data-validate'=>'require_with','data-require-with-fields'=>
+                                                            'club_club_school_country, club_club_league_name, club_club_league_level, club_club_season_played,
+                                                            club_club_average_league_status, club_club_school_coach_name, club_club_school_coach_email,
+                                                            club_club_school_coach_mobile_number',
+                                                            'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Please also provide Club name as well.']) !!}
                                                         </div>
                                                     </div>
 
@@ -636,7 +644,10 @@
                                                 <div class="form-group">
                                                     {!! Form::label('school_club_school_name[]','Current School Name:') !!}
                                                     {!! Form::text('school_club_school_name[]',$schoolCareerInformation[0]->club_school_name,
-                                                    ['class'=>'form-control']) !!}
+                                                    ['class'=>'form-control','data-validate'=>'require_with','data-require-with-fields'=>
+                                                    'school_club_school_country, school_school_team_reputation, school_school_team_side_level, school_club_school_coach_name,
+                                                    school_club_school_coach_email, school_club_school_coach_mobile_number',
+                                                    'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Please also provide school name as well.']) !!}
                                                 </div>
                                             </div>
 
@@ -874,7 +885,10 @@
                                                             <div class="form-group">
                                                                 {!! Form::label('school_club_school_name[]','Current School Name:') !!}
                                                                 {!! Form::text('school_club_school_name[]',$schoolCareerInformation[$i]->club_school_name,
-                                                                ['class'=>'form-control']) !!}
+                                                                ['class'=>'form-control','data-validate'=>'require_with','data-require-with-fields'=>
+                                                                'school_club_school_country, school_school_team_reputation, school_school_team_side_level, school_club_school_coach_name,
+                                                                school_club_school_coach_email, school_club_school_coach_mobile_number',
+                                                                'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Please also provide school name as well.']) !!}
                                                             </div>
                                                         </div>
 
@@ -1215,9 +1229,73 @@
 
             $("#club_career_information, #school_career_information").trigger("content-duplicated");
 
-
         });
     </script>
+
+
+    <!-- Script for Validating required_with data validation option -->
+    <script>
+
+        //var whitespace = /^\s*$/;
+        //var errorClassName = "error_form_validation";
+
+        $(document).ready(function(){
+            var forms = $('form');
+            $(forms).each(function(i,form){
+                $(form).submit(function(event) {
+
+                    var elements = $(form).find('input[data-validate="require_with"]');
+                    $(elements).each(function(i,element){
+                        if(!whitespace.test($(element).val()))
+                        {
+                            return true;
+                        }
+                        var requiredWithElements = $(element).data('requireWithFields') !=undefined ? $(element).data('requireWithFields') : null;
+                        var name="";
+                        var focusedIndex = null;
+                        var raiseError=false;
+                        if(requiredWithElements == null)
+                        {
+                            return true;
+                        }
+                        name = $(element).attr('name');
+                        focusedIndex = parseInt((name.replace(/\w*\s*/,"")).replace(/\D*/g,""));
+                        requiredWithElements = requiredWithElements.split(",");
+
+                        for(i=0;i<requiredWithElements.length;i++)
+                        {
+                            var elem = requiredWithElements[i].replace(/(\s*)*(\r\n|\n|\r)*/gm,"");
+                            var requiredElem = $("[name='" + elem+"["+focusedIndex + "]" + "']");
+
+                            var validate_type = requiredElem.data('validate') != undefined ? (requiredElem.data('validate')).toLowerCase() : "";
+//                            alert("Elem : " + "[name='" + elem+"["+focusedIndex + "]" + "']" +"\n\nf: " + requiredElem.attr("name") + "\n\n");
+                            if(validate_type.indexOf("select") >= 0 && requiredElem.val() > 0)
+                            {
+                                raiseError = true;
+                            }
+                            else if(validate_type.indexOf("select") == -1 && !whitespace.test(requiredElem.val()))
+                            {
+                                raiseError = true;
+                            }
+                        }
+
+                        if(raiseError)
+                        {
+                            $(element).addClass(errorClassName);
+                            $(element).tooltip();
+                            $(document).scrollTop(($(element).offset()).top-100);
+
+                            event.preventDefault();
+                        }
+                    });
+
+                });
+            });
+        });
+    </script>
+
+
+    <!------------------- ----------- -->
 
 
 @stop
