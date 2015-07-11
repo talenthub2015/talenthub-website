@@ -33,17 +33,17 @@ if(count($sportStatistics)==0)
                         <table class="table">
                             <caption>Forward</caption>
                             <tr>
-                                <th title="">GP</th>
-                                <th title="">GS</th>
-                                <th title="">GC</th>
-                                <th title="">LTA</th>
-                                <th title="">LTS</th>
-                                <th title="">LJA</th>
-                                <th title="">LJS</th>
-                                <th title="">YC</th>
-                                <th title="">RC</th>
-                                <th title="">TR</th>
-                                <th title="">TA</th>
+                                <th title="Games Played">GP</th>
+                                <th title="Games Started">GS</th>
+                                <th title="Games Completed">GC</th>
+                                <th title="Lineout’s Attempted">LTA</th>
+                                <th title="Lineout’s Successful">LTS</th>
+                                <th title="Lineout Jumps Attempted">LJA</th>
+                                <th title="Lineout Jumps Successful">LJS</th>
+                                <th title="Yellow Cards">YC</th>
+                                <th title="Red Cards">RC</th>
+                                <th title="Tries">TR</th>
+                                <th title="Tries Assisted">TA</th>
 
                             </tr>
                             <tbody class="form_container">
@@ -76,13 +76,13 @@ if(count($sportStatistics)==0)
                         <table class="table">
                             <caption>Backline</caption>
                             <tr>
-                                <th title="">GP</th>
-                                <th title="">GS</th>
-                                <th title="">GC</th>
-                                <th title="">YC</th>
-                                <th title="">RC</th>
-                                <th title="">TR</th>
-                                <th title="">TA</th>
+                                <th title="Games Played">GP</th>
+                                <th title="Games Started">GS</th>
+                                <th title="Games Completed">GC</th>
+                                <th title="Yellow Cards">YC</th>
+                                <th title="Red Cards">RC</th>
+                                <th title="Tries">TR</th>
+                                <th title="Tries Assisted">TA</th>
 
                             </tr>
                             <tbody class="form_container">
@@ -110,14 +110,14 @@ if(count($sportStatistics)==0)
                         <table class="table">
                             <caption>Kicker</caption>
                             <tr>
-                                <th title="">CA</th>
-                                <th title="">CS</th>
-                                <th title="">SC</th>
-                                <th title="">LC</th>
-                                <th title="">PA</th>
-                                <th title="">PS</th>
-                                <th title="">SP</th>
-                                <th title="">LP</th>
+                                <th title="Conversions Attempted">CA</th>
+                                <th title="Conversions Scored">CS</th>
+                                <th title="Short Conversions">SC</th>
+                                <th title="Long conversions">LC</th>
+                                <th title="Punts Attempted">PA</th>
+                                <th title="Punts Successful">PS</th>
+                                <th title="Short Punts">SP</th>
+                                <th title="Long Punts">LP</th>
                             </tr>
                             <tbody class="form_container">
                             <tr>
@@ -176,17 +176,17 @@ if(count($sportStatistics)==0)
                             <table class="table">
                                 <caption>Forward</caption>
                                 <tr>
-                                    <th title="">GP</th>
-                                    <th title="">GS</th>
-                                    <th title="">GC</th>
-                                    <th title="">LTA</th>
-                                    <th title="">LTS</th>
-                                    <th title="">LJA</th>
-                                    <th title="">LJS</th>
-                                    <th title="">YC</th>
-                                    <th title="">RC</th>
-                                    <th title="">TR</th>
-                                    <th title="">TA</th>
+                                    <th title="Games Played">GP</th>
+                                    <th title="Games Started">GS</th>
+                                    <th title="Games Completed">GC</th>
+                                    <th title="Lineout’s Attempted">LTA</th>
+                                    <th title="Lineout’s Successful">LTS</th>
+                                    <th title="Lineout Jumps Attempted">LJA</th>
+                                    <th title="Lineout Jumps Successful">LJS</th>
+                                    <th title="Yellow Cards">YC</th>
+                                    <th title="Red Cards">RC</th>
+                                    <th title="Tries">TR</th>
+                                    <th title="Tries Assisted">TA</th>
 
                                 </tr>
                                 <tbody class="form_container">
@@ -219,13 +219,13 @@ if(count($sportStatistics)==0)
                             <table class="table">
                                 <caption>Backline</caption>
                                 <tr>
-                                    <th title="">GP</th>
-                                    <th title="">GS</th>
-                                    <th title="">GC</th>
-                                    <th title="">YC</th>
-                                    <th title="">RC</th>
-                                    <th title="">TR</th>
-                                    <th title="">TA</th>
+                                    <th title="Games Played">GP</th>
+                                    <th title="Games Started">GS</th>
+                                    <th title="Games Completed">GC</th>
+                                    <th title="Yellow Cards">YC</th>
+                                    <th title="Red Cards">RC</th>
+                                    <th title="Tries">TR</th>
+                                    <th title="Tries Assisted">TA</th>
 
                                 </tr>
                                 <tbody class="form_container">
@@ -253,14 +253,14 @@ if(count($sportStatistics)==0)
                             <table class="table">
                                 <caption>Kicker</caption>
                                 <tr>
-                                    <th title="">CA</th>
-                                    <th title="">CS</th>
-                                    <th title="">SC</th>
-                                    <th title="">LC</th>
-                                    <th title="">PA</th>
-                                    <th title="">PS</th>
-                                    <th title="">SP</th>
-                                    <th title="">LP</th>
+                                    <th title="Conversions Attempted">CA</th>
+                                    <th title="Conversions Scored">CS</th>
+                                    <th title="Short Conversions">SC</th>
+                                    <th title="Long conversions">LC</th>
+                                    <th title="Punts Attempted">PA</th>
+                                    <th title="Punts Successful">PS</th>
+                                    <th title="Short Punts">SP</th>
+                                    <th title="Long Punts">LP</th>
                                 </tr>
                                 <tbody class="form_container">
                                 <tr>

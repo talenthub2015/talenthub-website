@@ -28,7 +28,8 @@ class Kernel extends HttpKernel {
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
         'guest' => 'talenthub\Http\Middleware\RedirectIfAuthenticated',
         'admin' => 'talenthub\Http\Middleware\Admin',
-        'account_confirmation'  =>  'talenthub\Http\Middleware\AccountConfirmation'
+        'account_confirmation'  =>  'talenthub\Http\Middleware\AccountConfirmation',
+        'profile_view_auth' => 'talenthub\Http\Middleware\ProfileViewAuth'
 	];
 
 }

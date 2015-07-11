@@ -118,12 +118,15 @@ class ProfileController extends Controller {
         //Saving Profile Image
         if($imageFieldName == "profile_image")
         {
-            $image = Image::canvas(300, 300);
-            $image_updated  = Image::make($imageFile)->resize(300, 300,function($constraint){
-                $constraint->aspectRatio();
-            });
-            $image->insert($image_updated, 'center');
+//            $image = Image::canvas(300, 300);
+//            $image_updated  = Image::make($imageFile)->resize(300, 300,function($constraint){
+//                $constraint->aspectRatio();
+//            });
+//            $image->insert($image_updated, 'center');
 
+            $image = Image::make($imageFile)->resize(350, 350, function($constraint){
+               $constraint->aspectRatio();
+            });
             $icon_image = Image::make($imageFile)->fit(300,300)->resize(60,60);
             $small_image = Image::make($imageFile)->fit(300,300)->resize(100,100);
 
@@ -159,7 +162,8 @@ class ProfileController extends Controller {
 
 //        return redirect()->back()->with(["imageUploaded"=>"successfully"]);
 
-        return redirect('profile/'.Session::get(SiteSessions::USER_ID).'/uploadImageSetting')->with(["imageUploaded"=>"successfully",'image_type'=>$image_type_stored]);
+        Session::put("image_type",$image_type_stored);
+        return redirect('profile/'.Session::get(SiteSessions::USER_ID).'/uploadImageSetting')->with(["imageUploaded"=>"successfully"]);
     }
 
 
@@ -1171,7 +1175,6 @@ class ProfileController extends Controller {
      */
     public function uploadedImageSetting($id)
     {
-        Session::reflash();
         $image_type = Session::has('image_type') ? Session::get('image_type') : "";
         $userProfile = UserProfile::find(Session::get(SiteSessions::USER_ID));
         return view('profile.configure_cover_image',compact('userProfile','image_type'));
@@ -1191,6 +1194,14 @@ class ProfileController extends Controller {
             $userMeta->user_id = Session::get(SiteSessions::USER_ID);
             $userMeta->meta_type = UserMetaRepository::PROFILE_IMAGE_TOP_POSITION;
             $userMeta->meta_value = $request->top_adjusted;
+            $userMeta->save();
+
+            $userMeta = UserMeta::profileImageLeft()->first();
+            $userMeta = count($userMeta) == 0 ? new UserMeta() : $userMeta;
+
+            $userMeta->user_id = Session::get(SiteSessions::USER_ID);
+            $userMeta->meta_type = UserMetaRepository::PROFILE_IMAGE_LEFT_POSITION;
+            $userMeta->meta_value = $request->left_adjusted;
             $userMeta->save();
         }
         else if($request->image_type == "cover_image")

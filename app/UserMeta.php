@@ -26,6 +26,15 @@ class UserMeta extends Model {
     }
 
     /**
+     * Get value of meta field which has profile Image Left value
+     * @param $query
+     */
+    public function scopeProfileImageLeft($query)
+    {
+        return $query->where('meta_type','=',UserMetaRepository::PROFILE_IMAGE_LEFT_POSITION);
+    }
+
+    /**
      * Get value of meta field which has cover Image top value
      * @param $query
      */

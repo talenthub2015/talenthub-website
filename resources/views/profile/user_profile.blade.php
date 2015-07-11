@@ -16,9 +16,10 @@
             @if($userProfile->profile_cover_image_path != "" )
                 <?php
                     $coverUserMeta = $userProfile->userMeta(talenthub\Repositories\UserMetaRepository::COVER_IMAGE_TOP_POSITION)->first();
+                    $coverUserMeta = is_null($coverUserMeta) ? "0" : $coverUserMeta->meta_value;
                 ?>
                 <img src="<% $userProfile->profile_cover_image_path != "" ? $userProfile->profile_cover_image_path : ""%>"
-                        style="top:<% $coverUserMeta->meta_value.'px' %>">
+                        style="top:<% $coverUserMeta.'px' %>">
             @endif
         </div>
 
@@ -26,7 +27,14 @@
             <div class="col-xs-6 col-lg-3">
                 @include("errors.error_raw_list")
                 <div class="profile_image_container">
-                    <img src="<% $userProfile->profile_image_path %>">
+                    <?php
+                        $profileTopMeta = $userProfile->userMeta(talenthub\Repositories\UserMetaRepository::PROFILE_IMAGE_TOP_POSITION)->first();
+                        $profileLeftMeta = $userProfile->userMeta(talenthub\Repositories\UserMetaRepository::PROFILE_IMAGE_LEFT_POSITION)->first();
+
+                        $profileTopMeta = is_null($profileTopMeta) ? "0" : $profileTopMeta->meta_value;
+                        $profileLeftMeta = is_null($profileLeftMeta) ? "0" : $profileLeftMeta->meta_value;
+                    ?>
+                    <img src="<% $userProfile->profile_image_path %>" style="left:<% $profileLeftMeta.'px' %>;top:<% $profileTopMeta.'px' %>">
                     @if($profileEditable)
                         <div class="change_profile_image">
                             <a href data-toggle="modal" data-target="#uploadProfileImageModal">Change Photo</a>
@@ -52,7 +60,8 @@
             </div>
 
             <div class="col-xs-12 col-lg-5 about_container">
-                <p class="about"><span ng-init="about = '<% $userProfile->about ? $userProfile->about : "Tell something about yourself" %>'">{{about}}</span>
+                <p class="about"><span ng-init="about = '<% $userProfile->about ? $userProfile->about : "My name is ________. I play _______ with ______. I am interested in playing with _____ in country from ___." %>'">
+                        {{about}}</span>
                     @if($profileEditable)
                         <a href class="edit glyphicon glyphicon-pencil" data-toggle="modal" data-target="#updateProfileData"></a>
                     @endif

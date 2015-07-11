@@ -83,9 +83,29 @@ Route::group(['middleware' => ['auth']],function(){
         //Showing Own Profile - For Talent and Manager
         Route::get("profile","ProfileController@index");
 
-        //Showing a user Profile - as viewed by other user
-        Route::get("profile/{id}",'ProfileController@showUserProfile');
-        Route::get('profile/{id}/evangelists','ProfileController@allEvangelists');
+
+        //////////////////////////////////////////////////////////////
+        ///////////// MIDDLEWARE TO APPLY VIEW AUTHORIZATION /////////
+        /////////////////////////////////////////////////////////////
+        Route::group(['middleware'=>['profile_view_auth']],function(){
+            //Showing a user Profile - as viewed by other user
+            Route::get("profile/{id}",'ProfileController@showUserProfile');
+            Route::get('profile/{id}/evangelists','ProfileController@allEvangelists');
+
+            //Show User CV - For Talent and Manager
+            Route::get('profile/{id}/curriculumvitae','ProfileController@viewCV');
+            //Videos Page
+            Route::get('profile/{id}/videos','VideoController@index');
+            Route::post('profile/videos','VideoController@store');
+            //Images Page
+            Route::get('profile/{id}/Images','ImageController@index');
+            Route::post('profile/Images','ImageController@store');
+
+            //Favoutires Page
+            Route::get('profile/{id}/favourites','ProfileController@showFavourites');
+            Route::get('profile/{id}/favouritedYou','ProfileController@showWhoFavouritedYou');
+        });
+
 
 
         //Configuring Cover Image Pages
@@ -97,18 +117,7 @@ Route::group(['middleware' => ['auth']],function(){
         Route::put('profile/updateProfileData','ProfileController@updateProfileData');
         Route::put('profile/profileSummary','ProfileController@updateProfileSummary');
 
-        //Show User CV - For Talent and Manager
-        Route::get('profile/{id}/curriculumvitae','ProfileController@viewCV');
-        //Videos Page
-        Route::get('profile/{id}/videos','VideoController@index');
-        Route::post('profile/videos','VideoController@store');
-        //Images Page
-        Route::get('profile/{id}/Images','ImageController@index');
-        Route::post('profile/Images','ImageController@store');
 
-        //Favoutires Page
-        Route::get('profile/{id}/favourites','ProfileController@showFavourites');
-        Route::get('profile/{id}/favouritedYou','ProfileController@showWhoFavouritedYou');
 
         //Database Page
         Route::get('database','DatabaseController@index');
@@ -166,13 +175,19 @@ Route::group(['middleware' => ['auth']],function(){
 //// User's Outside Site ////
 ////////////////////////////
 Route::group(['middleware' => ['guest'],'prefix'=>'external'],function(){
-    Route::get("profile/{id}",'ProfileController@showUserProfile');
-    Route::get('profile/{id}/evangelists','ProfileController@allEvangelists');
-    Route::get('profile/{id}/curriculumvitae','ProfileController@viewCV');
-    //Videos Page
-    Route::get('profile/{id}/videos','VideoController@index');
-    //Images Page
-    Route::get('profile/{id}/Images','ImageController@index');
+
+    //////////////////////////////////////////////////////////////
+    ///////////// MIDDLEWARE TO APPLY VIEW AUTHORIZATION /////////
+    /////////////////////////////////////////////////////////////
+    Route::group(['middleware'=>['profile_view_auth']],function(){
+        Route::get("profile/{id}",'ProfileController@showUserProfile');
+        Route::get('profile/{id}/evangelists','ProfileController@allEvangelists');
+        Route::get('profile/{id}/curriculumvitae','ProfileController@viewCV');
+        //Videos Page
+        Route::get('profile/{id}/videos','VideoController@index');
+        //Images Page
+        Route::get('profile/{id}/Images','ImageController@index');
+    });
 
 
 

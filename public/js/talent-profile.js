@@ -72,7 +72,7 @@ talentProfile.controller('ProfilePresented',['$scope','DataSharingService','BROA
             $scope.first_name = DataSharingService.data.first_name;
             $scope.last_name = DataSharingService.data.last_name;
             $scope.country = $window.countryArray[DataSharingService.data.country];
-            $scope.about = DataSharingService.data.about;
+            $scope.about = DataSharingService.data.about == "" ? "My name is ________. I play _______ with ______. I am interested in playing with _____ in country from ___." : DataSharingService.data.about;
     });
 }]);
 
@@ -117,7 +117,7 @@ talentProfile.controller('UserProfileUpdate',['$scope','ProfileOperationService'
                 about   :   $scope.about
             };
 
-            ProfileOperationService(userData,'profile/updateProfileData').success(function(data){
+            ProfileOperationService(userData,'/profile/updateProfileData').success(function(data){
                 if(data.request_status=="successful")
                 {
                     console.log("Broadcasting data");

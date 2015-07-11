@@ -189,6 +189,11 @@ class UserProfile extends Model
             return $this->hasMany('talenthub\UserMeta','user_id')
                 ->where('meta_type','=',UserMetaRepository::PROFILE_IMAGE_TOP_POSITION);
         }
+        else if($meta_type == UserMetaRepository::PROFILE_IMAGE_LEFT_POSITION)
+        {
+            return $this->hasMany('talenthub\UserMeta','user_id')
+                ->where('meta_type','=',UserMetaRepository::PROFILE_IMAGE_LEFT_POSITION);
+        }
     }
 
 

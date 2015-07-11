@@ -29,6 +29,7 @@
                                         <div class="form-group">
                                             {!! Form::label('positions','Positions:') !!}
                                             {!! Form::select('positions[]',$sportPositions,$talentProfile->positions,['class'=>'form-control','multiple']) !!}
+                                            <p class="alert-info text-center">Please press 'ctrl' and click on options you want to select.</p>
                                         </div>
                                     </div>
 
@@ -85,7 +86,7 @@
                                             <div class="form-group">
                                                 {!! Form::label($userProfileExtraParamsKey["bench_press"],'Bench Press:') !!}
                                                 {!! Form::text($userProfileExtraParamsKey["bench_press"],$talentProfile->params["bench_press"],['class'=>'form-control',
-                                                'data-validate'=>'numberDecimal','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter a number correctly']) !!}
+                                                'data-validate'=>'','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter a number correctly']) !!}
                                             </div>
                                         </div>
                                     @endif

@@ -62,6 +62,21 @@ class SiteConstants {
     ////////////////////            User Functions             ///////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////
 
+
+    /**
+     * Checks if a user is a admin
+     * @param $user_id
+     */
+    public static function isAdmin($user_type)
+    {
+        if(in_array($user_type,array(self::USER_ADMIN)))
+        {
+            return true;
+        }
+        return false;
+    }
+
+
     /**
      * Checks if a user is talent or not, talent include STUDENT, ASPIRING PROFESSIONAL, BOTH and PARENT of talent
      * @param $user_id
