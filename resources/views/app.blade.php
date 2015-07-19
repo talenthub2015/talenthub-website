@@ -8,7 +8,7 @@
 
 	<title>Laravel</title>
 
-    <link rel="stylesheet" href="{{url('fonts/fonts.css')}}">
+    <link rel="stylesheet" href="{!! url('fonts/fonts.css') !!}">
 	<link href="{!! asset(elixir('css/main.css')) !!}" rel="stylesheet">
     <link href="{!! asset('css/site_animation.css') !!}" rel="stylesheet">
 

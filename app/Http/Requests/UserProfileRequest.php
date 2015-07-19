@@ -31,8 +31,8 @@ class UserProfileRequest extends Request {
             return [
                 'dob' => 'date',
                 'gender'=> 'in:'.implode(",",array_keys(UserProfileRepository::getUserGender())),
-                'height'=> 'numeric',
-                'weight'=> 'numeric',
+                'height'=> '',
+                'weight'=> '',
                 'mobile_number' => 'numeric',
                 'home_number' => 'numeric',
                 'address_type'=> 'in:'.implode(",",array_keys(UserProfileRepository::getAddressTypes())),

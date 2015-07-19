@@ -31,7 +31,6 @@ class CreateManagersDatabaseTable extends Migration {
             $table->string('contact_no');
             $table->string('country');
             $table->string('state');
-            $table->string('institution_type');
             $table->string('institution_name');
             $table->timestamps();
 

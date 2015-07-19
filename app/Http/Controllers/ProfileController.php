@@ -320,7 +320,7 @@ class ProfileController extends Controller {
         {
             return redirect('profile/editCV');
         }
-        return redirect('profile/edit');
+        return redirect('profile/edit')->with(["cv_update_status"=>"successfull"]);
 	}
 
 
@@ -356,7 +356,7 @@ class ProfileController extends Controller {
             return redirect('profile/completed');
         }
 
-        return redirect('profile/editCV');
+        return redirect('profile/editCV')->with(["cv_update_status"=>"successfull"]);
     }
 
 

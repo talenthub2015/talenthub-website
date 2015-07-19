@@ -35,7 +35,7 @@ class AdminController extends Controller {
         $management_level = array_map('ucfirst',array_merge(['0'=>'-- Select Option --'],BasicSiteRepository::getUserManagementLevelType(SiteConstants::USER_MANAGER)));
         $sport_type = array_map('ucfirst',BasicSiteRepository::getSportTypes());
         $sport_gender = array_map('ucfirst',array_merge(['0'=>'-- Select Option --'],SportsRepository::getSportsGender()));
-        $country = array_map('ucfirst',array(0=>'-- Select Country --', 244=>'United States'));
+        $country = array_map('ucfirst',BasicSiteRepository::getListOfCountries());
         $american_state = array_map('ucfirst',array_merge([0 => "-- Select State --"],BasicSiteRepository::getAmericanState()));
         $institution_type = array_map('ucfirst',UserProfileRepository::getInstituteType());
 
@@ -53,22 +53,22 @@ class AdminController extends Controller {
     {
         $totalManagers = count($request->get("coach_name"));
 
-        $allManagersData = ManagersDatabase::all()->toArray();
-
         $requestData = $request->all();
 
         //Array for storing managers, who won't get stored in the database and informed user
         $managersNotStored = array();
 
-        for ($i = 0; $i < $totalManagers; $i++) {
-            if ($this->checkIfManagerExists($allManagersData, $requestData, $i)) {
+        for ($i = 0; $i < $totalManagers; $i++)
+        {
+            if ($this->checkIfManagerExists($requestData, $i))
+            {
                 $newManagerData = ManagersDatabase::create([
                     "manager_type" => $requestData["manager_type"][$i], "management_level" => $requestData["management_level"][$i],
                     "sport_type" => $requestData["sport_type"][$i], "sport_gender" => $requestData["sport_gender"][$i],
                     "designation" => $requestData["designation"][$i], "coach_name" => $requestData["coach_name"][$i],
                     "email" => $requestData["email"][$i], "contact_no" => $requestData["contact_no"][$i],
                     "country" => $requestData["country"][$i], "state" => $requestData["state"][$i],
-                    "institution_type" => $requestData["institution_type"][$i],
+//                    "institution_type" => $requestData["institution_type"][$i],
                     "institution_name" => $requestData["institution_name"][$i]
                 ]);
             }
@@ -82,11 +82,10 @@ class AdminController extends Controller {
                         "designation" => $requestData["designation"][$i], "coach_name" => $requestData["coach_name"][$i],
                         "email" => $requestData["email"][$i], "contact_no" => $requestData["contact_no"][$i],
                         "country" => BasicSiteRepository::getListOfCountries()[$requestData["country"][$i]],
-                        "state" => BasicSiteRepository::getAmericanState()[$requestData["state"][$i]],
-                        "institution_type" => UserProfileRepository::getInstituteType()[$requestData["institution_type"][$i]],
+                        "state" => $requestData["state"][$i] != 0 ? BasicSiteRepository::getAmericanState()[$requestData["state"][$i]] : "",
+//                        "institution_type" => UserProfileRepository::getInstituteType()[$requestData["institution_type"][$i]],
                         "institution_name" => $requestData["institution_name"][$i]
-                    ]
-                );
+                    ]);
             }
         }
 
@@ -107,18 +106,16 @@ class AdminController extends Controller {
 
     /**
      * Checking if Manager at some index $i in $request, already exists in the database or not
-     * @param $allManagersData  ---- Have all the managers exists in the database
      * @param $request --- It is an array
      * @param $i
      */
-    public function checkIfManagerExists($allManagersData,$requestData,$i)
+    public function checkIfManagerExists($requestData,$i)
     {
-        foreach($allManagersData as $key=>$managerData)
+        $managerFound = ManagersDatabase::where('email','=',$requestData["email"][$i])->get();
+
+        if(count($managerFound) > 0)
         {
-            if($managerData["email"] == $requestData["email"][$i])
-            {
-                return false;
-            }
+            return false;
         }
         return true;
     }
@@ -132,12 +129,13 @@ class AdminController extends Controller {
      * @param null $sport_gender
      * @param null $state
      */
-    public function viewManagers($name=null, $manager_type=null, $sport=null, $sport_gender=null, $state=null)
+    public function viewManagers($name=null, $manager_type=null, $sport=null, $sport_gender=null, $country=null, $state=null)
     {
         $managers = ManagersDatabase::name($name)
                         ->managerType($manager_type)
                         ->sport($sport)
                         ->sportGender($sport_gender)
+                        ->country($country)
                         ->state($state)
                         ->paginate(25);
 
@@ -145,11 +143,12 @@ class AdminController extends Controller {
         $management_level = array_map('ucfirst',array_merge(['0'=>'-- Select Option --'],BasicSiteRepository::getUserManagementLevelType(SiteConstants::USER_MANAGER)));
         $sport_type = array_map('ucfirst',BasicSiteRepository::getSportTypes());
         $sport_gender = array_map('ucfirst',array_merge(['0'=>'-- Select Option --'],SportsRepository::getSportsGender()));
+        $country = array_map('ucfirst',BasicSiteRepository::getListOfCountries());
         $state = array_map('ucfirst',array_merge(['0' => "-- Select State --"],BasicSiteRepository::getAmericanState()));
 
 
         return view('admin.managers_database.view_manager',compact('managers','manager_type','management_level','sport_type','sport_gender',
-            'state'));
+            'country','state'));
     }
 
 
@@ -163,6 +162,7 @@ class AdminController extends Controller {
         $manager_type='null';
         $sport='null';
         $sport_gender='null';
+        $country = 'null';
         $state='null';
 
         if($request->has("coach_name") && trim($request->get("coach_name"))!="")
@@ -180,6 +180,10 @@ class AdminController extends Controller {
         if($request->has("sport_gender") && trim($request->get("sport_gender"))!="" && $request->get("sport_gender") != 0)
         {
             $sport_gender = SportsRepository::getSportsGender()[$request->get("sport_gender")];
+        }
+        if($request->has("country") && trim($request->get("country"))!="" && $request->get("country") != 0)
+        {
+            $state = BasicSiteRepository::getListOfCountries()[$request->get("country")];
         }
         if($request->has("state") && trim($request->get("state"))!="" && $request->get("state") != 0)
         {

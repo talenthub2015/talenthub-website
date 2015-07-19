@@ -12,7 +12,7 @@
             <div class="row form_container">
                 <div class="col-xs-3 col-lg-2">
                     <div class="form-group">
-                        {!! Form::label('coach_name','Coach Name:') !!}
+                        {!! Form::label('coach_name','Manager Name:') !!}
                         {!! Form::text('coach_name',null,['class'=>'form-control']) !!}
                     </div>
                 </div>
@@ -35,6 +35,13 @@
                     <div class="form-group">
                         {!! Form::label('sport_gender','Sport Gender:') !!}
                         {!! Form::select('sport_gender',$sport_gender,null,['class'=>'form-control']) !!}
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-lg-2">
+                    <div class="form-group">
+                        {!! Form::label('country','Country:') !!}
+                        {!! Form::select('country',$country,null,['class'=>'form-control']) !!}
                     </div>
                 </div>
 
@@ -67,7 +74,7 @@
             <h4>{{$manager->coach_name}}
                 <div class="pull-right">
                     {!! Form::open(['method'=>'delete','url'=>'admin/deleteManager']) !!}
-                        <a href=""><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                        <!--a href=""><span class="glyphicon glyphicon-edit"></span> Edit</a-->
                         <button class="btn glyphicon glyphicon-remove" type="submit" onclick="if(!confirm('Are you sure you want to delete?')){event.preventDefault();}"> Delete</button>
                         {!! Form::hidden('manager_id',$manager->id) !!}
                     {!! Form::close() !!}
@@ -87,13 +94,9 @@
                     <label>Designation:</label>
                     {{$manager->designation}}
                 </div>
-                <div class="col-xs-3 col-lg-2">
+                <div class="col-xs-3 col-lg-3">
                     <label>Management Level:</label>
                     {{$manager->management_level}}
-                </div>
-                <div class="col-xs-3 col-lg-2">
-                    <label>Institution Type:</label>
-                    {{$manager->institution_type}}
                 </div>
                 <div class="col-xs-3 col-lg-2">
                     <label>Institution Name:</label>
@@ -101,18 +104,25 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-3 col-lg-2">
+                <div class="col-xs-3 col-lg-4">
                     <label>Email:</label>
                     {{$manager->email}}
                 </div>
-                <div class="col-xs-3 col-lg-2">
+                <div class="col-xs-3 col-lg-3">
                     <label>Contact Number:</label>
                     {{$manager->contact_no}}
                 </div>
+
                 <div class="col-xs-3 col-lg-2">
-                    <label>State:</label>
-                    {{$manager->state}}
+                    <label>Country:</label>
+                    {{$manager->country}}
                 </div>
+                @if($manager->state != "")
+                    <div class="col-xs-3 col-lg-2">
+                        <label>State:</label>
+                        {{$manager->state}}
+                    </div>
+                @endif
             </div>
             <hr>
         @endforeach

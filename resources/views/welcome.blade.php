@@ -22,24 +22,26 @@
         @include("templates.guestHeader")
 
         <section class="banner">
-            <div class="container">
-                <h1 class="sign_in_container">The mission of Talenthub is to connect sport talent all over the world with the relevant managers of sport talent who can help progress the sport talents careers.</h1>
-                <br>
-                <div class="row form_container">
-                    <div class="col-xs-12 col-lg-12">
-                        <div class="sign_in_container">
-                            @if($errors->any())
-                                <div class="alert alert-danger">
-                                    @foreach($errors->all() as $error)
-                                        <p>{{$error}}</p>
-                                    @endforeach
-                                </div>
-                            @endif
-                            {!! Form::open(['method'=>'post','url'=>'auth/login']) !!}
-                            @include("templates.forms.signin")
-                            {!! Form::close() !!}
-                        </div>
+            <div class="black_gloss">
+                <div class="container">
+                    <h1 class="">The mission of Talenthub is to connect sport talent all over the world with the relevant managers of sport talent who can help progress the sport talents careers.</h1>
+                    <br>
+                    <div class="row form_container">
+                        <div class="col-xs-12 col-lg-12">
+                            <div class="">
+                                @if($errors->any())
+                                    <div class="alert alert-danger">
+                                        @foreach($errors->all() as $error)
+                                            <p>{{$error}}</p>
+                                        @endforeach
+                                    </div>
+                                @endif
+                                {!! Form::open(['method'=>'post','url'=>'auth/login']) !!}
+                                @include("templates.forms.signin")
+                                {!! Form::close() !!}
+                            </div>
 
+                        </div>
                     </div>
                 </div>
             </div>

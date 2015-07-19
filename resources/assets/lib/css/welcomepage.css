@@ -77,8 +77,13 @@ header {
   min-height: 700px;
   height: auto;
   margin-top: 50px;
-  color: #FFFFFF; }
-  .banner h1 {
+  color: #FFFFFF;
+  z-index: -1; }
+  .banner .black_gloss {
+    background: rgba(0, 0, 0, 0.75);
+    height: 100%;
+    min-height: 700px; }
+  .banner h1, .banner h4 {
     font-weight: 700;
     text-shadow: 0px 0px 20px black;
     -moz-text-shadow: 0px 0px 20px black;
@@ -86,6 +91,9 @@ header {
     font-size: 36px;
     text-align: center;
     line-height: 180%; }
+  .banner h4 {
+    font-size: 20px;
+    text-align: left; }
   .banner .container {
     padding: 50px 15px; }
   .banner .usertypetabpanel {
@@ -105,7 +113,7 @@ header {
         background-color: rgba(0, 0, 0, 0.75) !important;
         border-color: #000000 !important; }
   .banner .sign_in_container {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.75);
     padding: 15px; }
   .banner .form_container .error_form_validation {
     border: 1px solid #FF6347 !important; }

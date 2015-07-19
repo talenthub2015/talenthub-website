@@ -17,6 +17,16 @@
                     @include("templates.menu.left_menu_edit_profile")
                 </div>
                 <div class="col-xs-12 col-lg-9">
+
+                    @if(Session::has("cv_update_status"))
+                        <div class="col-lg-12">
+                            @if(Session::get("cv_update_status") == "successfull")
+                                <p class="alert alert-success">Your CV saved successfully</p>
+                            @endif
+                        </div>
+                    @endif
+
+
                     <div class="row">
                         {!! Form::model($talentProfile,['method'=>'PUT','url'=>'profile/CV','novalidate','name'=>'talent_CV']) !!}
                         <div class="col-xs-12 col-lg-12 ">

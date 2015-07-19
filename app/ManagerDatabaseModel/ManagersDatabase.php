@@ -20,7 +20,7 @@ class ManagersDatabase extends Model {
      * Variable used to check whether need to mutate values while retrieving values form database or saving in it.
      */
     public $getMutatedData = true;  //Getting Mutated data from database.
-    public $setMutateData = true;   //Setting data to be mutated before saving to database
+    public $setMutatedData = true;   //Setting data to be mutated before saving to database
 
 
     /**
@@ -29,7 +29,15 @@ class ManagersDatabase extends Model {
      */
     public function setmanagerTypeAttribute($manager_type)
     {
-        $this->attributes["manager_type"]=BasicSiteRepository::getManagerTypes()[$manager_type];
+        if($this->setMutatedData)
+        {
+            $this->attributes["manager_type"] = ($manager_type != null && $manager_type != "") ? BasicSiteRepository::getManagerTypes()[$manager_type] : "";
+        }
+        else
+        {
+            $this->attributes["manager_type"]=BasicSiteRepository::getManagerTypes()[$manager_type];
+        }
+
     }
 
 
@@ -75,7 +83,15 @@ class ManagersDatabase extends Model {
      */
     public function setstateAttribute($state)
     {
-        $this->attributes["state"]=BasicSiteRepository::getAmericanState()[$state];
+        if($this->setMutatedData)
+        {
+            $this->attributes["state"] = ($state != null && $state != "" && $state != 0) ? BasicSiteRepository::getAmericanState()[$state] : "";
+        }
+        else
+        {
+            $this->attributes["state"]=BasicSiteRepository::getAmericanState()[$state];
+        }
+
     }
 
 

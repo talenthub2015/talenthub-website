@@ -50,7 +50,9 @@
                     @endif
                 </p>
                 <p class="user_sport"><span><% $userProfile->sport_type %></span> | <span><% $userProfile->dob %></span>
-                <p class="user_position"><span><% $userProfile->preferred_position %></span></p>
+                @if($userProfile->preferred_position != "")
+                    <p class="user_position"><span><% $userProfile->preferred_position %></span></p>
+                @endif
                 <p class="user_management_level"><span><% ucfirst($userProfile->management_level) %></span></p>
                 <p class="user_country"><span ng-init="country = '<% $userProfile->country %>'">{{country}}</span>
                     @if($profileEditable)
@@ -60,7 +62,7 @@
             </div>
 
             <div class="col-xs-12 col-lg-5 about_container">
-                <p class="about"><span ng-init="about = '<% $userProfile->about ? $userProfile->about : "My name is ________. I play _______ with ______. I am interested in playing with _____ in country from ___." %>'">
+                <p class="about"><span ng-init="about = '<% $userProfile->about ? $userProfile->about : "My name is ________. I play _______ with ______. I am interested in playing with _____ in ______ from ___." %>'">
                         {{about}}</span>
                     @if($profileEditable)
                         <a href class="edit glyphicon glyphicon-pencil" data-toggle="modal" data-target="#updateProfileData"></a>

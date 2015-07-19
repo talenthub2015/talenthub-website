@@ -74,7 +74,7 @@
                     </ul>
                 </li>
 
-                <li>How do I delete my account?
+                <!--li>How do I delete my account?
                     <ul>
                         <li>Login to your Talenthub account.</li>
                         <li>Click on the “Information” tab.</li>
@@ -82,7 +82,7 @@
                         <li>At the bottom, you will see a link to close your Talenthub account.</li>
                         <li>It is that easy, should be deleted shortly after.</li>
                     </ul>
-                </li>
+                </li-->
 
                 <li>Can I use the same email address for multiple accounts?
                     <p>No. At the moment, Talenthub only allows you to have a single account.</p>

@@ -10,6 +10,15 @@
                     @include("templates.menu.left_menu_edit_profile")
                 </div>
                 <div class="col-xs-12 col-lg-9">
+                    @if(Session::has("cv_update_status"))
+                        <div class="col-lg-12">
+                            @if(Session::get("cv_update_status") == "successfull")
+                                <p class="alert alert-success">Your profile saved successfully</p>
+                            @endif
+                        </div>
+                    @endif
+
+
                     <ul class="nav nav-tabs">
                         <li ng-class="{active:tab.isTabClicked(1)}"><a href ng-click="tab.tabClicked(1)" >Personal Info</a></li>
                         @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) != \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_ASPIRING_PRO)
@@ -68,14 +77,14 @@
                                     <div class="col-xs-12 col-lg-2">
                                         <div class="form-group">
                                             {!! Form::label('height','Height (meters):') !!}
-                                            {!! Form::input('text','height',null,['class'=>'form-control','data-validate'=>'number',
+                                            {!! Form::input('text','height',null,['class'=>'form-control','data-validate'=>'',
                                             'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter numeric value']) !!}
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-lg-2">
                                         <div class="form-group">
                                             {!! Form::label('weight','Weight (kg):') !!}
-                                            {!! Form::input('text','weight',null,['class'=>'form-control','data-validate'=>'number',
+                                            {!! Form::input('text','weight',null,['class'=>'form-control','data-validate'=>'',
                                             'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter numeric value']) !!}
                                         </div>
                                     </div>
@@ -178,6 +187,11 @@
 
                                     </div>
                                 @endif
+
+
+                                <div class="text-center">
+                                    <button class="btn btn-info" type="button" ng-click="tab.tabClicked(2)">Father/Mother Details</button>
+                                </div>
 
 
                             </div>
@@ -283,6 +297,11 @@
                                         </div>
 
                                     </div>
+
+
+                                    <div class="text-center">
+                                        <button class="btn btn-info" type="button" ng-click="tab.tabClicked(3)">Guardian Details</button>
+                                    </div>
                                 </div>
 
                                 <div ng-show="tab.isTabClicked(3)" class="tab_panel">
@@ -334,6 +353,10 @@
                                             </div>
                                         </div>
 
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button class="btn btn-info" type="button" ng-click="tab.tabClicked(4)">Academic Information</button>
                                     </div>
 
                                 </div>
@@ -427,6 +450,11 @@
                                             </div>
                                         </div>
 
+                                    </div>
+
+
+                                    <div class="text-center">
+                                        <button class="btn btn-info" type="button" ng-click="tab.tabClicked(5)">Academic Achievements and Aspirations</button>
                                     </div>
 
                                 </div>
@@ -583,9 +611,11 @@
                             @endif
 
 
+                            <hr style="color:#1a1a1a;background:#1a1a1a; height:1px;">
+
                             <div class="row">
                                 <div class="col-xs-12 col-lg-4 col-lg-offset-4">
-                                    {!! Form::submit('Update Profile Data',['class'=>'btn btn-primary form-control']) !!}
+                                    {!! Form::submit('Save Profile',['class'=>'btn btn-primary form-control']) !!}
                                 </div>
 
                             </div>
