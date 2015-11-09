@@ -26,8 +26,12 @@ return [
 	|
 	*/
 
-	'url' => 'http://localhost',
+    /*When Live use below URL*/
+//	'url' => 'http://talenthubapp.com',
 
+
+    /* When Developing use below URL */
+    'url'=>'http://localhost/talenthub/',
 	/*
 	|--------------------------------------------------------------------------
 	| Application Timezone

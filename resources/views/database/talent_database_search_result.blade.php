@@ -73,6 +73,13 @@
                     <th>{{$user_management_level == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_STUDENT ? "Coach Name" : "Manage Name"}}</th>
                     <th></th>
                 </tr>
+                {{--If no manager is available--}}
+                @if(count($managers)==0)
+                    <tr>
+                        <th colspan="5" class="text-center alert alert-warning">Sorry, no contacts in our database meet your search request</th>
+                    </tr>
+                @endif
+
                 @foreach($managers as $key=>$manager)
                     <?php
                         $already_contacted_status = 0;
@@ -113,8 +120,15 @@
                         <div class="alert alert-success hide">
                             <p>Mail sent to the manager/coach.</p>
                         </div>
-                        <p class="confirm_message">Are you sure to contact the coach?</p>
+                        <p class="confirm_message alert-warning alert"><strong>Are you sure to contact the coach?</strong> If 'yes', enter your message for the manager and click 'Yes', otherwiser click 'No'.</p>
                         <p class="alert alert-danger hide"></p>
+                        <div class="form_container">
+                            <div class="form-group">
+                                {!! Form::label('message','Message') !!}
+                                {!! Form::textarea('message',"",['class'=>'form-control','placeholder'=>'Your message to manager',
+                                'data-validate'=>'require','data-toggle'=>"tooltip", 'data-placement'=>"bottom", 'title'=>"Please provide your message for the Manager"]) !!}
+                            </div>
+                        </div>
                     </div>
                     <div class="show_loading_image hide">
                         <p class="alert-info">Please Wait!!</p>

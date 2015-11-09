@@ -25,6 +25,14 @@ $(document).ready(function(){
 
 
     $("#contact_manager").click(function(){
+
+        if(whitespace.test($("#contactManagerModal #message").val()))
+        {
+            $("#contactManagerModal #message").addClass(errorClassName);
+            $("#contactManagerModal #message").tooltip();
+            return false;
+        }
+
         $("#contactManagerModal .confirm_message").hide();
         $("#contactManagerModal .show_loading_image").removeClass("hide");
         $("#contactManagerModal .modal-footer button").hide();
@@ -33,7 +41,8 @@ $(document).ready(function(){
             url:'/database/contactManager',
             data:{
                 talent_id   :   talent_id,
-                manager_id  :   manager_id
+                manager_id  :   manager_id,
+                message     :   $("#contactManagerModal #message").val()
             },
             dataType: "json",
             method: "POST"

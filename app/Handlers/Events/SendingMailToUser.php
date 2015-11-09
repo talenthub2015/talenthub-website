@@ -27,13 +27,17 @@ class SendingMailToUser {
 	public function handle(SendMail $event)
 	{
         $view="";
+        $view_bcc = "";
         $data=$event->viewData;
         $subject="";
 		switch($event->mailType)
         {
             case SendMail::MAIL_TYPE_USER_CONFIRMATION:
                 $view="emails.registration_confirmation";
+                $view_bcc = "emails.registration_notification_internal_team";
                 $subject="Confirm Talenthub Account";
+                $subject_bcc = "New User registered";
+                $event->bcc = ['izaacsomers@gmail.com','philipmngadi@gmail.com','kylewestman@talenthubapp.com'];
                 break;
 
             case SendMail::MAIL_TYPE_USER_PASSWORD_REST:
@@ -72,6 +76,17 @@ class SendingMailToUser {
                 }
             }
         });
+        if(count($event->bcc)>0)
+        {
+            foreach($event->bcc as $bcc_address)
+            {
+                Mail::send($view_bcc, compact('data'), function($message) use ($event,$subject_bcc,$bcc_address)
+                {
+                    $message->subject($subject_bcc);
+                    $message->to($bcc_address);
+                });
+            }
+        }
 	}
 
 }

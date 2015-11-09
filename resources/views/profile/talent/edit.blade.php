@@ -159,7 +159,7 @@
 
                                 </div>
 
-                                @if(Session::get("user_type")!=101)
+                                @if($userProfile->management_level == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_STUDENT)
                                     <div class="row form_container">
                                         <div class="col-xs-12 col-lg-4">
                                             <div class="form-group">
@@ -180,7 +180,7 @@
 
                                         <div class="col-xs-12 col-lg-4">
                                             <div class="form-group">
-                                                {!! Form::label('ncaa','NCAA Clearning ID:') !!}
+                                                {!! Form::label('ncaa','NCAA Clearning ID:') !!} <a href="#" class="help_link">What is this?</a>
                                                 {!! Form::text('ncaa',null,['class'=>'form-control']) !!}
                                             </div>
                                         </div>
@@ -188,15 +188,15 @@
                                     </div>
                                 @endif
 
-
-                                <div class="text-center">
-                                    <button class="btn btn-info" type="button" ng-click="tab.tabClicked(2)">Father/Mother Details</button>
-                                </div>
-
+                                @if($userProfile->management_level == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_STUDENT)
+                                    <div class="text-center">
+                                        <button class="btn btn-info" type="button" ng-click="tab.tabClicked(2)">Father/Mother Details</button>
+                                    </div>
+                                @endif
 
                             </div>
 
-                            @if(Session::get("user_type")!=101)
+                            @if($userProfile->management_level == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_STUDENT)
                                 <div ng-show="tab.isTabClicked(2)" class="tab_panel">
                                     <div class="row form_container">
                                         <div class="col-xs-12 col-lg-4">

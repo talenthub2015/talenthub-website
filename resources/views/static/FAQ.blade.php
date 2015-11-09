@@ -33,8 +33,7 @@
                 <li>How do I upload a video with a file?
                     <ul>
                         <li>Login to your Talenthub account.</li>
-                        <li>On your Talenthub Updates page – you should see an option allowing you to “Upload</li>
-                        <li>Video/Photo”.</li>
+                        <li>On your Talenthub Updates page – you should see an option allowing you to “Upload Video/Photo”.</li>
                         <li>Click on that option.</li>
                         <li>Your computer files table should pop up.</li>
                         <li>Select the video you want to upload.</li>

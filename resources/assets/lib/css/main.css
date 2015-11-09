@@ -77,6 +77,13 @@ p {
   line-height: 12px;
   margin: 0px 5px; }
 
+.help_link {
+  font-size: 9px;
+  text-decoration: none;
+  font-weight: 700;
+  margin: 0px 5px;
+  color: #037bac; }
+
 header {
   position: fixed;
   background-color: #203f15;
@@ -526,9 +533,9 @@ footer {
           overflow: hidden; }
           .talent_profile .profile_content_container .container .row .evangelists_container .endorser_container a img {
             min-width: 100%;
-            min-height: 150px;
-            width: 150px;
-            height: 150px; }
+            height: 150px;
+            width: auto;
+            max-width: none; }
           .talent_profile .profile_content_container .container .row .evangelists_container .endorser_container a .endorser_name {
             font-size: 14px;
             font-weight: 400;
@@ -548,8 +555,9 @@ footer {
         padding: 5px;
         overflow: hidden; }
         .talent_profile .profile_content_container .container .row .row.evangelists_container .endorser_container a img {
-          width: 100%;
-          height: auto; }
+          width: auto;
+          height: 150px;
+          max-width: none; }
         .talent_profile .profile_content_container .container .row .row.evangelists_container .endorser_container a .endorser_name {
           position: absolute;
           bottom: 0px;
@@ -787,7 +795,7 @@ footer {
         font-weight: 600;
         margin-bottom: 15px; }
         .static_pages_container .container ul > li > ul > li, .static_pages_container .container ol > li > ul > li {
-          font-weight: 700;
+          font-weight: 300;
           font-size: 14px;
           margin-bottom: 5px;
           line-height: 150%; }

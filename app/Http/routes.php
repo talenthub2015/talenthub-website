@@ -13,7 +13,11 @@
 
 include_once('admin_routes.php');
 
-Route::get('/', 'WelcomeController@index');
+Route::get("/",function(){
+    return redirect("/sign_up");
+});
+
+Route::get('/sign_in', 'WelcomeController@index');
 
 Route::get('sign_up', 'WelcomeController@signUp');
 

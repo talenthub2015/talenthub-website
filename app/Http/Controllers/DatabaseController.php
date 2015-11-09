@@ -125,7 +125,6 @@ class DatabaseController extends Controller {
                 $managers = ManagersDatabase::managerType(SiteConstants::USER_MANAGER_COACH)
                     ->managementLevel($managerManagementLevel)
                     ->state($state)
-                    ->institutionType(UserProfileRepository::getInstituteType()[$institution_type])
                     ->sportGender($gender)
                     ->sport($sport_type)
                     ->paginate(25);
@@ -166,7 +165,7 @@ class DatabaseController extends Controller {
      */
     public function contactManager(Request $request)
     {
-        $validator = Validator::make($request->all(),['manager_id'=>'required','talent_id'=>'required']);
+        $validator = Validator::make($request->all(),['manager_id'=>'required','talent_id'=>'required','message'=>'required']);
 
         if($validator->fails())
         {
@@ -182,8 +181,8 @@ class DatabaseController extends Controller {
         {
             $user = User::find(Session::get(SiteSessions::USER_ID));
             $manager = ManagersDatabase::find($request->manager_id);
-            Event::fire(new SendMail(SendMail::MAIL_TYPE_CONTACT_MANAGER,$manager->email,[],["manager"=>$manager,"talent"=>$user]));
-            DB::table('managers_contacted')->insert(['user_id'=>$request->talent_id,'manager_id'=>$request->manager_id,'contacted_on'=>Carbon::now()]);
+            Event::fire(new SendMail(SendMail::MAIL_TYPE_CONTACT_MANAGER,$manager->email,[],["manager"=>$manager,"talent"=>$user,"message"=>$request->message]));
+            DB::table('managers_contacted')->insert(['user_id'=>$request->talent_id,'manager_id'=>$request->manager_id,'message_to_manager'=>$request->message,'contacted_on'=>Carbon::now()]);
         }
         catch(QueryException $e)
         {

@@ -7,16 +7,33 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-lg-6 strip_heading">
-                <a>Scholarship Opportunities</a>
+                @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_ASPIRING_PRO)
+                    <a>Professional Opportunities  </a>
+                @endif
+                @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_STUDENT)
+                        <a>Scholarship Opportunities</a>
+                @endif
+
             </div>
 
             <div class="col-xs-12 col-lg-6 strip_heading">
-                <a href="{{url('scholarship-process')}}">Scholarship Process Help</a>
+                @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_ASPIRING_PRO)
+                    <a href="{{url('pro-process-help')}}">Professional Opportunities  </a>
+                @endif
+                @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_STUDENT)
+                        <a href="{{url('scholarship-process')}}">Scholarship Process Help</a>
+                @endif
+
             </div>
         </div>
 
         <br>
-        <p>Please select the state in which you want to pursue sport scholarship opportunities in. The number of University coaches available to be contacted in each state in indicated.</p>
+        @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_ASPIRING_PRO)
+            <p>Please select the country in which you wish to pursue professional sport opportunities in.</p>
+        @endif
+        @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_STUDENT)
+            <p>Please select the state in which you want to pursue sport scholarship opportunities in. The number of University coaches available to be contacted in each state in indicated.</p>
+        @endif
 
         <br>
 

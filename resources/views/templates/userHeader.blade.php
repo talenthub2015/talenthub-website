@@ -26,12 +26,12 @@
                                     <li><a href="{!! url('scholarship-process') !!}"><span class="glyphicon glyphicon-hand-right"></span> Scholarship Process Help</a></li>
                                 @endif
                                 @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_ASPIRING_PRO)
-                                    <li><a href="{!! url('profile/edit') !!}"><span class="glyphicon glyphicon-hand-right"></span> Professional Process Help</a></li>
+                                    <li><a href="{!! url('pro-process-help') !!}"><span class="glyphicon glyphicon-hand-right"></span> Professional Process Help</a></li>
                                 @endif
                                 <li><a href="{!! url('FAQ') !!}"><span class="glyphicon glyphicon-question-sign"></span> Help Centre</a></li>
                                 <li><a href="{!! url('settings/privacy') !!}"><span class="glyphicon glyphicon-lock"></span> Privacy Settings</a></li>
                                 <li><a href="{!! url('settings/general') !!}"><span class="glyphicon glyphicon-cog"></span> General Settings</a></li>
-                                <li><a href="{!! url('profile/edit') !!}"><span class="glyphicon glyphicon-list-alt"></span> Policies</a></li>
+                                <!--li><a href="{!! url('profile/edit') !!}"><span class="glyphicon glyphicon-list-alt"></span> Policies</a></li-->
                             </ul>
                         </li>
                         <li><a href="{!!  url('database')  !!}">Database</a></li>
@@ -114,11 +114,11 @@
                         </li>
                         <li class="has-dropdown"><a href="{!!  url('messages')  !!}">Messages <span class="badge">{!! $messageCount == 0 ? "" : $messageCount !!}</span></a>
                         </li>
-                        <li class="has-dropdown"><a href="{!!  url('profile/'.Session::get(\talenthub\Repositories\SiteSessions::USER_ID).'/favourites')  !!}">Favourites</a>
+                        <!--li class="has-dropdown"><a href="{!!  url('profile/'.Session::get(\talenthub\Repositories\SiteSessions::USER_ID).'/favourites')  !!}">Favourites</a>
                             <ul class="dropdown-menu">
                                 <li><a href="{!!  url('profile/'.Session::get(\talenthub\Repositories\SiteSessions::USER_ID).'/favouritedYou')  !!}"><span class="glyphicon glyphicon-star"></span> Who favourited you?</a></li>
                             </ul>
-                        </li>
+                        </li-->
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <!--li>

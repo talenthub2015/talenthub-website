@@ -28,7 +28,12 @@
 
             <div class="row">
                 <div class="col-xs-12 col-lg-8">
-                    <h1 class="">The mission of Talenthub is to connect sport talent all over the world with the relevant managers of sport talent who can help progress the sport talents careers.</h1>
+                    {{--<h1 class="">The mission of Talenthub is to connect sport talent all over the world with the relevant managers of sport talent who can help progress the sport talents careers.</h1>--}}
+                    <!--video controls height="300px">
+                        {{--<source src="<?php echo asset('th_video/talenthub.mp4'); ?>" type="video/mp4">--}}
+                        {{--Your browser doesn't support Video.--}}
+                    </video-->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Te_9qFNzIho?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="col-xs-12 col-lg-4">
                     <h4>WHO ARE YOU?</h4>

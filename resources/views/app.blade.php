@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="_token" content="{!! csrf_token() !!}"/>
 
-	<title>Laravel</title>
+    <title>Talenthub</title>
 
     <link rel="stylesheet" href="{!! url('fonts/fonts.css') !!}">
 	<link href="{!! asset(elixir('css/main.css')) !!}" rel="stylesheet">

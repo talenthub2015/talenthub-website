@@ -231,20 +231,20 @@ class ManagersDatabase extends Model {
      * @param $query
      * @param $institution_type
      */
-    public function scopeInstitutionType($query,$institution_type,$queryAsOr=false)
-    {
-        if($institution_type != null && $institution_type != 'null')
-        {
-            if($queryAsOr)
-            {
-                $query->orWhere('institution_type','=',$institution_type);
-            }
-            else
-            {
-                $query->where('institution_type','=',$institution_type);
-            }
-        }
-    }
+//    public function scopeInstitutionType($query,$institution_type,$queryAsOr=false)
+//    {
+//        if($institution_type != null && $institution_type != 'null')
+//        {
+//            if($queryAsOr)
+//            {
+//                $query->orWhere('institution_type','=',$institution_type);
+//            }
+//            else
+//            {
+//                $query->where('institution_type','=',$institution_type);
+//            }
+//        }
+//    }
 
 
 

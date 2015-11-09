@@ -19,6 +19,8 @@ class SendMail extends Event {
 
     public $cc = [];
 
+    public $bcc = [];
+
     public $viewData;
 
 	/**

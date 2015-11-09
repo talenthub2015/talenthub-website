@@ -37,10 +37,10 @@ for($i=0;$i<count($sportStatistics);$i++)
                                     <th title="Games Played">GP</th>
                                     <th title="Games Started">GS</th>
                                     <th title="Games Completed">GC</th>
-                                    <th title="Lineout’s Attempted">LTA</th>
-                                    <th title="Lineout’s Successful">LTS</th>
+                                    <th title="Lineout Throws Attempted">LTA</th>
+                                    <th title="Lineout Throws Successful">LTS</th>
                                     <th title="Lineout Jumps Attempted">LJA</th>
-                                    <th title="Lineout Jumps Successful">LJS</th>
+                                    <th title="Line Jumps Successful">LJS</th>
                                     <th title="Yellow Cards">YC</th>
                                     <th title="Red Cards">RC</th>
                                     <th title="Tries">TR</th>
@@ -122,13 +122,13 @@ for($i=0;$i<count($sportStatistics);$i++)
                                 <caption>Kicker</caption>
                                 <tr>
                                     <th title="Conversions Attempted">CA</th>
-                                    <th title="Conversions Scored">CS</th>
-                                    <th title="Short Conversions">SC</th>
-                                    <th title="Long conversions">LC</th>
-                                    <th title="Punts Attempted">PA</th>
-                                    <th title="Punts Successful">PS</th>
-                                    <th title="Short Punts">SP</th>
-                                    <th title="Long Punts">LP</th>
+                                    <th title="Conversions Successful ">CS</th>
+                                    <th title="Short Range Conversions">SC</th>
+                                    <th title="Long Range Conversions">LC</th>
+                                    <th title="Penalties Attempted">PA</th>
+                                    <th title="Penalties Successful ">PS</th>
+                                    <th title="Short Range Penalties">SP</th>
+                                    <th title="Long Range Penalties">LP</th>
                                 </tr>
                                 <tbody class="form_container">
                                 <tr>
