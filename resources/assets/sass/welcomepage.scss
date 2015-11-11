@@ -324,3 +324,65 @@ footer
     }
   }
 }
+
+
+
+
+/*Testimonials*/
+#testimonials
+{
+//  background:#f3f1da;
+  width:560px;
+  border-bottom:1px solid #1a1a1a;
+  h4
+  {
+    text-align:center;
+    font-size:24px;
+  }
+  p
+  {
+    color:#1a1a1a;
+    font-size:22px;
+    line-height:200%;
+    text-align:center;
+    font-family:'Open Sans';
+    margin-bottom:50px;
+  }
+  .carousel .item
+  {
+    text-align:center;
+    .video
+    {
+      max-width:850px;
+      width:90%;
+      height:auto;
+      max-height:500px;
+      margin:0px auto;
+      display:block;
+    }
+  }
+  .carousel-control.left,.carousel-control.right
+  {
+    background:none;
+    width:25px;
+  }
+  .glyphicon-chevron-right,.glyphicon-chevron-left
+  {
+    &:before
+    {
+      color:#FF0000;
+    }
+  }
+  .carousel-indicators
+  {
+    bottom:-30px;
+  }
+  .carousel-indicators li,.carousel-indicators li.active
+  {
+    border-color:#1a1a1a;
+  }
+  .carousel-indicators li.active
+  {
+    background-color:#1a1a1a;
+  }
+}

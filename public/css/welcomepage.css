@@ -6438,5 +6438,40 @@ footer {
       text-align: right;
       margin-top: 5px; }
 
+/*Testimonials*/
+#testimonials {
+  width: 560px;
+  border-bottom: 1px solid #1a1a1a; }
+  #testimonials h4 {
+    text-align: center;
+    font-size: 24px; }
+  #testimonials p {
+    color: #1a1a1a;
+    font-size: 22px;
+    line-height: 200%;
+    text-align: center;
+    font-family: 'Open Sans';
+    margin-bottom: 50px; }
+  #testimonials .carousel .item {
+    text-align: center; }
+    #testimonials .carousel .item .video {
+      max-width: 850px;
+      width: 90%;
+      height: auto;
+      max-height: 500px;
+      margin: 0px auto;
+      display: block; }
+  #testimonials .carousel-control.left, #testimonials .carousel-control.right {
+    background: none;
+    width: 25px; }
+  #testimonials .glyphicon-chevron-right:before, #testimonials .glyphicon-chevron-left:before {
+    color: #FF0000; }
+  #testimonials .carousel-indicators {
+    bottom: -30px; }
+  #testimonials .carousel-indicators li, #testimonials .carousel-indicators li.active {
+    border-color: #1a1a1a; }
+  #testimonials .carousel-indicators li.active {
+    background-color: #1a1a1a; }
+
 /*# sourceMappingURL=welcomepage.css.map */
 /*# sourceMappingURL=welcomepage.css.map */

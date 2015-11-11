@@ -34,6 +34,62 @@
                         {{--Your browser doesn't support Video.--}}
                     </video-->
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/Te_9qFNzIho?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+
+                    <div id="testimonials">
+                        <h4 class="text-center">Is Talenthub really useful?</h4>
+                        <div id="testimonials_crousels" class="carousel slide" data-ride="" data-interval="10000">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#testimonials_crousels" data-slide-to="0" class="active"></li>
+                                <li data-target="#testimonials_crousels" data-slide-to="1"></li>
+                                <li data-target="#testimonials_crousels" data-slide-to="2"></li>
+
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <video controls class="video">
+                                        <source src="{{asset('th_video/video_3.mp4')}}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+
+                                <div class="item">
+                                    <video controls class="video">
+                                        <source src="{{asset('th_video/video_2.mp4')}}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="item">
+                                    <video controls class="video">
+                                        <source src="{{asset('th_video/video_1.mp4')}}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#testimonials_crousels" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#testimonials_crousels" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+
+                        <script>
+                            $(document).ready(function(){
+                                $("#testimonials #testimonials_crousels").carousel('pause');
+                            });
+                        </script>
+                    </div>
+
+
                 </div>
                 <div class="col-xs-12 col-lg-4">
                     <h4>WHO ARE YOU?</h4>
