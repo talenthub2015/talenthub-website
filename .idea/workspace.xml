@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e1c968e4-fc5c-4a97-b134-8fc965a76b71" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/th_video/video_1.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/th_video/video_2.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/th_video/video_3.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/th_video/video_4.mp4" />
-      <change type="DELETED" beforePath="F:\wamp\www\TalentHub\talenthub-website\thub\public\build\css\welcomepage-8033a5c0.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/cb98bd34b18450d3a04f6c44e960b66fb79c4c5d/welcomepage.scssc" afterPath="$PROJECT_DIR$/.sass-cache/cb98bd34b18450d3a04f6c44e960b66fb79c4c5d/welcomepage.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/rev-manifest.json" afterPath="$PROJECT_DIR$/public/build/rev-manifest.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/sign_up.blade.php" afterPath="$PROJECT_DIR$/resources/views/sign_up.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/css/welcomepage.css.map" afterPath="$PROJECT_DIR$/public/build/css/welcomepage.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/welcomepage.css.map" afterPath="$PROJECT_DIR$/public/css/welcomepage.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/lib/css/welcomepage.css.map" afterPath="$PROJECT_DIR$/resources/assets/lib/css/welcomepage.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/welcomepage.css" afterPath="$PROJECT_DIR$/public/css/welcomepage.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/lib/css/welcomepage.css" afterPath="$PROJECT_DIR$/resources/assets/lib/css/welcomepage.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/welcomepage.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/welcomepage.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="e1c968e4-fc5c-4a97-b134-8fc965a76b71" name="Default" comment="" />
     <ignored path="thub.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -44,7 +28,7 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.769231" vertical-offset="368" max-vertical-offset="3383">
+            <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="3383">
               <caret line="41" column="28" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="28" />
               <folding />
             </state>
@@ -54,7 +38,7 @@
       <file leaf-file-name="registration_confirmation.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/emails/registration_confirmation.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="408">
+            <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="408">
               <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
               <folding />
             </state>
@@ -64,7 +48,7 @@
       <file leaf-file-name="base_structure.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/emails/base_structure.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769" vertical-offset="102" max-vertical-offset="1547">
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1547">
               <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
               <folding />
             </state>
@@ -87,7 +71,7 @@
       <file leaf-file-name="welcomepage.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/assets/sass/welcomepage.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6862745" vertical-offset="5575" max-vertical-offset="6681">
+            <state vertical-scroll-proportion="0.0" vertical-offset="5575" max-vertical-offset="6681">
               <caret line="339" column="16" selection-start-line="339" selection-start-column="16" selection-end-line="339" selection-end-column="16" />
               <folding />
             </state>
@@ -322,7 +306,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="F:/Deployment Tools/Deployer" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
     <property name="SearchEverywhereHistoryKey" value="5fd50bfc6eedd0d74760f268495cfbae&#9;FILE&#9;file://F:/wamp/www/TalentHub/talenthub-website/thub/storage/framework/views/5fd50bfc6eedd0d74760f268495cfbae&#10;Guard&#9;null&#9;null&#10;PasswordB&#9;null&#9;null&#10;Password&#9;null&#9;null&#10;TokenRe&#9;null&#9;null&#10;PasswordBroker&#9;null&#9;null&#10;UserProvider&#9;null&#9;null&#10;QueryB&#9;null&#9;null&#10;Validator&#9;null&#9;null" />
@@ -356,9 +340,6 @@
       <BehatRunner />
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -366,6 +347,9 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -385,7 +369,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -400,13 +384,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -653,7 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.15" vertical-offset="6866" max-vertical-offset="23630">
           <caret line="414" column="15" selection-start-line="414" selection-start-column="1" selection-end-line="414" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,13 +728,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.56199676" vertical-offset="8" max-vertical-offset="629">
           <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.769231" vertical-offset="368" max-vertical-offset="3383">
+        <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="3383">
           <caret line="41" column="28" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="28" />
           <folding />
         </state>
@@ -759,7 +741,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/emails/registration_confirmation.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="408">
+        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="408">
           <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
           <folding />
         </state>
@@ -767,7 +749,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/emails/base_structure.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769" vertical-offset="102" max-vertical-offset="1547">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1547">
           <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
           <folding />
         </state>
@@ -777,13 +759,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22818792" vertical-offset="0" max-vertical-offset="935">
           <caret line="8" column="26" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/sass/welcomepage.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6862745" vertical-offset="5575" max-vertical-offset="6681">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5575" max-vertical-offset="6681">
           <caret line="339" column="16" selection-start-line="339" selection-start-column="16" selection-end-line="339" selection-end-column="16" />
           <folding />
         </state>
