@@ -1,0 +1,388 @@
+
+@import "basic";
+
+$background-color-darkGreen : #203f15;
+$header-links-color : #FFFFFF;
+$header-links-color-onHover : #FFFFFF;
+
+$color-darkGreen : #203f15;
+
+$t-button-border-radius : 5px;
+$t-button-background-color-hover: #204f1F ;
+
+$error-color-border : #FF6347;
+
+@mixin box-shadow($horizontal, $vertical, $blur, $spread, $color)
+{
+  box-shadow: $horizontal $vertical $blur $spread $color;
+  -moz-box-shadow: $horizontal $vertical $blur $spread $color;
+  -webkit-box-shadow: $horizontal $vertical $blur $spread $color;
+}
+
+@mixin border-radius($radius)
+{
+  border-radius:$radius;
+  -moz-border-radius:$radius;
+  -webkit-border-radius:$radius;
+}
+
+@mixin text-shadow($horizontal, $vertical, $blur, $spread, $color)
+{
+  text-shadow: $horizontal $vertical $blur $spread $color;
+  -moz-text-shadow: $horizontal $vertical $blur $spread $color;
+  -webkit-text-shadow: $horizontal $vertical $blur $spread $color;
+}
+
+header
+{
+  position:fixed;
+  background-color:$background-color-darkGreen;
+  padding:5px 0px;
+  top:0px;
+  left:0px;
+  width:100%;
+  @include box-shadow(2px, 2px, 5px, 0px, rgba(0,0,0,0.75));
+  z-index: 10000;
+}
+
+header {
+  background:$background-color-darkGreen;
+  .navbar
+  {
+    background:none;
+    border:none;
+    min-height: 40px;
+    margin-bottom: 0px;
+  }
+  .navbar-brand
+  {
+    padding:0px 15px;
+    width:auto;
+    margin-top: 0px;
+    height: auto;
+    line-height: 100%;
+    font-size: 34px;
+
+    img
+    {
+      width:30px;
+      height:auto;
+      display: inline;
+    }
+
+    .brand
+    {
+      font-size: 34px;
+      font-weight: 800;
+      color:#FFFFFF;
+      vertical-align: middle;
+    }
+  }
+
+  ul.navbar-nav
+  {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    li
+    {
+      position:relative;
+      border-right:1px solid #1a1a1a;
+      &:last-child
+      {
+        border-right: none;
+      }
+    }
+    li > a
+      {
+      color:$header-links-color !important;
+      font-size: 14px;
+      font-weight: 600;
+      padding:5px 15px !important;
+      &:hover
+      {
+        opacity: 0.8;
+      }
+    }
+    li > a:hover
+      {
+        color:$header-links-color-onHover !important;;
+        opacity: 0.7;
+      }
+  }
+
+
+}
+
+
+$banner-image-url : "../../site_images/talenthub.jpg";
+$banner-min-height : 700px;
+
+//Defining form style for banner
+$banner-form-text-color:#1a1a1a;
+$banner-form-background:#ffffff;
+$banner-form-border-radius: 5px;
+$banner-form-border: 1px solid #111111;
+$banner-form-padding:5px;
+
+.banner
+{
+  background-image: url($banner-image-url);
+  background-position: center;
+  background-size: 100% auto;
+  min-height: $banner-min-height;
+  height: auto;
+  margin-top: 50px;
+  color:#FFFFFF;
+  z-index: -1;
+
+  .black_gloss
+  {
+    background:rgba(0,0,0,0.75);
+    height:100%;
+    min-height:$banner-min-height;
+  }
+
+  h1,h4
+  {
+    font-weight: 700;
+    @include text-shadow(0px, 0px, 20px, null, rgba(0,0,0,1));
+    font-size: 36px;
+    text-align: center;
+    line-height: 180%;
+  }
+
+  h4
+  {
+    font-size: 20px;
+    text-align: left;
+//    padding:10px;
+//    background:rgba(0,0,0,0.75);
+//    border:1px solid #000000;
+  }
+  h3
+  {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 20px;
+    a
+    {
+      text-decoration: none;
+      text-align: center;
+    }
+  }
+
+  .container
+  {
+    padding:50px 15px;
+  }
+
+  .usertypetabpanel {
+
+    width: 100%;
+    height:350px;
+
+
+    ul.nav-tabs
+    {
+      border-color:rgba(0,0,0,0.75) !important;
+      li
+      {
+        a
+        {
+          color:#FFFFFF !important;
+          font-size:14px;
+          font-weight: 700;
+          background-color:rgba(0, 0, 0, 0.40) !important;
+        }
+        a:hover,a:focus
+        {
+          background-color:rgba(0, 0, 0, 0.75) !important;
+          border-color:#000000 !important;
+        }
+      }
+      li.active a
+      {
+        background-color:rgba(0, 0, 0, 0.75) !important;
+        border-color:#000000 !important;
+      }
+
+    }
+  }
+  .sign_in_container
+  {
+    background:rgba(0,0,0,0.75);
+    padding:15px;
+  }
+  .form_container
+  {
+
+    .error_form_validation
+    {
+      border:1px solid $error-color-border !important;
+    }
+
+    label
+    {
+      font-size:12px;
+      color:#ffffff;
+    }
+    input,select
+    {
+      font-size: 12px;
+      color:$banner-form-text-color;
+      background:$banner-form-background;
+      border:$banner-form-border;
+      padding:$banner-form-padding;
+      width:100%;
+      @include border-radius($banner-form-border-radius);
+      height:auto;
+    }
+    input[type='checkbox'],input[type='radio']
+    {
+      width:auto;
+      margin-right: 5px;
+    }
+
+
+    .forget_div
+    {
+      float:right;
+    }
+    .forget_div a
+    {
+      padding:0px;
+      font-size: 12px;
+      color: #ffffff !important;
+    }
+
+    .t-button
+    {
+      color:#FFFFFF;
+      background: $background-color-darkGreen;
+      @include border-radius($t-button-border-radius);
+      border:none;
+      @include text-shadow(1px, 1px, 2px, 0px, rgba(0,0,0,0.25));
+    }
+    .t-button:hover,.t-button:focus,.t-button:visited
+    {
+      color:#FFFFFF;
+      background: $t-button-background-color-hover;
+    }
+  }
+
+  .tab-content
+  {
+    background:rgba(0,0,0,0.75);
+    padding:15px;
+    @include border-radius(5px);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright: 0px;
+    -webkit-border-top-left-radius: 0px;
+    -webkit-border-top-right-radius: 0px;
+  }
+}
+
+
+
+footer
+{
+  background:$background-color-darkGreen;
+  @include box-shadow(-1px,-1px,5px,0px,rgba(0,0,0,0.75));
+  padding:10px;
+  font-size: 11px;
+  color:#FFFFFF;
+  .nav
+  {
+    width: 100%;
+    li{
+      a{
+        font-size: 11px;
+        color:#FFFFFF !important;
+        padding:5px 15px !important;
+        display: inline-block;
+        img
+        {
+          display:inline-block;
+          margin:0px 5px;
+          vertical-align: middle;
+        }
+      }
+      a:hover,a:focus
+      {
+        background:none !important;
+        text-decoration: underline;
+      }
+      &.copyright
+      {
+        min-width:200px;
+        text-align: right;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+
+
+
+/*Testimonials*/
+#testimonials
+{
+//  background:#f3f1da;
+  width:560px;
+  border-bottom:1px solid #1a1a1a;
+  h4
+  {
+    text-align:center;
+    font-size:24px;
+  }
+  p
+  {
+    color:#1a1a1a;
+    font-size:22px;
+    line-height:200%;
+    text-align:center;
+    font-family:'Open Sans';
+    margin-bottom:50px;
+  }
+  .carousel .item
+  {
+    text-align:center;
+    .video
+    {
+      max-width:850px;
+      width:90%;
+      height:auto;
+      max-height:500px;
+      margin:0px auto;
+      display:block;
+    }
+  }
+  .carousel-control.left,.carousel-control.right
+  {
+    background:none;
+    width:25px;
+  }
+  .glyphicon-chevron-right,.glyphicon-chevron-left
+  {
+    &:before
+    {
+      color:#FF0000;
+    }
+  }
+  .carousel-indicators
+  {
+    bottom:-30px;
+  }
+  .carousel-indicators li,.carousel-indicators li.active
+  {
+    border-color:#1a1a1a;
+  }
+  .carousel-indicators li.active
+  {
+    background-color:#1a1a1a;
+  }
+}

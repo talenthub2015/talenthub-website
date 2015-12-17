@@ -1,0 +1,50 @@
+
+//@import url("../../fonts/fonts.css");
+
+
+body
+{
+  padding:0px;
+  margin:0px;
+  font-family:'Open Sans';
+  font-weight:400 ;
+}
+
+p
+{
+  font-size:12px;
+  font-weight: 400;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+  font-weight: 700;
+  font-size: 16px;
+  font-family:'Open Sans';
+}
+
+label
+{
+  font-weight: 600;
+}
+
+@mixin box-shadow($horizontal, $vertical, $blur, $spread, $color)
+{
+  box-shadow: $horizontal $vertical $blur $spread $color;
+  -moz-box-shadow: $horizontal $vertical $blur $spread $color;
+  -webkit-box-shadow: $horizontal $vertical $blur $spread $color;
+}
+
+@mixin border-radius($radius)
+{
+  border-radius:$radius;
+  -moz-border-radius:$radius;
+  -webkit-border-radius:$radius;
+}
+
+@mixin text-shadow($horizontal, $vertical, $blur, $spread, $color)
+{
+  text-shadow: $horizontal $vertical $blur $spread $color;
+  -moz-text-shadow: $horizontal $vertical $blur $spread $color;
+  -webkit-text-shadow: $horizontal $vertical $blur $spread $color;
+}
