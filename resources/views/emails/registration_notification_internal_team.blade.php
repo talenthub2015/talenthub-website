@@ -1,4 +1,4 @@
-@extends('emails.base_structure')
+@extends('emails.base_structure_internal_team')
 
 @section('content')
 

@@ -256,7 +256,7 @@
 
                                         <div class="user_data_container">
                                             <label class="label">School Address:</label>
-                                            <span class="user_data">{{$talentProfile->school_address .", ".$talentProfile->school_city.", ".$talentProfile->school_state_province."-".$talentProfile->school_zip}}</span>
+                                            <span class="user_data">{{($talentProfile->school_address != "" ? $talentProfile->school_address.", " : "").($talentProfile->school_city != "" ? $talentProfile->school_city.", " : "").($talentProfile->school_state_province != "" ? $talentProfile->school_state_province."-" : "").$talentProfile->school_zip}}</span>
                                         </div>
                                     </div>
 
@@ -424,33 +424,41 @@
                                             ?>
 
                                             <div class="user_data_container">
-                                                <p class="cv_heading">{{$club->club_school_name.", ".$club->club_school_country}}</p>
-                                                <p>{{ucfirst($club->club_school_most_played_position) .", Seasons:".$club->club_season_played}}</p>
+                                                <p class="cv_heading">{{($club->club_school_name !="" ? $club->club_school_name : "" ).($club->club_school_country != "" ? ", ".$club->club_school_country : "")}}</p>
+                                                <p>{{ucfirst($club->club_school_most_played_position != "" ? $club->club_school_most_played_position.", ": "" ) .($club->club_season_played != "" ? "Seasons:".$club->club_season_played : "" )}}</p>
                                             </div>
 
                                             <div class="row">
+                                                @if($club->club_league_name != "")
                                                 <div class="col-xs-6 col-lg-4">
                                                     <div class="user_data_container">
                                                         <label class="label">League Name:</label>
                                                         <span class="user_data">{{$club->club_league_name}}</span>
                                                     </div>
                                                 </div>
+                                                @endif
 
+                                                @if($club->club_league_level != "")
                                                 <div class="col-xs-6 col-lg-4">
                                                     <div class="user_data_container">
                                                         <label class="label">League Level:</label>
                                                         <span class="user_data">{{$club->club_league_level}}</span>
                                                     </div>
                                                 </div>
+                                                @endif
                                             </div>
+                                            @if($club->club_average_league_status != "")
                                             <div class="user_data_container">
                                                 <label class="label">Club Average League Status:</label>
                                                 <span class="user_data">{{$club->club_average_league_status}}</span>
                                             </div>
+                                            @endif
 
+                                            @if($club->club_school_coach_name != "" || $club->club_school_coach_email != "" || $club->club_school_coach_mobile_number != "")
                                             <div class="user_data_container">
-                                                <p><strong>Coach</strong> - {{$club->club_school_coach_name." - ".$club->club_school_coach_email." - ".$club->club_school_coach_mobile_number}}</p>
+                                                <p><strong>Coach</strong> - {{($club->club_school_coach_name != "" ? $club->club_school_coach_name."-" : "") .($club->club_school_coach_email != "" ? $club->club_school_coach_email." - " : "" ).($club->club_school_coach_mobile_number != "" ? $club->club_school_coach_mobile_number : "") }}</p>
                                             </div>
+                                            @endif
 
                                             <div class="sport_statistics">
                                                 <?php
@@ -465,12 +473,16 @@
                                             <ul>
                                             @foreach($clubReferences as $key => $reference)
                                                 <div class="user_data_container">
+                                                    @if($reference->name != "" || $reference->email != "" || $reference->contact_number != "")
                                                     <li><p>
-                                                        <strong>{{$reference->name.", ".$reference->occupation}}</strong><br>
-                                                        {{$reference->email." - ".$reference->contact_number}}<br>
-                                                        <Strong>Relationship</strong> : {{$reference->relationship}}
+                                                        <strong>{{($reference->name != "" ? $reference->name.", " : "").$reference->occupation}}</strong><br>
+                                                        {{($reference->email != "" ? $reference->email." - " : "").$reference->contact_number}}<br>
+                                                        @if($reference->relationship != "")
+                                                            <Strong>Relationship</strong> : {{$reference->relationship}}
+                                                        @endif
                                                     </p>
                                                     </li>
+                                                    @endif
                                                 </div>
                                             @endforeach
                                             </ul>
@@ -509,29 +521,35 @@
                                             ?>
 
                                             <div class="user_data_container">
-                                                <p class="cv_heading">{{$school->club_school_name.", ".$school->club_school_country}}<br>{{$school->school_type}}</p>
+                                                <p class="cv_heading">{{($school->club_school_name != "" ? $school->club_school_name.", " : "").$school->club_school_country}}<br>{{$school->school_type}}</p>
                                                 <p>{{ucfirst($school->club_school_most_played_position)}}</p>
                                             </div>
 
                                             <div class="row">
+                                                @if($school->school_team_reputation != "")
                                                 <div class="col-xs-6 col-lg-6">
                                                     <div class="user_data_container">
                                                         <label class="label">Team Reputation:</label>
                                                         <span class="user_data">{{$school->school_team_reputation}}</span>
                                                     </div>
                                                 </div>
+                                                @endif
 
+                                                @if($school->school_team_side_level)
                                                 <div class="col-xs-6 col-lg-6">
                                                     <div class="user_data_container">
                                                         <label class="label">Team Side Level:</label>
                                                         <span class="user_data">{{$school->school_team_side_level}}</span>
                                                     </div>
                                                 </div>
+                                                @endif
                                             </div>
 
+                                            @if($school->club_school_coach_name != "" || $school->club_school_coach_email != "" || $school->club_school_coach_mobile_number != "")
                                             <div class="user_data_container">
-                                                <p><strong>Coach</strong> - {{$school->club_school_coach_name." - ".$school->club_school_coach_email." - ".$school->club_school_coach_mobile_number}}</p>
+                                                <p><strong>Coach</strong> - {{($school->club_school_coach_name != "" ? $school->club_school_coach_name." - " : "").($school->club_school_coach_email != "" ? $school->club_school_coach_email." - " : "").$school->club_school_coach_mobile_number}}</p>
                                             </div>
+                                            @endif
 
                                             <div class="sport_statistics">
                                                 <?php
@@ -546,12 +564,16 @@
                                             <ul>
                                                 @foreach($schoolReferences as $key => $reference)
                                                     <div class="user_data_container">
-                                                        <li><p>
-                                                                <strong>{{$reference->name.", ".$reference->occupation}}</strong><br>
-                                                                {{$reference->email." - ".$reference->contact_number}}<br>
-                                                                <Strong>Relationship</strong> : {{$reference->relationship}}
-                                                            </p>
-                                                        </li>
+                                                        @if($reference->name != "" || $reference->email != "" || $reference->contact_number != "")
+                                                            <li><p>
+                                                                    <strong>{{($reference->name != "" ? $reference->name.", " : "").$reference->occupation}}</strong><br>
+                                                                    {{($reference->email != "" ? $reference->email." - " : "").$reference->contact_number}}<br>
+                                                                    @if($reference->relationship != "")
+                                                                        <Strong>Relationship</strong> : {{$reference->relationship}}
+                                                                    @endif
+                                                                </p>
+                                                            </li>
+                                                        @endif
                                                     </div>
                                                 @endforeach
                                             </ul>
