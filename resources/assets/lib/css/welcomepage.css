@@ -116,7 +116,7 @@ header {
     text-align: center; }
     .banner .informative_tab_content p {
       text-align: center;
-      font-weight: 600;
+      font-weight: 700;
       line-height: 180%; }
     .banner .informative_tab_content .tab-pane {
       display: none; }
@@ -231,27 +231,30 @@ header {
   .welcome_page .discover_talenthub {
     background: #e2f0d9;
     padding: 50px 0px; }
-    .welcome_page .discover_talenthub .tab_container ul.nav li {
-      text-align: center;
-      line-height: 150%;
-      color: #203f15;
-      font-size: 14px;
-      font-weight: 700; }
-      .welcome_page .discover_talenthub .tab_container ul.nav li a {
-        text-decoration: none;
-        color: #a1a1a1;
-        background: #f2f2f2; }
-      .welcome_page .discover_talenthub .tab_container ul.nav li.active {
-        background: #203f15; }
-        .welcome_page .discover_talenthub .tab_container ul.nav li.active a {
-          color: #FFFFFF;
+    .welcome_page .discover_talenthub .tab_container ul.nav {
+      border: none; }
+      .welcome_page .discover_talenthub .tab_container ul.nav li {
+        text-align: center;
+        line-height: 150%;
+        color: #203f15;
+        font-size: 14px;
+        font-weight: 700; }
+        .welcome_page .discover_talenthub .tab_container ul.nav li a {
+          text-decoration: none;
+          color: #a1a1a1;
+          background: #f2f2f2; }
+        .welcome_page .discover_talenthub .tab_container ul.nav li.active {
+          background: #203f15; }
+          .welcome_page .discover_talenthub .tab_container ul.nav li.active a {
+            color: #FFFFFF;
+            background: none;
+            border: none; }
+        .welcome_page .discover_talenthub .tab_container ul.nav li a.no_link {
+          color: #203f15;
           background: none;
           border: none; }
-      .welcome_page .discover_talenthub .tab_container ul.nav li a.no_link {
-        color: #203f15;
-        background: none; }
-        .welcome_page .discover_talenthub .tab_container ul.nav li a.no_link:hover {
-          background: none; }
+          .welcome_page .discover_talenthub .tab_container ul.nav li a.no_link:hover {
+            background: none; }
     .welcome_page .discover_talenthub .tab_container .tab-pane {
       padding-top: 50px;
       padding-bottom: 50px;

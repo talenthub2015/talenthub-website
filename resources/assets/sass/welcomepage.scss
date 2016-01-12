@@ -198,7 +198,7 @@ $banner-form-padding:5px;
     p
     {
       text-align:center;
-      font-weight: 600;
+      font-weight: 700;
       line-height:180%;
     }
     .tab-pane
@@ -376,6 +376,7 @@ $banner-form-padding:5px;
     {
       ul.nav
       {
+        border:none;
         li
         {
           text-align:center;
@@ -403,6 +404,7 @@ $banner-form-padding:5px;
           {
             color:$color-darkGreen;
             background:none;
+            border:none;
             &:hover
             {
               background:none;

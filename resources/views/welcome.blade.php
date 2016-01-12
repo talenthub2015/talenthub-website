@@ -57,8 +57,9 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="col-xs-4" role="presentation"><a class="no_link">Discover Talenthub for:</a></li>
-                        <li class="col-xs-4 active" role="presentation"><a href="#athletes" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-                        <li class="col-xs-4" role="presentation"><a href="#managers" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                        <li class="col-xs-4 active" role="presentation"><a href="#athletes" aria-controls="athletes" role="tab" data-toggle="tab">Athletes</a></li>
+                        <li class="col-xs-4" role="presentation"><a href="#managers" aria-controls="managers" role="tab" data-toggle="tab">Managers</a></li>
+
                         {{--<li role="presentation">Discover Talenthub for:</li>--}}
                         {{--<li role="presentation" class="active"><a href="#athletes" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>--}}
                         {{--<li role="presentation"><a href="#managers" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>--}}
@@ -79,8 +80,8 @@
 
                                     <ul>
                                         <li><strong>Sign up to create a Talenthub account.</strong></li>
-                                        <li><strong></strong>Update/prepare your Talenthub sport profile</strong> (with sport curriculum vitae, academic information, sport and academic references, sport video clips and sport photos).</li>
-                                        <li><strong>When your profile is complete: search for university sport coaches in your sport</strong> (search by preferred US State) <strong>and message them directly</strong> (using our sample emails if you need help, and our 24/7 customer service team.
+                                        <li><strong>Update/prepare your Talenthub sport profile</strong> (with sport curriculum vitae, academic information, sport and academic references, sport video clips and sport photos).</li>
+                                        <li><strong>When your profile is complete: search for university sport coaches in your sport</strong> (search by preferred US State) <strong>and message them directly</strong> using our sample emails if you need help, and our 24/7 customer service team.
                                         </li>
                                     </ul>
                                 </div>
@@ -96,7 +97,7 @@
                                     <ul>
                                         <li><strong>Sign up to create a Talenthub account.</strong></li>
                                         <li><strong>Update/prepare your Talenthub sport profile</strong> (with sport curriculum vitae, sport references, sport video clips and sport photos).</li>
-                                        <li><strong>When your profile is complete: search for professional coaches, scouts and/or agents in your sport</strong> (search by preferred country) <strong>and message them directly</strong> (using our sample emails if you need help, and our 24/7 customer service team.
+                                        <li><strong>When your profile is complete: search for professional coaches, scouts and/or agents in your sport</strong> (search by preferred country) <strong>and message them directly</strong> using our sample emails if you need help, and our 24/7 customer service team.
                                         </li>
                                     </ul>
                                 </div>
