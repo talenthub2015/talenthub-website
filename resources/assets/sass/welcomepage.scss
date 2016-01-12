@@ -126,9 +126,10 @@ $banner-form-padding:5px;
 
 .banner
 {
-  background-image: url($banner-image-url);
-  background-position: center;
-  background-size: 100% auto;
+//  background-image: url($banner-image-url);
+//  background-position: center;
+//  background-size: 100% auto;
+  background:#e2f0d9;
   min-height: $banner-min-height;
   height: auto;
   margin-top: 50px;
@@ -158,6 +159,12 @@ $banner-form-padding:5px;
 //    padding:10px;
 //    background:rgba(0,0,0,0.75);
 //    border:1px solid #000000;
+    &.form_heading
+    {
+      color:$color-darkGreen;
+      text-shadow:none;
+      -moz-text-shadow:none;
+    }
   }
   h3
   {
@@ -171,10 +178,37 @@ $banner-form-padding:5px;
       text-align: center;
     }
   }
+  p
+  {
+    font-size:14px;
+    color:#3f3f3f;
+    font-weight: 400;
+    margin-bottom: 25px;
+    line-height: 150%;
+  }
 
   .container
   {
     padding:50px 15px;
+  }
+
+  .informative_tab_content
+  {
+    text-align: center;
+    p
+    {
+      text-align:center;
+      font-weight: 600;
+      line-height:180%;
+    }
+    .tab-pane
+    {
+      display:none;
+      &.active
+      {
+        display:block;
+      }
+    }
   }
 
   .usertypetabpanel {
@@ -194,6 +228,8 @@ $banner-form-padding:5px;
           font-size:14px;
           font-weight: 700;
           background-color:rgba(0, 0, 0, 0.40) !important;
+          border-radius: 0px;
+          -webkit-border-radius: 0px;
         }
         a:hover,a:focus
         {
@@ -203,7 +239,7 @@ $banner-form-padding:5px;
       }
       li.active a
       {
-        background-color:rgba(0, 0, 0, 0.75) !important;
+        background-color:#060805 !important;
         border-color:#000000 !important;
       }
 
@@ -273,9 +309,9 @@ $banner-form-padding:5px;
 
   .tab-content
   {
-    background:rgba(0,0,0,0.75);
+    background:#060805;
     padding:15px;
-    @include border-radius(5px);
+    @include border-radius(0px);
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     -moz-border-radius-topleft: 0px;
@@ -285,7 +321,235 @@ $banner-form-padding:5px;
   }
 }
 
+.welcome_page
+{
+  padding-top:50px;
+  section
+  {
+    background:#e2f0d9;
+    padding:25px 0px;
 
+    h1
+    {
+      font-size:36px;
+      line-height:150%;
+      text-align:center;
+      margin-bottom:50px;
+    }
+    p
+    {
+      font-size:16px;
+      color:#000000;
+      line-height:150%;
+      text-align:center;
+      margin-bottom:50px;
+    }
+  }
+
+  .t-button
+  {
+    color:#FFFFFF;
+    background: $background-color-darkGreen;
+    @include border-radius($t-button-border-radius);
+    border:none;
+    padding:10px 50px;
+    @include text-shadow(1px, 1px, 2px, 0px, rgba(0,0,0,0.25));
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  #why_talenthub
+  {
+    background:#334f20;
+    img.section_image
+    {
+      width:100%;
+      height:auto;
+    }
+  }
+
+  .discover_talenthub
+  {
+    background:#e2f0d9;
+    padding:50px 0px;
+    .tab_container
+    {
+      ul.nav
+      {
+        li
+        {
+          text-align:center;
+          line-height:150%;
+          color:$color-darkGreen;
+          font-size: 14px;
+          font-weight: 700;
+          a
+          {
+            text-decoration: none;
+            color:#a1a1a1;
+            background:#f2f2f2;
+          }
+          &.active
+          {
+            background:$background-color-darkGreen;
+            a
+            {
+              color:#FFFFFF;
+              background:none;
+              border:none;
+            }
+          }
+          a.no_link
+          {
+            color:$color-darkGreen;
+            background:none;
+            &:hover
+            {
+              background:none;
+            }
+          }
+        }
+      }
+      .tab-pane
+      {
+        padding-top:50px;
+        padding-bottom:50px;
+        text-align: center;
+        h4
+        {
+          font-size:16px;
+          color:$color-darkGreen;
+          margin-bottom:25px;
+        }
+        p
+        {
+          font-size:12px;
+          margin-bottom:15px;
+        }
+        ul
+        {
+          padding-top:15px;
+          font-size:14px;
+          text-align: center;
+          li
+          {
+            list-style: inside;
+            line-height: 160%;
+          }
+        }
+
+        .right_separation_line
+        {
+          position:relative;
+          border-right:1px solid #010101;
+        }
+        &.managers
+        {
+          .nav
+          {
+            margin-bottom: 35px;
+            li
+            {
+              border-right:1px solid $color-darkGreen;
+              h4
+              {
+                text-align: center;
+                margin:0px;
+                padding:10px;
+              }
+              &:last-child
+              {
+                border-right: none;
+              }
+            }
+          }
+          p
+          {
+            font-size:14px;
+            text-align: left;
+            margin-bottom: 25px;
+          }
+          ul
+          {
+            padding-top:0px;
+            font-size:14px;
+            text-align: left;
+            padding-left:20px;
+            margin-bottom: 50px;
+            li
+            {
+              list-style: outside;
+              line-height: 160%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+
+.welcome_page,.sign_up_page,.sign_in_page
+{
+  footer
+  {
+    background:#595959;
+    padding:20px 0px;
+  }
+}
+
+.sign_in_page
+{
+  h2
+  {
+    font-size:36px;
+    color:$color-darkGreen;
+    line-height: 140%;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  p
+  {
+    text-align: center;
+    font-size:16px;
+    line-height: 180%;
+    color:#3f3f3f;
+    margin-bottom: 50px;
+    font-weight: 600;
+  }
+
+  .form_container
+  {
+    .alert
+    {
+      p
+      {
+        font-size:12px;
+        padding:0px;
+        margin-bottom: 0px;
+      }
+    }
+    color:#3f3f3f;
+    label
+    {
+      color:#3f3f3f;
+      font-weight: 700;
+    }
+    a
+    {
+      color:#2bbcec;
+    }
+    .forget_div
+    {
+      a
+      {
+        color:#2bbcec !important;
+      }
+    }
+  }
+}
 
 footer
 {
@@ -332,8 +596,9 @@ footer
 #testimonials
 {
 //  background:#f3f1da;
-  width:560px;
-  border-bottom:1px solid #1a1a1a;
+  width:640px;
+//  border-bottom:1px solid #1a1a1a;
+  margin:auto;
   h4
   {
     text-align:center;
