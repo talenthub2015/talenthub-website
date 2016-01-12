@@ -71,9 +71,7 @@ header {
       opacity: 0.7; }
 
 .banner {
-  background-image: url("../../site_images/talenthub.jpg");
-  background-position: center;
-  background-size: 100% auto;
+  background: #e2f0d9;
   min-height: 700px;
   height: auto;
   margin-top: 50px;
@@ -94,6 +92,10 @@ header {
   .banner h4 {
     font-size: 20px;
     text-align: left; }
+    .banner h4.form_heading {
+      color: #203f15;
+      text-shadow: none;
+      -moz-text-shadow: none; }
   .banner h3 {
     margin-top: 5px;
     margin-bottom: 15px;
@@ -102,8 +104,24 @@ header {
     .banner h3 a {
       text-decoration: none;
       text-align: center; }
+  .banner p {
+    font-size: 14px;
+    color: #3f3f3f;
+    font-weight: 400;
+    margin-bottom: 25px;
+    line-height: 150%; }
   .banner .container {
     padding: 50px 15px; }
+  .banner .informative_tab_content {
+    text-align: center; }
+    .banner .informative_tab_content p {
+      text-align: center;
+      font-weight: 600;
+      line-height: 180%; }
+    .banner .informative_tab_content .tab-pane {
+      display: none; }
+      .banner .informative_tab_content .tab-pane.active {
+        display: block; }
   .banner .usertypetabpanel {
     width: 100%;
     height: 350px; }
@@ -113,12 +131,14 @@ header {
         color: #FFFFFF !important;
         font-size: 14px;
         font-weight: 700;
-        background-color: rgba(0, 0, 0, 0.4) !important; }
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        border-radius: 0px;
+        -webkit-border-radius: 0px; }
       .banner .usertypetabpanel ul.nav-tabs li a:hover, .banner .usertypetabpanel ul.nav-tabs li a:focus {
         background-color: rgba(0, 0, 0, 0.75) !important;
         border-color: #000000 !important; }
       .banner .usertypetabpanel ul.nav-tabs li.active a {
-        background-color: rgba(0, 0, 0, 0.75) !important;
+        background-color: #060805 !important;
         border-color: #000000 !important; }
   .banner .sign_in_container {
     background: rgba(0, 0, 0, 0.75);
@@ -162,17 +182,151 @@ header {
     color: #FFFFFF;
     background: #204f1F; }
   .banner .tab-content {
-    background: rgba(0, 0, 0, 0.75);
+    background: #060805;
     padding: 15px;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     -moz-border-radius-topleft: 0px;
     -moz-border-radius-topright: 0px;
     -webkit-border-top-left-radius: 0px;
     -webkit-border-top-right-radius: 0px; }
+
+.welcome_page {
+  padding-top: 50px; }
+  .welcome_page section {
+    background: #e2f0d9;
+    padding: 25px 0px; }
+    .welcome_page section h1 {
+      font-size: 36px;
+      line-height: 150%;
+      text-align: center;
+      margin-bottom: 50px; }
+    .welcome_page section p {
+      font-size: 16px;
+      color: #000000;
+      line-height: 150%;
+      text-align: center;
+      margin-bottom: 50px; }
+  .welcome_page .t-button {
+    color: #FFFFFF;
+    background: #203f15;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: none;
+    padding: 10px 50px;
+    text-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+    -moz-text-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+    -webkit-text-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    font-weight: 600; }
+  .welcome_page #why_talenthub {
+    background: #334f20; }
+    .welcome_page #why_talenthub img.section_image {
+      width: 100%;
+      height: auto; }
+  .welcome_page .discover_talenthub {
+    background: #e2f0d9;
+    padding: 50px 0px; }
+    .welcome_page .discover_talenthub .tab_container ul.nav li {
+      text-align: center;
+      line-height: 150%;
+      color: #203f15;
+      font-size: 14px;
+      font-weight: 700; }
+      .welcome_page .discover_talenthub .tab_container ul.nav li a {
+        text-decoration: none;
+        color: #a1a1a1;
+        background: #f2f2f2; }
+      .welcome_page .discover_talenthub .tab_container ul.nav li.active {
+        background: #203f15; }
+        .welcome_page .discover_talenthub .tab_container ul.nav li.active a {
+          color: #FFFFFF;
+          background: none;
+          border: none; }
+      .welcome_page .discover_talenthub .tab_container ul.nav li a.no_link {
+        color: #203f15;
+        background: none; }
+        .welcome_page .discover_talenthub .tab_container ul.nav li a.no_link:hover {
+          background: none; }
+    .welcome_page .discover_talenthub .tab_container .tab-pane {
+      padding-top: 50px;
+      padding-bottom: 50px;
+      text-align: center; }
+      .welcome_page .discover_talenthub .tab_container .tab-pane h4 {
+        font-size: 16px;
+        color: #203f15;
+        margin-bottom: 25px; }
+      .welcome_page .discover_talenthub .tab_container .tab-pane p {
+        font-size: 12px;
+        margin-bottom: 15px; }
+      .welcome_page .discover_talenthub .tab_container .tab-pane ul {
+        padding-top: 15px;
+        font-size: 14px;
+        text-align: center; }
+        .welcome_page .discover_talenthub .tab_container .tab-pane ul li {
+          list-style: inside;
+          line-height: 160%; }
+      .welcome_page .discover_talenthub .tab_container .tab-pane .right_separation_line {
+        position: relative;
+        border-right: 1px solid #010101; }
+      .welcome_page .discover_talenthub .tab_container .tab-pane.managers .nav {
+        margin-bottom: 35px; }
+        .welcome_page .discover_talenthub .tab_container .tab-pane.managers .nav li {
+          border-right: 1px solid #203f15; }
+          .welcome_page .discover_talenthub .tab_container .tab-pane.managers .nav li h4 {
+            text-align: center;
+            margin: 0px;
+            padding: 10px; }
+          .welcome_page .discover_talenthub .tab_container .tab-pane.managers .nav li:last-child {
+            border-right: none; }
+      .welcome_page .discover_talenthub .tab_container .tab-pane.managers p {
+        font-size: 14px;
+        text-align: left;
+        margin-bottom: 25px; }
+      .welcome_page .discover_talenthub .tab_container .tab-pane.managers ul {
+        padding-top: 0px;
+        font-size: 14px;
+        text-align: left;
+        padding-left: 20px;
+        margin-bottom: 50px; }
+        .welcome_page .discover_talenthub .tab_container .tab-pane.managers ul li {
+          list-style: outside;
+          line-height: 160%; }
+
+.welcome_page footer, .sign_up_page footer, .sign_in_page footer {
+  background: #595959;
+  padding: 20px 0px; }
+
+.sign_in_page h2 {
+  font-size: 36px;
+  color: #203f15;
+  line-height: 140%;
+  margin-bottom: 50px;
+  text-align: center; }
+.sign_in_page p {
+  text-align: center;
+  font-size: 16px;
+  line-height: 180%;
+  color: #3f3f3f;
+  margin-bottom: 50px;
+  font-weight: 600; }
+.sign_in_page .form_container {
+  color: #3f3f3f; }
+  .sign_in_page .form_container .alert p {
+    font-size: 12px;
+    padding: 0px;
+    margin-bottom: 0px; }
+  .sign_in_page .form_container label {
+    color: #3f3f3f;
+    font-weight: 700; }
+  .sign_in_page .form_container a {
+    color: #2bbcec; }
+  .sign_in_page .form_container .forget_div a {
+    color: #2bbcec !important; }
 
 footer {
   background: #203f15;
@@ -203,8 +357,8 @@ footer {
 
 /*Testimonials*/
 #testimonials {
-  width: 560px;
-  border-bottom: 1px solid #1a1a1a; }
+  width: 640px;
+  margin: auto; }
   #testimonials h4 {
     text-align: center;
     font-size: 24px; }
