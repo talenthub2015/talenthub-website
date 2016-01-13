@@ -14,7 +14,7 @@
                         <a href="https://twitter.com/talenthubapp" target="_blank">Twitter</a>
                         <a href="https://instagram.com/talenthubapp/" target="_blank">Instagram</a>
                     </li>
-                    <li class="pull-right copyright">&copy; 2015 Talenthub</li>
+                    <li class="pull-right copyright">&copy; 2016 Talenthub</li>
                 </ul>
             </div>
         </div>

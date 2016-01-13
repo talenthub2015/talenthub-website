@@ -58,4 +58,17 @@ class WelcomeController extends Controller {
         return view('sign_up',compact('sport_types','userManagerManagementLevel','managerTypes'));
     }
 
+
+    /**Redirects to Sign In page
+     * @return \Illuminate\View\View
+     */
+    public function signIn()
+    {
+        if(Auth::user())
+        {
+            return redirect('/home');
+        }
+        return view('sign_in');
+    }
+
 }

@@ -68,6 +68,7 @@ function findFormELementsAndValidate(form_element,event)
     {
         event.preventDefault();
         $(form_element).trigger('form-error');
+        alert("You have some error!\r\nPlease check your form again!");
         return false;
     }
 }
