@@ -2,6 +2,8 @@
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler {
 
@@ -36,7 +38,11 @@ class Handler extends ExceptionHandler {
 	 */
 	public function render($request, Exception $e)
 	{
-		return parent::render($request, $e);
+        if($e instanceof NotFoundHttpException)
+        {
+            return response()->view('404', [], 404);
+        }
+        return parent::render($request, $e);
 	}
 
 }

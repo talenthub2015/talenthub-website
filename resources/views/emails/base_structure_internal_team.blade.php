@@ -71,9 +71,7 @@
 <link rel="stylesheet" href="{{asset("css/emails.css")}}" />
     <div class="email_body_container">
         <div class="header">
-            {{--<div class="logo">--}}
-                {{--<img src="{{asset('site_images/talenthub_logo.png')}}">--}}
-            {{--</div>--}}
+
         </div>
 
         <div class="container">
