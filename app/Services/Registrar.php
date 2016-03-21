@@ -1,9 +1,10 @@
 <?php namespace talenthub\Services;
 
+use Illuminate\Support\Facades\DB;
 use talenthub\Repositories\BasicSiteRepository;
 use talenthub\Repositories\SiteConstants;
 use talenthub\User;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 
 class Registrar implements RegistrarContract {
@@ -39,16 +40,31 @@ class Registrar implements RegistrarContract {
         if(SiteConstants::isManager($data["user_type"]))
         {
             $userType = BasicSiteRepository::getManagerTypes()[$data["managerType"]];
-            return User::create([
-                'username'  =>  $data['username'],
-                'password'  =>  $data['password'],
-                'active'    =>  0,
-                'user_type' =>  $userType,
-                'management_level' => $data['management_level'],
-                'sport_type'=>  $data['sport_type'],
-                'profile_image_path'=> $data['profile_image_path'],
-                'confirmation_token'=>bcrypt(time()),
-            ]);
+
+            $user=null;
+
+            $user = DB::transaction(function() use ($data,$user, $userType){
+                $user = User::create([
+                    'username'  =>  $data['username'],
+                    'password'  =>  $data['password'],
+                    'active'    =>  0,
+                    'user_type' =>  $userType,
+                    'management_level' => $data['management_level'],
+                    'sport_type'=>  $data['sport_type'],
+                    'profile_image_path'=> $data['profile_image_path'],
+                    'confirmation_token'=>bcrypt(time()),
+                ]);
+
+                $user->managerProfile()->create([
+                    'first_name'    =>  '',
+                    'middle_name'   =>  '',
+                    'last_name' =>  '',
+                ]);
+
+                return $user;
+            });
+
+            return $user;
         }
         else if(SiteConstants::isTalent($data["user_type"]))
         {

@@ -20,7 +20,8 @@ class HomeController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth');
+		$this->middleware('auth_talent');
+        $this->middleware('auth_manager');
 	}
 
 	/**
@@ -29,9 +30,10 @@ class HomeController extends Controller {
 	 * @return Response
 	 */
 	public function index()
-	{
-//		return view('home');
-        return redirect('profile');
-	}
 
+    {
+//		return view('home');
+        return redirect('/');
+//        return redirect('profile');
+    }
 }
