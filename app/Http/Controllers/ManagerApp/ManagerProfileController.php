@@ -1,6 +1,5 @@
 <?php namespace talenthub\Http\Controllers\ManagerApp;
 
-use Illuminate\Support\Facades\Auth;
 use talenthub\Http\Requests;
 use talenthub\Http\Controllers\Controller;
 
