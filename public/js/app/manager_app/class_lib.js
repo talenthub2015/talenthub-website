@@ -62,6 +62,9 @@ CountrySelected.prototype = {
 
 function Manager()
 {
+    this.user_type="";
+    this.sport="";
+    this.management_level="";
     this.first_name = "";
     this.middle_name = "";
     this.last_name = "";
@@ -76,6 +79,8 @@ function Manager()
     this.zip = null;
     this.country = new CountrySelected();
     this.bio = "";
+    this.institution_type = "";
+    this.institution_name = "";
     //Manager Career History
     this.careerHistory = [];
 }
@@ -104,6 +109,11 @@ Manager.prototype = {
         //console.log('From Server',jsonObj);
         jsonObj.country != undefined ? this.country.setCountryByName(jsonObj.country,rootScope.basicSiteConstants.countries) : "";
         this.bio = jsonObj.bio;
+        this.user_type= jsonObj.user_type == undefined ? null : jsonObj.user_type;
+        this.sport= jsonObj.sport_type == undefined ? null : jsonObj.sport_type;
+        this.management_level= jsonObj.management_level == undefined ? null : jsonObj.management_level;
+        this.institution_type = jsonObj.institution_type == undefined ? null : jsonObj.institution_type;
+        this.institution_name = jsonObj.institution_name == undefined ? null : jsonObj.institution_name;
     },
     addCareerHistory : function(careerHistory)
     {
@@ -120,6 +130,7 @@ Manager.prototype = {
 /*Manager Career History*/
 function ManagerCareerHistory()
 {
+    this.id = null;
     this.year = null;
     this.achievement = [];
 }

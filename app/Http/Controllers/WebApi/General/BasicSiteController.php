@@ -14,9 +14,24 @@ class BasicSiteController extends WebApiBase {
      */
     public function getBasicSiteConstants(Request $request)
     {
+        //List Of countries
         $countries=BasicSiteRepository::getListOfCountries(true);
         array_shift($countries);
         $this->response['countries_list'] = $countries;
+
+        return $this->sendResponse($this->response);
+    }
+
+
+    /*
+     * List of Sports Available in the Application
+     */
+    public function getListOfSports(Request $request)
+    {
+        //List of Sports
+        $sports = BasicSiteRepository::getSportTypes();
+        array_shift($sports);
+        $this->response['sports'] = $sports;
         return $this->sendResponse($this->response);
     }
 

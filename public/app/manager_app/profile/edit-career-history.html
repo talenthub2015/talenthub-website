@@ -1,83 +1,116 @@
 <div class="manager-profile-editPage" ng-controller="ManagerCareerHistoryController">
     <div class="container">
-        <h1>Current Institution and Position</h1>
-        <div class="row form_container">
-            <div class="col-xs-12 col-lg-4">
-                <div class="form-group">
-                    <label>Type of Manager:</label>
-                    <input type="text" name="manager_type" id="manager_type" ng-model="manager_type" disabled class="form-control">
+        <form name="manager_career_history">
+            <h1>Current Institution and Position</h1>
+            <div class="row form_container">
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <label>Type of Manager:</label>
+                        <input type="text" name="manager_type" id="manager_type" value="{{managerProfile.user_type | uppercase}}" disabled class="form-control">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <label>Sport:</label>
+                        <input type="text" name="sport" id="sport" value="{{managerProfile.sport | uppercase}}" class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <label>Management Level:</label>
+                        <input type="text" name="management_level" id="management_level" value="{{managerProfile.management_level | uppercase}}" class="form-control" disabled>
+                    </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-lg-4">
-                <div class="form-group">
-                    <label>Sport:</label>
-                    <input type="text" name="sport" id="sport" ng-model="sport" class="form-control" disabled>
-                </div>
-            </div>
-            <div class="col-xs-12 col-lg-4">
-                <div class="form-group">
-                    <label>Management Level:</label>
-                    <input type="text" name="management_level" id="management_level" ng-model="management_level" class="form-control" disabled>
-                </div>
-            </div>
-        </div>
 
-        <div class="row form_container">
-            <div class="col-xs-12 col-lg-4">
-                <div class="form-group">
-                    <label>Institution Type:</label>
-                    <input type="text" name="institution_type" id="institution_type" ng-model="institution_type" class="form-control">
-                </div>
-            </div>
-            <div class="col-xs-12 col-lg-4">
-                <div class="form-group">
-                    <label>Institution Name:</label>
-                    <input type="text" name="institution_name" id="institution_name" ng-model="institution_name" class="form-control">
-                </div>
-            </div>
-        </div>
-
-        <div class="career-history">
-            <h1>Career History</h1>
-
-            <div ng-repeat="careerHistory in managerProfile.careerHistory track by $index | orderBy:careerHistory.year">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <select ng-model="careerHistory.year" class="form-control">
-                            <option selected value="">-- Select a Year --</option>
-                            <option ng-repeat="year in careerYearRange track by $index" value="{{year}}">{{year}}</option>
+            <div class="row form_container">
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <label>Institution Type:</label>
+                        <select name="institution_type" id="institution_type" ng-model="managerProfile.institution_type"
+                                class="form-control">
+                            <option value="" selected>-- Select Institution Type --</option>
+                            <option value="club">Club</option>
+                            <option value="university">University</option>
+                            <option value="high school">High School </option>
+                            <option value="agency">Agency</option>
+                            <option value="firm">Firm</option>
+                            <option value="other">Other</option>
                         </select>
 
-                        <a class="remove-year" ng-click="removeCareerHistory(careerHistory)">
-                            <span class="glyphicon glyphicon-remove"></span> Remove Year
-                        </a>
-                    </div>
-                    <div class="col-xs-9">
-                        <div class="row" ng-repeat="achievement in careerHistory.achievement track by $index">
-                            <div class="col-xs-10">
-                                <p><input type="text" ng-model="achievement.info" class="form-control"></p>
-                            </div>
-                            <div class="col-xs-2">
-                                <a class="remove-achievement" ng-click="removeAchievement(careerHistory,achievement)">
-                                    <span class="glyphicon glyphicon-remove"></span>
-                                </a>
-                            </div>
-                        </div>
-                        <p ng-click="addAnotherAchievement(careerHistory)">
-                            <a class="add-achievement"><span class="glyphicon glyphicon-plus"></span> Add Achievement</a>
-                        </p>
                     </div>
                 </div>
-                <hr/>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <label>Institution Name:</label>
+                        <input type="text" name="institution_name" id="institution_name" ng-model="managerProfile.institution_name" class="form-control">
+                    </div>
+                </div>
             </div>
 
-            <div class="row">
-                <div class="col-xs-12 col-md-4" ng-click="addAnotherYear()"><a class="add-year"><span class="glyphicon glyphicon-plus"></span> Add Year</a></div>
-            </div>
-        </div>
+            <div class="career-history">
+                <h1>Career History</h1>
 
-        <div class="text-center">
-            <button class="t-button">Save and Submit</button>
-        </div>
+                <div ng-repeat="careerHistory in managerProfile.careerHistory track by $index | orderBy:careerHistory.year">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="form-group">
+                                <select ng-model="careerHistory.year" name="year_{{$index}}" class="form-control" required>
+                                    <option selected value="">-- Select a Year --</option>
+                                    <option ng-repeat="year in careerYearRange track by $index" value="{{year}}">{{year}}</option>
+                                </select>
+
+                                <div class="error_message_container" ng-messages="manager_career_history['year_' + $index].$error"
+                                     ng-if="$scope.formSubmitted || manager_career_history['year_' + $index].$touched">
+                                    <p class="alert alert-danger" ng-message="required">Please select a year.</p>
+                                </div>
+                                <div class="error_message_container" ng-show="$scope.formSubmitted && careerHistory.numberOfAchievements() == 0">
+                                    <p class="alert alert-danger">For this year, please add an achievement.
+                                        Otherwise, if you don't have any achievement to provide this year, then please remove this year.</p>
+                                </div>
+                            </div>
+
+                            <a class="remove-year" ng-click="removeCareerHistory(careerHistory)">
+                                <span class="glyphicon glyphicon-remove"></span> Remove Year
+                            </a>
+                        </div>
+                        <div class="col-xs-9">
+                            <div class="row" ng-repeat="achievement in careerHistory.achievement track by $index">
+                                <div class="col-xs-10">
+                                    <div class="form-group">
+                                        <input type="text" ng-model="achievement.info" class="form-control"
+                                                name="achievement_{{$index}}" required>
+
+                                        <div class="error_message_container" ng-messages="manager_career_history['achievement_' + $index].$error"
+                                             ng-if="$scope.formSubmitted || manager_career_history['achievement_' + $index].$touched">
+                                            <p class="alert alert-danger" ng-message="required">Please provide your achievement for this year.</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-xs-2">
+                                    <a class="remove-achievement" ng-click="removeAchievement(careerHistory,achievement)">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <p ng-click="addAnotherAchievement(careerHistory)">
+                                <a class="add-achievement"><span class="glyphicon glyphicon-plus"></span> Add Achievement</a>
+                            </p>
+                        </div>
+                    </div>
+                    <hr/>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-4" ng-click="addAnotherYear()"><a class="add-year"><span class="glyphicon glyphicon-plus"></span> Add Year</a></div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="t-button" ng-class="{disabled : manager_career_history.$invalid}"
+                        ng-disabled="manager_career_history.$invalid" ng-click="saveManagerCareerHistory(managerProfile)">Save and Submit</button>
+            </div>
+        </form>
     </div>
 </div>

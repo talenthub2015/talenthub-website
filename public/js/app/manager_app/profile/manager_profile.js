@@ -28,7 +28,7 @@ managerApp.controller('ManagerEditProfileController',['$scope','$http','$rootSco
     'App_Events','$location',
     function($scope,$http,$rootScope,_SaveModifiedManagerProfile,App_Events,$location){
         $scope.managerProfile = $rootScope.managerProfile;
-        console.log('ManagerProfile',$scope.managerProfile);
+        console.log('ManagerProfile - ',$scope.managerProfile);
         //Boolean to check, if form submitted or not
         $scope.formSubmitted = false;
 
@@ -78,8 +78,11 @@ managerApp.controller('ManagerEditProfileController',['$scope','$http','$rootSco
 
 
 /*Controller for Manager Career History*/
-managerApp.controller('ManagerCareerHistoryController',['$scope','$rootScope','$location','App_Events'
-    ,function($scope,$rootScope,$location,App_Events){
+managerApp.controller('ManagerCareerHistoryController',['$scope','$rootScope','$location','App_Events','_SaveManagerCareerHistory'
+    ,function($scope,$rootScope,$location,App_Events,_SaveManagerCareerHistory){
+        //Form Interaction variables
+        $scope.formSubmitted = false;
+
         $scope.managerProfile = $rootScope.managerProfile;
         $scope.careerYearRange = [];
         var currentYear = new Date();
@@ -100,16 +103,33 @@ managerApp.controller('ManagerCareerHistoryController',['$scope','$rootScope','$
         };
         //Removing Achievement
         $scope.removeAchievement = function(careerHistory,achievement){
-            careerHistory.removeAchievement(achievement);
+            if(careerHistory.numberOfAchievements()>1)
+                careerHistory.removeAchievement(achievement);
+            else
+                alert('At least one achievement should be there for a year');
         };
         //Adding New Career History to the Manager Profile
         $scope.addAnotherYear = function(){
             console.log('Adding new History');
-            $scope.managerProfile.addCareerHistory(new ManagerCareerHistory());
+            var newCareerHistory = new ManagerCareerHistory();
+            $scope.managerProfile.addCareerHistory(newCareerHistory);
+            $scope.addAnotherAchievement(newCareerHistory);
         };
         //Removing Career History
         $scope.removeCareerHistory = function(careerHistory){
-            $scope.managerProfile.removeCareerHistory(careerHistory);
+            if(confirm('Are you sure to remove this year'))
+                $scope.managerProfile.removeCareerHistory(careerHistory);
+        };
+
+        //Save Career History of the manager
+        $scope.saveManagerCareerHistory = function(managerProfile){
+            console.log('Manager Profile Career History', managerProfile);
+            _SaveManagerCareerHistory(managerProfile).
+            then(function(response){
+                console.log('History Saved',response);
+            },function(response){
+                console.log('History Saved failed',response);
+            });
         };
 
 }]);

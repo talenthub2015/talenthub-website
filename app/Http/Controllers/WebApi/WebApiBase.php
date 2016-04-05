@@ -37,7 +37,7 @@ class WebApiBase extends Controller{
      * @param $response
      * @return mixed
      */
-    public function sendResponse($response)
+    public function sendResponse($response=[])
     {
         $this->response = $response != "" || $response != null ? $response : $this->response;
         $this->response["status_code"] = $this->statusCode;

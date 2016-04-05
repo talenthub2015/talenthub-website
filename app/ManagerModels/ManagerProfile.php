@@ -23,6 +23,13 @@ class ManagerProfile extends Model {
         return $this->belongsTo('talenthub\User','user_id');
     }
 
+    /**List of Career history associated with the manager
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function CareerHistory()
+    {
+        return $this->hasMany('talenthub\ManagerModels\ManagerCareerHistory','profile_id');
+    }
 
     /**Updates Manager Profile & saving the changes
      * @param Request $request
