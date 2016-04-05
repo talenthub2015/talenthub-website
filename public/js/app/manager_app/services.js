@@ -19,10 +19,20 @@ managerApp.factory('UpdateURLService',['$location','$cookies',function($location
     };
 }]);
 
+/*Getting List of Sports Available in the application*/
+managerApp.factory('GetListOfSports',['$http',function($http){
+    return function(){
+        return $http({
+            method : 'GET',
+            url : 'api/general/list-of-sports'
+        });
+    };
+}]);
+
 /*Requesting Dropdown options, and other Site Constants required at Fron End
 * Eg., List of Countries,
 * */
-managerApp.factory('GetBasicSiteConstants',['$http','$rootScope','UpdateManagerProfile',function($http,$rootScope,UpdateManagerProfile){
+managerApp.factory('GetBasicSiteConstants',['$http','$rootScope','UpdateManagerProfile','GetListOfSports',function($http,$rootScope,UpdateManagerProfile,GetListOfSports){
     return function(){
         $http({
             method : 'GET',
@@ -37,6 +47,17 @@ managerApp.factory('GetBasicSiteConstants',['$http','$rootScope','UpdateManagerP
             },
             function(response){
                 console.log('Error',response);
+            }
+        );
+
+        //Getting List of Sports
+        GetListOfSports().then(
+            function(response){
+                console.log('Sport',response);
+                $rootScope.basicSiteConstants.sports = response.data.sports;
+            },
+            function(response){
+                console.log('Error while getting Sport List',response);
             }
         );
     };
@@ -55,7 +76,7 @@ managerApp.factory('UpdateManagerProfile',['$http','$rootScope','App_Events',fun
         })
             .then(
             function(response){
-                //console.log("Success",response);
+                console.log("Success",response);
                 $rootScope.managerProfile.setManager(response.data,$rootScope);
                 //console.log("Profile",$rootScope.managerProfile);
                 $rootScope.$broadcast(App_Events.ManagerModelUpdated);
@@ -68,4 +89,19 @@ managerApp.factory('UpdateManagerProfile',['$http','$rootScope','App_Events',fun
             }
         );
     };
+}]);
+
+
+/*Modify Manager Profile to make it compatible for WEB API*/
+managerApp.factory('ModifyManagerProfileForWebApi',[function(){
+    return function(managerProfile)
+    {
+        if(!(managerProfile instanceof Manager))
+        {
+            return false;
+        }
+        var modifiedManagerProfile = angular.copy(managerProfile);
+        modifiedManagerProfile.country = modifiedManagerProfile.country.getCountryName();
+        return modifiedManagerProfile;
+    }
 }]);
