@@ -122,10 +122,20 @@ Manager.prototype = {
     removeCareerHistory : function(careerHistory)
     {
         this.careerHistory.splice(this.careerHistory.indexOf(careerHistory),1);
+    },
+    updateCareerHistory : function(careerHistoryJson)
+    {
+        angular.forEach(careerHistoryJson,function(careerHistory,key){
+            // console.log('Career History'+key,careerHistory);
+            var history = new ManagerCareerHistory();
+            history.setCareerHistoryWithId(careerHistory.id,careerHistory.career_year,[]);
+            angular.forEach(careerHistory.achievements,function(achievement,key){
+                this.addAnAchievement({'info':achievement.achievement});
+            },history);
+            this.careerHistory.push(history);
+        },this);
     }
 };
-
-
 
 /*Manager Career History*/
 function ManagerCareerHistory()
@@ -140,9 +150,14 @@ ManagerCareerHistory.prototype = {
     getCareerHistory : function(){
         return this;
     },
+    setCareerHistoryWithId : function(id,year,achievements)
+    {
+        this.id = parseInt(id);
+        this.setCareerHistory(year,achievements);
+    },
     setCareerHistory : function(year,achievements)
     {
-        this.year = year;
+        this.year = parseInt(year);
         this.achievement = achievements;
     },
     numberOfAchievements : function(){
@@ -154,5 +169,9 @@ ManagerCareerHistory.prototype = {
     removeAchievement : function(achievement){
         //console.log('Element',this.achievement.indexOf(achievement));
         this.achievement.splice(this.achievement.indexOf(achievement),1);
+    },
+    updateAchievements : function(achievementJson)
+    {
+
     }
 };

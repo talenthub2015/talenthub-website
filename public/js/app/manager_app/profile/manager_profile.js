@@ -78,15 +78,18 @@ managerApp.controller('ManagerEditProfileController',['$scope','$http','$rootSco
 
 
 /*Controller for Manager Career History*/
-managerApp.controller('ManagerCareerHistoryController',['$scope','$rootScope','$location','App_Events','_SaveManagerCareerHistory'
-    ,function($scope,$rootScope,$location,App_Events,_SaveManagerCareerHistory){
+managerApp.controller('ManagerCareerHistoryController',['$scope','$rootScope','$location','App_Events',
+    '_SaveManagerCareerHistory','UpdateManagerCareerHistory'
+    ,function($scope,$rootScope,$location,App_Events,_SaveManagerCareerHistory,UpdateManagerCareerHistory){
+        UpdateManagerCareerHistory();
+        
         //Form Interaction variables
         $scope.formSubmitted = false;
 
         $scope.managerProfile = $rootScope.managerProfile;
         $scope.careerYearRange = [];
         var currentYear = new Date();
-        currentYear = currentYear.getFullYear();
+        currentYear = parseInt(currentYear.getFullYear());
         for(var i=currentYear;i>(currentYear-100);i--)
         {
             $scope.careerYearRange.push(i);
@@ -94,7 +97,10 @@ managerApp.controller('ManagerCareerHistoryController',['$scope','$rootScope','$
 
         //Updating Models, if rootScope model updated
         $scope.$on(App_Events.ManagerModelUpdated,function(){
+            console.log('Updated Manager profile',$rootScope.managerProfile);
             $scope.managerProfile = $rootScope.managerProfile;
+            // $scope.managerProfile.careerHistory[0].year = 2015;
+            // $scope.managerProfile.institution_name="Some random name";
         });
 
         //Adding Another Achievement in Career History
@@ -123,12 +129,17 @@ managerApp.controller('ManagerCareerHistoryController',['$scope','$rootScope','$
 
         //Save Career History of the manager
         $scope.saveManagerCareerHistory = function(managerProfile){
+            $rootScope.$broadcast(App_Events.ShowLoadingOverlay);
             console.log('Manager Profile Career History', managerProfile);
             _SaveManagerCareerHistory(managerProfile).
             then(function(response){
+                $location.path('/');
                 console.log('History Saved',response);
             },function(response){
                 console.log('History Saved failed',response);
+            })
+                .finally(function(){
+                    $rootScope.$broadcast(App_Events.HideLoadingOverlay);
             });
         };
 

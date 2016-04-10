@@ -58,5 +58,4 @@ elixir(function(mix) {
     mix.scripts([
         "form-validations.js"
     ],'public/js/form-validations.js','resources/assets/js');
-
 });

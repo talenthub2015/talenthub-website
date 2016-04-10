@@ -55,9 +55,13 @@
                     <div class="row">
                         <div class="col-xs-3">
                             <div class="form-group">
-                                <select ng-model="careerHistory.year" name="year_{{$index}}" class="form-control" required>
-                                    <option selected value="">-- Select a Year --</option>
-                                    <option ng-repeat="year in careerYearRange track by $index" value="{{year}}">{{year}}</option>
+                                <select ng-model="careerHistory.year" name="year_{{$index}}" class="form-control"
+                                        required
+                                        ng-options="year for year in careerYearRange track by year">
+                                    <option value="">-- Select a Year --</option>
+                                    <!--<option ng-repeat="year in careerYearRange track by year.year" value="{{year.year}}">-->
+                                        <!--{{year.year}}-->
+                                    <!--</option>-->
                                 </select>
 
                                 <div class="error_message_container" ng-messages="manager_career_history['year_' + $index].$error"

@@ -34,10 +34,11 @@
     <script src="{!!asset('js/basic_site_animation.js')!!}"></script>
     <script src="{!!asset('js/app/manager_app/manager_app.js')!!}"></script>
     <script src="{!!asset('js/app/manager_app/class_lib.js')!!}"></script>
-    <script src="{!!asset('js/app/manager_app/services.js')!!}"></script>
+    <script src="{!!asset('js/app/manager_app/services/services.js')!!}"></script>
     <script src="{!!asset('js/app/manager_app/profile/manager_profile.js')!!}"></script>
     <script src="{!!asset('js/app/manager_app/profile/manager_profile_services.js')!!}"></script>
     <script src="{!!asset('js/app/manager_app/directive/request_loading.js')!!}"></script>
+    <script src="{!! asset('js/app/manager_app/services/GetManagerCareerHistoryService.js') !!}"></script>
 
     <script type="text/javascript">
         $.ajaxSetup({

@@ -63,7 +63,7 @@ managerApp.factory('GetBasicSiteConstants',['$http','$rootScope','UpdateManagerP
     };
 }]);
 
-/*Extracing Manager Profile*/
+/*Extracting Manager Profile*/
 managerApp.factory('UpdateManagerProfile',['$http','$rootScope','App_Events',function($http,$rootScope,App_Events){
     return function(){
         if(!Object.prototype.hasOwnProperty.call($rootScope, 'managerProfile'))
@@ -85,6 +85,26 @@ managerApp.factory('UpdateManagerProfile',['$http','$rootScope','App_Events',fun
             function(response){
                 console.log('Error',response);
                 $rootScope.response_error = response;
+                return false;
+            }
+        );
+    };
+}]);
+
+//Updating Manager Career History in the Angular Model (Client Side)
+managerApp.factory('UpdateManagerCareerHistory',['$rootScope','GetManagerCareerHistoryService','App_Events',
+    function($rootScope,GetManagerCareerHistoryService,App_Events){
+    return function(){
+        GetManagerCareerHistoryService().
+        then(
+            function(response){
+                console.log("Career History",response);
+                $rootScope.managerProfile.updateCareerHistory(response.data.careerHistory);
+                $rootScope.$broadcast(App_Events.ManagerModelUpdated);
+                return true;
+            },
+            function(response){
+                console.log("Failed Career History",response);
                 return false;
             }
         );

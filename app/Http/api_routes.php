@@ -17,6 +17,7 @@ Route::group(['prefix'=>'api/manager','middleware'=>['auth_manager']],function()
 
     Route::get('/profile','WebApi\Manager\ManagerProfileController@getProfileData');
     Route::post('/updateProfile','WebApi\Manager\ManagerProfileController@updateProfile');
-    Route::post('/updateCareerHistory','WebApi\Manager\ManagerProfileController@updateCareerHistory');
+    Route::post('/updateCareerHistory','WebApi\Manager\ManagerCareerHistoryController@updateCareerHistory');
+    Route::get('/getCareerHistory','WebApi\Manager\ManagerCareerHistoryController@getCareerHistory');
 
 });

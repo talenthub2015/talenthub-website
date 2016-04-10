@@ -53,4 +53,26 @@ class ManagerCareerHistory extends Model {
             }
         }
     }
+
+    /**Get all the Career History of the Manager
+     * @param $managerProfileId
+     */
+    public static function getCareerHistory($managerProfileId)
+    {
+        return self::where('profile_id','=',$managerProfileId)->get();
+    }
+
+    /**Get all the Career History & respective achievements associated with it, of the Manager
+     * @param $managerProfileId
+     */
+    public static function getCareerHistoryAndAchievements($managerProfileId)
+    {
+        $careerHistories = self::getCareerHistory($managerProfileId);
+        foreach($careerHistories as &$careerHistory)
+        {
+            $careerHistory->Achievements;
+        }
+        unset($careerHistory);
+        return $careerHistories;
+    }
 }

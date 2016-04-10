@@ -31,6 +31,15 @@ class ManagerProfile extends Model {
         return $this->hasMany('talenthub\ManagerModels\ManagerCareerHistory','profile_id');
     }
 
+    /**Get Manager profile from Database
+     * @param $user_id
+     * @return mixed
+     */
+    public static function getManagerProfile($user_id)
+    {
+        return self::where('user_id', '=', $user_id)->first();
+    }
+
     /**Updates Manager Profile & saving the changes
      * @param Request $request
      */

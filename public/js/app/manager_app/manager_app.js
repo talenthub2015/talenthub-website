@@ -13,6 +13,7 @@ managerApp.config(['$routeProvider',function($routeProvider){
         when('/',{
             templateUrl :   'app/manager_app/profile/index.html'
         })
+        //Manager Profile Edit pages
         .when('/profile/edit',{
             templateUrl :   'app/manager_app/profile/edit.html'
         })
