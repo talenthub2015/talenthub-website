@@ -1402,9 +1402,6 @@ footer
 }
 
 
-
-
-
 /*------------------------------------------------------------------------------------------
 ----------------------- Manager Side CSS styling -------------------------------------------
 --------------------------------------------------------------------------------------------*/
@@ -1460,8 +1457,125 @@ footer
       }
     }
   }
-}
 
+  //Manager Profile
+  .view_manager_profile
+  {
+    padding-top:25px;
+    .search_bar
+    {
+      background:#ffffff;
+      @include border-radius(5px);
+      border:1px solid #a1a1a1;
+      .form-control
+      {
+        font-size:16px;
+        font-weight: bold;
+        &::-webkit-input-placeholder,&:-moz-placeholder,&::-moz-placeholder,&:-ms-input-placeholder
+        {
+          color:#c00 !important;
+        }
+      }
+    }
+
+    .manager_profile_image_container
+    {
+      position:relative;
+      padding-top:100px;
+      border-bottom:2px solid #FFFFFF;
+      margin-bottom:15px;
+      .manager_cover_image
+      {
+        position:absolute;
+        top:0px;
+        left:0px;
+        height:100%;
+        width:100%;
+      }
+      .manager_profile_image
+      {
+        @include border-radius(50%);
+        overflow: hidden;
+        img
+        {
+          width:auto;
+          height:auto;
+          max-width:100%;
+        }
+      }
+      .manager_bio
+      {
+        margin-top:10px;
+        p
+        {
+          font-size:16px;
+          font-weight: 400;
+        }
+        .manager_name
+        {
+          font-name:18px;
+          font-weight: bold;
+        }
+        .institution_name
+        {
+        }
+        .manager_designation
+        {
+
+        }
+        .manager_location
+        {
+          color:#AAAAAA;
+        }
+      }
+
+      .verify_button_container
+      {
+        margin-top:55px;
+        width:100%;
+        .btn
+        {
+          font-weight: bold;
+          font-size: 18px;
+          padding:10px 15px;
+          height:auto;
+        }
+      }
+    }
+    //Manager Profile Summary
+    .manager_profile_summary
+    {
+      background:#ffffff;
+      padding:15px 0px;
+      margin-bottom: 15px;
+      p
+      {
+        font-size:16px;
+        padding:0px 10px;
+        padding-bottom:25px;
+      }
+    }
+    .manager_career_history
+    {
+      background:#ffffff;
+      padding:15px 0px;
+      h1
+      {
+        margin-top:0px;
+        padding:0px 10px;
+        font-size: 20px;
+      }
+      pre
+      {
+        background:#FFFFFF;
+        border:none;
+        font-size:16px;
+        padding:0px 10px;
+        padding-bottom:25px;
+      }
+    }
+  }
+}
 
 /*Styles for Pop Up Modal*/
 .screen_overlay
