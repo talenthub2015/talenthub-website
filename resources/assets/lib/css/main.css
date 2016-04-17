@@ -930,31 +930,109 @@ footer {
 --------------------------------------------------------------------------------------------*/
 .manager_app a {
   text-decoration: none; }
+
 .manager_app .manager-profile-editPage .form-group .error_message_container {
   margin-top: 5px; }
   .manager_app .manager-profile-editPage .form-group .error_message_container .alert {
     padding: 5px 15px; }
+
 .manager_app .manager-profile-editPage .career-history a.remove-year {
   font-size: 12px;
   color: #a94442;
   display: block;
   text-align: center;
   margin-top: 5px; }
+
 .manager_app .manager-profile-editPage .career-history a.add-achievement {
   font-size: 14px;
   text-align: center;
   display: inline-block;
   padding: 5px; }
+
 .manager_app .manager-profile-editPage .career-history a.remove-achievement {
   font-size: 20px;
   color: #a94442;
   display: inline-block;
   padding: 5px; }
+
 .manager_app .manager-profile-editPage .career-history a.add-year {
   font-size: 20px;
   color: #203f15;
   display: inline-block;
   padding: 5px; }
+
+.manager_app .view_manager_profile {
+  padding-top: 25px; }
+  .manager_app .view_manager_profile .search_bar {
+    background: #ffffff;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px solid #a1a1a1; }
+    .manager_app .view_manager_profile .search_bar .form-control {
+      font-size: 16px;
+      font-weight: bold; }
+      .manager_app .view_manager_profile .search_bar .form-control::-webkit-input-placeholder, .manager_app .view_manager_profile .search_bar .form-control:-moz-placeholder, .manager_app .view_manager_profile .search_bar .form-control::-moz-placeholder, .manager_app .view_manager_profile .search_bar .form-control:-ms-input-placeholder {
+        color: #c00 !important; }
+  .manager_app .view_manager_profile .manager_profile_image_container {
+    position: relative;
+    padding-top: 100px;
+    border-bottom: 2px solid #FFFFFF;
+    margin-bottom: 15px; }
+    .manager_app .view_manager_profile .manager_profile_image_container .manager_cover_image {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%; }
+    .manager_app .view_manager_profile .manager_profile_image_container .manager_profile_image {
+      border-radius: 50%;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      overflow: hidden; }
+      .manager_app .view_manager_profile .manager_profile_image_container .manager_profile_image img {
+        width: auto;
+        height: auto;
+        max-width: 100%; }
+    .manager_app .view_manager_profile .manager_profile_image_container .manager_bio {
+      margin-top: 10px; }
+      .manager_app .view_manager_profile .manager_profile_image_container .manager_bio p {
+        font-size: 16px;
+        font-weight: 400; }
+      .manager_app .view_manager_profile .manager_profile_image_container .manager_bio .manager_name {
+        font-name: 18px;
+        font-weight: bold; }
+      .manager_app .view_manager_profile .manager_profile_image_container .manager_bio .manager_location {
+        color: #AAAAAA; }
+    .manager_app .view_manager_profile .manager_profile_image_container .verify_button_container {
+      margin-top: 55px;
+      width: 100%; }
+      .manager_app .view_manager_profile .manager_profile_image_container .verify_button_container .btn {
+        font-weight: bold;
+        font-size: 18px;
+        padding: 10px 15px;
+        height: auto; }
+  .manager_app .view_manager_profile .manager_profile_summary {
+    background: #ffffff;
+    padding: 15px 0px;
+    margin-bottom: 15px; }
+    .manager_app .view_manager_profile .manager_profile_summary p {
+      font-size: 16px;
+      padding: 0px 10px;
+      padding-bottom: 25px; }
+  .manager_app .view_manager_profile .manager_career_history {
+    background: #ffffff;
+    padding: 15px 0px; }
+    .manager_app .view_manager_profile .manager_career_history h1 {
+      margin-top: 0px;
+      padding: 0px 10px;
+      font-size: 20px; }
+    .manager_app .view_manager_profile .manager_career_history pre {
+      background: #FFFFFF;
+      border: none;
+      font-size: 16px;
+      padding: 0px 10px;
+      padding-bottom: 25px; }
 
 /*Styles for Pop Up Modal*/
 .screen_overlay {
@@ -1130,5 +1208,4 @@ footer {
     min-height: 30px;
     width: auto;
     padding: 15px 5px; }
-
 /*# sourceMappingURL=main.css.map */
