@@ -12,6 +12,8 @@
 */
 
 include_once('admin_routes.php');
+include_once('manager_routes.php');
+include_once('api_routes.php');
 
 Route::get("/","WelcomeController@index");
 
@@ -51,7 +53,7 @@ Route::get('user-agreement',function(){
 
 
 //Only Accessed By Authenticated user
-Route::group(['middleware' => ['auth']],function(){
+Route::group(['middleware' => ['auth_talent']],function(){
 
     Route::get("account-not-confirmed","ProfileController@accountNotConfirmed");
     Route::get("resend-confirmation-link","ProfileController@resendConfirmationLink");

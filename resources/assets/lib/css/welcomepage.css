@@ -310,6 +310,7 @@ header {
   line-height: 140%;
   margin-bottom: 50px;
   text-align: center; }
+
 .sign_in_page p {
   text-align: center;
   font-size: 16px;
@@ -317,6 +318,7 @@ header {
   color: #3f3f3f;
   margin-bottom: 50px;
   font-weight: 600; }
+
 .sign_in_page .form_container {
   color: #3f3f3f; }
   .sign_in_page .form_container .alert p {

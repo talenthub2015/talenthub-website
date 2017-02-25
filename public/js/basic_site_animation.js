@@ -100,7 +100,7 @@ $(document).ready(function() {
 
     /*Setting height of div of welcome page, sign in, etc. landing pages.*/
     $(".banner").css('min-height', ($(window).height()));
-
+    
 
 });
 
