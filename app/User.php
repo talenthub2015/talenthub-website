@@ -75,6 +75,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
 
+    public function managerProfile()
+    {
+        return $this->hasOne('talenthub\ManagerModels\ManagerProfile','user_id');
+    }
+
+
 
 
 }

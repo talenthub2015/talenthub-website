@@ -17,6 +17,7 @@ $color-orange : rgba(255,125,0,1);
 
 $t-button-border-radius : 5px;
 $t-button-background-color-hover: #204f1F ;
+$t-button-background-color-disabled : #639351;
 
 .t-button
 {
@@ -27,14 +28,25 @@ $t-button-background-color-hover: #204f1F ;
   @include border-radius($t-button-border-radius);
   border:none;
   @include text-shadow(1px, 1px, 2px, 0px, rgba(0,0,0,0.25));
-  @include box-shadow(0px, 0px, 10px, 0px, rgba(0,0,0,0.50))
+  @include box-shadow(0px, 0px, 10px, 0px, rgba(0,0,0,0.50));
+  &.disabled
+  {
+    background:$t-button-background-color-disabled;
+    @include text-shadow(0px, 0px, 0px, 0px, null);
+    @include box-shadow(0px, 0px, 0px, 0px, null);
+  }
 }
 .t-button:hover,.t-button:focus,.t-button:visited
 {
   color:#FFFFFF;
   background: $t-button-background-color-hover;
   text-decoration: none;
-  @include box-shadow(0px, 0px, 10px, 0px, rgba(0,0,0,0.75))
+  @include box-shadow(0px, 0px, 10px, 0px, rgba(0,0,0,0.75));
+  &.disabled
+  {
+    background:$t-button-background-color-disabled;
+    @include box-shadow(0px, 0px, 0px, 0px, null);
+  }
 }
 
 .statistic_button,.references_button
@@ -74,6 +86,11 @@ body
 p
 {
   position:relative;
+}
+
+a
+{
+  cursor:pointer;
 }
 
 
@@ -1381,5 +1398,219 @@ footer
         min-width:300px;
       }
     }
+  }
+}
+
+
+/*------------------------------------------------------------------------------------------
+----------------------- Manager Side CSS styling -------------------------------------------
+--------------------------------------------------------------------------------------------*/
+.manager_app
+{
+  a
+  {
+    text-decoration: none;
+  }
+  .manager-profile-editPage
+  {
+    .form-group
+    {
+      .error_message_container
+      {
+        margin-top:5px;
+        .alert
+        {
+          padding:5px 15px;
+        }
+      }
+    }
+    .career-history
+    {
+      a.remove-year
+      {
+        font-size:12px;
+        color:#a94442;
+        display: block;
+        text-align: center;
+        margin-top: 5px;
+      }
+      a.add-achievement
+      {
+        font-size:14px;
+        text-align: center;
+        display: inline-block;
+        padding: 5px;
+      }
+      a.remove-achievement
+      {
+        font-size:20px;
+        color:#a94442;
+        display: inline-block;
+        padding: 5px;
+      }
+      a.add-year
+      {
+        font-size:20px;
+        color:$color-darkGreen;
+        display: inline-block;
+        padding: 5px;
+      }
+    }
+  }
+
+  //Manager Profile
+  .view_manager_profile
+  {
+    padding-top:25px;
+    .search_bar
+    {
+      background:#ffffff;
+      @include border-radius(5px);
+      border:1px solid #a1a1a1;
+      .form-control
+      {
+        font-size:16px;
+        font-weight: bold;
+        &::-webkit-input-placeholder,&:-moz-placeholder,&::-moz-placeholder,&:-ms-input-placeholder
+        {
+          color:#c00 !important;
+        }
+      }
+    }
+
+    .manager_profile_image_container
+    {
+      position:relative;
+      padding-top:100px;
+      border-bottom:2px solid #FFFFFF;
+      margin-bottom:15px;
+      .manager_cover_image
+      {
+        position:absolute;
+        top:0px;
+        left:0px;
+        height:100%;
+        width:100%;
+      }
+      .manager_profile_image
+      {
+        @include border-radius(50%);
+        overflow: hidden;
+        img
+        {
+          width:auto;
+          height:auto;
+          max-width:100%;
+        }
+      }
+      .manager_bio
+      {
+        margin-top:10px;
+        p
+        {
+          font-size:16px;
+          font-weight: 400;
+        }
+        .manager_name
+        {
+          font-name:18px;
+          font-weight: bold;
+        }
+        .institution_name
+        {
+        }
+        .manager_designation
+        {
+
+        }
+        .manager_location
+        {
+          color:#AAAAAA;
+        }
+      }
+
+      .verify_button_container
+      {
+        margin-top:55px;
+        width:100%;
+        .btn
+        {
+          font-weight: bold;
+          font-size: 18px;
+          padding:10px 15px;
+          height:auto;
+        }
+      }
+    }
+    //Manager Profile Summary
+    .manager_profile_summary
+    {
+      background:#ffffff;
+      padding:15px 0px;
+      margin-bottom: 15px;
+      p
+      {
+        font-size:16px;
+        padding:0px 10px;
+        padding-bottom:25px;
+      }
+    }
+    .manager_career_history
+    {
+      background:#ffffff;
+      padding:15px 0px;
+      h1
+      {
+        margin-top:0px;
+        padding:0px 10px;
+        font-size: 20px;
+      }
+      pre
+      {
+        background:#FFFFFF;
+        border:none;
+        font-size:16px;
+        padding:0px 10px;
+        padding-bottom:25px;
+      }
+    }
+  }
+}
+
+/*Styles for Pop Up Modal*/
+.screen_overlay
+{
+  background:rgba(0,0,0,0.7);
+  position:fixed;
+  left:0px;
+  top:0px;
+  width:100%;
+  height:100%;
+}
+.loading_pop_up_container
+{
+  position:fixed;
+  top:30%;
+  left:40%;
+  width:20%;
+  min-height:20%;
+  text-align: center;
+  background:rgba(255,255,255,0.85);
+  @include border-radius(5px);
+  border:2px solid rgba(255,255,255,1);
+  h2
+  {
+    font-size:16px;
+    margin:10px 0px;
+    padding:5px 5px;
+    text-transform: uppercase;
+  }
+  .loading_image
+  {
+    text-align: center;
+    height:100%;
+    min-height:30px;
+    width:auto;
+    padding:15px 5px;
   }
 }

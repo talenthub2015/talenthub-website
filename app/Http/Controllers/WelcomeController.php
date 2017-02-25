@@ -34,13 +34,17 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-        if(Auth::user())
+        $user = Auth::user();
+        if($user && SiteConstants::isTalent($user->user_type))
         {
             return redirect('/home');
         }
+        else if($user && SiteConstants::isManager($user->user_type))
+        {
+            return redirect('/manager');
+        }
         return view('welcome');
 	}
-
 
     /**
      * Redirect the user to Sign Up page

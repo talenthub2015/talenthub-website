@@ -1,0 +1,166 @@
+<div ng-controller="ManagerEditProfileController" class="manager-profile-editPage">
+    <div class="container">
+        <form name="manager_profile" novalidate="novalidate">
+            <h1>Personal Information</h1>
+            <div class="row form_container">
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <label>First Name:</label>
+                        <input type="text" name="first_name" id="first_name" ng-model="managerProfile.first_name"
+                               class="form-control" required="required">
+                        <div class="error_message_container" ng-messages="manager_profile.first_name.$error"
+                             ng-if="$scope.formSubmitted || manager_profile.first_name.$touched">
+                            <p class="alert alert-danger" ng-message="required">First name is required</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <label>Middle Name:</label>
+                        <input type="text" name="middle_name" id="middle_name" ng-model="managerProfile.middle_name"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <label>Last Name:</label>
+                        <input type="text" name="last_name" id="last_name" ng-model="managerProfile.last_name"
+                               class="form-control" required="required">
+                        <div class="error_message_container" ng-messages="manager_profile.last_name.$error"
+                             ng-if="$scope.formSubmitted || manager_profile.last_name.$touched">
+                            <p class="alert alert-danger" ng-message="required">Last name is required</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row form_container">
+
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <select name="gender" ng-model="managerProfile.gender" class="form-control" required>
+                            <option selected value="">-- Select Gender --</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <div class="error_message_container" ng-messages="manager_profile.gender.$error"
+                             ng-if="$scope.formSubmitted || manager_profile.gender.$touched">
+                            <p class="alert alert-danger" ng-message="required">Gender is required</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <label>Date of Birth:</label>
+                        <input type="text" name="dob" id="managerProfile.dob" ng-model="managerProfile.dob" class="form-control datepicker"
+                               required="required" ng-pattern="/\d\d/\d\d/\d\d\d\d/" >
+                        <div class="error_message_container" ng-messages="manager_profile.dob.$error"
+                             ng-if="$scope.formSubmitted || manager_profile.dob.$touched">
+                            <p class="alert alert-danger" ng-message="required">DOB is required</p>
+                            <p class="alert alert-danger" ng-message="pattern">Date should be in format (dd/mm/yyyy)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <label>Nationality:</label>
+                        <input type="text" name="nationality" id="nationality" ng-model="managerProfile.nationality" class="form-control"
+                               required="required">
+                        <div class="error_message_container" ng-messages="manager_profile.nationality.$error"
+                             ng-if="$scope.formSubmitted || manager_profile.nationality.$touched">
+                            <p class="alert alert-danger" ng-message="required">Nationality is required</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h1>Current Address</h1>
+
+
+            <div class="row form_container">
+                <div class="col-xs-12 col-lg-6">
+                    <div class="form-group">
+                        <label>Street Address:</label>
+                        <input type="text" name="street_address" id="street_address" ng-model="managerProfile.street_address"
+                               class="form-control" required="required">
+                        <div class="error_message_container" ng-messages="manager_profile.street_address.$error"
+                             ng-if="$scope.formSubmitted || manager_profile.street_address.$touched">
+                            <p class="alert alert-danger" ng-message="required">Street Address is required</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-3">
+                    <div class="form-group">
+                        <label>City:</label>
+                        <input type="text" name="city" id="city" ng-model="managerProfile.city" class="form-control"
+                               required="required">
+                        <div class="error_message_container" ng-messages="manager_profile.city.$error"
+                             ng-if="$scope.formSubmitted || manager_profile.city.$touched">
+                            <p class="alert alert-danger" ng-message="required">City is required</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-3">
+                    <div class="form-group">
+                        <label>State:</label>
+                        <input type="text" name="state" id="state" ng-model="managerProfile.state" class="form-control"
+                               required="required">
+                        <div class="error_message_container" ng-messages="manager_profile.state.$error"
+                             ng-if="$scope.formSubmitted || manager_profile.state.$touched">
+                            <p class="alert alert-danger" ng-message="required">State is required</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row form_container">
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <label>Country:</label>
+                        <select name="country" id="country" ng-model="managerProfile.country.country_name" class="form-control"
+                                required="required"
+                                ng-options="country for country in basicSiteConstants.countries track by country">
+                            <option value="">-- Select Country --</option>
+                        </select>
+                        <div class="error_message_container" ng-messages="manager_profile.country.$error"
+                             ng-if="$scope.formSubmitted || manager_profile.country.$touched">
+                            <p class="alert alert-danger" ng-message="required">Pleas select a country.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <label>Zip:</label>
+                        <input type="number" name="zip" id="zip" ng-model="managerProfile.zip" class="form-control"
+                               required="required"
+                                ng-maxlength="5">
+                        <div class="error_message_container" ng-messages="manager_profile.zip.$error"
+                             ng-if="$scope.formSubmitted || manager_profile.zip.$touched">
+                            <p class="alert alert-danger" ng-message="required">Please enter a valid zip code.</p>
+                            <p class="alert alert-danger" ng-message="maxlength">Please enter a valid zip code with maximum 5 digits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h1>Bio</h1>
+            <div class="form_container">
+                <div class="form-group">
+                    <label>In as few sentences as possible, please tell us about your career so far:</label>
+                    <textarea name="bio" id="bio" ng-model="managerProfile.bio" class="form-control"
+                              required="required"></textarea>
+                    <div class="error_message_container" ng-messages="manager_profile.bio.$error"
+                         ng-if="$scope.formSubmitted || manager_profile.bio.$touched">
+                        <p class="alert alert-danger" ng-message="required">Please provide your Bio.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="t-button" ng-class="{disabled : manager_profile.$invalid}" ng-disabled = "manager_profile.$invalid" ng-click="saveManagerProfile()">Go to Career History</button>
+            </div>
+        </form>
+    </div>
+</div>

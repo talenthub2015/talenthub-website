@@ -22,8 +22,10 @@ Defining functionality for Duplicating Content of whole div
 */
 .duplicate_content_container .table {
   margin-bottom: 0px; }
+
 .duplicate_content_container .place_duplicate_content_here tr.content_duplicated > td, .duplicate_content_container .place_duplicate_content_here tr.content_duplicated > th {
   position: relative; }
+
 .duplicate_content_container .place_duplicate_content_here .content_duplicated {
   position: relative;
   border-top: 1px solid #333333;
@@ -53,4 +55,5 @@ Defining functionality for Duplicating Content of whole div
 */
 
 /*# sourceMappingURL=site_animation.css.map */
+
 /*# sourceMappingURL=site_animation.css.map */
