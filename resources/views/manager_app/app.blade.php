@@ -25,6 +25,7 @@
     <script src="{!! asset('js/angular-cookies.min.js') !!}"></script>
     <script src="{!! asset('js/angular-route.min.js') !!}"></script>
     <script src="{!! asset('js/angular-messages.min.js')!!}"></script>
+    <script src="{!! asset('js/angular-ui-router.min.js') !!}"></script>
     <script src="{!!asset('js/bootstrap.min.js')!!}"></script>
     <script src="{!!asset('js/html5shiv.min.js')!!}"></script>
     <script src="{!!asset('js/respond.min.js')!!}"></script>
@@ -60,7 +61,7 @@
 @endif
 
 <div class="body_container manager_app">
-    <div ng-view></div>
+    <div ui-view></div>
 </div>
 
 <!-- Loading Overlay -->
