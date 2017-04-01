@@ -7511,6 +7511,27 @@ label {
   font-weight: 700;
   font-size: 18px; }
 
+.th-padding-10 {
+  padding: 10px; }
+
+.th-padding-15 {
+  padding: 15px; }
+
+.th-padding-bottom-15 {
+  padding-bottom: 15px; }
+
+.th-padding-bottom-25 {
+  padding-bottom: 25px; }
+
+.th-padding-top-15 {
+  padding-top: 15px; }
+
+.font-size-16, .font-size-16 p {
+  font-size: 16px; }
+
+.font-size-20, .font-size-20 p {
+  font-size: 20px; }
+
 .form-control.t-button {
   color: #FFFFFF; }
 
@@ -8375,70 +8396,6 @@ footer {
 --------------------------------------------------------------------------------------------*/
 .manager_app a {
   text-decoration: none; }
-.manager_app .manager-profile-editPage .form-group .error_message_container {
-  margin-top: 5px; }
-  .manager_app .manager-profile-editPage .form-group .error_message_container .alert {
-    padding: 5px 15px; }
-.manager_app .manager-profile-editPage .career-history a.remove-year {
-  font-size: 12px;
-  color: #a94442;
-  display: block;
-  text-align: center;
-  margin-top: 5px; }
-.manager_app .manager-profile-editPage .career-history a.add-achievement {
-  font-size: 14px;
-  text-align: center;
-  display: inline-block;
-  padding: 5px; }
-.manager_app .manager-profile-editPage .career-history a.remove-achievement {
-  font-size: 20px;
-  color: #a94442;
-  display: inline-block;
-  padding: 5px; }
-.manager_app .manager-profile-editPage .career-history a.add-year {
-  font-size: 20px;
-  color: #203f15;
-  display: inline-block;
-  padding: 5px; }
-
-/*Styles for Pop Up Modal*/
-.screen_overlay {
-  background: rgba(0, 0, 0, 0.7);
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%; }
-
-.loading_pop_up_container {
-  position: fixed;
-  top: 30%;
-  left: 40%;
-  width: 20%;
-  min-height: 20%;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border: 2px solid white; }
-  .loading_pop_up_container h2 {
-    font-size: 16px;
-    margin: 10px 0px;
-    padding: 5px 5px;
-    text-transform: uppercase; }
-  .loading_pop_up_container .loading_image {
-    text-align: center;
-    height: 100%;
-    min-height: 30px;
-    width: auto;
-    padding: 15px 5px; }
-
-/*------------------------------------------------------------------------------------------
------------------------ Manager Side CSS styling -------------------------------------------
---------------------------------------------------------------------------------------------*/
-.manager_app a {
-  text-decoration: none; }
 
 .manager_app .manager-profile-editPage .form-group .error_message_container {
   margin-top: 5px; }
@@ -8542,6 +8499,25 @@ footer {
       font-size: 16px;
       padding: 0px 10px;
       padding-bottom: 25px; }
+
+.manager_app .page-heading {
+  font-size: 20px;
+  color: #000000;
+  margin-bottom: 25px;
+  padding-bottom: 0px; }
+
+.manager_app .white-background {
+  background: #FFFFFF; }
+
+.manager_app .verification-page p {
+  line-height: 150%;
+  margin-bottom: 0px; }
+
+.manager_app .verification-page .verification-button {
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+  padding: 15px 25px; }
 
 /*Styles for Pop Up Modal*/
 .screen_overlay {

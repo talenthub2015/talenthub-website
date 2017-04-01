@@ -9,17 +9,6 @@ var managerApp = angular.module('thub.manager_app',['ngCookies','ngSanitize','ng
     - Defining App Routes
  */
 managerApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider){
-    // $routeProvider.
-    //     when('/',{
-    //         templateUrl :   'app/manager_app/profile/index.html'
-    //     })
-    //     //Manager Profile Edit pages
-    //     .when('/profile/edit',{
-    //         templateUrl :   'app/manager_app/profile/edit.html'
-    //     })
-    //     .when('/profile/edit/career',{
-    //         templateUrl :    'app/manager_app/profile/edit-career-history.html'
-    //     })
 
     $urlRouterProvider.otherwise('/profile/view');
 
@@ -40,6 +29,10 @@ managerApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvide
         .state('profile.career',{
             url:'/edit/career',
             templateUrl: 'app/manager_app/profile/edit-career-history.html'
+        })
+        .state('profile.verification',{
+            url:'/verification',
+            templateUrl:'app/manager_app/verification/request-verification.html'
         })
 }]);
 

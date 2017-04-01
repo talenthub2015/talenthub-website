@@ -48,3 +48,33 @@ label
   -moz-text-shadow: $horizontal $vertical $blur $spread $color;
   -webkit-text-shadow: $horizontal $vertical $blur $spread $color;
 }
+
+@mixin th-padding($padding)
+{
+  padding: $padding;
+}
+
+@mixin th-padding-top($padding)
+{
+  padding-top: $padding;
+}
+
+@mixin th-padding-bottom($padding)
+{
+  padding-bottom: $padding;
+}
+
+@mixin th-padding-left($padding)
+{
+  padding-left: $padding;
+}
+
+@mixin th-padding-right($padding)
+{
+  padding-right: $padding;
+}
+
+@mixin font-size($font-size)
+{
+  font-size: $font-size;
+}

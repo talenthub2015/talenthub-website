@@ -1,0 +1,17 @@
+<div class="verification-page" ng-controller="verificationController as verificationVm">
+    <h1 class="page-heading">Request a Verification Badge</h1>
+
+    <div class="white-background th-padding-15 font-size-16">
+        <p class="th-padding-bottom-25">Talenthub strongly encourages managers of talent to take this step which you are about to take, thank you and congratulations!</p>
+        <p class="th-padding-bottom-25">A Talenthub verified account ensures sport talent, and other Talenthub users, that you are who you say you are – a legitimate coach, agent or scout. Talenthub has a zero tolerance policy for fraudsters looking for unfair and illegal financial gains at the cost of innocent sport scholarship seekers and aspiring professionals.</p>
+        <p class="th-padding-bottom-25">Talenthub requires agents, scouts and coaches to provide their valid license (where a license is not issued – an official letter from the institution the manager of talent represents) issued by the respective association of the manager’s country of nationality or practice. This license is required in the form of license number (if available) and an uploaded copy of the license certificate which must be verified by the stamp of that countries national police stamp.</p>
+        <p class="th-padding-bottom-25">Professional coaches and scouts are required to provide the name of the club they represent, define their role at the club and provide some sort of physical document from the club confirming their claim. The same is required of university and high school coaches who sign up to Talenthub: name of academic institution, role in sports team/department and physical document from the institution confirming their claim.</p>
+        <p class="th-padding-bottom-25">Any managers of talent who fail to satisfy the Talenthub security team with the required documents will not have their Talenthub profiles verified.</p>
+        {{verificationController}}
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+                <button class="btn btn-info verification-button">I am a legitimate {{verificationVm.managerType}}</button>
+            </div>
+        </div>
+    </div>
+</div>

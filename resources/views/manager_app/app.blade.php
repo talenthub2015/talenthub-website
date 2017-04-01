@@ -39,7 +39,10 @@
     <script src="{!!asset('js/app/manager_app/profile/manager_profile.js')!!}"></script>
     <script src="{!!asset('js/app/manager_app/profile/manager_profile_services.js')!!}"></script>
     <script src="{!!asset('js/app/manager_app/directive/request_loading.js')!!}"></script>
+    <script src="{!! asset('app/manager_app/common/manager-profile-view-service.js') !!}"></script>
     <script src="{!! asset('js/app/manager_app/services/GetManagerCareerHistoryService.js') !!}"></script>
+    <script src="{!! asset('app/manager_app/verification/verification-ctrl.js') !!}"></script>
+    <script src="{!! asset('app/manager_app/verification/verification-service.js') !!}"></script>
 
     <script type="text/javascript">
         $.ajaxSetup({
@@ -61,7 +64,9 @@
 @endif
 
 <div class="body_container manager_app">
-    <div ui-view></div>
+    <div class="container">
+        <div ui-view></div>
+    </div>
 </div>
 
 <!-- Loading Overlay -->

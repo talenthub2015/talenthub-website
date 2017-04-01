@@ -20,4 +20,6 @@ Route::group(['prefix'=>'api/manager','middleware'=>['auth_manager']],function()
     Route::post('/updateCareerHistory','WebApi\Manager\ManagerCareerHistoryController@updateCareerHistory');
     Route::get('/getCareerHistory','WebApi\Manager\ManagerCareerHistoryController@getCareerHistory');
 
+    Route::get('/verification-status','ManagerApp\api\VerificationController@status');
+
 });

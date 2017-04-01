@@ -68,7 +68,50 @@ $t-button-background-color-disabled : #639351;
   font-size: 18px;
 }
 
+.th-padding-10
+{
+  @include th-padding(10px);
+}
 
+.th-padding-15
+{
+  @include th-padding(15px);
+}
+
+.th-padding-bottom-15
+{
+  @include th-padding-bottom(15px);
+}
+
+.th-padding-bottom-25
+{
+  @include th-padding-bottom(25px);
+}
+
+.th-padding-top-15
+{
+  @include th-padding-top(15px);
+}
+
+.font-size-16
+{
+  @include font-size(16px);
+}
+
+.font-size-20
+{
+  @include font-size(20px);
+}
+
+.font-size-16 p
+{
+  @extend .font-size-16;
+}
+
+.font-size-20 p
+{
+  @extend .font-size-20;
+}
 
 
 .form-control.t-button
@@ -1573,6 +1616,34 @@ footer
         padding:0px 10px;
         padding-bottom:25px;
       }
+    }
+  }
+
+  .page-heading
+  {
+    font-size:20px;
+    color:#000000;
+    margin-bottom:25px;
+    padding-bottom:0px;
+  }
+  .white-background
+  {
+    background:#FFFFFF;
+  }
+  //Verification page styles
+  .verification-page
+  {
+    p
+    {
+      line-height:150%;
+      margin-bottom:0px;
+    }
+    .verification-button
+    {
+      width:100%;
+      text-align:center;
+      font-weight:400;
+      padding:15px 25px;
     }
   }
 }
