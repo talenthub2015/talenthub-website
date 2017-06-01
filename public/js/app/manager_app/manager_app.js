@@ -14,9 +14,10 @@ managerApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvide
 
     $stateProvider
         .state('profile',{
-            url: '/profile',
+            abstract:true,
+            url:"/profile",
             templateUrl : 'app/manager_app/profile/profile-view.html',
-            redirectTo : 'profile.view'
+
         })
         .state('profile.view',{
             url: '/view',
@@ -30,9 +31,31 @@ managerApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvide
             url:'/edit/career',
             templateUrl: 'app/manager_app/profile/edit-career-history.html'
         })
-        .state('profile.verification',{
+        .state('verification',{
+            abstract: true,
             url:'/verification',
-            templateUrl:'app/manager_app/verification/request-verification.html'
+            templateUrl:'app/manager_app/verification/verification-view.html'
+        })
+        .state('verification.request',{
+            url:'/request',
+            templateUrl:'app/manager_app/verification/request-verification.html',
+            controller: 'verificationController'
+        })
+        .state('verification.form',{
+            abstract:true,
+            url:'/form',
+            templateUrl:'app/manager_app/verification/form/request-verification-form.html',
+            controller: 'verificationFormController',
+            controllerAs:'verificationFmVm'
+        })
+        .state('verification.form.manager_type',{
+            url:'/manager',
+            views :{
+                'coach' :{
+                    url:'/coach',
+                    templateUrl:'app/manager_app/verification/form/coach-verification.html'
+                }
+            }
         })
 }]);
 

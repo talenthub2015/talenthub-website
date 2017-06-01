@@ -13,9 +13,10 @@ managerApp.service('managerProfileViewService',['$http',function($http){
     function getManagerProfile(){
         return $http.get('api/manager/profile',{
             cache : true
-        })
+            })
             .then(function(response){
                 service.model = response.data;
+                return service.model;
             });
     }
 }]);

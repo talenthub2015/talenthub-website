@@ -3,7 +3,7 @@
  */
 'use strict';
     managerApp.controller('verificationController', ['verificationService',
-        function (verificationService){
+        function verificationController(verificationService){
             var vm = this;
 
             activate();

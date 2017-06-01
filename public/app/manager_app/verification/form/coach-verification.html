@@ -1,0 +1,89 @@
+<h1>Are you a legitimate Coach?</h1>
+<hr>
+<div class="form_container">
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-2">
+            <label>Type of Sport</label>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <input type="text" ng-model="verificationFmVm.model.sportType" name="sport-type" class="form-control"
+                   readonly required>
+            <p class="error_message_container" ng-if="verificationRequestForm.$submitted || verificationRequestForm.sport-type.$touched">
+                <span ng-if="verificationRequestForm.sport-type.$error.required"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-2">
+            <label>Club representing</label>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <input type="text" ng-model="verificationFmVm.model.club" name="club" class="form-control" required>
+            <p class="error_message_container"
+               ng-if="verificationRequestForm.$submitted || verificationRequestForm.club.$touched">
+                <span ng-show="verificationRequestForm.club.$error.required">Please provide a Club.</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-2">
+            <label>Country of club</label>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <select ng-model="verificationFmVm.model.clubCountry" name="clubCountry" class="form-control" required></select>
+            <p class="error_message_container"
+               ng-if="verificationRequestForm.$submitted || verificationRequestForm.clubCountry.$touched">
+                <span ng-show="verificationRequestForm.clubCountry.$error.required">Please provide a club country.</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-2">
+            <label>League name</label>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <input type="text" ng-model="verificationFmVm.model.leagueName" name="leagueName" required class="form-control">
+            <p class="error_message_container"
+               ng-if="verificationRequestForm.$submitted || verificationRequestForm.leagueName.$touched">
+                <span ng-show="verificationRequestForm.leagueName.$error.required">Please provide a league name.</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-2">
+            <label>League website</label>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <input type="text" ng-model="verificationFmVm.model.leagueWebsite" name="leagueWebsite" required class="form-control">
+            <p class="error_message_container"
+               ng-if="verificationRequestForm.$submitted || verificationRequestForm.leagueWebsite.$touched">
+                <span ng-show="verificationRequestForm.leagueWebsite.$error.required">Please provide a league website.</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-2">
+            <label>Role at club</label>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <textarea ng-model="verificationFmVm.model.roleAtClub" name="roleAtClub" required class="form-control"></textarea>
+            <p class="error_message_container"
+               ng-if="verificationRequestForm.$submitted || verificationRequestForm.roleAtClub.$touched">
+                <span ng-show="verificationRequestForm.roleAtClub.$error.required">Please provide a role at club.</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-2">
+            <div multiple-file-upload
+                 files-model="verificationFmVm.model.files"
+                 required="true"></div>
+        </div>
+    </div>
+</div>
