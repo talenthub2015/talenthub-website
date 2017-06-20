@@ -21,13 +21,11 @@ managerApp.directive('multipleFileUpload', ['$parse', function ($parse) {
     };
 
     function link(scope, element, attrs, required) {
-        var model = $parse(scope.files);
         var isMultiple = scope.multiple;
-        var modelSetter = model.assign;
         scope.multipleFileVm.form = required;
         element.bind('change', function () {
             var values = [];
-            angular.forEach(element[0].files, function (item) {
+            angular.forEach(element.children('input[type="file"]')[0].files, function (item) {
                 var value = {
                     // File Name
                     name: item.name,
@@ -40,9 +38,9 @@ managerApp.directive('multipleFileUpload', ['$parse', function ($parse) {
             });
             scope.$apply(function () {
                 if (isMultiple) {
-                    modelSetter(scope, values);
+                    scope.multipleFileVm.filesModel.files = values;
                 } else {
-                    modelSetter(scope, values[0]);
+                    scope.multipleFileVm.filesModel.files = values[0];
                 }
             });
         });

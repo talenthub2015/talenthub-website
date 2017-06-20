@@ -36,7 +36,8 @@ managerApp.factory('GetBasicSiteConstants',['$http','$rootScope','UpdateManagerP
     return function(){
         $http({
             method : 'GET',
-            url : 'api/general/basic-site-constants'
+            url : 'api/general/basic-site-constants',
+            cache:true
         })
             .then(
             function(response){

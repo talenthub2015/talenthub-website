@@ -32,7 +32,9 @@
             <label>Country of club</label>
         </div>
         <div class="col-xs-12 col-md-4">
-            <select ng-model="verificationFmVm.model.clubCountry" name="clubCountry" class="form-control" required></select>
+            <select ng-model="verificationFmVm.model.clubCountry" name="clubCountry" class="form-control" required
+                    ng-options="country as country for country in verificationFmVm.listOfCountries track by $index">
+            </select>
             <p class="error_message_container"
                ng-if="verificationRequestForm.$submitted || verificationRequestForm.clubCountry.$touched">
                 <span ng-show="verificationRequestForm.clubCountry.$error.required">Please provide a club country.</span>
@@ -80,9 +82,9 @@
     </div>
 
     <div class="row form-group">
-        <div class="col-xs-12 col-md-2">
+        <div class="col-xs-12 col-md-4">
             <div multiple-file-upload
-                 files-model="verificationFmVm.model.files"
+                 files-model="verificationFmVm.model"
                  required="true"></div>
         </div>
     </div>

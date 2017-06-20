@@ -4,11 +4,12 @@
 'use strict';
 
 managerApp.controller('verificationFormController',['managerProfileViewService','verificationService',
-    function(managerProfileViewService, verificationService){
+    function(managerProfileViewService, verificationService, COUNTRIES){
     var vm = this;
     vm.model = verificationService.model;
 
     vm.submitForm = submitForm;
+    vm.listOfCountries = COUNTRIES;
     activate();
 
     function activate(){

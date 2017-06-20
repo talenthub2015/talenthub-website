@@ -83,6 +83,11 @@
 @include('templates.userFooter')
 
 
+<script>
+    (function(managerApp){
+        managerApp.constant('COUNTRIES', {!! json_encode($constants["countries"])!!}) ;
+    })(managerApp);
+</script>
 
 
 </body>

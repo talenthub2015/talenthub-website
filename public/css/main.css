@@ -8792,4 +8792,18 @@ label {
 
 /*# sourceMappingURL=message.css.map */
 
+.error_message_container p, .error_message_container span {
+  color: #FF6347;
+  font-size: 0.9em; }
+
+/* ----------------------------------------------------*/
+/*  This Section is for Manage Part */
+.manager_app input.ng-invalid.ng-touched, .manager_app select.ng-invalid.ng-touched, .manager_app textarea.ng-invalid.ng-touched {
+  border-color: #FF6347; }
+
+/* ----------------------------------------------------*/
+/*  Manager Part Ends */
+
+/*# sourceMappingURL=form-styles.css.map */
+
 /*# sourceMappingURL=main.css.map */
