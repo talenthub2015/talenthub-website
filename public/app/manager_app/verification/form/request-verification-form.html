@@ -1,9 +1,10 @@
-<form name="verificationRequestForm" novalidate>
+<form name="verificationRequestForm" ng-submit="verificationFmVm.submitForm()" novalidate>
     <div ui-view="coach"></div>
 
     <div class="row">
         <div class="col-xs-2">
-            <button type="button" ng-click="verificationFmVm.submitForm()" class="btn btn-info">Submit</button>
+            <button type="submit" class="btn btn-info"
+                    ng-disabled="!verificationRequestForm.$valid">Submit</button>
         </div>
     </div>
 </form>

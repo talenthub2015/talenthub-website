@@ -85,8 +85,13 @@
 
 <script>
     (function(managerApp){
-        managerApp.constant('COUNTRIES', {!! json_encode($constants["countries"])!!}) ;
-    })(managerApp);
+        managerApp.constant('APP_CONSTANTS',{
+            'COUNTRIES': {!! json_encode($constants["countries"]) !!},
+            'REGEX':{
+                'WEBSITE_URL':'(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%\\._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+\\.~#?&//=]*)'
+            }
+        });
+    })(angular.module('thub.manager_app'));
 </script>
 
 

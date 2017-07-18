@@ -8792,9 +8792,12 @@ label {
 
 /*# sourceMappingURL=message.css.map */
 
-.error_message_container p, .error_message_container span {
-  color: #FF6347;
-  font-size: 0.9em; }
+.error_message_container {
+  margin-bottom: 0px; }
+  .error_message_container p, .error_message_container span {
+    color: #FF6347;
+    font-size: 0.9em;
+    margin-bottom: 5px; }
 
 /* ----------------------------------------------------*/
 /*  This Section is for Manage Part */

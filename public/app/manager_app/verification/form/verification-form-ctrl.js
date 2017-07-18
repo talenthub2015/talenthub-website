@@ -3,13 +3,14 @@
  */
 'use strict';
 
-managerApp.controller('verificationFormController',['managerProfileViewService','verificationService',
-    function(managerProfileViewService, verificationService, COUNTRIES){
+managerApp.controller('verificationFormController',['managerProfileViewService','verificationService', 'APP_CONSTANTS',
+    function(managerProfileViewService, verificationService, APP_CONSTANTS){
     var vm = this;
     vm.model = verificationService.model;
 
     vm.submitForm = submitForm;
-    vm.listOfCountries = COUNTRIES;
+    vm.listOfCountries = APP_CONSTANTS.COUNTRIES;
+    vm.appConstants = APP_CONSTANTS;
     activate();
 
     function activate(){
@@ -20,7 +21,9 @@ managerApp.controller('verificationFormController',['managerProfileViewService',
     }
 
     function submitForm(){
-        console.log("VM:", vm);
-        return;
+        verificationService.submitVerificationRequest()
+            .then(function(){
+                //Redirect the Home Page
+            });
     }
 }]);

@@ -33,11 +33,11 @@
         </div>
         <div class="col-xs-12 col-md-4">
             <select ng-model="verificationFmVm.model.clubCountry" name="clubCountry" class="form-control" required
-                    ng-options="country as country for country in verificationFmVm.listOfCountries track by $index">
+                    ng-options="country for country in verificationFmVm.listOfCountries">
             </select>
             <p class="error_message_container"
                ng-if="verificationRequestForm.$submitted || verificationRequestForm.clubCountry.$touched">
-                <span ng-show="verificationRequestForm.clubCountry.$error.required">Please provide a club country.</span>
+                <span ng-show="verificationFmVm.model.clubCountry === '-- Select Country --'">Please provide a club country.</span>
             </p>
         </div>
     </div>
@@ -60,10 +60,12 @@
             <label>League website</label>
         </div>
         <div class="col-xs-12 col-md-4">
-            <input type="text" ng-model="verificationFmVm.model.leagueWebsite" name="leagueWebsite" required class="form-control">
+            <input type="text" ng-model="verificationFmVm.model.leagueWebsite" name="leagueWebsite" required
+                   class="form-control" ng-pattern="verificationFmVm.appConstants.REGEX.WEBSITE_URL">
             <p class="error_message_container"
                ng-if="verificationRequestForm.$submitted || verificationRequestForm.leagueWebsite.$touched">
                 <span ng-show="verificationRequestForm.leagueWebsite.$error.required">Please provide a league website.</span>
+                <span ng-show="verificationRequestForm.leagueWebsite.$error.pattern">Please enter valid website.</span>
             </p>
         </div>
     </div>
@@ -85,7 +87,8 @@
         <div class="col-xs-12 col-md-4">
             <div multiple-file-upload
                  files-model="verificationFmVm.model"
-                 required="true"></div>
+                 required="true"
+                 is-multiple="true"></div>
         </div>
     </div>
 </div>

@@ -15,11 +15,15 @@ Route::group(['prefix'=>'api/general'],function(){
 //API Routes for Managers
 Route::group(['prefix'=>'api/manager','middleware'=>['auth_manager']],function(){
 
+    //Profile
     Route::get('/profile','WebApi\Manager\ManagerProfileController@getProfileData');
     Route::post('/updateProfile','WebApi\Manager\ManagerProfileController@updateProfile');
     Route::post('/updateCareerHistory','WebApi\Manager\ManagerCareerHistoryController@updateCareerHistory');
     Route::get('/getCareerHistory','WebApi\Manager\ManagerCareerHistoryController@getCareerHistory');
 
-    Route::get('/verification-status','ManagerApp\api\VerificationController@status');
+    //Verification
+    Route::get('/verification-status','WebApi\Manager\VerificationController@status');
+    Route::put('/verification-request', 'WebApi\Manager\VerificationController@request');
+    Route::post('/verification-request-files-upload', 'WebApi\Manager\VerificationController@requestFilesUpload');
 
 });

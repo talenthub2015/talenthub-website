@@ -176,7 +176,7 @@ td,
 th {
   padding: 0;
 }
-/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src\build//css/main-44d501bd44.css */
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src\build//css/main-7de6bbd8be.css */
 @media print {
   *,
   *:before,
@@ -8651,9 +8651,12 @@ label {
 
 /*# sourceMappingURL=message.css.map */
 
-.error_message_container p, .error_message_container span {
-  color: #FF6347;
-  font-size: 0.9em; }
+.error_message_container {
+  margin-bottom: 0px; }
+  .error_message_container p, .error_message_container span {
+    color: #FF6347;
+    font-size: 0.9em;
+    margin-bottom: 5px; }
 
 /* ----------------------------------------------------*/
 /*  This Section is for Manage Part */

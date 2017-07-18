@@ -21,7 +21,7 @@ managerApp.directive('multipleFileUpload', ['$parse', function ($parse) {
     };
 
     function link(scope, element, attrs, required) {
-        var isMultiple = scope.multiple;
+        var isMultiple = scope.multipleFileVm.isMultiple;
         scope.multipleFileVm.form = required;
         element.bind('change', function () {
             var values = [];

@@ -3,10 +3,12 @@ $validation-message-color : #FF6347;
 
 .error_message_container
 {
+  margin-bottom: 0px;
   p,span
   {
     color:$validation-message-color;
     font-size:0.9em;
+    margin-bottom:5px;
   }
 }
 
