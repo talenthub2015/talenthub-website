@@ -67,6 +67,8 @@ managerApp.constant('App_Events',{
     ManagerModelUpdated : 'manager_model_updated'
 });
 
+managerApp.constant('_', window._);
+
 managerApp.run(function($rootScope,UpdateURLService,UpdateManagerProfile,GetBasicSiteConstants){
     /*Defining Basic Site Constants*/
     $rootScope.basicSiteConstants = {

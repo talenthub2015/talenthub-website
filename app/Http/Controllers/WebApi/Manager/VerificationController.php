@@ -1,59 +1,71 @@
 <?php
 namespace talenthub\Http\Controllers\WebApi\Manager;
 
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use talenthub\Http\Controllers\WebApi\RequestStatusEnum;
 use talenthub\Http\Controllers\WebApi\WebApiBase;
-
 use Illuminate\Http\Request;
+use talenthub\ManagerModels\Verification;
+use talenthub\Services\Manager\Verification\IVerificationRequestService;
 
 class VerificationController extends WebApiBase {
 
-    const FILE_DIRECTORY_NAME = "/app/verification-files/";
+    public $_verificationRequestService;
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function status()
+    public function __construct(IVerificationRequestService $verificationRequestService)
+    {
+        parent::__construct();
+        $this->_verificationRequestService = $verificationRequestService;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     * @return Response
+     */
+	public function getVerificationRequest(Request $request)
 	{
-
+	    if(!$request->has('managerProfileId'))
+        {
+            $this->statusCode = RequestStatusEnum::DATA_VALIDATION_ERROR;
+            return $this->sendResponse();
+        }
+        $verificationRequest = $this->_verificationRequestService->getVerificationRequest($request);
+	    return $this->sendResponse($verificationRequest->toArray());
 	}
 
 	public function request(Request $request){
 	    if(!$this->validateRequestForCoachAndAgent($request))
         {
-            //Get
             $this->statusCode = RequestStatusEnum::DATA_VALIDATION_ERROR;
-            $this->sendResponse([]);
+            return $this->sendResponse([]);
         }
 
-        $this->sendResponse([]);
-
+        $verification = $this->_verificationRequestService->saveVerificationRequest($request);
+        $this->statusCode = RequestStatusEnum::SUCCESS;
+        return $this->sendResponse($verification->toArray());
     }
 
     public function requestFilesUpload(Request $request){
-	    $disk = Storage::disk('local');
-        $disk->makeDirectory(self::FILE_DIRECTORY_NAME);
-	    foreach(Input::file('files') as $file){
-            $file->move(storage_path().self::FILE_DIRECTORY_NAME,
-                $file->getClientOriginalName().".".$file->getClientOriginalExtension());
-        }
-    }
+	    $verificationFiles = $this->_verificationRequestService->saveVerificationRequestFiles($request);
+	    $this->statusCode = RequestStatusEnum::SUCCESS;
+	    return $this->sendResponse($verificationFiles);
+	}
 
+    /**
+     * @param Request $request
+     * @return bool
+     */
     private function validateRequestForCoachAndAgent(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'club' => 'required',
             'clubCountry' => 'required',
             'leagueName' => 'required',
-            'leagueWebsite' => 'required',
-            'files' => 'required | mimes:pdf,doc,docx,jpeg,jpg,png'
+            'leagueWebsite' => 'required'
         ]);
 
-        return $validator->fails();
+        return !$validator->fails();
     }
 }

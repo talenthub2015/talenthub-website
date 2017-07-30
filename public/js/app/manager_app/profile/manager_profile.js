@@ -2,25 +2,34 @@
  * Created by piyush sharma on 21-02-2016.
  */
 'use strict';
-managerApp.controller('ManagerProfileController',['$scope','$http',function($scope,$http){
-    $scope.first_name = "";
-    $scope.last_name = "";
-    $scope.email = "";
-    $scope.user_id = "";
+managerApp.controller('ManagerProfileController',['$scope','$http','App_Events','verificationService','_','managerProfileService',
+    function($scope,$http, App_Events, verificationService, _, managerProfileService){
+        var vm = this;
 
-    $http({
-        method : 'GET',
-        url : 'api/manager/profile'
-    })
-        .then(
-        function(response){
-            console.log('success',response);
-        },
-        function(response){
-            console.log('Error',response);
+        vm.model = managerProfileService.profileModel;
+        vm.showVerificationButton = showVerificationButton;
+        vm.isLoading = isLoading;
+        activate();
+
+        function activate(){
+            $scope.$broadcast(App_Events.ShowLoadingOverlay);
+            managerProfileService.getProfile()
+                .then(function(profileData){
+                    verificationService.getVerificationRequest(profileData.profile_id)
+                        .then(function(){
+                            $scope.$broadcast(App_Events.HideLoadingOverlay);
+                        });
+                });
         }
-    );
-}]);
+
+        function showVerificationButton(){
+            return !_.get(verificationService.model, 'id');
+        }
+
+        function isLoading(){
+            return managerProfileService.loading || verificationService.loading;
+        }
+    }]);
 
 
 /*Controller to Edit Manager Profile*/

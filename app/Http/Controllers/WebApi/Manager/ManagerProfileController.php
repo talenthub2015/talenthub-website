@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use talenthub\Http\Controllers\WebApi\RequestStatusEnum;
 use talenthub\Http\Controllers\WebApi\WebApiBase;
@@ -30,6 +31,10 @@ class ManagerProfileController extends WebApiBase
         $manager = [];
         try {
             $manager = ManagerProfile::where('user_id', '=', session(SiteSessions::USER_ID))->firstOrFail();
+            if(!Session::get(SiteSessions::MANGER_PROFILE_ID))
+            {
+                Session::put(SiteSessions::MANGER_PROFILE_ID, $manager->profile_id);
+            }
             $manager = $manager->toArray();
             $manager_additional_info = User::find(session(SiteSessions::USER_ID));
             //Selecting Required Fields from User table

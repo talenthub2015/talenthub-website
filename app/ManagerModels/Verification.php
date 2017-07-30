@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Verification extends Model {
 
     protected $fillable = [
+        'verificationStatus',
         'club',
         'clubCountry',
         'league',
@@ -23,16 +24,16 @@ class Verification extends Model {
 
 
     /**
-     * @return ManagerProfile
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo|ManagerProfile
      */
     public function managerProfile(){
         return $this->belongsTo('talenthub\ManagerModels\ManagerProfile', 'managerProfileId');
     }
 
     /**
-     * @return Verification Files
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany|VerificationFile
      */
     public function verificationFiles(){
-        return $this->hasMany('talenthub\ManagerModels\VerificationFile');
+        return $this->hasMany('talenthub\ManagerModels\VerificationFile', 'verificationRequestId');
     }
 }

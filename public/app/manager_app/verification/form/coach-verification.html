@@ -72,6 +72,21 @@
 
     <div class="row form-group">
         <div class="col-xs-12 col-md-2">
+            <label>Club website</label>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <input type="text" ng-model="verificationFmVm.model.clubWebsite" name="clubWebsite" required
+                   class="form-control" ng-pattern="verificationFmVm.appConstants.REGEX.WEBSITE_URL">
+            <p class="error_message_container"
+               ng-if="verificationRequestForm.$submitted || verificationRequestForm.clubWebsite.$touched">
+                <span ng-show="verificationRequestForm.clubWebsite.$error.required">Please provide a club website.</span>
+                <span ng-show="verificationRequestForm.clubWebsite.$error.pattern">Please enter valid website.</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-2">
             <label>Role at club</label>
         </div>
         <div class="col-xs-12 col-md-4">

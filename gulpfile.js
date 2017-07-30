@@ -49,4 +49,6 @@ elixir(function(mix) {
     mix.scripts([
         "form-validations.js"
     ],'public/js/form-validations.js','resources/assets/js');
+
+    mix.scripts(['lodash.js'], 'public/js/lodash.js', 'node_modules/lodash');
 });

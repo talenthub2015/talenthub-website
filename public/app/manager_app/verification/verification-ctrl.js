@@ -13,7 +13,7 @@
                 verificationService.getManagerType()
                     .then(function(managerType){
                         vm.managerType = managerType;
-                    })
+                    });
             }
         }]);
 

@@ -4,7 +4,8 @@
 'use strict';
 
 managerApp.controller('verificationFormController',['managerProfileViewService','verificationService', 'APP_CONSTANTS',
-    function(managerProfileViewService, verificationService, APP_CONSTANTS){
+    '$state',
+    function(managerProfileViewService, verificationService, APP_CONSTANTS, $state){
     var vm = this;
     vm.model = verificationService.model;
 
@@ -23,7 +24,7 @@ managerApp.controller('verificationFormController',['managerProfileViewService',
     function submitForm(){
         verificationService.submitVerificationRequest()
             .then(function(){
-                //Redirect the Home Page
+                $state.go('profile.view');
             });
     }
 }]);

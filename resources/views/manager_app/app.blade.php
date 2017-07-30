@@ -26,6 +26,7 @@
     <script src="{!! asset('js/angular-route.min.js') !!}"></script>
     <script src="{!! asset('js/angular-messages.min.js')!!}"></script>
     <script src="{!! asset('js/angular-ui-router.min.js') !!}"></script>
+    <script src="{!! asset('js/lodash.js') !!}"></script>
     <script src="{!!asset('js/bootstrap.min.js')!!}"></script>
     <script src="{!!asset('js/html5shiv.min.js')!!}"></script>
     <script src="{!!asset('js/respond.min.js')!!}"></script>
@@ -42,6 +43,7 @@
     <script src="{!! asset('app/manager_app/common/multiple-file-upload/multiple-file-upload-directive.js') !!}"></script>
     <!-- Controllers & Respective services -->
     <script src="{!!asset('js/app/manager_app/profile/manager_profile.js')!!}"></script>
+    <script src="{!! asset('app/manager_app/profile/manager-profile-service.js') !!}"></script>
     <script src="{!!asset('js/app/manager_app/profile/manager_profile_services.js')!!}"></script>
     <script src="{!!asset('js/app/manager_app/directive/request_loading.js')!!}"></script>
     <script src="{!! asset('app/manager_app/common/manager-profile-view-service.js') !!}"></script>

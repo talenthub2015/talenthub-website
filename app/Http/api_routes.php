@@ -22,7 +22,7 @@ Route::group(['prefix'=>'api/manager','middleware'=>['auth_manager']],function()
     Route::get('/getCareerHistory','WebApi\Manager\ManagerCareerHistoryController@getCareerHistory');
 
     //Verification
-    Route::get('/verification-status','WebApi\Manager\VerificationController@status');
+    Route::get('/verification-request','WebApi\Manager\VerificationController@getVerificationRequest');
     Route::put('/verification-request', 'WebApi\Manager\VerificationController@request');
     Route::post('/verification-request-files-upload', 'WebApi\Manager\VerificationController@requestFilesUpload');
 

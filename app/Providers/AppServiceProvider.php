@@ -29,6 +29,9 @@ class AppServiceProvider extends ServiceProvider {
 			'Illuminate\Contracts\Auth\Registrar',
 			'talenthub\Services\Registrar'
 		);
+
+		$this->app->bind('talenthub\Services\Manager\Verification\IVerificationRequestService',
+            'talenthub\Services\Manager\Verification\VerificationRequestService');
 	}
 
 }

@@ -31,6 +31,13 @@ class ManagerProfile extends Model {
         return $this->hasMany('talenthub\ManagerModels\ManagerCareerHistory','profile_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function verification(){
+        return $this->hasOne('talenthub\ManagerModels\Verification', 'managerProfileId');
+    }
+
     /**Get Manager profile from Database
      * @param $user_id
      * @return mixed
