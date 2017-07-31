@@ -38,6 +38,8 @@ managerApp.service('verificationService', ['managerProfileViewService', '$http',
                 .then(function(response){
                     mapVerificationRequestModel(response.data);
                     service.loading = false;
+                },function(){
+                    service.loading = false;
                 });
         }
 
@@ -54,6 +56,8 @@ managerApp.service('verificationService', ['managerProfileViewService', '$http',
                         .then(function(){
                             service.loading = false;
                             return $q.when(response.data)
+                        },function(){
+                            service.loading = false;
                         });
                 });
         }

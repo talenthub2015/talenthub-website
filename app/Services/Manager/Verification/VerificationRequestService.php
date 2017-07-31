@@ -38,6 +38,10 @@ class VerificationRequestService implements IVerificationRequestService
      */
     public function getVerificationRequest(Request $request){
         $managerProfile = ManagerProfile::find($request->managerProfileId);
+
+        if($managerProfile->verification->isEmpty())
+            return null;
+
         return $managerProfile->verification->first();
     }
 
