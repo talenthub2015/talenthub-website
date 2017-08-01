@@ -32,6 +32,10 @@ class VerificationController extends WebApiBase {
             return $this->sendResponse();
         }
         $verificationRequest = $this->_verificationRequestService->getVerificationRequest($request);
+	    if(!$verificationRequest)
+        {
+            return $this->sendResponse([]);
+        }
 	    return $this->sendResponse($verificationRequest->toArray());
 	}
 

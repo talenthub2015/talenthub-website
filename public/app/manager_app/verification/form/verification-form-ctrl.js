@@ -3,20 +3,23 @@
  */
 'use strict';
 
-managerApp.controller('verificationFormController',['managerProfileViewService','verificationService', 'APP_CONSTANTS',
+managerApp.controller('verificationFormController',['managerProfileService','verificationService', 'APP_CONSTANTS','_',
     '$state',
-    function(managerProfileViewService, verificationService, APP_CONSTANTS, $state){
+    function(managerProfileService, verificationService, APP_CONSTANTS, $state, _){
     var vm = this;
     vm.model = verificationService.model;
 
     vm.submitForm = submitForm;
+    vm.isCoach = isCoach;
+    vm.isScout = isScout;
     vm.listOfCountries = APP_CONSTANTS.COUNTRIES;
     vm.appConstants = APP_CONSTANTS;
     activate();
 
     function activate(){
-        vm.managerProfile = managerProfileViewService.getManagerProfile()
+        managerProfileService.getProfile()
             .then(function(managerProfile){
+                vm.managerProfile = managerProfile;
                 vm.model.sportType = managerProfile.sport_type;
             });
     }
@@ -26,5 +29,21 @@ managerApp.controller('verificationFormController',['managerProfileViewService',
             .then(function(){
                 $state.go('profile.view');
             });
+    }
+
+    function isCoach(){
+        var userType = _.get(vm, 'managerProfile.user_type');
+        if(userType)
+            return userType.toLowerCase() === 'coach';
+
+        return false;
+    }
+
+    function isScout(){
+        var userType = _.get(vm, 'managerProfile.user_type');
+        if(userType)
+            return userType.toLowerCase() === 'scout';
+
+        return false;
     }
 }]);

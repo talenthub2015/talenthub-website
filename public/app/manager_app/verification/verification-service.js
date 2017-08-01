@@ -2,8 +2,8 @@
  * Created by Piyush Sharma on 01/04/2017.
  */
 'use strict';
-managerApp.service('verificationService', ['managerProfileViewService', '$http', '$q', '_',
-    function (managerProfileViewService, $http, $q, _){
+managerApp.service('verificationService', ['managerProfileService', '$http', '$q', '_',
+    function (managerProfileService, $http, $q, _){
 
         var service;
 
@@ -19,10 +19,10 @@ managerApp.service('verificationService', ['managerProfileViewService', '$http',
 
         function getManagerType(){
             service.loading = true;
-            return managerProfileViewService.getManagerProfile().
+            return managerProfileService.getProfile().
                 then(function(){
                     service.loading = false;
-                    return managerProfileViewService.model.user_type;
+                    return managerProfileService.profileModel.user_type;
             });
         }
 

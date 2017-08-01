@@ -1608,13 +1608,17 @@ footer
         padding:0px 10px;
         font-size: 20px;
       }
-      pre
+      p
       {
         background:#FFFFFF;
         border:none;
         font-size:16px;
         padding:0px 10px;
         padding-bottom:25px;
+        span
+        {
+          line-height: 200%;
+        }
       }
     }
   }

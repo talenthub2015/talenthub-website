@@ -44,15 +44,11 @@
             <!-- Manager Career History -->
             <div class="manager_career_history">
                 <h1>Career History</h1>
-                <pre>
-                2013 : Backline Coach at under 20's wales Ruby union.
-                2013 : Backline Coach at under 20's wales Ruby union.
-                2013 : Backline Coach at under 20's wales Ruby union.
-                2013 : Backline Coach at under 20's wales Ruby union.
-                2013 : Backline Coach at under 20's wales Ruby union.
-                2013 : Backline Coach at under 20's wales Ruby union.
-                2013 : Backline Coach at under 20's wales Ruby union.
-            </pre>
+                <p ng-repeat="careerHistory in mgProfileVm.model.career_history">
+                    <span ng-repeat="achievement in careerHistory.achievements">
+                        <span ng-bind="mgProfileVm.buildAchievement(careerHistory, achievement)"></span><br>
+                    </span>
+                </p>
             </div>
         </div>
     </div>

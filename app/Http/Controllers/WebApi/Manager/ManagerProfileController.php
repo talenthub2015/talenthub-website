@@ -2,25 +2,24 @@
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use talenthub\Http\Controllers\WebApi\RequestStatusEnum;
 use talenthub\Http\Controllers\WebApi\WebApiBase;
-use talenthub\Http\Requests;
-use talenthub\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
 use talenthub\ManagerModels\ManagerCareerHistory;
 use talenthub\ManagerModels\ManagerCareerHistoryAchievement;
 use talenthub\ManagerModels\ManagerProfile;
-use talenthub\Repositories\BasicSiteRepository;
-use talenthub\Repositories\SiteConstants;
 use talenthub\Repositories\SiteSessions;
 use talenthub\Repositories\UserProfileRepository;
-use talenthub\User;
+use talenthub\Services\Manager\Profile\IProfileService;
 
 class ManagerProfileController extends WebApiBase
 {
+    private $_profileService;
+    public function __construct(IProfileService $profileService)
+    {
+        $this->_profileService = $profileService;
+    }
 
     /**
      * Retrieves ManagerProfile Model, and send back to the client
@@ -28,24 +27,14 @@ class ManagerProfileController extends WebApiBase
      */
     public function getProfileData()
     {
-        $manager = [];
-        try {
-            $manager = ManagerProfile::where('user_id', '=', session(SiteSessions::USER_ID))->firstOrFail();
-            if(!Session::get(SiteSessions::MANGER_PROFILE_ID))
-            {
-                Session::put(SiteSessions::MANGER_PROFILE_ID, $manager->profile_id);
-            }
-            $manager = $manager->toArray();
-            $manager_additional_info = User::find(session(SiteSessions::USER_ID));
-            //Selecting Required Fields from User table
-            $manager = array_merge($manager, ["user_type" => $manager_additional_info->user_type,
-                "sport_type" => $manager_additional_info->sport_type, "management_level" => $manager_additional_info->management_level,
-                "profile_image_path" => $manager_additional_info->profile_image_path]);
-        } catch (ModelNotFoundException $e) {
+        $manager = null;
+        try{
+            $manager = $this->_profileService->GetMangerProfileData();
+        }
+        catch (ModelNotFoundException $e) {
             $this->error_message = "Manager not found";
             $this->updateRequestStatus(RequestStatusEnum::MODEL_NOT_FOUND);
         }
-
         return $this->sendResponse($manager);
     }
 

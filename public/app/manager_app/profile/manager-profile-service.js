@@ -16,7 +16,8 @@ managerApp.service('managerProfileService', ['_','$http',
             service.loading = true;
             return $http({
                 method : 'GET',
-                url : 'api/manager/profile'
+                url : 'api/manager/profile',
+                cache : true
                 })
                 .then(function(response){
                     mapProfileData(response.data);

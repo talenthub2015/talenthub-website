@@ -27,7 +27,7 @@ class VerificationRequestService implements IVerificationRequestService
 
     public function __construct()
     {
-        $this->fileDirectoryName = join(DIRECTORY_SEPARATOR, array("app","verification-files"));
+        $this->fileDirectoryName = join(DIRECTORY_SEPARATOR, array("..","storage","app","verification-files"));
         $this->relativeDirectoryLocation = join(DIRECTORY_SEPARATOR, array($this->fileDirectoryName,""));
     }
 
@@ -38,11 +38,7 @@ class VerificationRequestService implements IVerificationRequestService
      */
     public function getVerificationRequest(Request $request){
         $managerProfile = ManagerProfile::find($request->managerProfileId);
-
-        if($managerProfile->verification->isEmpty())
-            return null;
-
-        return $managerProfile->verification->first();
+        return $managerProfile->verification;
     }
 
     /**
@@ -73,7 +69,7 @@ class VerificationRequestService implements IVerificationRequestService
                 foreach($request->file('files') as $file){
                     $newVerificationFile = new VerificationFile();
 
-                    $fileName = time()."_".$file->getClientOriginalName().".".$file->getClientOriginalExtension();
+                    $fileName = time()."_".$file->getClientOriginalName();
                     $file->move($this->relativeDirectoryLocation, $fileName);
                     $newVerificationFile->fullFileName = $file->getClientOriginalName();
                     $newVerificationFile->fileRelativeLocation = $this->relativeDirectoryLocation.$fileName;

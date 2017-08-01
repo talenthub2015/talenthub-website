@@ -32,6 +32,9 @@ class AppServiceProvider extends ServiceProvider {
 
 		$this->app->bind('talenthub\Services\Manager\Verification\IVerificationRequestService',
             'talenthub\Services\Manager\Verification\VerificationRequestService');
+
+        $this->app->bind('talenthub\Services\Manager\Profile\IProfileService',
+            'talenthub\Services\Manager\Profile\ProfileService');
 	}
 
 }

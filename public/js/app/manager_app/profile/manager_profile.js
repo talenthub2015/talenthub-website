@@ -9,6 +9,7 @@ managerApp.controller('ManagerProfileController',['$scope','$http','App_Events',
         vm.model = managerProfileService.profileModel;
         vm.showVerificationButton = showVerificationButton;
         vm.isLoading = isLoading;
+        vm.buildAchievement = buildAchievement;
         activate();
 
         function activate(){
@@ -28,6 +29,10 @@ managerApp.controller('ManagerProfileController',['$scope','$http','App_Events',
 
         function isLoading(){
             return managerProfileService.loading || verificationService.loading;
+        }
+
+        function buildAchievement(careerHistory, achievement){
+            return careerHistory.career_year + " : " + achievement.achievement;
         }
     }]);
 

@@ -176,7 +176,7 @@ td,
 th {
   padding: 0;
 }
-/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src\build//css/main-7de6bbd8be.css */
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src\build//css/main-809eb77656.css */
 @media print {
   *,
   *:before,
@@ -8493,12 +8493,14 @@ footer {
       margin-top: 0px;
       padding: 0px 10px;
       font-size: 20px; }
-    .manager_app .view_manager_profile .manager_career_history pre {
+    .manager_app .view_manager_profile .manager_career_history p {
       background: #FFFFFF;
       border: none;
       font-size: 16px;
       padding: 0px 10px;
       padding-bottom: 25px; }
+      .manager_app .view_manager_profile .manager_career_history p span {
+        line-height: 200%; }
 
 .manager_app .page-heading {
   font-size: 20px;
