@@ -6,6 +6,7 @@ use talenthub\Http\Controllers\WebApi\RequestStatusEnum;
 use talenthub\Http\Controllers\WebApi\WebApiBase;
 use Illuminate\Http\Request;
 use talenthub\ManagerModels\Verification;
+use talenthub\Repositories\SiteConstants;
 use talenthub\Services\Manager\Verification\IVerificationRequestService;
 
 class VerificationController extends WebApiBase {
@@ -63,13 +64,23 @@ class VerificationController extends WebApiBase {
      */
     private function validateRequestForCoachAndAgent(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'club' => 'required',
-            'clubCountry' => 'required',
-            'leagueName' => 'required',
-            'leagueWebsite' => 'required'
-        ]);
-
+        if(SiteConstants::isAgent($request->user_type))
+        {
+            $validator = Validator::make($request->all(), [
+                'agentLicenceNumber' => 'required',
+                'issuedDate' => 'required',
+                'expiryDate' => 'required'
+            ]);
+        }
+        else
+        {
+            $validator = Validator::make($request->all(), [
+                'club' => 'required',
+                'clubCountry' => 'required',
+                'leagueName' => 'required',
+                'leagueWebsite' => 'required'
+            ]);
+        }
         return !$validator->fails();
     }
 }

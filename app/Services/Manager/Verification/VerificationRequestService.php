@@ -10,6 +10,7 @@ namespace talenthub\Services\Manager\Verification;
 
 
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -22,6 +23,7 @@ use talenthub\Repositories\SiteSessions;
 
 class VerificationRequestService implements IVerificationRequestService
 {
+    const DATE_FORMAT = "m/d/Y";
     public $fileDirectoryName;
     public $relativeDirectoryLocation;
 
@@ -85,8 +87,8 @@ class VerificationRequestService implements IVerificationRequestService
         if(SiteConstants::isAgent($user->user_type))
         {
             $verificationModel->agentLicenceNumber = $request->agentLicenceNumber;
-            $verificationModel->issuedDate = $request->issuedDate;
-            $verificationModel->expiryDate = $request->expiryDate;
+            $verificationModel->issuedDate = Carbon::createFromFormat(self::DATE_FORMAT, $request->issuedDate);
+            $verificationModel->expiryDate = Carbon::createFromFormat(self::DATE_FORMAT, $request->expiryDate);
         }
         else
         {

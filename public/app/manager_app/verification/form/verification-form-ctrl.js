@@ -3,47 +3,57 @@
  */
 'use strict';
 
-managerApp.controller('verificationFormController',['managerProfileService','verificationService', 'APP_CONSTANTS','_',
-    '$state',
+managerApp.controller('verificationFormController',
+    ['managerProfileService','verificationService', 'APP_CONSTANTS','$state','_',
     function(managerProfileService, verificationService, APP_CONSTANTS, $state, _){
-    var vm = this;
-    vm.model = verificationService.model;
+        var vm = this;
+        vm.model = verificationService.model;
 
-    vm.submitForm = submitForm;
-    vm.isCoach = isCoach;
-    vm.isScout = isScout;
-    vm.listOfCountries = APP_CONSTANTS.COUNTRIES;
-    vm.appConstants = APP_CONSTANTS;
-    activate();
+        vm.submitForm = submitForm;
+        vm.isCoach = isCoach;
+        vm.isScout = isScout;
+        vm.isAgent = isAgent;
+        vm.listOfCountries = APP_CONSTANTS.COUNTRIES;
+        vm.appConstants = APP_CONSTANTS;
+        activate();
 
-    function activate(){
-        managerProfileService.getProfile()
-            .then(function(managerProfile){
-                vm.managerProfile = managerProfile;
-                vm.model.sportType = managerProfile.sport_type;
-            });
-    }
+        function activate(){
+            managerProfileService.getProfile()
+                .then(function(managerProfile){
+                    vm.managerProfile = managerProfile;
+                    vm.model.sportType = managerProfile.sport_type;
+                    vm.model.user_type = managerProfile.user_type;
+                });
+        }
 
-    function submitForm(){
-        verificationService.submitVerificationRequest()
-            .then(function(){
-                $state.go('profile.view');
-            });
-    }
+        function submitForm(){
+            verificationService.submitVerificationRequest()
+                .then(function(){
+                    $state.go('profile.view');
+                });
+        }
 
-    function isCoach(){
-        var userType = _.get(vm, 'managerProfile.user_type');
-        if(userType)
-            return userType.toLowerCase() === 'coach';
+        function isCoach(){
+            var userType = _.get(vm, 'managerProfile.user_type');
+            if(userType)
+                return userType.toLowerCase() === 'coach';
 
-        return false;
-    }
+            return false;
+        }
 
-    function isScout(){
+        function isScout(){
         var userType = _.get(vm, 'managerProfile.user_type');
         if(userType)
             return userType.toLowerCase() === 'scout';
 
         return false;
     }
+
+        function isAgent(){
+            var userType = _.get(vm, 'managerProfile.user_type');
+            if(userType)
+                return userType.toLowerCase() === 'agent';
+
+            return false;
+        }
 }]);

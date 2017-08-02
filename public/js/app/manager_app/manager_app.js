@@ -58,6 +58,10 @@ managerApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvide
                 'scout' :{
                     url:'/scout',
                     templateUrl:'app/manager_app/verification/form/coach-scout-verification.html'
+                },
+                'agent' :{
+                    url:'/agent',
+                    templateUrl:'app/manager_app/verification/form/agent-verification.html'
                 }
             }
         })

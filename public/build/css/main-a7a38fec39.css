@@ -176,7 +176,7 @@ td,
 th {
   padding: 0;
 }
-/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src\build//css/main-809eb77656.css */
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src\build//css/main-a7a38fec39.css */
 @media print {
   *,
   *:before,
@@ -8460,6 +8460,16 @@ footer {
         width: auto;
         height: auto;
         max-width: 100%; }
+    .manager_app .view_manager_profile .manager_profile_image_container .verified_logo {
+      display: block;
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      width: 75px;
+      height: auto; }
+      .manager_app .view_manager_profile .manager_profile_image_container .verified_logo img {
+        width: 100%;
+        height: auto; }
     .manager_app .view_manager_profile .manager_profile_image_container .manager_bio {
       margin-top: 10px; }
       .manager_app .view_manager_profile .manager_profile_image_container .manager_bio p {

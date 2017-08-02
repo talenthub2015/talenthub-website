@@ -22,6 +22,11 @@ class Verification extends Model {
         'expiryDate',
     ];
 
+    protected $casts = [
+        'issuedDate' => 'date',
+        'expiryDate' => 'date'
+    ];
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo|ManagerProfile

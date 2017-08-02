@@ -10,6 +10,7 @@ managerApp.controller('ManagerProfileController',['$scope','$http','App_Events',
         vm.showVerificationButton = showVerificationButton;
         vm.isLoading = isLoading;
         vm.buildAchievement = buildAchievement;
+        vm.isManagerVerified = isManagerVerified;
         activate();
 
         function activate(){
@@ -33,6 +34,10 @@ managerApp.controller('ManagerProfileController',['$scope','$http','App_Events',
 
         function buildAchievement(careerHistory, achievement){
             return careerHistory.career_year + " : " + achievement.achievement;
+        }
+
+        function isManagerVerified(){
+            return _.get(verificationService.model, 'verificationStatus');
         }
     }]);
 

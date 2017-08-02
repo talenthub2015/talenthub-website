@@ -18,10 +18,8 @@ class ProfileService implements IProfileService
 {
     public function GetMangerProfileData(){
         $manager = ManagerProfile::where('user_id', '=', session(SiteSessions::USER_ID))->firstOrFail();
-        if(!Session::get(SiteSessions::MANGER_PROFILE_ID))
-        {
-            Session::put(SiteSessions::MANGER_PROFILE_ID, $manager->profile_id);
-        }
+
+        Session::put(SiteSessions::MANGER_PROFILE_ID, $manager->profile_id);
 
         foreach($manager->CareerHistory as $careerHistory){
             $careerHistory->Achievements;

@@ -1,6 +1,7 @@
 <form name="verificationRequestForm" ng-submit="verificationFmVm.submitForm()" novalidate>
     <div ng-if="verificationFmVm.isCoach()" ui-view="coach"></div>
     <div ng-if="verificationFmVm.isScout()" ui-view="scout"></div>
+    <div ng-if="verificationFmVm.isAgent()" ui-view="agent"></div>
 
     <div class="row">
         <div class="col-xs-2">

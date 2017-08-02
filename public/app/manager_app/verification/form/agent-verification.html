@@ -1,0 +1,77 @@
+<h1>Are you a legitimate Coach?</h1>
+<hr>
+<div class="form_container">
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-2">
+            <label>Type of Sport</label>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <input type="text" ng-model="verificationFmVm.model.sportType" name="sport-type" class="form-control"
+                   readonly required>
+            <p class="error_message_container" ng-if="verificationRequestForm.$submitted || verificationRequestForm.sport-type.$touched">
+                <span ng-if="verificationRequestForm.sport-type.$error.required"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-2">
+            <label>Agent License number</label>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <input type="text" ng-model="verificationFmVm.model.agentLicenceNumber" name="agentLicenceNumber"
+                   class="form-control" required>
+            <p class="error_message_container"
+               ng-if="verificationRequestForm.$submitted || verificationRequestForm.agentLicenceNumber.$touched">
+                <span ng-show="verificationRequestForm.agentLicenceNumber.$error.required">Please provide your licence number.</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-2">
+            <label>Issued Date</label>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <input type="text" ng-model="verificationFmVm.model.issuedDate" name="issuedDate"
+                   required class="form-control datepicker" ng-pattern="verificationFmVm.appConstants.REGEX.DATE_FORMAT">
+            <p class="error_message_container"
+               ng-if="verificationRequestForm.$submitted || verificationRequestForm.issuedDate.$touched">
+                <span ng-show="verificationRequestForm.issuedDate.$error.required">Please provide a issued date.</span>
+                <span ng-show="verificationRequestForm.issuedDate.$error.pattern">Please provide a date in (dd/mm/yyyy) format.</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-2">
+            <label>Expiry Date</label>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <input type="text" ng-model="verificationFmVm.model.expiryDate" name="expiryDate" required
+                   class="form-control datepicker" ng-pattern="verificationFmVm.appConstants.REGEX.DATE_FORMAT">
+            <p class="error_message_container"
+               ng-if="verificationRequestForm.$submitted || verificationRequestForm.expiryDate.$touched">
+                <span ng-show="verificationRequestForm.expiryDate.$error.required">Please provide a expiry date.</span>
+                <span ng-show="verificationRequestForm.expiryDate.$error.pattern">Please provide a date in (dd/mm/yyyy) format.</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-xs-12 col-md-4">
+            <div multiple-file-upload
+                 files-model="verificationFmVm.model"
+                 required="true"
+                 is-multiple="true"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("form").find(".datepicker").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1950:c'
+    });
+</script>

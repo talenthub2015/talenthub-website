@@ -1546,6 +1546,20 @@ footer
           max-width:100%;
         }
       }
+      .verified_logo
+      {
+        display:block;
+        position:absolute;
+        bottom:0px;
+        right:0px;
+        width:75px;
+        height:auto;
+        img
+        {
+          width:100%;
+          height:auto;
+        }
+      }
       .manager_bio
       {
         margin-top:10px;
