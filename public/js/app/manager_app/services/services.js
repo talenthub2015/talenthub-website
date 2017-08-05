@@ -115,12 +115,7 @@ managerApp.factory('UpdateManagerCareerHistory',['$rootScope','GetManagerCareerH
 managerApp.factory('ModifyManagerProfileForWebApi',[function(){
     return function(managerProfile)
     {
-        if(!(managerProfile instanceof Manager))
-        {
-            return false;
-        }
         var modifiedManagerProfile = angular.copy(managerProfile);
-        modifiedManagerProfile.country = modifiedManagerProfile.country.getCountryName();
         return modifiedManagerProfile;
     }
 }]);

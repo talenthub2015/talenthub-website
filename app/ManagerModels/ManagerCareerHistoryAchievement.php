@@ -45,7 +45,7 @@ class ManagerCareerHistoryAchievement extends Model {
         $newAchievementsArray = [];
         foreach($newAchievements as $achievement)
         {
-            array_push($newAchievementsArray, $achievement["info"]);
+            array_push($newAchievementsArray, $achievement["achievement"]);
         }
         $allAchievements = $careerHistory->Achievements;
         foreach($allAchievements as $achievement)

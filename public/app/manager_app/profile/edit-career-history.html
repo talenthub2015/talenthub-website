@@ -12,7 +12,7 @@
                 <div class="col-xs-12 col-lg-4">
                     <div class="form-group">
                         <label>Sport:</label>
-                        <input type="text" name="sport" id="sport" value="{{managerProfile.sport | uppercase}}" class="form-control" disabled>
+                        <input type="text" name="sport" id="sport" value="{{managerProfile.sport_type | uppercase}}" class="form-control" disabled>
                     </div>
                 </div>
                 <div class="col-xs-12 col-lg-4">
@@ -51,11 +51,11 @@
             <div class="career-history">
                 <h1>Career History</h1>
 
-                <div ng-repeat="careerHistory in managerProfile.careerHistory track by $index | orderBy:careerHistory.year">
+                <div ng-repeat="careerHistory in managerProfile.career_history track by $index | orderBy:careerHistory.career_year">
                     <div class="row">
                         <div class="col-xs-3">
                             <div class="form-group">
-                                <select ng-model="careerHistory.year" name="year_{{$index}}" class="form-control"
+                                <select ng-model="careerHistory.career_year" name="year_{{$index}}" class="form-control"
                                         required
                                         ng-options="year for year in careerYearRange track by year">
                                     <option value="">-- Select a Year --</option>
@@ -79,14 +79,14 @@
                             </a>
                         </div>
                         <div class="col-xs-9">
-                            <div class="row" ng-repeat="achievement in careerHistory.achievement track by $index">
+                            <div class="row" ng-repeat="achievement in careerHistory.achievements track by $index">
                                 <div class="col-xs-10">
                                     <div class="form-group">
-                                        <input type="text" ng-model="achievement.info" class="form-control"
-                                                name="achievement_{{$index}}" required>
+                                        <input type="text" ng-model="achievement.achievement" class="form-control"
+                                                name="{{$parent.$index}}_achievement_{{$index}}" required>
 
-                                        <div class="error_message_container" ng-messages="manager_career_history['achievement_' + $index].$error"
-                                             ng-if="$scope.formSubmitted || manager_career_history['achievement_' + $index].$touched">
+                                        <div class="error_message_container" ng-messages="manager_career_history[$parent.$index + '_achievement_' + $index].$error"
+                                             ng-if="$scope.formSubmitted || manager_career_history[$parent.$index + '_achievement_' + $index].$touched">
                                             <p class="alert alert-danger" ng-message="required">Please provide your achievement for this year.</p>
                                         </div>
                                     </div>

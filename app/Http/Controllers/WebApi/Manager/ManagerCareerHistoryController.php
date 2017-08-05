@@ -29,33 +29,33 @@ class ManagerCareerHistoryController extends WebApiBase
             $managerProfile->institution_name = $request->institution_name;
             $managerProfile->save();
 
-            $careerHistories = $request->careerHistory;
+            $careerHistories = $request->career_history;
             foreach($careerHistories as $careerHistory)
             {
                 $managerCareerHistory=null;
 
                 //Checking if career history already exists
-                if($managerCareerHistory = ManagerCareerHistory::CareerHistoryExists($managerProfile->profile_id,$careerHistory["year"]))
+                if($managerCareerHistory = ManagerCareerHistory::CareerHistoryExists($managerProfile->profile_id,$careerHistory["career_year"]))
                 {
                 }
                 else
                 {
                     $managerCareerHistory = ManagerCareerHistory::create(['profile_id'=>$managerProfile->profile_id,
-                        'career_year'=>$careerHistory["year"]]);
+                        'career_year'=>$careerHistory["career_year"]]);
                 }
 
-                $achievements = $careerHistory["achievement"];
+                $achievements = $careerHistory["achievements"];
 
                 foreach($achievements as $achievement)
                 {
                     //Checking if Achievement already exists for Career History
-                    if(ManagerCareerHistoryAchievement::AchievementExists($managerCareerHistory->id,$achievement["info"]))
+                    if(ManagerCareerHistoryAchievement::AchievementExists($managerCareerHistory->id,$achievement["achievement"]))
                     {
 
                     }
                     else
                     {
-                        $managerCareerHistory->Achievements()->save(new ManagerCareerHistoryAchievement(['achievement'=>$achievement["info"]]));
+                        $managerCareerHistory->Achievements()->save(new ManagerCareerHistoryAchievement(['achievement'=>$achievement["achievement"]]));
                     }
                 }
                 //Removing Obselete Achievements

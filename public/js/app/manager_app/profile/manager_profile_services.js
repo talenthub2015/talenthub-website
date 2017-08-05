@@ -17,7 +17,8 @@ managerApp.service('_SaveModifiedManagerProfile',['$http','ModifyManagerProfileF
 }]);
 
 /*Service to store Manager Career History*/
-managerApp.service('_SaveManagerCareerHistory',['$http','ModifyManagerProfileForWebApi',function($http, ModifyManagerProfileForWebApi){
+managerApp.service('_SaveManagerCareerHistory',['$http','ModifyManagerProfileForWebApi',
+    function($http, ModifyManagerProfileForWebApi){
     return function(managerProfile){
         managerProfile = ModifyManagerProfileForWebApi(managerProfile);
         return $http({
