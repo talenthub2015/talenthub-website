@@ -23,7 +23,7 @@ use talenthub\Repositories\SiteSessions;
 
 class VerificationRequestService implements IVerificationRequestService
 {
-    const DATE_FORMAT = "m/d/Y";
+    const DATE_FORMAT = "Y-m-d";
     public $fileDirectoryName;
     public $relativeDirectoryLocation;
 

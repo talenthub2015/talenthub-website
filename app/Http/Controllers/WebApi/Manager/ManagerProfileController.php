@@ -25,11 +25,11 @@ class ManagerProfileController extends WebApiBase
      * Retrieves ManagerProfile Model, and send back to the client
      * @return JSON result
      */
-    public function getProfileData()
+    public function getProfileData($profileId=null)
     {
         $manager = null;
         try{
-            $manager = $this->_profileService->GetMangerProfileData();
+            $manager = $this->_profileService->GetMangerProfileData($profileId);
         }
         catch (ModelNotFoundException $e) {
             $this->error_message = "Manager not found";

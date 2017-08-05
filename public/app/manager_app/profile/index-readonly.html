@@ -1,0 +1,53 @@
+<div class="container view_manager_profile">
+    <div class="row">
+        <div class="search_bar">
+            <input type="text" name="search" id="search" placeholder="Search for sport talent by country, gender and more"
+                   class="form-control">
+        </div>
+    </div>
+
+    <!-- Manager Profile Controller -->
+    <div ng-controller="ManagerProfileController as mgProfileVm">
+        <div ng-if="!mgProfileVm.isLoading()">
+            <div class="manager_profile_image_container">
+                <div class="manager_cover_image"></div>
+                <!-- Profile Image -->
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2 col-lg-offset-5">
+                        <div class="manager_profile_image">
+                            <img src="" ng-src="/site_images/profile_image_placeholder.png">
+                        </div>
+                        <div ng-if="mgProfileVm.isManagerVerified()" class="verified_logo">
+                            <img ng-src="/site_images/verified.png">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-lg-4 col-lg-offset-4">
+                        <div class="manager_bio text-center">
+                            <p class="manager_name">{{mgProfileVm.model.first_name + " " + mgProfileVm.model.middle_name + " " + mgProfileVm.model.last_name}}</p>
+                            <p class="institution_name" ng-bind="mgProfileVm.model.institution_name"></p>
+                            <p class="manager_designation">Under - 20's Head Coach</p>
+                            <p class="manager_location">{{mgProfileVm.model.state + ", " + mgProfileVm.model.country}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manager Profile Summary -->
+            <div class="manager_profile_summary">
+                <p ng-bind="mgProfileVm.model.bio"></p>
+            </div>
+            <!-- Manager Career History -->
+            <div class="manager_career_history">
+                <h1>Career History</h1>
+                <p ng-repeat="careerHistory in mgProfileVm.model.career_history">
+                    <span ng-repeat="achievement in careerHistory.achievements">
+                        <span ng-bind="mgProfileVm.buildAchievement(careerHistory, achievement)"></span><br>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

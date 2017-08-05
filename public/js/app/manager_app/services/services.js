@@ -32,7 +32,7 @@ managerApp.factory('GetListOfSports',['$http',function($http){
 /*Requesting Dropdown options, and other Site Constants required at Fron End
 * Eg., List of Countries,
 * */
-managerApp.factory('GetBasicSiteConstants',['$http','$rootScope','UpdateManagerProfile','GetListOfSports',function($http,$rootScope,UpdateManagerProfile,GetListOfSports){
+managerApp.factory('GetBasicSiteConstants',['$http','$rootScope','GetListOfSports',function($http,$rootScope,GetListOfSports){
     return function(){
         $http({
             method : 'GET',
@@ -43,8 +43,6 @@ managerApp.factory('GetBasicSiteConstants',['$http','$rootScope','UpdateManagerP
             function(response){
                 //console.log("Success",response);
                 $rootScope.basicSiteConstants.countries = response.data.countries_list;
-                console.log("Countries List:", $rootScope.basicSiteConstants.countries);
-                UpdateManagerProfile();
             },
             function(response){
                 console.log('Error',response);

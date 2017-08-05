@@ -23,6 +23,17 @@ managerApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvide
             url: '/view',
             templateUrl : 'app/manager_app/profile/index.html'
         })
+        .state('profile.readonlyview',{
+            url: '/view/:profileId',
+            params : {
+                profileId : {
+                    value: null,
+                    squash:true
+                },
+                readOnlyView : true
+            },
+            templateUrl : 'app/manager_app/profile/index-readonly.html'
+        })
         .state('profile.edit',{
             url:'/edit',
             templateUrl: 'app/manager_app/profile/edit.html'
@@ -77,7 +88,7 @@ managerApp.constant('App_Events',{
 
 managerApp.constant('_', window._);
 
-managerApp.run(function($rootScope,UpdateURLService,UpdateManagerProfile,GetBasicSiteConstants){
+managerApp.run(function($rootScope,UpdateURLService,GetBasicSiteConstants){
     /*Defining Basic Site Constants*/
     $rootScope.basicSiteConstants = {
         countries : undefined

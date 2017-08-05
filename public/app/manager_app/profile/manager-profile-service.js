@@ -12,11 +12,12 @@ managerApp.service('managerProfileService', ['_','$http',
         };
         return service;
 
-        function getProfile(){
+        function getProfile(profileId){
+            var url = getUrl(profileId);
             service.loading = true;
             return $http({
                 method : 'GET',
-                url : 'api/manager/profile',
+                url : url,
                 cache : true
                 })
                 .then(function(response){
@@ -30,6 +31,13 @@ managerApp.service('managerProfileService', ['_','$http',
         }
 
         //Private method
+        function getUrl(profileId){
+            if(!_.isEmpty(profileId))
+            {
+                return "api/manager/profile/"+profileId;
+            }
+            return "api/manager/profile";
+        }
         function mapProfileData(profileData){
             service.profileModel = _.merge(service.profileModel, profileData);
         }

@@ -11,5 +11,5 @@ namespace talenthub\Services\Manager\Profile;
 
 interface IProfileService
 {
-    public function GetMangerProfileData();
+    public function GetMangerProfileData($profileId);
 }

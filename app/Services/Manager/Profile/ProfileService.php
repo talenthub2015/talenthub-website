@@ -16,11 +16,28 @@ use talenthub\User;
 
 class ProfileService implements IProfileService
 {
-    public function GetMangerProfileData(){
+    public function GetMangerProfileData($profileId){
+        if($profileId)
+        {
+            return $this->GetMangerProfileDataByProfileId($profileId);
+        }
+        return $this->GetMangerProfileDataBySessionId();
+    }
+
+    private function GetMangerProfileDataBySessionId(){
         $manager = ManagerProfile::where('user_id', '=', session(SiteSessions::USER_ID))->firstOrFail();
 
         Session::put(SiteSessions::MANGER_PROFILE_ID, $manager->profile_id);
 
+        return $this->GetManagerProfileInfo($manager);
+    }
+
+    private function GetMangerProfileDataByProfileId($profileId){
+        $manager = ManagerProfile::find($profileId);
+        return $this->GetManagerProfileInfo($manager);
+    }
+
+    private function GetManagerProfileInfo($manager){
         foreach($manager->CareerHistory as $careerHistory){
             $careerHistory->Achievements;
         }

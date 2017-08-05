@@ -2,8 +2,9 @@
  * Created by piyush sharma on 21-02-2016.
  */
 'use strict';
-managerApp.controller('ManagerProfileController',['$scope','$http','App_Events','verificationService','_','managerProfileService',
-    function($scope,$http, App_Events, verificationService, _, managerProfileService){
+managerApp.controller('ManagerProfileController',['$scope','$http','App_Events','verificationService','_',
+    'managerProfileService','$stateParams',
+    function($scope,$http, App_Events, verificationService, _, managerProfileService, $stateParams){
         var vm = this;
 
         vm.model = managerProfileService.profileModel;
@@ -14,8 +15,10 @@ managerApp.controller('ManagerProfileController',['$scope','$http','App_Events',
         activate();
 
         function activate(){
+            vm.isReadOnly = _.get($stateParams, 'readOnlyView');
             $scope.$broadcast(App_Events.ShowLoadingOverlay);
-            managerProfileService.getProfile()
+
+            managerProfileService.getProfile($stateParams.profileId)
                 .then(function(profileData){
                     verificationService.getVerificationRequest(profileData.profile_id)
                         .then(function(){
