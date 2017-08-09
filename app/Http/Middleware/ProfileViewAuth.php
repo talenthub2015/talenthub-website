@@ -55,8 +55,7 @@ class ProfileViewAuth {
     {
         $userProfileVisiting = UserProfile::find($request->route()->parameter('id'));
 
-        if(strtolower($request->method()) == "get" &&
-            (SiteConstants::isManager($userProfileVisiting->user_type) || SiteConstants::isAdmin($userProfileVisiting->user_type)))
+        if(strtolower($request->method()) == "get" && (SiteConstants::isAdmin($userProfileVisiting->user_type)))
         {
             return redirect('/');
         }

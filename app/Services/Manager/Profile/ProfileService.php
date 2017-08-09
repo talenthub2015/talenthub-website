@@ -41,9 +41,9 @@ class ProfileService implements IProfileService
         foreach($manager->CareerHistory as $careerHistory){
             $careerHistory->Achievements;
         }
-
+        $manager->verification;
         $manager = $manager->toArray();
-        $manager_additional_info = User::find(session(SiteSessions::USER_ID));
+        $manager_additional_info = User::find($manager["user_id"]);
         //Selecting Required Fields from User table
         $manager = array_merge($manager, ["user_type" => $manager_additional_info->user_type,
             "sport_type" => $manager_additional_info->sport_type, "management_level" => $manager_additional_info->management_level,

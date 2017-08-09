@@ -114,6 +114,7 @@ managerApp.controller('ManagerCareerHistoryController',['$scope','$rootScope','$
         activate();
 
         function activate(){
+            $scope.getNgMessageErrorModel = getNgMessageErrorModel;
             managerProfileService.getProfile()
                 .then(function(profileData){
                     $scope.managerProfile = profileData;
@@ -184,5 +185,10 @@ managerApp.controller('ManagerCareerHistoryController',['$scope','$rootScope','$
                     $rootScope.$broadcast(App_Events.HideLoadingOverlay);
             });
         };
+
+        function getNgMessageErrorModel(form, parentIndex, fieldName, fieldIndex){
+            var formFieldName = parentIndex + fieldName + fieldIndex;
+            return form[formFieldName].$error;
+        }
 
 }]);

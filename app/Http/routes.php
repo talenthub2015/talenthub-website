@@ -191,6 +191,9 @@ Route::group(['middleware' => ['guest'],'prefix'=>'external'],function(){
         Route::get('profile/{id}/videos','VideoController@index');
         //Images Page
         Route::get('profile/{id}/Images','ImageController@index');
+
+        //Manager Profile View
+        Route::get('manager/profile/{id}','Guest\GuestController@getManagerProfileView');
     });
 
 

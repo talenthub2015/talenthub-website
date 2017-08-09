@@ -51,7 +51,7 @@
             <div class="career-history">
                 <h1>Career History</h1>
 
-                <div ng-repeat="careerHistory in managerProfile.career_history track by $index | orderBy:careerHistory.career_year">
+                <div ng-repeat="careerHistory in managerProfile.career_history track by $index | orderBy:careerHistory.career_year" ng-init="parentIndex = $index">
                     <div class="row">
                         <div class="col-xs-3">
                             <div class="form-group">
@@ -79,14 +79,15 @@
                             </a>
                         </div>
                         <div class="col-xs-9">
-                            <div class="row" ng-repeat="achievement in careerHistory.achievements track by $index">
+                            <div class="row" ng-repeat="achievement in careerHistory.achievements track by $index" ng-init="childIndex = $index">
                                 <div class="col-xs-10">
                                     <div class="form-group">
                                         <input type="text" ng-model="achievement.achievement" class="form-control"
-                                                name="{{$parent.$index}}_achievement_{{$index}}" required>
+                                                name="{{parentIndex}}_achievement_{{childIndex}}" required>
 
-                                        <div class="error_message_container" ng-messages="manager_career_history[$parent.$index + '_achievement_' + $index].$error"
-                                             ng-if="$scope.formSubmitted || manager_career_history[$parent.$index + '_achievement_' + $index].$touched">
+                                        <div class="error_message_container"
+                                             ng-messages="getNgMessageErrorModel(manager_career_history, parentIndex, '_achievement_', childIndex)"
+                                             ng-if="$scope.formSubmitted || manager_career_history[parentIndex + '_achievement_' + childIndex].$touched">
                                             <p class="alert alert-danger" ng-message="required">Please provide your achievement for this year.</p>
                                         </div>
                                     </div>
