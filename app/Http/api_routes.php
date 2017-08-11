@@ -13,7 +13,7 @@ Route::group(['prefix'=>'api/general'],function(){
 });
 
 //API Routes for Managers
-Route::group(['prefix'=>'api/manager','middleware'=>['auth_manager']],function(){
+Route::group(['prefix'=>'api/manager','middleware'=>['auth.basic']],function(){
 
     //Profile
     Route::get('/profile','WebApi\Manager\ManagerProfileController@getProfileData');

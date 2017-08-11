@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="thub.manager_app">
+<html lang="en" ng-app="thub.talentApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,13 +30,10 @@
     <script src="{!!asset('js/bootstrap.min.js')!!}"></script>
     <script src="{!!asset('js/html5shiv.min.js')!!}"></script>
     <script src="{!!asset('js/respond.min.js')!!}"></script>
-
-    <script src="{!!asset('js/allangularscripts.js')!!}"></script>
-    <script src="{!!asset('js/form-validations.js')!!}"></script>
     <script src="{!!asset('js/basic_site_animation.js')!!}"></script>
 
     @include('manager_app.js-include')
-
+    @include('talent_app.js-include')
 
     <script type="text/javascript">
         $.ajaxSetup({
@@ -68,19 +65,6 @@
 
 
 @include('templates.userFooter')
-
-
-<script>
-    (function(managerApp){
-        managerApp.constant('APP_CONSTANTS',{
-            'COUNTRIES': {!! json_encode($constants["countries"]) !!},
-            'REGEX':{
-                'WEBSITE_URL':'(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%\\._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+\\.~#?&//=]*)',
-                'DATE_FORMAT':'\\d{2}\/\\d{2}\/\\d{4}'
-            }
-        });
-    })(angular.module('thub.manager_app'));
-</script>
 
 
 </body>

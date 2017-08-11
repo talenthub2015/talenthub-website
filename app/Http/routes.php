@@ -169,6 +169,10 @@ Route::group(['middleware' => ['auth_talent']],function(){
         Route::post('reply-forward-Message','MessageController@replyOrForwardMessage');
         Route::put('moveTrash','MessageController@moveToTrash');
 
+
+        ////// Talent Angular Application Routes
+        Route::get('talent', 'TalentApp\TalentProfileController@index');
+
     });
 
 });
