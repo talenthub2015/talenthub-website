@@ -6,3 +6,5 @@
  */
 
 <script src="{!!asset('app/talent_app/talent-module.js')!!}"></script>
+<script src="{!! asset('app/talent_app/manager-profile/manager-profile-service.js') !!}"></script>
+<script src="{!! asset('app/talent_app/manager-profile/manager-profile-ctrl.js') !!}"></script>

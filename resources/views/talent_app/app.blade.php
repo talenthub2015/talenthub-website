@@ -32,6 +32,7 @@
     <script src="{!!asset('js/respond.min.js')!!}"></script>
     <script src="{!!asset('js/basic_site_animation.js')!!}"></script>
 
+    @include('common_app.js-include')
     @include('manager_app.js-include')
     @include('talent_app.js-include')
 
