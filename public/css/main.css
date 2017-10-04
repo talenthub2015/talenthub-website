@@ -7461,6 +7461,12 @@ h1, h2, h3, h4, h5, h6 {
 label {
   font-weight: 600; }
 
+.background-cream {
+  background-color: #f6f0d2; }
+
+.text-orange {
+  color: #ff7d00; }
+
 .t-button {
   display: inline-block;
   padding: 10px 15px;
@@ -7531,6 +7537,21 @@ label {
 
 .font-size-20, .font-size-20 p {
   font-size: 20px; }
+
+.height-100 {
+  height: 100px !important; }
+
+.height-200 {
+  height: 200px !important; }
+
+.line-height-150-percent {
+  line-height: 150%; }
+
+.line-height-180-percent {
+  line-height: 180%; }
+
+.line-height-200-percent {
+  line-height: 200%; }
 
 .form-control.t-button {
   color: #FFFFFF; }
@@ -8724,6 +8745,12 @@ h1, h2, h3, h4, h5, h6 {
 
 label {
   font-weight: 600; }
+
+.background-cream {
+  background-color: #f6f0d2; }
+
+.text-orange {
+  color: #ff7d00; }
 
 .message_page_container {
   margin-top: 50px; }

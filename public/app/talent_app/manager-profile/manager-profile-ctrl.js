@@ -7,10 +7,12 @@ talentApp.controller('ManagerProfileController',['$scope','$http', '_', 'manager
     function($scope,$http, _, managerProfileService, $stateParams){
         var vm = this;
 
+        vm.sampleMessageModalId = "sampleMessageModal";
         vm.model = managerProfileService.profileModel;
         vm.isLoading = isLoading;
         vm.buildAchievement = buildAchievement;
         vm.isManagerVerified = isManagerVerified;
+        vm.showSampleMessage = showSampleMessage;
         activate();
 
         function activate(){
@@ -32,5 +34,9 @@ talentApp.controller('ManagerProfileController',['$scope','$http', '_', 'manager
 
         function isManagerVerified(){
             return _.get(vm.model, 'verification.verificationStatus');
+        }
+
+        function showSampleMessage(){
+            $('#' + vm.sampleMessageModalId).modal('show');
         }
     }]);

@@ -50,7 +50,15 @@
             </div>
 
             <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center th-padding-top-15">
-                <div message-modal modal-id="test_modal" manager-type="coach" modal-button-name="Message"></div>
+                <div message-modal
+                     modal-id="test_modal"
+                     manager-type="coach"
+                     modal-button-name="Message"
+                     show-sample-message="mgProfileVm.showSampleMessage"
+                     sample-message-text="Sample Message"></div>
+
+                <div message-samples-modal
+                     modal-id="{{mgProfileVm.sampleMessageModalId}}"></div>
             </div>
         </div>
     </div>

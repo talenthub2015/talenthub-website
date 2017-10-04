@@ -7,13 +7,7 @@ $header-links-color-onHover : #FFFFFF;
 
 $color-darkGreen : #203f15;
 $color-lightGreen : rgba(32,63,21,.05);
-
-$color-cream : #f6f0d2;
-
 $error-color-border : #FF6347;
-
-
-$color-orange : rgba(255,125,0,1);
 
 $t-button-border-radius : 5px;
 $t-button-background-color-hover: #204f1F ;
@@ -111,6 +105,31 @@ $t-button-background-color-disabled : #639351;
 .font-size-20 p
 {
   @extend .font-size-20;
+}
+
+.height-100
+{
+  @include height(100px !important);
+}
+
+.height-200
+{
+  @include height(200px !important);
+}
+
+.line-height-150-percent
+{
+  line-height: 150%;
+}
+
+.line-height-180-percent
+{
+  line-height: 180%;
+}
+
+.line-height-200-percent
+{
+  line-height: 200%;
 }
 
 

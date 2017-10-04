@@ -15,7 +15,9 @@
             scope : {
                 modalId : '@',
                 managerType : '@',
-                modalButtonName : '@'
+                modalButtonName : '@',
+                showSampleMessage: '=?',
+                sampleMessageText: '@'
             }
         };
     }]);
