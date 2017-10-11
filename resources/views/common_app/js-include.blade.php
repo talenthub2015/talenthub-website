@@ -6,3 +6,4 @@
 <script src="{!!asset('app/common/message/message-modal-ctrl.js')!!}"></script>
 <script src="{!!asset('app/common/message/message-samples-modal-directive.js')!!}"></script>
 <script src="{!!asset('app/common/message/message-samples-modal-ctrl.js')!!}"></script>
+<script src="{!!asset('app/common/message/message-service.js')!!}"></script>

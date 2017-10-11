@@ -28,3 +28,13 @@ Route::group(['prefix'=>'api/manager','middleware'=>['auth.basic']],function(){
     Route::post('/verification-request-files-upload', 'WebApi\Manager\VerificationController@requestFilesUpload');
 
 });
+
+//API Routes for Talent
+Route::group(['prefix' => 'api/common', 'middleware'=>['auth.basic']], function(){
+    //Messages
+    Route::post('/message', 'WebApi\Manager\MessageController@postMessage');
+    Route::get('/message', 'WebApi\Manager\MessageController@getMessages');
+
+    //User
+    Route::get('/active-user', 'WebApi\Common\ActiveUserController@getActiveUser');
+});
