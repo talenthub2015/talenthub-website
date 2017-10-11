@@ -1,0 +1,6 @@
+<input type="file" ng-model="multipleFileVm.filesModel.files" name="multipleFiles" multiple
+required="multipleFileVm.required">
+<p class="error_message_container"
+   ng-if="multipleFileVm.form.$submitted || multipleFileVm.form.multipleFiles.$touched">
+    <span ng-show="multipleFileVm.form.multipleFiles.$error.required">Please select at least a file to upload.</span>
+</p>

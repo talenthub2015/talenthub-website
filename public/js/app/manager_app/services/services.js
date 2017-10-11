@@ -32,18 +32,17 @@ managerApp.factory('GetListOfSports',['$http',function($http){
 /*Requesting Dropdown options, and other Site Constants required at Fron End
 * Eg., List of Countries,
 * */
-managerApp.factory('GetBasicSiteConstants',['$http','$rootScope','UpdateManagerProfile','GetListOfSports',function($http,$rootScope,UpdateManagerProfile,GetListOfSports){
+managerApp.factory('GetBasicSiteConstants',['$http','$rootScope','GetListOfSports',function($http,$rootScope,GetListOfSports){
     return function(){
         $http({
             method : 'GET',
-            url : 'api/general/basic-site-constants'
+            url : 'api/general/basic-site-constants',
+            cache:true
         })
             .then(
             function(response){
                 //console.log("Success",response);
                 $rootScope.basicSiteConstants.countries = response.data.countries_list;
-                console.log("Countries List:", $rootScope.basicSiteConstants.countries);
-                UpdateManagerProfile();
             },
             function(response){
                 console.log('Error',response);
@@ -116,12 +115,7 @@ managerApp.factory('UpdateManagerCareerHistory',['$rootScope','GetManagerCareerH
 managerApp.factory('ModifyManagerProfileForWebApi',[function(){
     return function(managerProfile)
     {
-        if(!(managerProfile instanceof Manager))
-        {
-            return false;
-        }
         var modifiedManagerProfile = angular.copy(managerProfile);
-        modifiedManagerProfile.country = modifiedManagerProfile.country.getCountryName();
         return modifiedManagerProfile;
     }
 }]);

@@ -176,7 +176,7 @@ td,
 th {
   padding: 0;
 }
-/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src\build//css/main-2bbaecb696.css */
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src\build//css/main-edb67fd110.css */
 @media print {
   *,
   *:before,
@@ -7461,6 +7461,12 @@ h1, h2, h3, h4, h5, h6 {
 label {
   font-weight: 600; }
 
+.background-cream {
+  background-color: #f6f0d2; }
+
+.text-orange {
+  color: #ff7d00; }
+
 .t-button {
   display: inline-block;
   padding: 10px 15px;
@@ -7510,6 +7516,42 @@ label {
   padding: 15px 50px;
   font-weight: 700;
   font-size: 18px; }
+
+.th-padding-10 {
+  padding: 10px; }
+
+.th-padding-15 {
+  padding: 15px; }
+
+.th-padding-bottom-15 {
+  padding-bottom: 15px; }
+
+.th-padding-bottom-25 {
+  padding-bottom: 25px; }
+
+.th-padding-top-15 {
+  padding-top: 15px; }
+
+.font-size-16, .font-size-16 p {
+  font-size: 16px; }
+
+.font-size-20, .font-size-20 p {
+  font-size: 20px; }
+
+.height-100 {
+  height: 100px !important; }
+
+.height-200 {
+  height: 200px !important; }
+
+.line-height-150-percent {
+  line-height: 150%; }
+
+.line-height-180-percent {
+  line-height: 180%; }
+
+.line-height-200-percent {
+  line-height: 200%; }
 
 .form-control.t-button {
   color: #FFFFFF; }
@@ -8439,6 +8481,16 @@ footer {
         width: auto;
         height: auto;
         max-width: 100%; }
+    .manager_app .view_manager_profile .manager_profile_image_container .verified_logo {
+      display: block;
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      width: 75px;
+      height: auto; }
+      .manager_app .view_manager_profile .manager_profile_image_container .verified_logo img {
+        width: 100%;
+        height: auto; }
     .manager_app .view_manager_profile .manager_profile_image_container .manager_bio {
       margin-top: 10px; }
       .manager_app .view_manager_profile .manager_profile_image_container .manager_bio p {
@@ -8472,12 +8524,33 @@ footer {
       margin-top: 0px;
       padding: 0px 10px;
       font-size: 20px; }
-    .manager_app .view_manager_profile .manager_career_history pre {
+    .manager_app .view_manager_profile .manager_career_history p {
       background: #FFFFFF;
       border: none;
       font-size: 16px;
       padding: 0px 10px;
       padding-bottom: 25px; }
+      .manager_app .view_manager_profile .manager_career_history p span {
+        line-height: 200%; }
+
+.manager_app .page-heading {
+  font-size: 20px;
+  color: #000000;
+  margin-bottom: 25px;
+  padding-bottom: 0px; }
+
+.manager_app .white-background {
+  background: #FFFFFF; }
+
+.manager_app .verification-page p {
+  line-height: 150%;
+  margin-bottom: 0px; }
+
+.manager_app .verification-page .verification-button {
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+  padding: 15px 25px; }
 
 /*Styles for Pop Up Modal*/
 .screen_overlay {
@@ -8531,6 +8604,12 @@ h1, h2, h3, h4, h5, h6 {
 
 label {
   font-weight: 600; }
+
+.background-cream {
+  background-color: #f6f0d2; }
+
+.text-orange {
+  color: #ff7d00; }
 
 .message_page_container {
   margin-top: 50px; }
@@ -8610,5 +8689,22 @@ label {
         font-weight: 700; }
 
 /*# sourceMappingURL=message.css.map */
+
+.error_message_container {
+  margin-bottom: 0px; }
+  .error_message_container p, .error_message_container span {
+    color: #FF6347;
+    font-size: 0.9em;
+    margin-bottom: 5px; }
+
+/* ----------------------------------------------------*/
+/*  This Section is for Manage Part */
+.manager_app input.ng-invalid.ng-touched, .manager_app select.ng-invalid.ng-touched, .manager_app textarea.ng-invalid.ng-touched {
+  border-color: #FF6347; }
+
+/* ----------------------------------------------------*/
+/*  Manager Part Ends */
+
+/*# sourceMappingURL=form-styles.css.map */
 
 /*# sourceMappingURL=main.css.map */

@@ -7,54 +7,52 @@
     </div>
 
     <!-- Manager Profile Controller -->
-    <div ng-controller="ManagerProfileController">
-        <div class="manager_profile_image_container">
-            <div class="manager_cover_image"></div>
-            <!-- Profile Image -->
-            <div class="row">
-                <div class="col-xs-12 col-lg-2 col-lg-offset-5">
-                    <div class="manager_profile_image">
-                        <img src="" ng-src="/site_images/profile_image_placeholder.png">
+    <div ng-controller="ManagerProfileController as mgProfileVm">
+        <div ng-if="!mgProfileVm.isLoading()">
+            <div class="manager_profile_image_container">
+                <div class="manager_cover_image"></div>
+                <!-- Profile Image -->
+                <div class="row">
+                    <div class="col-xs-12 col-lg-2 col-lg-offset-5">
+                        <div class="manager_profile_image">
+                            <img src="" ng-src="/site_images/profile_image_placeholder.png">
+                        </div>
+                        <div ng-if="mgProfileVm.isManagerVerified()" class="verified_logo">
+                            <img ng-src="/site_images/verified.png">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-lg-4 col-lg-offset-4">
+                        <div class="manager_bio text-center">
+                            <p class="manager_name">{{mgProfileVm.model.first_name + " " + mgProfileVm.model.middle_name + " " + mgProfileVm.model.last_name}}</p>
+                            <p class="institution_name" ng-bind="mgProfileVm.model.institution_name"></p>
+                            <p class="manager_designation">Under - 20's Head Coach</p>
+                            <p class="manager_location">{{mgProfileVm.model.state + ", " + mgProfileVm.model.country}}</p>
+                        </div>
+                    </div>
+                    <div ng-if="mgProfileVm.showVerificationButton()" class="col-xs-12 col-lg-4 pull-down">
+                        <div class="verify_button_container">
+                            <a ui-sref="verification.request" class="btn btn-success">Verify Account</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-xs-12 col-lg-4 col-lg-offset-4">
-                    <div class="manager_bio text-center">
-                        <p class="manager_name">Jarrod Leach</p>
-                        <p class="institution_name">Dolphins Rugby Football Club</p>
-                        <p class="manager_designation">Under - 20's Head Coach</p>
-                        <p class="manager_location">Cork, Ireland</p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-lg-4 pull-down">
-                    <div class="verify_button_container">
-                        <input type="button" value="Verify Account" class="btn btn-info form-control">
-                    </div>
-                </div>
+            <!-- Manager Profile Summary -->
+            <div class="manager_profile_summary">
+                <p ng-bind="mgProfileVm.model.bio"></p>
             </div>
-        </div>
-
-        <!-- Manager Profile Summary -->
-        <div class="manager_profile_summary">
-            <p>
-                I am currently the head coach of the Dolphin's under 20's. I am on the management team of wales under 20's as the assistant coach.
-            </p>
-        </div>
-        <!-- Manager Career History -->
-        <div class="manager_career_history">
-            <h1>Career History</h1>
-            <pre>
-                2013 : Backline Coach at under 20's wales Ruby union.
-                2013 : Backline Coach at under 20's wales Ruby union.
-                2013 : Backline Coach at under 20's wales Ruby union.
-                2013 : Backline Coach at under 20's wales Ruby union.
-                2013 : Backline Coach at under 20's wales Ruby union.
-                2013 : Backline Coach at under 20's wales Ruby union.
-                2013 : Backline Coach at under 20's wales Ruby union.
-            </pre>
+            <!-- Manager Career History -->
+            <div class="manager_career_history">
+                <h1>Career History</h1>
+                <p ng-repeat="careerHistory in mgProfileVm.model.career_history">
+                    <span ng-repeat="achievement in careerHistory.achievements">
+                        <span ng-bind="mgProfileVm.buildAchievement(careerHistory, achievement)"></span><br>
+                    </span>
+                </p>
+            </div>
         </div>
     </div>
-
 </div>

@@ -21,28 +21,19 @@ elixir(function(mix) {
         "lib/css/welcomepage.css",
     ],'public/css/welcomepage.css','resources/assets/');
 
-    //mix.scripts([
-    //    "jquery-1.11.2.min.js",
-    //    "bootstrap.min.js",
-    //    "html5shiv.min.js",
-    //    "respond.min.js"
-    //],"public/js/allscripts.js","resources/assets/js");
-
-    //mix.scripts([
-    //    "profile-edit.js",
-    //],"public/js/allangularscripts.js","resources/assets/lib/js");
-
 
     mix.sass('main.scss','resources/assets/lib/css/');
     mix.sass('site_animation.scss','resources/assets/lib/css/');
     mix.sass('message.scss','resources/assets/lib/css/');
     mix.sass('emails.scss','resources/assets/lib/css/');
+    mix.sass('form-styles.scss','resources/assets/lib/css/');
 
     mix.styles([
         'lib/css/app.css',
         'lib/css/jquery-ui.css',
         'lib/css/main.css',
-        'lib/css/message.css'
+        'lib/css/message.css',
+        'lib/css/form-styles.css'
     ],'public/css/main.css','resources/assets/');
 
     mix.styles([
@@ -58,4 +49,6 @@ elixir(function(mix) {
     mix.scripts([
         "form-validations.js"
     ],'public/js/form-validations.js','resources/assets/js');
+
+    mix.scripts(['lodash.js'], 'public/js/lodash.js', 'node_modules/lodash');
 });

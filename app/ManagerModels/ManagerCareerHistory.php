@@ -42,7 +42,7 @@ class ManagerCareerHistory extends Model {
         $newCareerHistoryArray = [];
         foreach($newCareerHistory as $careerHistory)
         {
-            array_push($newCareerHistoryArray, $careerHistory["year"]);
+            array_push($newCareerHistoryArray, $careerHistory["career_year"]);
         }
         $allCareerHistory = $managerProfile->CareerHistory;
         foreach($allCareerHistory as $careerHistory)

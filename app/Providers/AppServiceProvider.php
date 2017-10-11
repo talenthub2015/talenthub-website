@@ -29,6 +29,21 @@ class AppServiceProvider extends ServiceProvider {
 			'Illuminate\Contracts\Auth\Registrar',
 			'talenthub\Services\Registrar'
 		);
+
+		//Common Services
+        $this->app->bind('talenthub\Services\Common\Message\IMessageService',
+            'talenthub\Services\Common\Message\MessageService');
+
+        //Manager
+		$this->app->bind('talenthub\Services\Manager\Verification\IVerificationRequestService',
+            'talenthub\Services\Manager\Verification\VerificationRequestService');
+
+        $this->app->bind('talenthub\Services\Manager\Profile\IProfileService',
+            'talenthub\Services\Manager\Profile\ProfileService');
+
+
+        //Talent
+
 	}
 
 }

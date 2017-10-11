@@ -25,6 +25,8 @@
     <script src="{!! asset('js/angular-cookies.min.js') !!}"></script>
     <script src="{!! asset('js/angular-route.min.js') !!}"></script>
     <script src="{!! asset('js/angular-messages.min.js')!!}"></script>
+    <script src="{!! asset('js/angular-ui-router.min.js') !!}"></script>
+    <script src="{!! asset('js/lodash.js') !!}"></script>
     <script src="{!!asset('js/bootstrap.min.js')!!}"></script>
     <script src="{!!asset('js/html5shiv.min.js')!!}"></script>
     <script src="{!!asset('js/respond.min.js')!!}"></script>
@@ -32,13 +34,9 @@
     <script src="{!!asset('js/allangularscripts.js')!!}"></script>
     <script src="{!!asset('js/form-validations.js')!!}"></script>
     <script src="{!!asset('js/basic_site_animation.js')!!}"></script>
-    <script src="{!!asset('js/app/manager_app/manager_app.js')!!}"></script>
-    <script src="{!!asset('js/app/manager_app/class_lib.js')!!}"></script>
-    <script src="{!!asset('js/app/manager_app/services/services.js')!!}"></script>
-    <script src="{!!asset('js/app/manager_app/profile/manager_profile.js')!!}"></script>
-    <script src="{!!asset('js/app/manager_app/profile/manager_profile_services.js')!!}"></script>
-    <script src="{!!asset('js/app/manager_app/directive/request_loading.js')!!}"></script>
-    <script src="{!! asset('js/app/manager_app/services/GetManagerCareerHistoryService.js') !!}"></script>
+
+    @include('manager_app.js-include')
+
 
     <script type="text/javascript">
         $.ajaxSetup({
@@ -60,7 +58,9 @@
 @endif
 
 <div class="body_container manager_app">
-    <div ng-view></div>
+    <div class="container">
+        <div ui-view></div>
+    </div>
 </div>
 
 <!-- Loading Overlay -->
@@ -70,6 +70,17 @@
 @include('templates.userFooter')
 
 
+<script>
+    (function(managerApp){
+        managerApp.constant('APP_CONSTANTS',{
+            'COUNTRIES': {!! json_encode($constants["countries"]) !!},
+            'REGEX':{
+                'WEBSITE_URL':'(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%\\._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+\\.~#?&//=]*)',
+                'DATE_FORMAT':'\\d{2}\/\\d{2}\/\\d{4}'
+            }
+        });
+    })(angular.module('thub.manager_app'));
+</script>
 
 
 </body>

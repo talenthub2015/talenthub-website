@@ -1,7 +1,9 @@
 
 //@import url("../../fonts/fonts.css");
+$color-orange : rgba(255,125,0,1);
+$color-cream : #f6f0d2;
 
-
+//Tags Styles
 body
 {
   padding:0px;
@@ -28,6 +30,7 @@ label
   font-weight: 600;
 }
 
+//Mixins
 @mixin box-shadow($horizontal, $vertical, $blur, $spread, $color)
 {
   box-shadow: $horizontal $vertical $blur $spread $color;
@@ -47,4 +50,49 @@ label
   text-shadow: $horizontal $vertical $blur $spread $color;
   -moz-text-shadow: $horizontal $vertical $blur $spread $color;
   -webkit-text-shadow: $horizontal $vertical $blur $spread $color;
+}
+
+@mixin th-padding($padding)
+{
+  padding: $padding;
+}
+
+@mixin th-padding-top($padding)
+{
+  padding-top: $padding;
+}
+
+@mixin th-padding-bottom($padding)
+{
+  padding-bottom: $padding;
+}
+
+@mixin th-padding-left($padding)
+{
+  padding-left: $padding;
+}
+
+@mixin th-padding-right($padding)
+{
+  padding-right: $padding;
+}
+
+@mixin font-size($font-size)
+{
+  font-size: $font-size;
+}
+
+@mixin height($height){
+  height: $height;
+}
+
+
+//User Defined Classes
+.background-cream{
+  background-color:$color-cream;
+}
+
+.text-orange
+{
+  color:$color-orange;
 }
