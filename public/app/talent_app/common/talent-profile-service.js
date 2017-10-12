@@ -21,8 +21,7 @@
                     url: 'api/common/active-user'
                 })
                     .then(function(response){
-                        //TODO :: Add Mapping from Server side to client side
-                        //service.model = response.data;
+                        service.model = response.data;
                     });
             }
         }

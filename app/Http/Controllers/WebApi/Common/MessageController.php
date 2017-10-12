@@ -1,4 +1,4 @@
-<?php namespace talenthub\Http\Controllers\Webapi\Manager;
+<?php namespace talenthub\Http\Controllers\Webapi\Common;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;

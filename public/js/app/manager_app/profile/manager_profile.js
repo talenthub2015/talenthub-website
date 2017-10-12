@@ -12,6 +12,7 @@ managerApp.controller('ManagerProfileController',['$scope','$http','App_Events',
         vm.isLoading = isLoading;
         vm.buildAchievement = buildAchievement;
         vm.isManagerVerified = isManagerVerified;
+
         activate();
 
         function activate(){
