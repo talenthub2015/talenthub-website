@@ -34,6 +34,9 @@ class AppServiceProvider extends ServiceProvider {
         $this->app->bind('talenthub\Services\Common\Message\IMessageService',
             'talenthub\Services\Common\Message\MessageService');
 
+        $this->app->bind('talenthub\Services\Common\User\IUserService',
+            'talenthub\Services\Common\User\UserService');
+
         //Manager
 		$this->app->bind('talenthub\Services\Manager\Verification\IVerificationRequestService',
             'talenthub\Services\Manager\Verification\VerificationRequestService');

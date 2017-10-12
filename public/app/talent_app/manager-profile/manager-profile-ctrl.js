@@ -3,8 +3,8 @@
  */
 'use strict';
 
-talentApp.controller('ManagerProfileController',['$scope','$http', '_', 'managerProfileService','$stateParams',
-    function($scope,$http, _, managerProfileService, $stateParams){
+talentApp.controller('ManagerProfileController',['$scope','$http', '_', 'managerProfileService','$stateParams', 'talentProfileService',
+    function($scope,$http, _, managerProfileService, $stateParams, talentProfileService){
         var vm = this;
 
         vm.sampleMessageModalId = "sampleMessageModal";
@@ -13,15 +13,16 @@ talentApp.controller('ManagerProfileController',['$scope','$http', '_', 'manager
         vm.buildAchievement = buildAchievement;
         vm.isManagerVerified = isManagerVerified;
         vm.showSampleMessage = showSampleMessage;
+        vm.talentProfile = talentProfileService.model;
+
         activate();
 
         function activate(){
             vm.isReadOnly = _.get($stateParams, 'readOnlyView');
 
-            managerProfileService.getProfile($stateParams.profileId)
-                .then(function(profileData){
+            managerProfileService.getProfile($stateParams.profileId);
 
-                });
+            talentProfileService.getTalentProfile();
         }
 
         function isLoading(){
