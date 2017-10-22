@@ -138,6 +138,7 @@
                             <div role="usertypetabpanel" class="tab-pane fade coach">
                                 <div class="form_container">
                                     {!! Form::open(['method'=>'post','url'=>'auth/register','name'=>'register_manager']) !!}
+                                    {!! Form::hidden('XDEBUG_SESSION_START','debug_app') !!}
                                     @include('templates.forms.registration',['user'=>\talenthub\Repositories\SiteConstants::USER_MANAGER,
                                     'userManagerManagementLevel'=> $userManagerManagementLevel,'managerTypes'=>$managerTypes])
                                     {!! Form::close() !!}

@@ -12,6 +12,8 @@
 */
 
 include_once('admin_routes.php');
+include_once('manager_routes.php');
+include_once('api_routes.php');
 
 Route::get("/","WelcomeController@index");
 
@@ -51,7 +53,7 @@ Route::get('user-agreement',function(){
 
 
 //Only Accessed By Authenticated user
-Route::group(['middleware' => ['auth']],function(){
+Route::group(['middleware' => ['auth_talent']],function(){
 
     Route::get("account-not-confirmed","ProfileController@accountNotConfirmed");
     Route::get("resend-confirmation-link","ProfileController@resendConfirmationLink");
@@ -167,6 +169,10 @@ Route::group(['middleware' => ['auth']],function(){
         Route::post('reply-forward-Message','MessageController@replyOrForwardMessage');
         Route::put('moveTrash','MessageController@moveToTrash');
 
+
+        ////// Talent Angular Application Routes
+        Route::get('talent', 'TalentApp\TalentProfileController@index');
+
     });
 
 });
@@ -189,6 +195,9 @@ Route::group(['middleware' => ['guest'],'prefix'=>'external'],function(){
         Route::get('profile/{id}/videos','VideoController@index');
         //Images Page
         Route::get('profile/{id}/Images','ImageController@index');
+
+        //Manager Profile View
+        Route::get('manager/profile/{id}','Guest\GuestController@getManagerProfileView');
     });
 
 

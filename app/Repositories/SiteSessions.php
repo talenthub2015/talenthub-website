@@ -24,6 +24,7 @@ class SiteSessions
     const USER_MANAGEMENT_LEVEL = "user_management_level";
     const USER_SPORT_TYPE = "sport_type";
     const USER_GENDER = "user_gender";
+    const MANGER_PROFILE_ID = "manager_profile_id";
 
     const USER_COMPLETING_PROFILE_FIRST_TIME = "user_completing_profile_first_type";
 

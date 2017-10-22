@@ -16,6 +16,12 @@ h1, h2, h3, h4, h5, h6 {
 label {
   font-weight: 600; }
 
+.background-cream {
+  background-color: #f6f0d2; }
+
+.text-orange {
+  color: #ff7d00; }
+
 .body {
   background: url("../site_images/talenthub.jpg") cover fixed; }
 
@@ -45,6 +51,5 @@ label {
     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.75); }
-
 
 /*# sourceMappingURL=emails.css.map */

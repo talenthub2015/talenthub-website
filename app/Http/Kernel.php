@@ -11,7 +11,8 @@ class Kernel extends HttpKernel {
 	 */
 	protected $middleware = [
 		'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
-		'Illuminate\Cookie\Middleware\EncryptCookies',
+//		'Illuminate\Cookie\Middleware\EncryptCookies',
+        'talenthub\Http\Middleware\EncryptCookies',
 		'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
 		'Illuminate\Session\Middleware\StartSession',
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
@@ -24,12 +25,13 @@ class Kernel extends HttpKernel {
 	 * @var array
 	 */
 	protected $routeMiddleware = [
-		'auth' => 'talenthub\Http\Middleware\Authenticate',
+		'auth_talent' => 'talenthub\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
         'guest' => 'talenthub\Http\Middleware\RedirectIfAuthenticated',
         'admin' => 'talenthub\Http\Middleware\Admin',
         'account_confirmation'  =>  'talenthub\Http\Middleware\AccountConfirmation',
-        'profile_view_auth' => 'talenthub\Http\Middleware\ProfileViewAuth'
+        'profile_view_auth' => 'talenthub\Http\Middleware\ProfileViewAuth',
+        'auth_manager'  =>  'talenthub\Http\Middleware\AuthenticateManager',
 	];
 
 }

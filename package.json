@@ -1,7 +1,13 @@
 {
   "private": true,
   "devDependencies": {
+    "angular-ui-bootstrap": "^2.5.0",
     "gulp": "^3.8.8",
+    "gulp-sass": "^2.2.0",
     "laravel-elixir": "*"
+  },
+  "dependencies": {
+    "angular-ui-router": "^0.4.2",
+    "lodash": "^4.17.4"
   }
 }
