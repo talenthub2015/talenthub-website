@@ -1,0 +1,25 @@
+<div class="container">
+    <h2 class="th-padding-bottom-15">Hi, you are at Talenthub Help Centre for Managers(Agents, Scouts and Coaches). Please fill in Help form below.</h2>
+
+    <form name="helpForm" ng-submit="helpVm.submitQuery()" novalidate>
+        <p class="alert alert-success" ng-if="helpVm.querySubmittedSuccessfully">Your query has been successfully submitted.</p>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <div class="error_message_container" ng-if="helpForm.$submitted || helpForm.managerQuery.$touched">
+                        <p class="alert alert-danger"
+                           ng-if="helpForm.managerQuery.$error.required">Please provide your query.</p>
+                    </div>
+                    <textarea name="managerQuery" id="managerQuery" ng-model="helpVm.model.managerQuery"
+                              class="form-control" required="required" rows="15"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-2 col-xs-offset-5 text-center">
+                <button class="btn btn-info btn-lg" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

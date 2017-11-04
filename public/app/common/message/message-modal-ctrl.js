@@ -11,7 +11,7 @@
             vm.showSampleMessageModal = showSampleMessageModal;
             vm.sendMessage = sendMessage;
             vm.messageSent = false;
-            vm.modal = messageService.modal;
+            vm.model = messageService.model;
 
             //Private Functions
             function showSampleMessageModal(){
@@ -26,7 +26,7 @@
             }
 
             function sendMessage(){
-                messageService.sendMessage()
+                messageService.sendMessage(vm.talentId, vm.managerId)
                     .then(function(){
                         vm.messageSent = true;
                     });

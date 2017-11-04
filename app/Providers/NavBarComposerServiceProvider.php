@@ -1,11 +1,13 @@
 <?php namespace talenthub\Providers;
 
 use Carbon\Carbon;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use talenthub\Http\Controllers\MessageController;
 use talenthub\Notifications;
+use talenthub\Repositories\SiteConstants;
 use talenthub\Repositories\SiteSessions;
 
 class NavBarComposerServiceProvider extends ServiceProvider {
@@ -17,14 +19,9 @@ class NavBarComposerServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		view()->composer('templates.userHeader',function($view){
+		view()->composer('templates.userHeader', $this->composeView());
 
-            $notifications = $this->getNotificationData();
-
-            $message = $this->getMessageData();
-
-            $view->with(['notifications'=>$notifications['notifications'],'unReadNotifications'=>$notifications['unReadNotifications'],'messageCount'=>$message]);
-        });
+        view()->composer('templates.manager.header', $this->composeView());
 
         view()->composer('message.template.left_hand_side_menu',function($view){
             $message = $this->getMessageData();
@@ -47,7 +44,7 @@ class NavBarComposerServiceProvider extends ServiceProvider {
      * Get the notification data
      * @return array
      */
-    public function getNotificationData()
+    private function getNotificationData()
     {
         //Counting the notifications need to presented to the user
         $count = DB::table('notifications')
@@ -85,11 +82,10 @@ class NavBarComposerServiceProvider extends ServiceProvider {
         return ['unReadNotifications'=>$unReadNotifications,'notifications'=>$notifications];
     }
 
-
     /**
      *Message Data
      */
-    public function getMessageData()
+    private function getMessageData()
     {
         $messageCount = DB::table('messages')->where('to_user_id','=',Session::get(SiteSessions::USER_ID))
             ->where('to_user_message_status','=',MessageController::MESSAGE_STATUS_UNREAD)
@@ -97,6 +93,16 @@ class NavBarComposerServiceProvider extends ServiceProvider {
             ->get();
 
         return $messageCount[0]->{'count'};
+    }
+
+    private function composeView(){
+        return function($view){
+            $notifications = $this->getNotificationData();
+
+            $message = $this->getMessageData();
+
+            $view->with(['notifications'=>$notifications['notifications'],'unReadNotifications'=>$notifications['unReadNotifications'],'messageCount'=>$message]);
+        };
     }
 
 }

@@ -27,6 +27,7 @@ managerApp.service('managerProfileService', ['_','$http',
                 },
                 function(response){
                     service.loading = false;
+                    throw new Error("Manager Profile cannot be retrieved");
                 });
         }
 

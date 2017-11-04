@@ -18,3 +18,6 @@
 <script src="{!! asset('app/manager_app/verification/verification-ctrl.js') !!}"></script>
 <script src="{!! asset('app/manager_app/verification/verification-service.js') !!}"></script>
 <script src="{!! asset('app/manager_app/verification/form/verification-form-ctrl.js') !!}"></script>
+<!-- Help Centre -->
+<script src="{!! asset('app/manager_app/help-centre/help-centre-ctrl.js') !!}"></script>
+<script src="{!! asset('app/manager_app/help-centre/help-centre-service.js') !!}"></script>

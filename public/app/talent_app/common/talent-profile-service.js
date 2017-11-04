@@ -5,10 +5,11 @@
 'use strict';
 
 (function(talentApp){
-    talentApp.service('talentProfileService',['$http',
-        function($http){
+    talentApp.service('talentProfileService',['$http', '_',
+        function($http, _){
             var service = {
                 model : {},
+                loading : false,
                 getTalentProfile : getTalentProfile
             };
 
@@ -16,12 +17,17 @@
 
             //Private Function
             function getTalentProfile(){
-                $http({
+                service.loading = true;
+                return $http({
                     method: 'GET',
                     url: 'api/common/active-user'
                 })
                     .then(function(response){
-                        service.model = response.data;
+                        _.merge(service.model, response.data);
+                        return service.model;
+                    })
+                    .finally(function(){
+                        service.loading = false;
                     });
             }
         }

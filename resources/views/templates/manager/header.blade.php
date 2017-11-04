@@ -6,34 +6,34 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{!! url('profile') !!}"><span class="brand">Talenthub</span></a>
+                    <a class="navbar-brand" href="{!! url('profile') !!}">
+                        <span class="brand">Talenthub</span>
+                    </a>
                 </div>
 
                 @if(Auth::user())
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                        <!--li><a href="{!!  url('/')  !!}">Updates</a></li-->
                             <li class="has-dropdown"><a href="#">Information</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{!! url('profile') !!}"><span class="glyphicon glyphicon-user"></span> {!! Session::get(\talenthub\Repositories\SiteSessions::USER_NAME) !!} Profile</a></li>
-                                    <li><a href="{!! url('profile/edit') !!}"><span class="glyphicon glyphicon-pencil"></span> Edit Profile</a></li>
-                                    <li><a href="{!! url('request-recommendation') !!}"><span class="glyphicon glyphicon-circle-arrow-right"></span> Request Recommendation</a></li>
-                                    @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_STUDENT)
-                                        <li><a href="{!! url('scholarship-process') !!}"><span class="glyphicon glyphicon-hand-right"></span> Scholarship Process Help</a></li>
-                                    @endif
-                                    @if(Session::get(\talenthub\Repositories\SiteSessions::USER_MANAGEMENT_LEVEL) == \talenthub\Repositories\SiteConstants::USER_TALENT_MANAGEMENT_LEVEL_ASPIRING_PRO)
-                                        <li><a href="{!! url('pro-process-help') !!}"><span class="glyphicon glyphicon-hand-right"></span> Professional Process Help</a></li>
-                                    @endif
-                                    <li><a href="{!! url('FAQ') !!}"><span class="glyphicon glyphicon-question-sign"></span> Help Centre</a></li>
-                                    <li><a href="{!! url('settings/privacy') !!}"><span class="glyphicon glyphicon-lock"></span> Privacy Settings</a></li>
-                                    <li><a href="{!! url('settings/general') !!}"><span class="glyphicon glyphicon-cog"></span> General Settings</a></li>
-                                <!--li><a href="{!! url('profile/edit') !!}"><span class="glyphicon glyphicon-list-alt"></span> Policies</a></li-->
+                                    <li>
+                                        <a ui-sref="profile.view">
+                                            <span class="glyphicon glyphicon-user"></span> User Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a ui-sref="verification.request">Request Verification</a>
+                                    </li>
+                                    <li><a ui-sref="help-centre"><span class="glyphicon glyphicon-question-sign"></span> Help Centre</a></li>
+                                    {{--<li><a href="{!! url('settings/privacy') !!}"><span class="glyphicon glyphicon-lock"></span> Privacy Settings</a></li>--}}
+                                    {{--<li><a href="{!! url('settings/general') !!}"><span class="glyphicon glyphicon-cog"></span> General Settings</a></li>--}}
                                 </ul>
                             </li>
                             <li><a href="{!!  url('database')  !!}">Database</a></li>

@@ -22,11 +22,14 @@ talentApp.controller('ManagerProfileController',['$scope','$http', '_', 'manager
 
             managerProfileService.getProfile($stateParams.profileId);
 
-            talentProfileService.getTalentProfile();
+            talentProfileService.getTalentProfile()
+                .then(function(talentProfile){
+                    console.log(vm);
+                });
         }
 
         function isLoading(){
-            return managerProfileService.loading;
+            return managerProfileService.loading || talentProfileService.loading;
         }
 
         function buildAchievement(careerHistory, achievement){

@@ -17,7 +17,9 @@
                 managerType : '@',
                 modalButtonName : '@',
                 showSampleMessage: '=?',
-                sampleMessageText: '@'
+                sampleMessageText: '@',
+                talentId: '=',
+                managerId: '='
             }
         };
     }]);
