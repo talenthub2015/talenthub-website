@@ -50,6 +50,20 @@ Route::get('user-agreement',function(){
 });
 
 
+Route::group(['middleware'=>['account_confirmation']],function(){
+    //////////////////////
+    /// Messages Pages //
+    /////////////////////
+    Route::get('messages','MessageController@index');
+    Route::get('sentMessages','MessageController@sentMessages');
+    Route::get('viewMessage/{message_id}',['as'=>'viewMessage', 'uses'=>'MessageController@viewMessage']);
+
+    //Sending Message to a user
+    Route::put('profile/sendMessage','MessageController@sendMessage');
+    Route::post('reply-forward-Message','MessageController@replyOrForwardMessage');
+    Route::put('moveTrash','MessageController@moveToTrash');
+});
+
 
 
 //Only Accessed By Authenticated user
@@ -154,20 +168,6 @@ Route::group(['middleware' => ['auth_talent']],function(){
         //  Manager Pages   //
         //////////////////////
 
-
-
-
-        //////////////////////
-        /// Messages Pages //
-        /////////////////////
-        Route::get('messages','MessageController@index');
-        Route::get('sentMessages','MessageController@sentMessages');
-        Route::get('viewMessage/{message_id}',['as'=>'viewMessage', 'uses'=>'MessageController@viewMessage']);
-
-        //Sending Message to a user
-        Route::put('profile/sendMessage','MessageController@sendMessage');
-        Route::post('reply-forward-Message','MessageController@replyOrForwardMessage');
-        Route::put('moveTrash','MessageController@moveToTrash');
 
 
         ////// Talent Angular Application Routes

@@ -57,7 +57,9 @@
                             <div class="col-xs-9 col-lg-10">
 
                                 <h4 class="message_by">
-                                    <a href="{{url('profile/'.$message->to_user_id)}}">{{$message->first_name. " " . $message->last_name}}</a>
+                                    <a href="{{url('profile/'.$message->to_user_id)}}">
+                                        {{$message->first_name. " " . $message->last_name}}
+                                    </a>
                                 </h4>
                                 <h4 class="subject">{{$message->subject}}</h4>
                                 <p>{{Carbon\Carbon::parse($message->sent_on)->diffForHumans()}}</p>

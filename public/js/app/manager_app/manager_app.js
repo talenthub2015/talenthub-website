@@ -76,6 +76,13 @@ managerApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvide
                 }
             }
         })
+        //Help Center
+        .state('help-centre',{
+            url:'/help-centre',
+            templateUrl: "app/manager_app/help-centre/help-centre.html",
+            controller: 'helpCentreController',
+            controllerAs: 'helpVm'
+        })
 }]);
 
 /*Defining App Values and Constants

@@ -9,5 +9,4 @@
 Route::group(['middleware' => ['auth_manager'],'prefix'=>'manager'],function(){
 
     Route::get('/','ManagerApp\ManagerProfileController@index');
-
 });

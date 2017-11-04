@@ -51,7 +51,7 @@
 
 
 @if(Auth::check())
-    @include('templates.userHeader')
+    @include('templates.manager.header')
 @endif
 @if(!Auth::check())
     @include('templates.guestHeader')
