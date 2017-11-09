@@ -44,6 +44,8 @@ class AppServiceProvider extends ServiceProvider {
         $this->app->bind('talenthub\Services\Manager\Profile\IProfileService',
             'talenthub\Services\Manager\Profile\ProfileService');
 
+        $this->app->bind('talenthub\Services\Manager\HelpCentre\IHelpCentreService',
+            'talenthub\Services\Manager\HelpCentre\HelpCentreService');
 
         //Talent
 
