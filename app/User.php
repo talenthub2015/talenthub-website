@@ -81,6 +81,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
 
+    /**
+     * @return mixed
+     */
+    public function HelpCentre(){
+        return $this->hasMany('talenthub\ManagerModels\HelpCentre');
+    }
 
 
 }

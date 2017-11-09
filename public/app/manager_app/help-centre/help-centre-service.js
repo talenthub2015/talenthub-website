@@ -16,7 +16,7 @@
 
             //Private Functions
             function submitQuery(){
-                return $http.post('api/manager/help-centre',{})
+                return $http.post('api/manager/help-centre', service.model)
                     .then(function(response){
                         return response.data;
                     },
