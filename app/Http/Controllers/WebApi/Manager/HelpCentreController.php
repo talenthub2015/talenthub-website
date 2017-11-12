@@ -25,7 +25,7 @@ class HelpCentreController extends WebApiBase {
             return $this->sendResponse();
         }
 
-        if($this->helpCentreService->SaveQuery($request))
+        if($this->helpCentreService->SaveQueryAndEmail($request))
         {
             return $this->sendResponse();
         }
