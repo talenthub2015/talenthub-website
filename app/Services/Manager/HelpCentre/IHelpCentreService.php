@@ -12,5 +12,5 @@ use Illuminate\Http\Request;
 
 interface IHelpCentreService
 {
-    public function SaveQuery(Request $request);
+    public function SaveQueryAndEmail(Request $request);
 }
