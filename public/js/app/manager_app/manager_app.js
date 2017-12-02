@@ -83,6 +83,27 @@ managerApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvide
             controller: 'helpCentreController',
             controllerAs: 'helpVm'
         })
+        //Database
+        .state('database',{
+            abstract: true,
+            url:'/database',
+            templateUrl: '/app/manager_app/database/index.html'
+        })
+        .state('database.search',{
+            url:'/search',
+            views: {
+                'searchSection': {
+                    templateUrl:'/app/manager_app/database/search-view/search-view.html',
+                    controller:'searchViewController',
+                    controllerAs:'searchVm'
+                },
+                'searchResult': {
+                    templateUrl:'/app/manager_app/database/search-result/search-result.html',
+                    controller:'searchResultController',
+                    controllerAs:'resultVm'
+                }
+            }
+        });
 }]);
 
 /*Defining App Values and Constants

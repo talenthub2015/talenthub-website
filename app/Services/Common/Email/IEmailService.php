@@ -6,10 +6,12 @@
  * Time: 9:08 PM
  */
 
-namespace talenthub\Services\Common;
+namespace talenthub\Services\Common\Email;
 
+
+use talenthub\ManagerModels\HelpCentre;
 
 interface IEmailService
 {
-    public function SendEmail($to, $from, $header);
+    public function SendEmail(HelpCentre $helpCentre, $to, $from, $subject, $header, $cc = []);
 }

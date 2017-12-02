@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use talenthub\ManagerModels\HelpCentre;
 use talenthub\Repositories\SiteSessions;
-use talenthub\Services\Common\EmailService;
+use talenthub\Services\Common\Email\EmailService;
 use talenthub\User;
 
 class HelpCentreService implements IHelpCentreService
@@ -34,8 +34,8 @@ class HelpCentreService implements IHelpCentreService
         $help->status = HelpCentre::STATUS_UNADDRESSED;
 
         $user = User::find(Session::get(SiteSessions::USER_ID));
-        $this->emailService->SendEmail(
-            $_ENV.HELP_CENTRE_MAIL,
+        $this->emailService->SendEmail($help,
+            $_ENV["HELP_CENTRE_MAIL"],
             $user->username,
             self::HELP_CENTRE_EMAIL_SUBJECT);
 
