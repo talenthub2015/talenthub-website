@@ -87,6 +87,11 @@ $t-button-background-color-disabled : #639351;
   @include th-padding-top(15px);
 }
 
+.th-padding-top-25
+{
+  @include th-padding-top(25px);
+}
+
 .font-size-16
 {
   @include font-size(16px);

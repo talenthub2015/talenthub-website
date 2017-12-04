@@ -29,6 +29,9 @@ Route::group(['prefix'=>'api/manager','middleware'=>['auth.basic']],function(){
 
     //Help Centre
     Route::post('/help-centre', 'WebApi\Manager\HelpCentreController@postQuery');
+
+    //Database
+    Route::get('/search-talent', 'WebApi\Manager\DatabaseController@searchTalents');
 });
 
 //API Routes for Talent

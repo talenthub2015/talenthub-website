@@ -19,8 +19,11 @@ class ManagerProfileController extends Controller {
 	    $constants = null;
 
 	    $constants["countries"] = BasicSiteRepository::getListOfCountries(true);
+	    $constants["gender"] = BasicSiteRepository::getGenders();
 
-		return response()->view('manager_app/app', compact('constants'))->withCookie(cookie('unsigned::test_data','test/data',10,null,null,false, false));
+		return response()
+            ->view('manager_app/app', compact('constants'))
+            ->withCookie(cookie('unsigned::test_data','test/data',10,null,null,false, false));
 	}
 
 }

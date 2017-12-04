@@ -23,4 +23,5 @@
 <script src="{!! asset('app/manager_app/help-centre/help-centre-service.js') !!}"></script>
 <!-- Database -->
 <script src="{!! asset('app/manager_app/database/search-view/search-view-ctrl.js') !!}"></script>
+<script src="{!! asset('app/manager_app/database/search-result/search-result-service.js') !!}"></script>
 <script src="{!! asset('app/manager_app/database/search-result/search-result-ctrl.js') !!}"></script>

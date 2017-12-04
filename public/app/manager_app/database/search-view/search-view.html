@@ -1,0 +1,30 @@
+<div class="white-background th-padding-15">
+    <p class="lead"><strong>Please select the country in which you want to search for sport talent. The number of sport talent in that country will be indicated.</strong></p>
+
+    <form name="search_talent" ng-submit="searchVm.searchTalents()">
+        <div class="row form-group">
+            <div class="col-xs-12 col-sm-3">
+                <input type="text" class="form-control" readonly placeholder="Sports"
+                       ng-model="searchVm.managerProfile.sport_type"/>
+            </div>
+
+            <div class="col-xs-12 col-sm-3">
+                <input type="text" class="form-control" readonly placeholder="Manager Level"
+                       ng-model="searchVm.managerProfile.management_level"/>
+            </div>
+
+            <div class="col-xs-12 col-sm-3">
+                <select name="gender" class="form-control" ng-model="searchVm.model.gender"
+                        ng-options="gender for gender in searchVm.gender">
+                </select>
+            </div>
+
+            <div class="col-xs-12 col-sm-3">
+                <select name="country" class="form-control" ng-model="searchVm.model.country"
+                        ng-options="country for country in searchVm.countries"></select>
+            </div>
+        </div>
+
+        <button type="submit" class="t-button btn-lg">Search</button>
+    </form>
+</div>

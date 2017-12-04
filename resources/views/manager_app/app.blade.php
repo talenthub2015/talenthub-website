@@ -74,6 +74,7 @@
     (function(managerApp){
         managerApp.constant('APP_CONSTANTS',{
             'COUNTRIES': {!! json_encode($constants["countries"]) !!},
+            'GENDER': {!! json_encode($constants["gender"]) !!},
             'REGEX':{
                 'WEBSITE_URL':'(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%\\._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+\\.~#?&//=]*)',
                 'DATE_FORMAT':'\\d{2}\/\\d{2}\/\\d{4}'
