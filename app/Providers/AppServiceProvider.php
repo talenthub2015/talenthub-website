@@ -50,6 +50,9 @@ class AppServiceProvider extends ServiceProvider {
         $this->app->bind('talenthub\Services\Manager\HelpCentre\IHelpCentreService',
             'talenthub\Services\Manager\HelpCentre\HelpCentreService');
 
+        $this->app->bind('talenthub\Services\Manager\Database\IManagerDatabaseService',
+            'talenthub\Services\Manager\Database\ManagerDatabaseService');
+
         //Talent
 
 	}

@@ -36,7 +36,7 @@
                                     {{--<li><a href="{!! url('settings/general') !!}"><span class="glyphicon glyphicon-cog"></span> General Settings</a></li>--}}
                                 </ul>
                             </li>
-                            <li><a href="{!!  url('database')  !!}">Database</a></li>
+                            <li><a ui-sref="database.search">Database</a></li>
                             <li class="has-dropdown"><a href="#">Notifications <span class="badge">{!! $unReadNotifications > 0 ? $unReadNotifications : "" !!}</span></a>
 
 

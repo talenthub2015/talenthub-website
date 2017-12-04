@@ -11,7 +11,6 @@ namespace talenthub\Repositories;
 
 class BasicSiteRepository {
 
-
     /**
  * Defining user types involved in the website
  *
@@ -28,7 +27,6 @@ class BasicSiteRepository {
         );
     }
 
-
     /**
      * Retuning Manager Types
      * @return array
@@ -41,9 +39,6 @@ class BasicSiteRepository {
             '3'=>SiteConstants::USER_MANAGER_SCOUT,
         ];
     }
-
-
-
 
     /**
      * Defining user management level type involved in the website
@@ -67,7 +62,6 @@ class BasicSiteRepository {
         return false;
     }
 
-
     /**
      * Sports need to be involved in the application
      *
@@ -90,6 +84,9 @@ class BasicSiteRepository {
         );
     }
 
+    public static function getGenders(){
+        return ["-- Select Gender --", "Male", "Female"];
+    }
 
     /**
      *Career Information Types i.e. club or school as defined in SiteConstants
@@ -102,7 +99,6 @@ class BasicSiteRepository {
             2=>SiteConstants::CAREER_TYPE_SCHOOL
         );
     }
-
 
     /**
      *
@@ -636,7 +632,6 @@ class BasicSiteRepository {
 
         );
     }
-
 
     /**
      * American States
