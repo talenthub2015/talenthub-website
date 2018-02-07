@@ -24,7 +24,7 @@
         </div>
 
         <div class="row user_profile_details" ng-controller="ProfilePresented">
-            <div class="col-xs-6 col-lg-3">
+            <div class="col-xs-12 col-lg-3">
                 @include("errors.error_raw_list")
                 <div class="profile_image_container">
                     <?php
@@ -34,7 +34,9 @@
                         $profileTopMeta = is_null($profileTopMeta) ? "0" : $profileTopMeta->meta_value;
                         $profileLeftMeta = is_null($profileLeftMeta) ? "0" : $profileLeftMeta->meta_value;
                     ?>
-                    <img src="<% $userProfile->profile_image_path %>" style="left:<% $profileLeftMeta.'px' %>;top:<% $profileTopMeta.'px' %>">
+                    <img src="<% $userProfile->profile_image_path %>"
+                         style="left:<% $profileLeftMeta.'px' %>;top:<% $profileTopMeta.'px' %>"
+                        class="img-responsive">
                     @if($profileEditable)
                         <div class="change_profile_image">
                             <a href data-toggle="modal" data-target="#uploadProfileImageModal">Change Photo</a>
@@ -43,7 +45,7 @@
                 </div>
             </div>
 
-            <div class="col-xs-6 col-lg-4 user_personal_data_container">
+            <div class="col-xs-12 col-lg-4 user_personal_data_container">
                 <p class="user_name"><span ng-init="first_name = '<% $userProfile->first_name %>'">{{first_name}}</span> <span ng-init="last_name = '<% $userProfile->last_name %>'">{{last_name}}</span>
                     @if($profileEditable)
                         <a href class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#updateProfileData"></a>
@@ -114,7 +116,7 @@
     <div class="profile_content_container" ng-controller="ProfileDataController">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-lg-10">
+                <div class="col-xs-11 col-lg-10">
                     <h1 class="headings">Summary</h1>
                     <p ng-init="summary = '<% $userProfile->summary !="" ? $userProfile->summary : "Please provide a summary about yourself." %>'">{{summary}}
                         @if($profileEditable)
@@ -127,7 +129,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-lg-10">
+                <div class="col-xs-11 col-lg-10">
                     <h1 class="headings">History</h1>
                     <ul class="user_histroy">
                         @foreach($userCareerHistory as $careerInformation)
@@ -166,7 +168,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-lg-10">
+                <div class="col-xs-11 col-lg-10">
                     <h1 class="headings">Awards</h1>
                     <p ng-init="awards = '<% $awards->award_details !="" ? preg_replace("/\r?\n/","<br>",$awards->award_details) : "Please enter some of your awards." %>'"><span ng-bind-html='awards'></span>
                         @if($profileEditable)

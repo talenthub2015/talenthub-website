@@ -2,17 +2,25 @@
     <h1>Search Results:</h1>
     <hr>
 
-    <div class="row">
-        <div class="col-xs-4 col-sm-2">
-            <img ng-src="/site_images/dummy_profile_image.png" class="thumbnail img-responsive">
-        </div>
-        <div class="col-xs-8 col-sm-10">
-            <span ng-bind=""></span> <span ng-bind=""></span><br>
-            <span ng-bind=""></span><br>
-            <span ng-bind=""></span> | <span ng-bind=""></span>
+    <div ng-repeat="talentProfile in resultVm.searchResult">
+        <div class="row">
+            <div class="col-xs-4 col-sm-2">
+                <a ng-href="{{talentProfile.external_profile_url}}">
+                    <img ng-src="/site_images/dummy_profile_image.png" class="thumbnail img-responsive">
+                </a>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                <a ng-href="{{talentProfile.external_profile_url}}">
+                    <span ng-bind="talentProfile.first_name"></span> <span ng-bind="talentProfile.last_name"></span>
+                </a><br>
+                <span ng-bind="talentProfile.management_level"></span><br>
+                <span ng-bind="talentProfile.sport_type"></span> | <span ng-bind="talentProfile.dob"></span>
 
-            <div>
-                <button type="button" class="btn btn-info">View Profile</button>
+                <div>
+                    <a ng-href="{{talentProfile.external_profile_url}}">
+                        <button type="button" class="btn btn-info">View Profile</button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

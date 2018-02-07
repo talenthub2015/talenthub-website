@@ -27,13 +27,15 @@ elixir(function(mix) {
     mix.sass('message.scss','resources/assets/lib/css/');
     mix.sass('emails.scss','resources/assets/lib/css/');
     mix.sass('form-styles.scss','resources/assets/lib/css/');
+    mix.sass('media-style-767.scss', 'resources/assets/lib/css/')
 
     mix.styles([
         'lib/css/app.css',
         'lib/css/jquery-ui.css',
         'lib/css/main.css',
         'lib/css/message.css',
-        'lib/css/form-styles.css'
+        'lib/css/form-styles.css',
+        'lib/css/media-style-767.css'
     ],'public/css/main.css','resources/assets/');
 
     mix.styles([

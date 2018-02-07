@@ -1,0 +1,81 @@
+@media (max-width: 767px) {
+  //Talent Profile
+  .talent_profile
+  {
+    .profile_image_container
+    {
+      margin-top: 10%;
+      margin-bottom: 0px;
+      width: 175px;
+      height: 175px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .user_profile_details
+    {
+      .user_personal_data_container
+      {
+        padding-top:25px;
+      }
+
+      .user_personal_data_container:after
+      {
+        top: 15px;
+        height:90%;
+        display:none;
+      }
+
+      .about_container
+      {
+        padding-top:25px;
+        p
+        {
+          font-size: 14px;
+        }
+
+        .request_recommendations_container
+        {
+
+        }
+      }
+
+      .user_name,.user_sport,.user_position,.user_management_level,.user_country
+      {
+        font-size:16px;
+      }
+    }
+
+    .profile_content_container
+    {
+      h1.headings
+      {
+        font-size: 16px;
+        min-width: 200px;
+      }
+    }
+  }
+
+  .profile_menu_container
+  {
+    .container
+    {
+      .row
+      {
+        ul
+        {
+          margin:0px auto;
+          li
+          {
+            float:left;
+            a
+            {
+              padding:5px 8px;
+              font-size:12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
