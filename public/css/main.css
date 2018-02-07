@@ -7573,6 +7573,7 @@ a {
 .small_loading_image {
   width: 15px; }
 
++
 .badge {
   font-size: 10px;
   background: #ff7d00;
@@ -7867,7 +7868,7 @@ footer {
   position: absolute;
   top: 0px;
   left: 0px;
-  height: 300px;
+  height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.75);
   text-align: center;
@@ -7927,8 +7928,7 @@ footer {
 
 .talent_profile .user_profile_details {
   position: relative;
-  height: 300px;
-  max-height: 300px;
+  height: 100%;
   background: rgba(0, 0, 0, 0.5); }
   .talent_profile .user_profile_details p {
     width: 90%; }
@@ -7964,7 +7964,7 @@ footer {
     background: black; }
   .talent_profile .user_profile_details .about_container {
     padding-top: 80px;
-    height: 300px; }
+    padding-bottom: 80px; }
     .talent_profile .user_profile_details .about_container p {
       font-size: 16px;
       line-height: 180%;
@@ -8203,26 +8203,26 @@ footer {
   position: relative;
   margin: 0px;
   background: #f6f0d2; }
-  .profile_menu_container .container .row {
+  .profile_menu_container .container > .row {
     border: 1px solid #203f15;
     border-bottom: 1px solid #203f15;
     background: #FFFFFF; }
-    .profile_menu_container .container .row ul {
+    .profile_menu_container .container > .row ul {
       list-style: none;
       padding: 0px; }
-      .profile_menu_container .container .row ul li a {
+      .profile_menu_container .container > .row ul li a {
         color: #203f15;
         font-size: 12px;
         font-weight: 700;
         padding: 15px 25px;
         border-left: 1px solid #e4e4e4; }
-      .profile_menu_container .container .row ul li a:hover, .profile_menu_container .container .row ul li a:focus {
+      .profile_menu_container .container > .row ul li a:hover, .profile_menu_container .container > .row ul li a:focus {
         background: #203f15;
         color: #FFFFFF; }
-      .profile_menu_container .container .row ul li.active a {
+      .profile_menu_container .container > .row ul li.active a {
         background: #203f15;
         color: #FFFFFF; }
-      .profile_menu_container .container .row ul li:last-child a {
+      .profile_menu_container .container > .row ul li:last-child a {
         border-right: 1px solid #e4e4e4; }
 
 .database_content_container .container {
@@ -8709,5 +8709,38 @@ label {
 /*  Manager Part Ends */
 
 /*# sourceMappingURL=form-styles.css.map */
+
+@media (max-width: 767px) {
+  .talent_profile .profile_image_container {
+    margin-top: 10%;
+    margin-bottom: 0px;
+    width: 175px;
+    height: 175px;
+    margin-left: auto;
+    margin-right: auto; }
+  .talent_profile .user_profile_details .user_personal_data_container {
+    padding-top: 25px; }
+  .talent_profile .user_profile_details .user_personal_data_container:after {
+    top: 15px;
+    height: 90%;
+    display: none; }
+  .talent_profile .user_profile_details .about_container {
+    padding-top: 25px; }
+    .talent_profile .user_profile_details .about_container p {
+      font-size: 14px; }
+  .talent_profile .user_profile_details .user_name, .talent_profile .user_profile_details .user_sport, .talent_profile .user_profile_details .user_position, .talent_profile .user_profile_details .user_management_level, .talent_profile .user_profile_details .user_country {
+    font-size: 16px; }
+  .talent_profile .profile_content_container h1.headings {
+    font-size: 16px;
+    min-width: 200px; }
+  .profile_menu_container .container .row ul {
+    margin: 0px auto; }
+    .profile_menu_container .container .row ul li {
+      float: left; }
+      .profile_menu_container .container .row ul li a {
+        padding: 5px 8px;
+        font-size: 12px; } }
+
+/*# sourceMappingURL=media-style-767.css.map */
 
 /*# sourceMappingURL=main.css.map */

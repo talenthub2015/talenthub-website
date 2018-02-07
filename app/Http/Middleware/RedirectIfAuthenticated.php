@@ -4,7 +4,11 @@ use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use talenthub\Repositories\BasicSiteRepository;
 use talenthub\Repositories\SiteConstants;
+use talenthub\Repositories\SiteSessions;
+use talenthub\User;
 
 class RedirectIfAuthenticated {
 
@@ -38,13 +42,16 @@ class RedirectIfAuthenticated {
 		if ($this->auth->check())
 		{
             $user = Auth::user();
-            if(SiteConstants::isTalent($user->user_type))
+            if($user->user_id == $request->route()->parameter('id'))
             {
-                return new RedirectResponse(url('/profile'));
-            }
-            else if(SiteConstants::isManager($user->user_type))
-            {
-                return new RedirectResponse(url('/manager'));
+                if(SiteConstants::isTalent($user->user_type))
+                {
+                    return new RedirectResponse(url('/profile'));
+                }
+                else if(SiteConstants::isManager($user->user_type))
+                {
+                    return new RedirectResponse(url('/manager'));
+                }
             }
 		}
 

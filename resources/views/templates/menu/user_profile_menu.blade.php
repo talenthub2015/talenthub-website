@@ -15,14 +15,16 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-lg-9 col-lg-offset-3">
-                <ul class="nav navbar-nav">
-                    <li <?php echo $active_menu == 1 ? "class='active'" : "" ?>>
-                        <a href="<?php echo url($external_user.'profile/'.$userProfile->user_id); ?>">Profile</a>
-                    </li>
-                    <li <?php echo $active_menu == 2 ? "class='active'" : "" ?>><a href="<?php echo url($external_user.'profile/'.$userProfile->user_id.'/curriculumvitae'); ?>">Curriculum Vitae</a></li>
-                    <li <?php echo $active_menu == 3 ? "class='active'" : "" ?>><a href="<?php echo url($external_user.'profile/'.$userProfile->user_id.'/videos'); ?>">Videos</a></li>
-                    <li <?php echo $active_menu == 4 ? "class='active'" : "" ?>><a href="<?php echo url($external_user.'profile/'.$userProfile->user_id.'/Images'); ?>">Photos</a></li>
-                </ul>
+                <div class="row">
+                    <ul class="nav navbar-nav">
+                        <li <?php echo $active_menu == 1 ? "class='active'" : "" ?>>
+                            <a href="<?php echo url($external_user.'profile/'.$userProfile->user_id); ?>">Profile</a>
+                        </li>
+                        <li <?php echo $active_menu == 2 ? "class='active'" : "" ?>><a href="<?php echo url($external_user.'profile/'.$userProfile->user_id.'/curriculumvitae'); ?>">Curriculum Vitae</a></li>
+                        <li <?php echo $active_menu == 3 ? "class='active'" : "" ?>><a href="<?php echo url($external_user.'profile/'.$userProfile->user_id.'/videos'); ?>">Videos</a></li>
+                        <li <?php echo $active_menu == 4 ? "class='active'" : "" ?>><a href="<?php echo url($external_user.'profile/'.$userProfile->user_id.'/Images'); ?>">Photos</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

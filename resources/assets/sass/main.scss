@@ -165,6 +165,7 @@ a
 {
   width:15px;
 }
++
 
 .badge
 {
@@ -554,11 +555,6 @@ footer
 
 }
 
-
-
-
-
-
 .talent_profile
 {
   a.glyphicon
@@ -588,7 +584,7 @@ footer
     position:absolute;
     top:0px;
     left:0px;
-    height:300px;
+    height:100%;
     width:100%;
     background:rgba(0,0,0,0.75);
     text-align: center;
@@ -666,8 +662,7 @@ footer
   .user_profile_details
   {
     position:relative;
-    height:300px;
-    max-height: 300px;
+    height:100%;
     background:rgba(0,0,0,0.50);
     p
     {
@@ -722,7 +717,7 @@ footer
 
     .about_container {
       padding-top: 80px;
-      height: 300px;
+      padding-bottom: 80px;
       p {
         font-size: 16px;
         line-height: 180%;
@@ -1096,7 +1091,6 @@ footer
   }
 }
 
-
 .profile_menu_container
 {
   position:relative;
@@ -1104,10 +1098,10 @@ footer
   background:$color-cream;
   .container
   {
-    .row
+    > .row
     {
-      border:1px solid $color-darkGreen;
-      border-bottom:1px solid $color-darkGreen;
+      border: 1px solid $color-darkGreen;
+      border-bottom: 1px solid $color-darkGreen;
       background:#FFFFFF;
       ul
       {
@@ -1149,8 +1143,6 @@ footer
   }
 }
 
-
-
 .database_content_container
 {
   .container
@@ -1189,9 +1181,6 @@ footer
     }
   }
 }
-
-
-
 
 //For Modals
 .modal
@@ -1235,7 +1224,6 @@ footer
     }
   }
 }
-
 
 //Modals containing Images
 .image_modal_container

@@ -4,11 +4,11 @@
 'use strict';
 (function(managerApp){
 
-    managerApp.service('searchResultService', ['$http',
+    managerApp.service('searchResultService', ['$http', '_',
         function($http){
             var service = {
                 model: {},
-                searchResult: {},
+                searchResult: [],
                 searchTalents : searchTalents
             };
             return service;
@@ -21,7 +21,7 @@
                     params: service.model
                 })
                     .then(function(response){
-                        service.searchResult = response.data;
+                        _.assign(service.searchResult, response.data);
                         return service.searchResult;
                     },
                     function(response){
