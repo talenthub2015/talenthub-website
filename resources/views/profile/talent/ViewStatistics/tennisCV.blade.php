@@ -13,7 +13,7 @@ for($i=0;$i<count($sportStatistics);$i++)
     <div class="carrer_statistics">
 
         <div class="row">
-            <div class="col-xs-11 col-xs-offset-1">
+            <div class="col-xs-12 col-lg-12 col-lg-offset-1">
 
                 <table class="table" width="300px" align="center">
                     <tr>

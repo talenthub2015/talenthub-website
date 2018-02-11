@@ -30,7 +30,7 @@ for($i=0;$i<count($sportStatistics);$i++)
                 <p class="text-center trigger"> Show stats for Forward</p>
                 <div class="collapsed-content">
                     <div class="row">
-                        <div class="col-xs-11 col-xs-offset-1">
+                        <div class="col-xs-12 col-lg-12 col-lg-offset-1">
                             <table class="table">
                                 <caption>Forward</caption>
                                 <tr>

@@ -9,11 +9,9 @@
                     <!--li><a href="{!! url('FAQ') !!}">Privacy Policy</a></li-->
                     <li><a href="{!! url('user-agreement') !!}">User Agreement</a></li>
                     <!--li><a href="{!! url('FAQ') !!}">Upgrade PRO Membership</a></li-->
-                    <li>
-                        <a href="https://www.facebook.com/talenthubapp" target="_blank">Facebook</a>
-                        <a href="https://twitter.com/talenthubapp" target="_blank">Twitter</a>
-                        <a href="https://instagram.com/talenthubapp/" target="_blank">Instagram</a>
-                    </li>
+                    <li><a href="https://www.facebook.com/talenthubapp" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/talenthubapp" target="_blank">Twitter</a></li>
+                    <li><a href="https://instagram.com/talenthubapp/" target="_blank">Instagram</a></li>
                     <li class="pull-right copyright">&copy; 2016 Talenthub</li>
                 </ul>
             </div>

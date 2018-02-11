@@ -48,7 +48,7 @@
                                     @endif
                                 </h3>
                                 <div class="row">
-                                    <div class="col-xs-6 col-lg-4">
+                                    <div class="col-xs-12 col-lg-4">
                                         <div class="user_data_container">
                                             <label class="label">Gender:</label>
                                             <span class="user_data">{{$talentProfile->gender}}</span>
@@ -66,7 +66,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-xs-6 col-lg-4">
+                                    <div class="col-xs-12 col-lg-4">
                                         <div class="user_data_container">
                                             <label class="label">Mobile Number:</label>
                                             <span class="user_data">{{$talentProfile->mobile_number}}</span>
@@ -86,7 +86,7 @@
                                         @endif
                                     </div>
 
-                                    <div class="col-xs-6 col-lg-4">
+                                    <div class="col-xs-12 col-lg-4">
                                         <div class="user_data_container">
                                             <label class="label">Graduation Year:</label>
                                             <span class="user_data">{{$talentProfile->graduation_year}}</span>
@@ -115,7 +115,7 @@
                                 <!-- Father's Detail -->
                                 @if($talentProfile->father_name !="")
                                     <div class="row">
-                                        <div class="col-xs-6 col-lg-4">
+                                        <div class="col-xs-12 col-lg-4">
                                             <div class="user_data_container">
                                                 <label class="label">Father' Name:</label>
                                                 <span class="user_data">{{$talentProfile->father_name}}</span>
@@ -128,7 +128,7 @@
 
                                         </div>
 
-                                        <div class="col-xs-6 col-lg-4">
+                                        <div class="col-xs-12 col-lg-4">
                                             <div class="user_data_container">
                                                 <label class="label">Father Mobile Number:</label>
                                                 <span class="user_data">{{$talentProfile->father_mobile_number}}</span>
@@ -140,7 +140,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xs-6 col-lg-4">
+                                        <div class="col-xs-12 col-lg-4">
                                             <div class="user_data_container">
                                                 <label class="label">Father Email:</label>
                                                 <span class="user_data">{{$talentProfile->father_email}}</span>
@@ -156,7 +156,7 @@
 
                                 @if($talentProfile->mother_name !="")
                                     <div class="row">
-                                        <div class="col-xs-6 col-lg-4">
+                                        <div class="col-xs-12 col-lg-4">
                                             <div class="user_data_container">
                                                 <label class="label">Mother' Name:</label>
                                                 <span class="user_data">{{$talentProfile->mother_name}}</span>
@@ -169,7 +169,7 @@
 
                                         </div>
 
-                                        <div class="col-xs-6 col-lg-4">
+                                        <div class="col-xs-12 col-lg-4">
                                             <div class="user_data_container">
                                                 <label class="label">Mother Mobile Number:</label>
                                                 <span class="user_data">{{$talentProfile->mother_mobile}}</span>
@@ -181,7 +181,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xs-6 col-lg-4">
+                                        <div class="col-xs-12 col-lg-4">
                                             <div class="user_data_container">
                                                 <label class="label">Mother Email:</label>
                                                 <span class="user_data">{{$talentProfile->mother_email}}</span>
@@ -198,7 +198,7 @@
 
                                 @if($talentProfile->guardian_name !="")
                                     <div class="row">
-                                        <div class="col-xs-6 col-lg-4">
+                                        <div class="col-xs-12 col-lg-4">
                                             <div class="user_data_container">
                                                 <label class="label">Guardian' Name:</label>
                                                 <span class="user_data">{{$talentProfile->guardian_name}}</span>
@@ -211,7 +211,7 @@
 
                                         </div>
 
-                                        <div class="col-xs-6 col-lg-4">
+                                        <div class="col-xs-12 col-lg-4">
                                             <div class="user_data_container">
                                                 <label class="label">Guardian Mobile Number:</label>
                                                 <span class="user_data">{{$talentProfile->guardian_mobile}}</span>
@@ -223,7 +223,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xs-6 col-lg-4">
+                                        <div class="col-xs-12 col-lg-4">
                                             <div class="user_data_container">
                                                 <label class="label">Guardian Email:</label>
                                                 <span class="user_data">{{$talentProfile->guardian_email}}</span>
@@ -248,7 +248,7 @@
                                 </h3>
 
                                 <div class="row">
-                                    <div class="col-xs-6 col-lg-6">
+                                    <div class="col-xs-12 col-lg-6">
                                         <div class="user_data_container">
                                             <label class="label">School Type:</label>
                                             <span class="user_data">{{$talentProfile->school_type}}</span>
@@ -260,7 +260,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-xs-6 col-lg-6">
+                                    <div class="col-xs-12 col-lg-6">
                                         <div class="user_data_container">
                                             <label class="label">School Name:</label>
                                             <span class="user_data">{{$talentProfile->school_name}}</span>
@@ -273,7 +273,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-6 col-lg-12">
+                                    <div class="col-xs-12 col-lg-12">
                                         <div class="user_data_container">
                                             <label class="label">School Contact Person Name:</label>
                                             <span class="user_data">{{$talentProfile->school_contact_person_name}}</span>
@@ -293,7 +293,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-xs-6 col-lg-12">
+                                    <div class="col-xs-12 col-lg-12">
                                         <div class="user_data_container">
                                             <label class="label">Current Grade Average:</label>
                                             <span class="user_data">{{$talentProfile->grade_avg}}</span>

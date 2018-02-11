@@ -11,7 +11,7 @@
     </div>
 
     <div class="row user_profile_details">
-        <div class="col-xs-6 col-lg-3">
+        <div class="col-xs-12 col-lg-3">
             @include("errors.error_raw_list")
             <div class="profile_image_container">
                 <?php
@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <div class="col-xs-6 col-lg-4 user_personal_data_container">
+        <div class="col-xs-12 col-lg-4 user_personal_data_container">
             <p class="user_name"><span >{{ $userProfile->first_name }}</span> <span >{{ $userProfile->last_name }}</span>
             </p>
             <p class="user_sport"><span>{{ $userProfile->sport_type }}</span> | <span>{{ $userProfile->dob }}</span>
