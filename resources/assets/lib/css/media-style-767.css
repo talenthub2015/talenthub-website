@@ -1,4 +1,11 @@
 @media (max-width: 767px) {
+  footer ul.navbar-nav li {
+    width: 50%;
+    float: left; }
+  footer ul.navbar-nav li.copyright {
+    float: none;
+    width: 100%;
+    text-align: center; }
   .talent_profile .profile_image_container {
     margin-top: 10%;
     margin-bottom: 0px;
@@ -21,6 +28,29 @@
   .talent_profile .profile_content_container h1.headings {
     font-size: 16px;
     min-width: 200px; }
+  .talent_profile .profile_content_container .curriculum_vitae_container .left_menu_container li a {
+    font-size: 12px;
+    padding: 10px 15px; }
+  .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .tab_heading {
+    font-size: 14px; }
+  .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .label {
+    padding-left: 0px; }
+  .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .cv_heading {
+    font-size: 14px !important; }
+  .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .form_container {
+    padding: 0px; }
+  .talent_profile .profile_content_container .curriculum_vitae_container .tab-content ul {
+    padding-left: 5px;
+    list-style: none; }
+    .talent_profile .profile_content_container .curriculum_vitae_container .tab-content ul .user_data_container p {
+      font-size: 11px; }
+      .talent_profile .profile_content_container .curriculum_vitae_container .tab-content ul .user_data_container p strong {
+        font-size: 12px; }
+  .talent_profile .profile_content_container .image_container .images {
+    height: auto; }
+    .talent_profile .profile_content_container .image_container .images img {
+      width: 100%;
+      height: auto; }
   .profile_menu_container .container .row ul {
     margin: 0px auto; }
     .profile_menu_container .container .row ul li {

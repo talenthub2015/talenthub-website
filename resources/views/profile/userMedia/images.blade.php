@@ -25,21 +25,21 @@
                     <h4>Upload a new Image</h4>
                     {!! Form::open(['method'=>'post','url'=>'profile/Images','files'=>'true']) !!}
                     <div class="row form_container">
-                        <div class="col-xs-6 col-lg-4">
+                        <div class="col-xs-12 col-lg-4">
                             <div class="form-group">
                                 {!! Form::label('image','Select Image to upload:') !!}
                                 {!! Form::input('file','image',null,['class'=>'form-control','data-validate'=>'require',
                                 'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter a valid url']) !!}
                             </div>
                         </div>
-                        <div class="col-xs-6 col-lg-4">
+                        <div class="col-xs-12 col-lg-4">
                             <div class="form-group">
                                 {!! Form::label('title','Image Title:') !!}
                                 {!! Form::text('title',null,['class'=>'form-control','data-validate'=>'require',
                                 'data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Enter a title for the video.']) !!}
                             </div>
                         </div>
-                        <div class="col-xs-6 col-lg-4">
+                        <div class="col-xs-12 col-lg-4">
                             <div class="form-group">
                                 {!! Form::label('descriptions','Description:') !!}
                                 {!! Form::textarea('descriptions',null,['class'=>'form-control','data-validate'=>'require',
@@ -56,7 +56,7 @@
                         <?php
                         $imageCount++;
                         ?>
-                        <div class="col-xs-4 col-lg-3">
+                        <div class="col-xs-6 col-lg-3">
                             <div class="images">
                                 <img src="{{url($image->image_url)}}" data-toggle="modal" data-target="#image{{$imageCount}}">
                             </div>

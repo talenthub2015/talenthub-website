@@ -1,4 +1,23 @@
 @media (max-width: 767px) {
+  //Footer
+  footer
+  {
+    ul.navbar-nav
+    {
+      li
+      {
+        width:50%;
+        float:left;
+      }
+      li.copyright
+      {
+        float:none;
+        width:100%;
+        text-align: center;
+      }
+    }
+  }
+
   //Talent Profile
   .talent_profile
   {
@@ -52,6 +71,74 @@
       {
         font-size: 16px;
         min-width: 200px;
+      }
+
+      //CV page
+      .curriculum_vitae_container
+      {
+        .left_menu_container
+        {
+          li
+          {
+            a
+            {
+              font-size:12px;
+              padding:10px 15px;
+            }
+          }
+        }
+
+        .tab-content
+        {
+          .tab_heading
+          {
+            font-size: 14px;
+          }
+          .label
+          {
+            padding-left:0px;
+          }
+          .cv_heading
+          {
+            font-size:14px !important;
+          }
+
+          .form_container
+          {
+            padding:0px;
+          }
+
+          ul
+          {
+            padding-left:5px;
+            list-style: none;
+            .user_data_container
+            {
+              p
+              {
+                font-size:11px;
+                strong
+                {
+                  font-size:12px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      //Photos
+      .image_container
+      {
+        .images
+        {
+          height:auto;
+          img
+          {
+            width:100%;
+            height:auto;
+          }
+        }
       }
     }
   }

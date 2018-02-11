@@ -697,7 +697,8 @@ footer {
       padding: 5px;
       border: 1px solid #dddddd;
       background: #f4f4f4;
-      margin-bottom: 5px; }
+      margin-bottom: 5px;
+      overflow: auto; }
     .talent_profile .profile_content_container .curriculum_vitae_container .tab-content .label {
       font-size: 12px;
       font-weight: 700;
