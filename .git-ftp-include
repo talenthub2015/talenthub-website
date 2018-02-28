@@ -1,6 +1,6 @@
 !.env
-!public/build/css/*.css
-!public/css/*.css
-!public/js/*.js
-!public/js/*.js.map
-!resources/assets/lib/css/*.css
+public/build/css/*
+public/css/*
+public/js/*
+public/js/*
+resources/assets/lib/css/*
